@@ -1,0 +1,336 @@
+{
+  "resolvedId": "D:/quran/nuxt-app/components/PlayControl.vue?vue&type=style&index=0&scoped=223afb64&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n/* (B) WRAPPER */\r\n.aWrap {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: space-between;\r\n\tgap: 1rem;\r\n}\r\n\r\n.aWrap input[type=\"range\"] {\r\n\tappearance: none;\r\n\tborder: none;\r\n\toutline: none;\r\n\tbox-shadow: none;\r\n\tpadding: 0;\r\n\tmargin: 0;\r\n\tbackground: 0;\r\n}\r\n\r\n.range,\r\n.range-volume {\r\n\tposition: relative;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n}\r\n\r\n.range input,\r\n.range-volume input {\r\n\tposition: relative;\r\n\tz-index: 1;\r\n}\r\n\r\n.range .change-range,\r\n.range-volume .change-range {\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\theight: 6px;\r\n\twidth: 0px;\r\n\tbackground-color: rgb(255, 255, 255);\r\n\tborder-radius: 10px 0 0 10px;\r\n}\r\n\r\n.aWrap input[type=\"range\"]::-webkit-slider-thumb {\r\n\tappearance: none;\r\n}\r\n\r\n/* (E2) CUSTOM SLIDER TRACK */\r\n.aWrap input[type=\"range\"]::-webkit-slider-runnable-track {\r\n\tbackground: transparent;\r\n\theight: 6px;\r\n\tborder-radius: 10px;\r\n}\r\n\r\n/* (F) VOLUME */\r\n.aVolIco {\r\n\tmargin: 0 10px;\r\n\tcursor: pointer;\r\n}\r\n\r\ninput.aVolume {\r\n\tmax-width: 100px !important;\r\n}\r\n\r\n.aVolume::-webkit-slider-runnable-track {\r\n\theight: 6px !important;\r\n}\r\n\r\n.aVolume::-webkit-slider-thumb {\r\n\tmargin-top: -3px !important;\r\n}\r\n\r\n.aVolume::-moz-range-thumb {\r\n\tmargin-top: -3px !important;\r\n}\r\n\r\n.volume-container {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n}\r\n",
+      "start": 1709322820104,
+      "end": 1709322820104,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/quran/nuxt-app/components/PlayControl.vue"
+        ],
+        "names": [],
+        "mappings": "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",
+        "file": "D:/quran/nuxt-app/components/PlayControl.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n\t<div class=\" md:col-span-2 flex md:justify-end\">\r\n\t\t<div v-for=\"  audioPlayer   in   audioPlayers  \" :key=\" audioPlayer.src \" class=\"aWrap text-white\"\r\n\t\t\t:data-src=\" audioPlayer.src \">\r\n\t\t\t<!-- Play/Pause Button -->\r\n\t\t\t<button class=\"aPlay\" @click=\"togglePlayPause( audioPlayer )\">\r\n\t\t\t\t<span class=\"aPlayIco\">\r\n\t\t\t\t\t<i v-if=\" isPaused( audioPlayer ) \" class=\"fa-solid fa-play\"></i>\r\n\t\t\t\t\t<i v-else class=\"fa-solid fa-pause\"></i>\r\n\t\t\t\t</span>\r\n\t\t\t</button>\r\n\r\n\t\t\t<!-- Progress Bar -->\r\n\t\t\t<div class=\"range\">\r\n\t\t\t\t<span class=\" absolute top-0 left-0 h-1.5 w-full bg-neutral-400 rounded-2xl cursor-pointer\"></span>\r\n\t\t\t\t<input  type=\"range\" min=\"0\" :max=\" audioPlayer.totalDuration \" step=\"1\"\r\n\t\t\t\t\tv-model=\"audioPlayer.currentTime\" @input=\"setProgress( audioPlayer )\">\r\n\t\t\t\t<span class=\"change-range\"\r\n\t\t\t\t\t:style=\" { width: audioPlayer.currentTime / audioPlayer.totalDuration * 100 + '%' } \"></span>\r\n\t\t\t</div>\r\n\r\n\t\t\t<!-- Current Time / Total Duration -->\r\n\t\t\t<div class=\" text-neutral-300 font-sm\">\r\n\t\t\t\t<span class=\"aNow\">{{ timeString( audioPlayer.currentTime ) }}</span> / <span\r\n\t\t\t\t\tclass=\"aTime\">{{ timeString( audioPlayer.totalDuration ) }}</span>\r\n\t\t\t</div>\r\n\r\n\t\t\t<!-- Volume Control -->\r\n\t\t\t<div class=\"volume-container\">\r\n\t\t\t\t<span class=\"aVolIco\">\r\n\t\t\t\t\t<i class=\"fa-solid\"\r\n\t\t\t\t\t\t:class=\" audioPlayer.volume === 0 ? 'fa-volume-off' : 'fa-volume-high' \"\r\n\t\t\t\t\t\t@click=\"toggleMute( audioPlayer )\"></i>\r\n\t\t\t\t</span>\r\n\t\t\t\t<div class=\"range-volume\">\r\n\t\t\t\t\t<span class=\"absolute top-0 left-0 h-1.5 w-full bg-neutral-400 rounded-2xl cursor-pointer\"></span>\r\n\t\t\t\t\t<input class=\"aVolume\" type=\"range\" min=\"0\" max=\"1\" step=\"0.1\"\r\n\t\t\t\t\t\tv-model=\"audioPlayer.volume\">\r\n\t\t\t\t\t<span class=\"change-range\"></span>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</template>\r\n\r\n<script setup>\r\nimport { ref, onMounted } from 'vue'\r\n\r\nconst audioPlayers = ref( [\r\n\t{ src: \"https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3\", audio: null, currentTime: 0, totalDuration: 0, volume: 1, seeking: false }\r\n] )\r\n\r\nconst timeString = ( secs ) => {\r\n\tlet ss = Math.floor( secs ),\r\n\t\thh = Math.floor( ss / 3600 ),\r\n\t\tmm = Math.floor( ( ss - hh * 3600 ) / 60 )\r\n\tss = ss - hh * 3600 - mm * 60\r\n\tmm = mm < 10 ? \"0\" + mm : mm\r\n\tss = ss < 10 ? \"0\" + ss : ss\r\n\treturn hh > 0 ? `${ hh }:${ mm }:${ ss }` : `${ mm }:${ ss }`\r\n}\r\nconst togglePlayPause = ( audioPlayer ) => {\r\n\tif ( audioPlayer.audio.paused ) {\r\n\t\taudioPlayer.audio.play()\r\n\t} else {\r\n\t\taudioPlayer.audio.pause()\r\n\t}\r\n}\r\n\r\nconst isPaused = ( audioPlayer ) => {\r\n\tif ( audioPlayer.audio ) {\r\n\t\treturn audioPlayer.audio.paused\r\n\t}\r\n\treturn true // Assuming that if audio is not initialized, it's considered paused\r\n}\r\n\r\nconst toggleMute = ( audioPlayer ) => {\r\n\taudioPlayer.audio.volume = audioPlayer.audio.volume === 0 ? 1 : 0\r\n}\r\n\r\nconst setProgress = ( audioPlayer ) => {\r\n\taudioPlayer.audio.currentTime = audioPlayer.currentTime\r\n}\r\n\r\nonMounted( () => {\r\n\tif ( process.browser ) {\r\n\t\tfor ( let i of audioPlayers.value ) {\r\n\t\t\ti.audio = new Audio( encodeURI( i.src ) )\r\n\r\n\t\t\ti.audio.addEventListener( 'loadedmetadata', () => {\r\n\t\t\t\ti.totalDuration = Math.floor( i.audio.duration )\r\n\t\t\t\ti.audio.addEventListener( 'timeupdate', () => {\r\n\t\t\t\t\tif ( !i.seeking ) {\r\n\t\t\t\t\t\ti.currentTime = Math.floor( i.audio.currentTime )\r\n\t\t\t\t\t}\r\n\t\t\t\t} )\r\n\t\t\t} )\r\n\r\n\t\t\ti.audio.onplay = () => ( i.aPlayIco.innerHTML = '<i class=\"fa fa-pause\"></i>' )\r\n\t\t\ti.audio.onpause = () => ( i.aPlayIco.innerHTML = '<i class=\"fa fa-play\"></i>' )\r\n\r\n\t\t\ti.audio.addEventListener( 'pause', () => {\r\n\t\t\t\t// Update UI or do something when audio is paused\r\n\t\t\t} )\r\n\r\n\t\t\ti.audio.addEventListener( 'canplaythrough', () => {\r\n\t\t\t\t// Enable controls\r\n\t\t\t} )\r\n\r\n\t\t\ti.audio.addEventListener( 'waiting', () => {\r\n\t\t\t\t// Disable controls\r\n\t\t\t} )\r\n\r\n\t\t\ti.audio.addEventListener( 'volumechange', () => {\r\n\t\t\t\t// Adjust UI based on volume change\r\n\t\t\t} )\r\n\r\n\t\t\ti.audio.addEventListener( 'seeking', () => {\r\n\t\t\t\ti.seeking = true\r\n\t\t\t} )\r\n\r\n\t\t\ti.audio.addEventListener( 'seeked', () => {\r\n\t\t\t\ti.seeking = false\r\n\t\t\t} )\r\n\t\t}\r\n\t}\r\n} )\r\n</script>\r\n\r\n<style scoped>\r\n/* (B) WRAPPER */\r\n.aWrap {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: space-between;\r\n\tgap: 1rem;\r\n}\r\n\r\n.aWrap input[type=\"range\"] {\r\n\tappearance: none;\r\n\tborder: none;\r\n\toutline: none;\r\n\tbox-shadow: none;\r\n\tpadding: 0;\r\n\tmargin: 0;\r\n\tbackground: 0;\r\n}\r\n\r\n.range,\r\n.range-volume {\r\n\tposition: relative;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n}\r\n\r\n.range input,\r\n.range-volume input {\r\n\tposition: relative;\r\n\tz-index: 1;\r\n}\r\n\r\n.range .change-range,\r\n.range-volume .change-range {\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\theight: 6px;\r\n\twidth: 0px;\r\n\tbackground-color: rgb(255, 255, 255);\r\n\tborder-radius: 10px 0 0 10px;\r\n}\r\n\r\n.aWrap input[type=\"range\"]::-webkit-slider-thumb {\r\n\tappearance: none;\r\n}\r\n\r\n/* (E2) CUSTOM SLIDER TRACK */\r\n.aWrap input[type=\"range\"]::-webkit-slider-runnable-track {\r\n\tbackground: transparent;\r\n\theight: 6px;\r\n\tborder-radius: 10px;\r\n}\r\n\r\n/* (F) VOLUME */\r\n.aVolIco {\r\n\tmargin: 0 10px;\r\n\tcursor: pointer;\r\n}\r\n\r\ninput.aVolume {\r\n\tmax-width: 100px !important;\r\n}\r\n\r\n.aVolume::-webkit-slider-runnable-track {\r\n\theight: 6px !important;\r\n}\r\n\r\n.aVolume::-webkit-slider-thumb {\r\n\tmargin-top: -3px !important;\r\n}\r\n\r\n.aVolume::-moz-range-thumb {\r\n\tmargin-top: -3px !important;\r\n}\r\n\r\n.volume-container {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n}\r\n</style>"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709322820104,
+      "end": 1709322820104,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709322820104,
+      "end": 1709322820104,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709322820104,
+      "end": 1709322820104,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709322820104,
+      "end": 1709322820104,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1709322820104,
+      "end": 1709322820104,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1709322820104,
+      "end": 1709322820104,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709322820104,
+      "end": 1709322820104,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".aWrap{align-items:center;display:flex;gap:1rem;justify-content:space-between}.aWrap input[type=range]{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:0;border:none;box-shadow:none;margin:0;outline:none;padding:0}.range,.range-volume{align-items:center;display:flex;position:relative}.range input,.range-volume input{position:relative;z-index:1}.range .change-range,.range-volume .change-range{background-color:#fff;border-radius:10px 0 0 10px;height:6px;left:0;position:absolute;top:0;width:0}.aWrap input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none}.aWrap input[type=range]::-webkit-slider-runnable-track{background:transparent;border-radius:10px;height:6px}.aVolIco{cursor:pointer;margin:0 10px}input.aVolume{max-width:100px!important}.aVolume::-webkit-slider-runnable-track{height:6px!important}.aVolume::-webkit-slider-thumb{margin-top:-3px!important}.aVolume::-moz-range-thumb{margin-top:-3px!important}.volume-container{align-items:center;display:flex}",
+      "start": 1709322820104,
+      "end": 1709322820111,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "D:/quran/nuxt-app/components/PlayControl.vue",
+        "mappings": "AAEA,OAEC,kBAAmB,CADnB,YAAa,CAGb,QAAS,CADT,6BAED,CAEA,yBACC,uBAAgB,CAAhB,oBAAgB,CAAhB,eAAgB,CAMhB,YAAa,CALb,WAAY,CAEZ,eAAgB,CAEhB,QAAS,CAHT,YAAa,CAEb,SAGD,CAEA,qBAIC,kBAAmB,CADnB,YAAa,CADb,iBAGD,CAEA,iCAEC,iBAAkB,CAClB,SACD,CAEA,iDAOC,qBAAoC,CACpC,2BAA4B,CAH5B,UAAW,CAFX,MAAO,CADP,iBAAkB,CAElB,KAAM,CAEN,OAGD,CAEA,+CACC,uBAAgB,CAAhB,eACD,CAGA,wDACC,sBAAuB,CAEvB,kBAAmB,CADnB,UAED,CAGA,SAEC,cAAe,CADf,aAED,CAEA,cACC,yBACD,CAEA,wCACC,oBACD,CAEA,+BACC,yBACD,CAEA,2BACC,yBACD,CAEA,kBAEC,kBAAmB,CADnB,YAED",
+        "names": [],
+        "sources": [
+          "D:/quran/nuxt-app/components/PlayControl.vue"
+        ],
+        "sourcesContent": [
+          "\r\n/* (B) WRAPPER */\r\n.aWrap {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: space-between;\r\n\tgap: 1rem;\r\n}\r\n\r\n.aWrap input[type=\"range\"] {\r\n\tappearance: none;\r\n\tborder: none;\r\n\toutline: none;\r\n\tbox-shadow: none;\r\n\tpadding: 0;\r\n\tmargin: 0;\r\n\tbackground: 0;\r\n}\r\n\r\n.range,\r\n.range-volume {\r\n\tposition: relative;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n}\r\n\r\n.range input,\r\n.range-volume input {\r\n\tposition: relative;\r\n\tz-index: 1;\r\n}\r\n\r\n.range .change-range,\r\n.range-volume .change-range {\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\theight: 6px;\r\n\twidth: 0px;\r\n\tbackground-color: rgb(255, 255, 255);\r\n\tborder-radius: 10px 0 0 10px;\r\n}\r\n\r\n.aWrap input[type=\"range\"]::-webkit-slider-thumb {\r\n\tappearance: none;\r\n}\r\n\r\n/* (E2) CUSTOM SLIDER TRACK */\r\n.aWrap input[type=\"range\"]::-webkit-slider-runnable-track {\r\n\tbackground: transparent;\r\n\theight: 6px;\r\n\tborder-radius: 10px;\r\n}\r\n\r\n/* (F) VOLUME */\r\n.aVolIco {\r\n\tmargin: 0 10px;\r\n\tcursor: pointer;\r\n}\r\n\r\ninput.aVolume {\r\n\tmax-width: 100px !important;\r\n}\r\n\r\n.aVolume::-webkit-slider-runnable-track {\r\n\theight: 6px !important;\r\n}\r\n\r\n.aVolume::-webkit-slider-thumb {\r\n\tmargin-top: -3px !important;\r\n}\r\n\r\n.aVolume::-moz-range-thumb {\r\n\tmargin-top: -3px !important;\r\n}\r\n\r\n.volume-container {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709322820111,
+      "end": 1709322820111,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709322820111,
+      "end": 1709322820111,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709322820111,
+      "end": 1709322820111,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".aWrap[data-v-223afb64]{align-items:center;display:flex;gap:1rem;justify-content:space-between}.aWrap input[type=range][data-v-223afb64]{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:0;border:none;box-shadow:none;margin:0;outline:none;padding:0}.range[data-v-223afb64],.range-volume[data-v-223afb64]{align-items:center;display:flex;position:relative}.range input[data-v-223afb64],.range-volume input[data-v-223afb64]{position:relative;z-index:1}.range .change-range[data-v-223afb64],.range-volume .change-range[data-v-223afb64]{background-color:#fff;border-radius:10px 0 0 10px;height:6px;left:0;position:absolute;top:0;width:0}.aWrap input[type=range][data-v-223afb64]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none}.aWrap input[type=range][data-v-223afb64]::-webkit-slider-runnable-track{background:transparent;border-radius:10px;height:6px}.aVolIco[data-v-223afb64]{cursor:pointer;margin:0 10px}input.aVolume[data-v-223afb64]{max-width:100px!important}.aVolume[data-v-223afb64]::-webkit-slider-runnable-track{height:6px!important}.aVolume[data-v-223afb64]::-webkit-slider-thumb{margin-top:-3px!important}.aVolume[data-v-223afb64]::-moz-range-thumb{margin-top:-3px!important}.volume-container[data-v-223afb64]{align-items:center;display:flex}",
+      "start": 1709322820111,
+      "end": 1709322820116,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "D:/quran/nuxt-app/components/PlayControl.vue",
+        "mappings": "AAAA,wBAAO,kBAAkB,CAAC,YAAY,CAAC,QAAQ,CAAC,6BAA6B,CAAC,0CAAyB,uBAAuB,CAAC,oBAAoB,CAAC,eAAe,CAAC,YAAY,CAAC,WAAW,CAAC,eAAe,CAAC,QAAQ,CAAC,YAAY,CAAC,SAAS,CAAC,uDAAqB,kBAAkB,CAAC,YAAY,CAAC,iBAAiB,CAAC,mEAAiC,iBAAiB,CAAC,SAAS,CAAC,mFAAiD,qBAAqB,CAAC,2BAA2B,CAAC,UAAU,CAAC,MAAM,CAAC,iBAAiB,CAAC,KAAK,CAAC,OAAO,CAAC,gEAA+C,uBAAuB,CAAC,eAAe,CAAC,yEAAwD,sBAAsB,CAAC,kBAAkB,CAAC,UAAU,CAAC,0BAAS,cAAc,CAAC,aAAa,CAAC,+BAAc,yBAAyB,CAAC,yDAAwC,oBAAoB,CAAC,gDAA+B,yBAAyB,CAAC,4CAA2B,yBAAyB,CAAC,mCAAkB,kBAAkB,CAAC,YAAY",
+        "names": [],
+        "sources": [
+          "D:/quran/nuxt-app/components/PlayControl.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709322820116,
+      "end": 1709322820116,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709322820116,
+      "end": 1709322820116,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709322820116,
+      "end": 1709322820116,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709322820116,
+      "end": 1709322820116,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709322820116,
+      "end": 1709322820116,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709322820116,
+      "end": 1709322820117,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709322820117,
+      "end": 1709322820117,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709322820117,
+      "end": 1709322820117,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709322820117,
+      "end": 1709322820117,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1709322820117,
+      "end": 1709322820117,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709322820117,
+      "end": 1709322820117,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709322820118,
+      "end": 1709322820118,
+      "order": "normal"
+    }
+  ]
+}

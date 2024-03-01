@@ -1,0 +1,239 @@
+{
+  "resolvedId": "D:/quran/nuxt-app/components/NavButtons.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n\t<div class=\" h-[244px]   rounded-xl border border-gray-200  relative overflow-hidden \">\r\n\t\t<ul class=\"bg-white grid grid-rows-4 h-[244px]\">\r\n\t\t\t<li class=\"border-b border-gray-200  flex p-1.5  \">\r\n\t\t\t\t<NuxtLink to=\"/\"\r\n\t\t\t\t\tclass=\" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group \">\r\n\t\t\t\t\t<Image isrc=\"/svgs/prayer.svg\" ialt=\"ads\"\r\n\t\t\t\t\t\ticlass=\"group-hover:hidden  w-[17px] h-[29px]\" />\r\n\t\t\t\t\t<Image isrc=\"/svgs/prayer-non.svg\" ialt=\"ads\"\r\n\t\t\t\t\t\ticlass=\"group-hover:block hidden  w-[17px] h-[29px]\" />\r\n\t\t\t\t\t<Button buttonText=\"sidebar.item\" buttonClass=\" btn__primary\">\r\n\t\t\t\t\t</Button>\r\n\t\t\t\t</NuxtLink>\r\n\t\t\t</li>\r\n\t\t\t<li class=\"border-b border-gray-200  flex p-1.5  \">\r\n\t\t\t\t<NuxtLink to=\"/\"\r\n\t\t\t\t\tclass=\" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group \">\r\n\t\t\t\t\t<Image isrc=\"/svgs/quran.svg\" ialt=\"ads\"\r\n\t\t\t\t\t\ticlass=\"group-hover:hidden  w-[17px] h-[29px]\" />\r\n\t\t\t\t\t<Image isrc=\"/svgs/quran-non.svg\" ialt=\"ads\"\r\n\t\t\t\t\t\ticlass=\"group-hover:block hidden  w-[17px] h-[29px]\" />\r\n\t\t\t\t\t<Button buttonText=\"sidebar.item1\" buttonClass=\" btn__primary\">\r\n\t\t\t\t\t</Button>\r\n\t\t\t\t</NuxtLink>\r\n\t\t\t</li>\r\n\t\t\t<li class=\" border-gray-200  flex p-1.5  \">\r\n\t\t\t\t<NuxtLink to=\"/\"\r\n\t\t\t\t\tclass=\" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group \">\r\n\t\t\t\t\t<Image isrc=\"/svgs/hegry.svg\" ialt=\"ads\"\r\n\t\t\t\t\t\ticlass=\"group-hover:hidden  w-[17px] h-[29px]\" />\r\n\t\t\t\t\t<Image isrc=\"/svgs/hegry-non.svg\" ialt=\"ads\"\r\n\t\t\t\t\t\ticlass=\"group-hover:block hidden  w-[17px] h-[29px]\" />\r\n\t\t\t\t\t<Button buttonText=\"sidebar.item2\" buttonClass=\" btn__primary\">\r\n\t\t\t\t\t</Button>\r\n\t\t\t\t</NuxtLink>\r\n\t\t\t</li>\r\n\r\n\t\t\t<li class=\" border-gray-200 cent  p-2  bg-[#FCD364] bg-opacity-60\">\r\n\t\t\t\t<NuxtLink to=\"/\" class=\"cent  w-full  gap-3 px-2\">\r\n\t\t\t\t\t<Image isrc=\"/svgs/download-side.svg\" ialt=\"ads\" iclass=\" h-[38px] w-[38px]\" />\r\n\t\t\t\t\t<Button buttonText=\"sidebar.download\" buttonClass=\" font-semibold text-yellow-950 \">\r\n\t\t\t\t\t</Button>\r\n\t\t\t\t</NuxtLink>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t</div>\r\n</template>\r\n\r\n<script setup>\r\n\r\n</script>\r\n\r\n<style  scoped></style>",
+      "start": 1709322816906,
+      "end": 1709322817013,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709322817013,
+      "end": 1709322817013,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709322817013,
+      "end": 1709322817013,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1709322817013,
+      "end": 1709322817013,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709322817013,
+      "end": 1709322817013,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709322817014,
+      "end": 1709322817014,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709322817014,
+      "end": 1709322817014,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709322817014,
+      "end": 1709322817014,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709322817014,
+      "end": 1709322817014,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"h-[244px] rounded-xl border border-gray-200 relative overflow-hidden\" }\nconst _hoisted_2 = { class: \"bg-white grid grid-rows-4 h-[244px]\" }\nconst _hoisted_3 = { class: \"border-b border-gray-200 flex p-1.5\" }\nconst _hoisted_4 = { class: \"border-b border-gray-200 flex p-1.5\" }\nconst _hoisted_5 = { class: \"border-gray-200 flex p-1.5\" }\nconst _hoisted_6 = { class: \"border-gray-200 cent p-2 bg-[#FCD364] bg-opacity-60\" }\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_Image = _resolveComponent(\"Image\")\n  const _component_Button = _resolveComponent(\"Button\")\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"ul\", _hoisted_2, [\n      _createElementVNode(\"li\", _hoisted_3, [\n        _createVNode(_component_NuxtLink, {\n          to: \"/\",\n          class: \"flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group\"\n        }, {\n          default: _withCtx(() => [\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/prayer.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/prayer-non.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:block hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Button, {\n              buttonText: \"sidebar.item\",\n              buttonClass: \" btn__primary\"\n            })\n          ]),\n          _: 1\n        })\n      ]),\n      _createElementVNode(\"li\", _hoisted_4, [\n        _createVNode(_component_NuxtLink, {\n          to: \"/\",\n          class: \"flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group\"\n        }, {\n          default: _withCtx(() => [\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/quran.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/quran-non.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:block hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Button, {\n              buttonText: \"sidebar.item1\",\n              buttonClass: \" btn__primary\"\n            })\n          ]),\n          _: 1\n        })\n      ]),\n      _createElementVNode(\"li\", _hoisted_5, [\n        _createVNode(_component_NuxtLink, {\n          to: \"/\",\n          class: \"flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group\"\n        }, {\n          default: _withCtx(() => [\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/hegry.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/hegry-non.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:block hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Button, {\n              buttonText: \"sidebar.item2\",\n              buttonClass: \" btn__primary\"\n            })\n          ]),\n          _: 1\n        })\n      ]),\n      _createElementVNode(\"li\", _hoisted_6, [\n        _createVNode(_component_NuxtLink, {\n          to: \"/\",\n          class: \"cent w-full gap-3 px-2\"\n        }, {\n          default: _withCtx(() => [\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/download-side.svg\",\n              ialt: \"ads\",\n              iclass: \" h-[38px] w-[38px]\"\n            }),\n            _createVNode(_component_Button, {\n              buttonText: \"sidebar.download\",\n              buttonClass: \" font-semibold text-yellow-950 \"\n            })\n          ]),\n          _: 1\n        })\n      ])\n    ])\n  ]))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1709322817014,
+      "end": 1709322817015,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1709322817015,
+      "end": 1709322817015,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709322817015,
+      "end": 1709322817016,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709322817016,
+      "end": 1709322817016,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709322817016,
+      "end": 1709322817016,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709322817016,
+      "end": 1709322817016,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709322817016,
+      "end": 1709322817016,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"D:/quran/nuxt-app/components/Image.vue\";\nimport { default as __nuxt_component_1 } from \"D:/quran/nuxt-app/components/Button.vue\";\nimport { default as __nuxt_component_2 } from \"D:/quran/nuxt-app/node_modules/nuxt/dist/app/components/nuxt-link\";\nconst _sfc_main = {}\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"h-[244px] rounded-xl border border-gray-200 relative overflow-hidden\" }\nconst _hoisted_2 = { class: \"bg-white grid grid-rows-4 h-[244px]\" }\nconst _hoisted_3 = { class: \"border-b border-gray-200 flex p-1.5\" }\nconst _hoisted_4 = { class: \"border-b border-gray-200 flex p-1.5\" }\nconst _hoisted_5 = { class: \"border-gray-200 flex p-1.5\" }\nconst _hoisted_6 = { class: \"border-gray-200 cent p-2 bg-[#FCD364] bg-opacity-60\" }\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_Image = __nuxt_component_0\n  const _component_Button = __nuxt_component_1\n  const _component_NuxtLink = __nuxt_component_2\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"ul\", _hoisted_2, [\n      _createElementVNode(\"li\", _hoisted_3, [\n        _createVNode(_component_NuxtLink, {\n          to: \"/\",\n          class: \"flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group\"\n        }, {\n          default: _withCtx(() => [\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/prayer.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/prayer-non.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:block hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Button, {\n              buttonText: \"sidebar.item\",\n              buttonClass: \" btn__primary\"\n            })\n          ]),\n          _: 1\n        })\n      ]),\n      _createElementVNode(\"li\", _hoisted_4, [\n        _createVNode(_component_NuxtLink, {\n          to: \"/\",\n          class: \"flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group\"\n        }, {\n          default: _withCtx(() => [\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/quran.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/quran-non.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:block hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Button, {\n              buttonText: \"sidebar.item1\",\n              buttonClass: \" btn__primary\"\n            })\n          ]),\n          _: 1\n        })\n      ]),\n      _createElementVNode(\"li\", _hoisted_5, [\n        _createVNode(_component_NuxtLink, {\n          to: \"/\",\n          class: \"flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group\"\n        }, {\n          default: _withCtx(() => [\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/hegry.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/hegry-non.svg\",\n              ialt: \"ads\",\n              iclass: \"group-hover:block hidden  w-[17px] h-[29px]\"\n            }),\n            _createVNode(_component_Button, {\n              buttonText: \"sidebar.item2\",\n              buttonClass: \" btn__primary\"\n            })\n          ]),\n          _: 1\n        })\n      ]),\n      _createElementVNode(\"li\", _hoisted_6, [\n        _createVNode(_component_NuxtLink, {\n          to: \"/\",\n          class: \"cent w-full gap-3 px-2\"\n        }, {\n          default: _withCtx(() => [\n            _createVNode(_component_Image, {\n              isrc: \"/svgs/download-side.svg\",\n              ialt: \"ads\",\n              iclass: \" h-[38px] w-[38px]\"\n            }),\n            _createVNode(_component_Button, {\n              buttonText: \"sidebar.download\",\n              buttonClass: \" font-semibold text-yellow-950 \"\n            })\n          ]),\n          _: 1\n        })\n      ])\n    ])\n  ]))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1709322817016,
+      "end": 1709322817016,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709322817016,
+      "end": 1709322817016,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709322817016,
+      "end": 1709322817017,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709322817017,
+      "end": 1709322817017,
+      "order": "normal"
+    }
+  ]
+}

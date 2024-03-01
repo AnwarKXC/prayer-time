@@ -1,0 +1,241 @@
+{
+  "resolvedId": "D:/quran/nuxt-app/pages/index.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\" grid gap-6 \">\n\n\n    <!--  ads 1 -->\n    <Add1 />\n\n\n\n\n\n\n\n    <!-- search bar -->\n    <div class=\" relative\">\n      <div class=\"bg-white rounded-xl border border-gray-200 flex items-center p-3 gap-[15px] \">\n\n        <Search />\n      </div>\n    </div>\n\n\n    <!-- all country -->\n    <AllCountries />\n\n\n    <!-- ad2 -->\n    <GoogleAds />\n\n\n    <!-- all Capital  -->\n    <AllCapitals />\n\n\n    <!-- ad 3 -->\n    <PrayerFeature />\n\n\n    <!-- last add in home page -->\n    <Add4 />\n\n\n  </div>\n</template>\n\n<script setup >\n\n// const landing = import.meta.env.VITE_LANDING_PAGE\n// const domain = import.meta.env.VITE_DOMAIN\n// const { locale } = useI18n()\n// const { data: home } = await useFetch( domain + landing + locale.value )\n\n// console.log( home.value.data )\n// fetch the cities\n\n\n</script>",
+      "start": 1709322815643,
+      "end": 1709322815770,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { resolveComponent as _resolveComponent, createVNode as _createVNode, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"grid gap-6\" }\nconst _hoisted_2 = { class: \"relative\" }\nconst _hoisted_3 = { class: \"bg-white rounded-xl border border-gray-200 flex items-center p-3 gap-[15px]\" }\n\n\nconst _sfc_main = {\n  __name: 'index',\n  setup(__props) {\n\n\n// const landing = import.meta.env.VITE_LANDING_PAGE\n// const domain = import.meta.env.VITE_DOMAIN\n// const { locale } = useI18n()\n// const { data: home } = await useFetch( domain + landing + locale.value )\n\n// console.log( home.value.data )\n// fetch the cities\n\n\n\nreturn (_ctx, _cache) => {\n  const _component_Add1 = _resolveComponent(\"Add1\")\n  const _component_Search = _resolveComponent(\"Search\")\n  const _component_AllCountries = _resolveComponent(\"AllCountries\")\n  const _component_GoogleAds = _resolveComponent(\"GoogleAds\")\n  const _component_AllCapitals = _resolveComponent(\"AllCapitals\")\n  const _component_PrayerFeature = _resolveComponent(\"PrayerFeature\")\n  const _component_Add4 = _resolveComponent(\"Add4\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_Add1),\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createVNode(_component_Search)\n      ])\n    ]),\n    _createVNode(_component_AllCountries),\n    _createVNode(_component_GoogleAds),\n    _createVNode(_component_AllCapitals),\n    _createVNode(_component_PrayerFeature),\n    _createVNode(_component_Add4)\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709322815770,
+      "end": 1709322815770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { resolveComponent as _resolveComponent, createVNode as _createVNode, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"grid gap-6\" };\nconst _hoisted_2 = { class: \"relative\" };\nconst _hoisted_3 = { class: \"bg-white rounded-xl border border-gray-200 flex items-center p-3 gap-[15px]\" };\nconst _sfc_main = {\n  __name: \"index\",\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_Add1 = _resolveComponent(\"Add1\");\n      const _component_Search = _resolveComponent(\"Search\");\n      const _component_AllCountries = _resolveComponent(\"AllCountries\");\n      const _component_GoogleAds = _resolveComponent(\"GoogleAds\");\n      const _component_AllCapitals = _resolveComponent(\"AllCapitals\");\n      const _component_PrayerFeature = _resolveComponent(\"PrayerFeature\");\n      const _component_Add4 = _resolveComponent(\"Add4\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_Add1),\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createVNode(_component_Search)\n          ])\n        ]),\n        _createVNode(_component_AllCountries),\n        _createVNode(_component_GoogleAds),\n        _createVNode(_component_AllCapitals),\n        _createVNode(_component_PrayerFeature),\n        _createVNode(_component_Add4)\n      ]);\n    };\n  }\n};\nexport default _sfc_main;\n",
+      "start": 1709322815770,
+      "end": 1709322815809,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709322815809,
+      "end": 1709322815809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709322815809,
+      "end": 1709322815809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709322815809,
+      "end": 1709322815809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709322815809,
+      "end": 1709322815809,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709322815809,
+      "end": 1709322815809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709322815809,
+      "end": 1709322815809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709322815809,
+      "end": 1709322815809,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709322815809,
+      "end": 1709322815821,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1709322815821,
+      "end": 1709322815821,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1709322815821,
+      "end": 1709322815821,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1709322815821,
+      "end": 1709322815822,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709322815822,
+      "end": 1709322815827,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709322815836,
+      "end": 1709322815836,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709322815836,
+      "end": 1709322815838,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709322815840,
+      "end": 1709322815840,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709322815840,
+      "end": 1709322815840,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"D:/quran/nuxt-app/components/Add1.vue\";\nimport { default as __nuxt_component_1 } from \"D:/quran/nuxt-app/components/Search.vue\";\nimport { default as __nuxt_component_2 } from \"D:/quran/nuxt-app/components/AllCountries.vue\";\nimport { default as __nuxt_component_3 } from \"D:/quran/nuxt-app/components/GoogleAds.vue\";\nimport { default as __nuxt_component_4 } from \"D:/quran/nuxt-app/components/AllCapitals.vue\";\nimport { default as __nuxt_component_5 } from \"D:/quran/nuxt-app/components/PrayerFeature.vue\";\nimport { default as __nuxt_component_6 } from \"D:/quran/nuxt-app/components/Add4.vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"grid gap-6\" };\nconst _hoisted_2 = { class: \"relative\" };\nconst _hoisted_3 = { class: \"bg-white rounded-xl border border-gray-200 flex items-center p-3 gap-[15px]\" };\nconst _sfc_main = {\n  __name: \"index\",\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_Add1 = __nuxt_component_0;\n      const _component_Search = __nuxt_component_1;\n      const _component_AllCountries = __nuxt_component_2;\n      const _component_GoogleAds = __nuxt_component_3;\n      const _component_AllCapitals = __nuxt_component_4;\n      const _component_PrayerFeature = __nuxt_component_5;\n      const _component_Add4 = __nuxt_component_6;\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_Add1),\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createVNode(_component_Search)\n          ])\n        ]),\n        _createVNode(_component_AllCountries),\n        _createVNode(_component_GoogleAds),\n        _createVNode(_component_AllCapitals),\n        _createVNode(_component_PrayerFeature),\n        _createVNode(_component_Add4)\n      ]);\n    };\n  }\n};\nexport default _sfc_main;\n",
+      "start": 1709322815841,
+      "end": 1709322815841,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709322815842,
+      "end": 1709322815842,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709322815842,
+      "end": 1709322815842,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709322815843,
+      "end": 1709322815843,
+      "order": "normal"
+    }
+  ]
+}
