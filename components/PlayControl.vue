@@ -1,50 +1,52 @@
 <template>
-	<div class=" md:col-span-2 flex md:justify-end">
-		<div v-for="  audioPlayer   in   audioPlayers  " :key=" audioPlayer.src " class="aWrap text-white"
-			:data-src=" audioPlayer.src ">
-			<!-- Play/Pause Button -->
-			<button class="aPlay" @click="togglePlayPause( audioPlayer )">
-				<span class="aPlayIco">
-					<i v-if=" isPaused( audioPlayer ) " class="fa-solid fa-play"></i>
-					<i v-else class="fa-solid fa-pause"></i>
-				</span>
-			</button>
-
-			<!-- Progress Bar -->
-			<div class="range">
-				<span class=" absolute top-0 left-0 h-1.5 w-full bg-neutral-400 rounded-2xl cursor-pointer"></span>
-				<input  type="range" min="0" :max=" audioPlayer.totalDuration " step="1"
-					v-model="audioPlayer.currentTime" @input="setProgress( audioPlayer )">
-				<span class="change-range"
-					:style=" { width: audioPlayer.currentTime / audioPlayer.totalDuration * 100 + '%' } "></span>
-			</div>
-
-			<!-- Current Time / Total Duration -->
-			<div class=" text-neutral-300 font-sm">
-				<span class="aNow">{{ timeString( audioPlayer.currentTime ) }}</span> / <span
-					class="aTime">{{ timeString( audioPlayer.totalDuration ) }}</span>
-			</div>
-
-			<!-- Volume Control -->
-			<div class="volume-container">
-				<span class="aVolIco">
-					<i class="fa-solid"
-						:class=" audioPlayer.volume === 0 ? 'fa-volume-off' : 'fa-volume-high' "
-						@click="toggleMute( audioPlayer )"></i>
-				</span>
-				<div class="range-volume">
-					<span class="absolute top-0 left-0 h-1.5 w-full bg-neutral-400 rounded-2xl cursor-pointer"></span>
-					<input class="aVolume" type="range" min="0" max="1" step="0.1"
-						v-model="audioPlayer.volume">
-					<span class="change-range"></span>
+	<div class="flex-grow ">
+		<div v-for="(      audioPlayer, index      ) in       audioPlayers      " :key=" index "
+			class="flex items-center md:gap-8 gap-3 justify-end text-white ">
+			<div class="flex gap-3 flex-grow">
+				<!-- Volume Control -->
+				<div class="relative group shrink-0 ">
+					<!-- <input class="p-0 absolute group-hover:block right-0 left-0 bottom-10 hidden"
+						style="writing-mode: vertical-lr; direction: rtl" type="range" min="0" max="1"
+						step="0.1" v-model=" audioPlayer.volume "> -->
+					<button @click="toggleMute( audioPlayer )">
+						<img class="mt-[5px] w-[26px] h-[26px]"
+							:src=" audioPlayer.volume === 0 ? '/svgs/Icon-Volume-mute.svg' : '/svgs/Icon-Volume.svg' "
+							alt="">
+					</button>
 				</div>
+				<!-- Progress Bar -->
+				<input type="range" min="0" :max=" audioPlayer.totalDuration " step="1"
+					v-model=" audioPlayer.currentTime " @input="setProgress( audioPlayer )"
+					class="!p-0 lg:min-w-96 md:min-w-54 w-full rotate-180 progress flex-grow"
+					:style=" { backgroundSize: progressBackgroundSize } ">
+			</div>
+			<!-- Play/Pause Button -->
+			<div class="flex md:gap-4 items-center ltr:flex-row-reverse ">
+				<button @click="forwardSong( audioPlayer )">
+					<img src="/svgs/Icon-Forwardsvg.svg" alt="">
+				</button>
+				<button class="w-10  cent" @click="togglePlayPause( audioPlayer )">
+					<img src="/svgs/Icon-Play.svg" alt="" style="display: none;">
+					<img src="/svgs/Icon-Pause.svg" alt="" style="display: none;">
+					<img v-if=" audioPlayer.isPlaying " src="/svgs/Icon-Pause.svg" alt=""
+						class="max-md:w-4">
+					<img v-else src="/svgs/Icon-Play.svg" alt="" class="max-md:w-6">
+				</button>
+				<button @click="rewindSong( audioPlayer )">
+					<img src="/svgs/Icon-Rewindsvg.svg" alt="">
+				</button>
+			</div>
+			<div
+				class="text-neutral-300 font-sm flex items-center gap-3 shrink-0 max-md:order-first max-md:hidden">
+				<span class="w-9">{{ timeString( audioPlayer.currentTime ) }}</span> /
+				<span class="w-9">{{ timeString( audioPlayer.totalDuration ) }}</span>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 
 const audioPlayers = ref( [
 	{ src: "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3", audio: null, currentTime: 0, totalDuration: 0, volume: 1, seeking: false }
@@ -59,11 +61,14 @@ const timeString = ( secs ) => {
 	ss = ss < 10 ? "0" + ss : ss
 	return hh > 0 ? `${ hh }:${ mm }:${ ss }` : `${ mm }:${ ss }`
 }
+
 const togglePlayPause = ( audioPlayer ) => {
 	if ( audioPlayer.audio.paused ) {
 		audioPlayer.audio.play()
+		audioPlayer.isPlaying = true
 	} else {
 		audioPlayer.audio.pause()
+		audioPlayer.isPlaying = false
 	}
 }
 
@@ -75,136 +80,90 @@ const isPaused = ( audioPlayer ) => {
 }
 
 const toggleMute = ( audioPlayer ) => {
-	audioPlayer.audio.volume = audioPlayer.audio.volume === 0 ? 1 : 0
+	audioPlayer.volume = audioPlayer.volume === 0 ? 1 : 0
+	if ( audioPlayer.audio ) {
+		audioPlayer.audio.volume = audioPlayer.volume
+	}
 }
 
 const setProgress = ( audioPlayer ) => {
-	audioPlayer.audio.currentTime = audioPlayer.currentTime
+	if ( audioPlayer.audio ) {
+		audioPlayer.audio.currentTime = audioPlayer.currentTime
+	}
+}
+
+const forwardSong = ( audioPlayer ) => {
+	if ( audioPlayer.audio ) {
+		audioPlayer.audio.currentTime += 10 // Forwarding by 10 seconds, change as needed
+	}
+}
+
+const rewindSong = ( audioPlayer ) => {
+	if ( audioPlayer.audio ) {
+		audioPlayer.audio.currentTime -= 10 // Rewinding by 10 seconds, change as needed
+	}
 }
 
 onMounted( () => {
 	if ( process.browser ) {
-		for ( let i of audioPlayers.value ) {
-			i.audio = new Audio( encodeURI( i.src ) )
-
-			i.audio.addEventListener( 'loadedmetadata', () => {
-				i.totalDuration = Math.floor( i.audio.duration )
-				i.audio.addEventListener( 'timeupdate', () => {
-					if ( !i.seeking ) {
-						i.currentTime = Math.floor( i.audio.currentTime )
+		for ( const player of audioPlayers.value ) {
+			player.audio = new Audio( encodeURI( player.src ) )
+			player.audio.addEventListener( 'loadedmetadata', () => {
+				player.totalDuration = Math.floor( player.audio.duration )
+				player.audio.addEventListener( 'timeupdate', () => {
+					if ( !player.seeking ) {
+						player.currentTime = Math.floor( player.audio.currentTime )
 					}
 				} )
 			} )
-
-			i.audio.onplay = () => ( i.aPlayIco.innerHTML = '<i class="fa fa-pause"></i>' )
-			i.audio.onpause = () => ( i.aPlayIco.innerHTML = '<i class="fa fa-play"></i>' )
-
-			i.audio.addEventListener( 'pause', () => {
-				// Update UI or do something when audio is paused
+			player.audio.addEventListener( 'seeking', () => {
+				player.seeking = true
 			} )
-
-			i.audio.addEventListener( 'canplaythrough', () => {
-				// Enable controls
-			} )
-
-			i.audio.addEventListener( 'waiting', () => {
-				// Disable controls
-			} )
-
-			i.audio.addEventListener( 'volumechange', () => {
-				// Adjust UI based on volume change
-			} )
-
-			i.audio.addEventListener( 'seeking', () => {
-				i.seeking = true
-			} )
-
-			i.audio.addEventListener( 'seeked', () => {
-				i.seeking = false
+			player.audio.addEventListener( 'seeked', () => {
+				player.seeking = false
 			} )
 		}
 	}
 } )
+
+const progressBackgroundSize = computed( () => {
+	const progress = audioPlayers.value[ 0 ].currentTime / audioPlayers.value[ 0 ].totalDuration
+	return `${ progress * 100 }% 100%`
+} )
 </script>
 
 <style scoped>
-/* (B) WRAPPER */
-.aWrap {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 1rem;
+input[type="range"] {
+	accent-color: rgb(235, 235, 235);
 }
 
-.aWrap input[type="range"] {
+.progress {
+	-webkit-appearance: none;
 	appearance: none;
+	margin-block: auto;
+	width: 200px;
+	height: 7px;
 	border: none;
-	outline: none;
-	box-shadow: none;
-	padding: 0;
-	margin: 0;
-	background: 0;
+	background: rgb(160, 160, 160);
+	border-radius: 50px;
+	background-image: linear-gradient(90deg, #ffffff, #ffffff);
+	background-repeat: no-repeat;
+	background-position-x: right;
+	@apply duration-[1500ms]
 }
 
-.range,
-.range-volume {
-	position: relative;
-	display: flex;
-	align-items: center;
+.progress:hover {
+	background-image: linear-gradient(90deg, #ffffff, #42867b);
+
 }
 
-.range input,
-.range-volume input {
-	position: relative;
-	z-index: 1;
-}
-
-.range .change-range,
-.range-volume .change-range {
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 6px;
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 0px;
 	width: 0px;
-	background-color: rgb(255, 255, 255);
-	border-radius: 10px 0 0 10px;
-}
-
-.aWrap input[type="range"]::-webkit-slider-thumb {
-	appearance: none;
-}
-
-/* (E2) CUSTOM SLIDER TRACK */
-.aWrap input[type="range"]::-webkit-slider-runnable-track {
-	background: transparent;
-	height: 6px;
-	border-radius: 10px;
-}
-
-/* (F) VOLUME */
-.aVolIco {
-	margin: 0 10px;
+	border-radius: 50%;
+	background: #ffffff;
 	cursor: pointer;
-}
-
-input.aVolume {
-	max-width: 100px !important;
-}
-
-.aVolume::-webkit-slider-runnable-track {
-	height: 6px !important;
-}
-
-.aVolume::-webkit-slider-thumb {
-	margin-top: -3px !important;
-}
-
-.aVolume::-moz-range-thumb {
-	margin-top: -3px !important;
-}
-
-.volume-container {
-	display: flex;
-	align-items: center;
+	transition: background .3s ease-in-out;
 }
 </style>

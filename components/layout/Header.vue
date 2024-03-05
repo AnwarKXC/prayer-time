@@ -10,9 +10,10 @@
             </button>
             <div class=" flex gap-8 items-center">
                 <div class="max-md:flex-1 cent md:block">
-                    <Logo />
+                    <Logo :source=" props.branding.logo.data.attributes.url " />
+
                 </div>
-                <template v-if=" route.params.country " >
+                <template v-if=" route.params.country ">
                     <div class=" relative max-md:hidden">
                         <div class=" flex items-center gap-[15px] ">
                             <Search />
@@ -24,8 +25,8 @@
                 <div class="flex gap-10 items-center ">
                     <slot />
                     <div class="hidden md:block">
-                        <Button buttonText="header.headerbtn"
-                            buttonClass="bg-primary text-white btn__primary  "></Button>
+                        <a :href=" props.branding.link_download" target="_blank"
+                            class="bg-primary text-white btn__primary  ">{{props.branding.title_download}}</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +38,13 @@
 <script setup>
 const route = useRoute()
 
-
+const props = defineProps( {
+    branding: {
+        type: Object,
+        default: {},
+    },
+    
+} )
 
 const modalActive = ref( null )
 const toggleModal = () => {

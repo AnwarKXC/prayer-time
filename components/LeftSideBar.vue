@@ -1,25 +1,36 @@
 <template>
 	<div class="lg:sticky top-[104px] grid gap-6 ">
 		<div class="  bg-zinc-700 rounded-xl border p-4 grid gap-3 " v-if=" route.params.country ">
-			<div class="text-right text-amber-400 text-xl font-bold font-['Almarai']">حديث اليوم</div>
+			<div class="text-right text-amber-400 text-xl font-bold font-['Almarai']">{{
+				props.quotes.title }}</div>
 			<div class=" text-right text-gray-300 text-xs font-normal font-['Almarai'] leading-[19px]">
-				عن علقمة بن وقاص الليثي، يقول: سمعت عمر بن الخطاب رضي الله عنه على المنبر قال: سمعت رسول
-				الله صلى الله عليه وسلم يقول: «إنما الأعمال بالنيات، وإنما لكل امرئ ما نوى، فمن كانت هجرته
-				إلى دنيا يصيبها، أو إلى امرأة ينكحها، فهجرته إلى ما هاجر إليه»</div>
+				{{ props.quotes.description }}</div>
 		</div>
-		<div
-			class=" h-[504px] overflow-y-auto bg-yellow-50 rounded-xl border border-gray-200 px-4 py-6 grid gap-4 ">
-			<div class="  text-black text-[23px] font-normal text-center">مساحة إعلانية</div>
-			<div class=" text-zinc-500 text-[13px] ">
-				لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
-				ويُستخدم
-				في صناعات المطابع ودور النشر.</div>
+		<div class=" h-full  bg-yellow-50 rounded-xl border border-gray-200 p-4  grid gap-4 ">
+			<NuxtLink :to=" props.data.link ">
+				<img :src=" domain + props.data.image.data.attributes.url "
+					:alt=" props.data.image.data.attributes.alternativeText "
+					class=" h-full rounded">
+			</NuxtLink>
 		</div>
 	</div>
 </template>
 
 <script setup>
 const route = useRoute()
+
+const props = defineProps( {
+	data: {
+		type: Object,
+		default: {},
+	},
+	quotes: {
+		type: Object,
+		default: {},
+	}
+} )
+const domain = import.meta.env.VITE_DOMAIN
+// const randomIndexQuotes = Math.floor( Math.random() * props.quotes.length )
 </script>
 
-<style  scoped></style>
+<style scoped></style>

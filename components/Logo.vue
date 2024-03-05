@@ -1,13 +1,20 @@
 <template>
 	<NuxtLink to="/">
-		<Image isrc="/svgs/logo.svg" ialt="logo"
-			iclass="md:max-w-[65px] md:max-h-[65px] max-w-[55px] max-h-[55px] " />
+		<img :src=" domain +  props.source " alt="logo"
+			class="md:max-w-[65px] md:max-h-[65px] max-w-[55px] max-h-[55px] ">
 	</NuxtLink>
 </template>
 
 <script setup>
-import Image from './Image'
+const props = defineProps( {
+	source: {
+		type: String,
+		default: '',
+	},
+} )
+
+const domain = import.meta.env.VITE_DOMAIN
 
 </script>
 
-<style  scoped></style>
+<style scoped></style>

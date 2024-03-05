@@ -28,7 +28,8 @@
 							{{ $t( 'infobanner.countryheading' ) }}
 
 							<template v-if=" cities.data[ 0 ] ">
-								{{ $t( cities.data[ 0 ].attributes.prayer_time_country.data.attributes.name )
+								{{ $t( cities.data[ 0 ].attributes.prayer_time_country.data.attributes.name
+			)
 								}}
 							</template>
 						</div>
@@ -37,9 +38,9 @@
 
 							<template v-if=" cities.data[ 0 ] ">
 								<template
-									v-for="                   city                   in                   cities.data                   "
+									v-for="                    city                    in                    cities.data                    "
 									:key=" city.id ">
-									<template v-if=" city.attributes.is_capital  ">
+									<template v-if=" city.attributes.is_capital ">
 										{{ $t( city.attributes.title ) }}
 									</template>
 								</template>
@@ -52,6 +53,7 @@
 						<Image isrc="/svgs/e7datheat.svg" ialt="country" iclass=" w-4 h-4" />
 						<div class=" text-zinc-800 text-sm font-normal font-['Almarai'] leading-tight">
 							{{ $t( 'infobanner.para1' ) }}
+
 							<template v-if=" filteredEntries[ 0 ] ">
 								{{ filteredEntries[ 0 ].meta.timezone }}
 							</template>
@@ -60,6 +62,7 @@
 					<div class="flex gap-2 items-center">
 						<Image isrc="/svgs/cleander.svg" ialt="country" iclass=" w-4 h-4" />
 						<div class=" text-zinc-800 text-sm font-normal font-['Almarai'] leading-tight">
+
 							<template v-if=" filteredEntries[ 0 ] ">
 								{{ filteredEntries[ 0 ].date.hijri.weekday.ar }}&nbsp;
 								{{ filteredEntries[ 0 ].date.hijri.day }}&nbsp;
@@ -77,6 +80,7 @@
 					<div class=" text-teal-900 text-sm font-bold font-['Almarai'] leading-tight">
 						{{ $t( 'infobanner.calpara' ) }}</div>
 					<div class=" text-zinc-800 text-sm font-normal font-['Almarai'] leading-tight">
+
 						<template v-if=" filteredEntries[ 0 ] ">
 							{{ filteredEntries[ 0 ].meta.method.name }}
 						</template>
@@ -111,7 +115,7 @@
 
 			<!-- prayer time for month -->
 			<h2 class="h__primary">{{ $t( 'infobanner.monthsubheading' ) }}</h2>
-			<div class=" overflow-x-auto ">
+			<div class=" overflow-x-auto pb-1">
 				<div class="flex  gap-4  whitespace-nowrap text-zinc-500 ">
 					<Button buttonText="infobanner.week1"
 						buttonClass=" flex-1 btn__primary bg-zinc-100  font-semibold hover:bg-sec hover:text-white"
@@ -121,15 +125,18 @@
 						@click="startIndex = 7" :class=" startIndex === 7 ? '!bg-sec text-white' : '' " />
 					<Button buttonText="infobanner.week3"
 						buttonClass="flex-1 btn__primary bg-zinc-100  font-semibold  hover:bg-sec hover:text-white"
-						@click="startIndex = 14" :class=" startIndex === 14 ? '!bg-sec text-white' : '' " />
+						@click="startIndex = 14"
+						:class=" startIndex === 14 ? '!bg-sec text-white' : '' " />
 					<Button buttonText="infobanner.week4"
 						buttonClass="flex-1 btn__primary bg-zinc-100  font-semibold  hover:bg-sec hover:text-white"
-						@click="startIndex = 21" :class=" startIndex === 21 ? '!bg-sec text-white' : '' " />
+						@click="startIndex = 21"
+						:class=" startIndex === 21 ? '!bg-sec text-white' : '' " />
 				</div>
 			</div>
 
 
 			<Table>
+
 				<template v-slot:thead>
 					<Th thText="infobanner.date"></Th>
 					<Th thText="infobanner.time1"></Th>
@@ -139,20 +146,22 @@
 					<Th thText="infobanner.time5"></Th>
 					<Th thText="infobanner.time6"></Th>
 				</template>
+
 				<template v-slot:tbody>
 					<tr class=" h-[45px] border-b "
 						:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' "
-						v-for="             day             in                displayedData             "
+						v-for="              day              in                 displayedData              "
 						:key=" day ">
 						<Th thClass=" bg-gray-100 font-semibold "
-							:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' "> {{
-								day.date.gregorian.date }}</Th>
-						<Td>{{ day.timings.Fajr }}</Td>
-						<Td>{{ day.timings.Sunrise }}</Td>
-						<Td>{{ day.timings.Dhuhr }}</Td>
-						<Td>{{ day.timings.Asr }}</Td>
-						<Td>{{ day.timings.Maghrib }}</Td>
-						<Td>{{ day.timings.Isha }}</Td>
+							:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' ">
+							{{
+				day.date.gregorian.date }}</Th>
+						<Td>{{ extractTime( day.timings.Fajr ) }}</Td>
+						<Td>{{ extractTime( day.timings.Sunrise ) }}</Td>
+						<Td>{{ extractTime( day.timings.Dhuhr ) }}</Td>
+						<Td>{{ extractTime( day.timings.Asr ) }}</Td>
+						<Td>{{ extractTime( day.timings.Maghrib ) }}</Td>
+						<Td>{{ extractTime( day.timings.Isha ) }}</Td>
 					</tr>
 				</template>
 			</Table>
@@ -166,7 +175,7 @@
 			<h2 class="h__primary">{{ $t( 'citiescounrybanner.heading' ) }}</h2>
 			<div class="city__label__grid">
 				<NuxtLink :to=" '/' + route.params.country + '/' + route.params.id + '/' + city.id "
-					v-for="                       city                       in                       cities.data                       "
+					v-for="                        city                        in                        cities.data                        "
 					:key=" city.id " class="w-full">
 					<CityLabel>
 						{{ city.attributes.title }} </CityLabel>
@@ -182,7 +191,7 @@
 		<!-- popular articles -->
 		<PopularArticlesSec />
 		<PrayerFeature />
-		<Add4 />
+		<NativePanners />
 	</div>
 </template>
 
@@ -196,8 +205,12 @@ import { ref, onMounted } from 'vue'
 
 
 
+
 //  fetch data of city
-const { data: cleander } = await useFetch( times + '' + '&country=' + route.params.country )
+const { data: cleander, error, refresh } = await useFetch( ( times + '' + '&country=' + route.params.country ), {
+	watch: route.params.id,
+	watch: route.params.city
+} )
 
 
 const currentDate = new Date()
@@ -240,9 +253,20 @@ const displayedData = computed( () => {
 		const end = Math.min( start + 7, dataLength )
 		return cleander.value.data.slice( start, end )
 	}
-} );
+} )
 
+function extractTime ( str ) {
+	// Define a regular expression pattern to match the time part
+	const pattern = /(\d{2}:\d{2})/
+	// Use the exec method of the regular expression to extract the time
+	const match = pattern.exec( str )
+	// Return the matched time or an empty string if no match found
+	return match ? match[ 0 ] : ''
+}
+const timeString = "05:03 (EET)"
+const extractedTime = extractTime( timeString )
+console.log( extractedTime );
 
 </script>
 
-<style  scoped></style>
+<style scoped></style>

@@ -71,9 +71,7 @@ const show = ref( false )
 function showList () {
 	show.value = true
 }
-function hideList () {
-	show.value = false
-}
+
 
 
 // open modal
@@ -98,7 +96,6 @@ const getSearchResults = () => {
 					`${ domain + searchKey }${ searchQuery.value }`
 				)
 				countrySearchResults.value = result.data.data
-				console.log( countrySearchResults.value[ 0 ].attributes.prayer_time_country.data.attributes.api_country_code )
 			} catch {
 				searchError.value = true
 			}

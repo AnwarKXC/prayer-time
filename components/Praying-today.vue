@@ -1,7 +1,7 @@
 <template>
 	<div class="overflow-hidden" v-if=" props.data[ 0 ] ">
 		<div
-			class="w-full overflow-x-auto bg-yellow-50 rounded-[10px] border border-sec flex justify-between whitespace-nowrap items-center">
+			class="w-full overflow-x-auto  bg-yellow-50 rounded-[10px] border border-sec flex justify-between whitespace-nowrap items-center">
 			<div v-for="(         prayer, index         ) in          prayerTimes         " :key=" index "
 				class="cent__col gap-1 py-2 min-w-[110px] px-5 "
 				:class=" { 'bg-sec ': nextPrayerIndex === index } ">
@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps( {
 	data: {
@@ -35,8 +35,8 @@ const props = defineProps( {
 } )
 
 const prayerTimes = [
-	{ key: 'Fajr', name: 'Fajr', icon: 'fajr', icon_inverted: 'fajr-inverted', translation: 'infobanner.time1' },
-	{ key: 'Sunrise', name: 'Sunrise', icon: 'sunrise', icon_inverted: 'sunrise-inverted', translation: 'infobanner.time2' },
+	{ key: 'Fajr', name: 'Fajr', icon: 'fajr', icon_inverted: 'fajr', translation: 'infobanner.time1' },
+	{ key: 'Sunrise', name: 'Sunrise', icon: 'sunrise', icon_inverted: 'sunrise', translation: 'infobanner.time2' },
 	{ key: 'Dhuhr', name: 'Dhuhr', icon: 'dhuhr', icon_inverted: 'dhuhr-inverted', translation: 'infobanner.time3' },
 	{ key: 'Asr', name: 'Asr', icon: 'asr', icon_inverted: 'asr-inverted', translation: 'infobanner.time4' },
 	{ key: 'Maghrib', name: 'Maghrib', icon: 'maghrib', icon_inverted: 'maghrib-inverted', translation: 'infobanner.time5' },
