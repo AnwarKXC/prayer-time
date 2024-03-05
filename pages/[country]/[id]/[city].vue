@@ -205,10 +205,8 @@ import { ref, onMounted } from 'vue'
 
 
 
-
 //  fetch data of city
 const { data: cleander, error, refresh } = await useFetch( ( times + '' + '&country=' + route.params.country ), {
-	watch: route.params.id,
 	watch: route.params.city
 } )
 
