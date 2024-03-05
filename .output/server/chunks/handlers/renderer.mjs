@@ -105,7 +105,7 @@ function createServerHead(options = {}) {
 
 const unheadPlugins = [];
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"My amazing site."}],"link":[{"rel":"stylesheet","href":"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css","integrity":"sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==","crossorigin":"anonymous","referrerpolicy":"no-referrer"},{"rel":"icon","type":"image/x-icon","href":"/svgs/logo.svg"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","title":"Prayer Now","viewport":"width=device-width, initial-scale=1"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"My amazing site."}],"link":[{"rel":"icon","type":"image/x-icon","href":"/svgs/logo.svg"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","title":"Prayer Now","viewport":"width=device-width, initial-scale=1"};
 
 const appRootId = "__nuxt";
 

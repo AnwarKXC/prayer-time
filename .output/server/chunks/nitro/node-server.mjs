@@ -3861,7 +3861,7 @@ function klona(x) {
 
 const inlineAppConfig = {
   "nuxt": {
-    "buildId": "3eb76109-be18-488f-a2b5-62fff3b95dc1"
+    "buildId": "9e1cce4a-8e52-47fb-bc22-ab11f6405937"
   }
 };
 
@@ -4679,7 +4679,7 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets$1);
 
-storage.mount('data', unstorage_47drivers_47fs_45lite({"driver":"fsLite","base":"D:\\quran\\nuxt-app\\.data\\kv"}));
+storage.mount('data', unstorage_47drivers_47fs_45lite({"driver":"fsLite","base":"D:\\quran\\nuxt-app - Copy\\.data\\kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -5199,6 +5199,13 @@ const assets = {
     "size": 557248,
     "path": "../public/footer-bg.png"
   },
+  "/huawei-appgalley.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"38f7-807AdrP9dnLBiBJBlQsIo72CacE\"",
+    "mtime": "2024-03-05T19:46:25.772Z",
+    "size": 14583,
+    "path": "../public/huawei-appgalley.jpg"
+  },
   "/iraq.png": {
     "type": "image/png",
     "etag": "\"614-YvhtuwEegVFyRCyrt4LSmlmgLgw\"",
@@ -5283,6 +5290,13 @@ const assets = {
     "size": 4011,
     "path": "../public/svgs/e7datheat.svg"
   },
+  "/svgs/facebook.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"16d-wND50mCLTZU/gncTDiExGS6d3Ec\"",
+    "mtime": "2024-03-04T22:37:17.179Z",
+    "size": 365,
+    "path": "../public/svgs/facebook.svg"
+  },
   "/svgs/fajr.svg": {
     "type": "image/svg+xml",
     "etag": "\"25a-XCZLcIMeX95n1f2hAlAdGpNIT7s\"",
@@ -5318,12 +5332,68 @@ const assets = {
     "size": 8533,
     "path": "../public/svgs/hegry.svg"
   },
+  "/svgs/Icon-Forwardsvg.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"410-hoXCOhHuhS1Y9NhSrZHZzqtAAFM\"",
+    "mtime": "2024-03-02T22:35:31.652Z",
+    "size": 1040,
+    "path": "../public/svgs/Icon-Forwardsvg.svg"
+  },
+  "/svgs/Icon-Pause.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"20f-f1z/xHYP0PG0rXdqh8adywEavZ8\"",
+    "mtime": "2024-03-03T17:35:49.088Z",
+    "size": 527,
+    "path": "../public/svgs/Icon-Pause.svg"
+  },
+  "/svgs/Icon-Play.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"1f9-Gpga/61FQ5aQXfMfJlpwK2db19A\"",
+    "mtime": "2024-03-02T22:35:09.513Z",
+    "size": 505,
+    "path": "../public/svgs/Icon-Play.svg"
+  },
+  "/svgs/Icon-Rewindsvg.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"410-tcO7V0xxxJKDsJnewuwID5I0xu0\"",
+    "mtime": "2024-03-02T22:35:41.736Z",
+    "size": 1040,
+    "path": "../public/svgs/Icon-Rewindsvg.svg"
+  },
+  "/svgs/Icon-Volume-mute.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"83a-DY0tKZEQMLTToIWDfpqhIhrMlMo\"",
+    "mtime": "2024-03-02T23:53:12.423Z",
+    "size": 2106,
+    "path": "../public/svgs/Icon-Volume-mute.svg"
+  },
+  "/svgs/Icon-Volume.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"817-6w0H91L6CTdFBg2JgDjOhnpIvLI\"",
+    "mtime": "2024-03-02T22:36:01.305Z",
+    "size": 2071,
+    "path": "../public/svgs/Icon-Volume.svg"
+  },
+  "/svgs/instagram.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"bf5-6C8O3df+OPSHYOHsaywAF5oy77g\"",
+    "mtime": "2024-03-04T22:36:23.197Z",
+    "size": 3061,
+    "path": "../public/svgs/instagram.svg"
+  },
   "/svgs/isha.svg": {
     "type": "image/svg+xml",
     "etag": "\"2b5-g17rT+gi6Ty1l6puhkxyuy/T+zQ\"",
     "mtime": "2024-02-24T19:41:40.430Z",
     "size": 693,
     "path": "../public/svgs/isha.svg"
+  },
+  "/svgs/linked.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"299-gtT/SfZe9lWM8diZq9FT+4mJD0o\"",
+    "mtime": "2024-03-04T22:36:48.975Z",
+    "size": 665,
+    "path": "../public/svgs/linked.svg"
   },
   "/svgs/locale.svg": {
     "type": "image/svg+xml",
@@ -5430,96 +5500,110 @@ const assets = {
     "size": 781,
     "path": "../public/svgs/toggel-mobile-header.svg"
   },
-  "/_nuxt/Add4.DOalhr-h.js": {
-    "type": "application/javascript",
-    "etag": "\"332d-F6NAaPoq6PNZ7A5NDFCba2AAfWo\"",
-    "mtime": "2024-03-01T19:53:38.631Z",
-    "size": 13101,
-    "path": "../public/_nuxt/Add4.DOalhr-h.js"
+  "/svgs/twiiter.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"5a3-ox3VqdXz21E6MWxdH0ll0gHbBBM\"",
+    "mtime": "2024-03-04T22:33:11.859Z",
+    "size": 1443,
+    "path": "../public/svgs/twiiter.svg"
   },
-  "/_nuxt/entry.AAFc4Zb7.js": {
-    "type": "application/javascript",
-    "etag": "\"46ac4-eptMAie5eXQCWem+FAOczEKxXvE\"",
-    "mtime": "2024-03-01T19:53:38.631Z",
-    "size": 289476,
-    "path": "../public/_nuxt/entry.AAFc4Zb7.js"
+  "/svgs/youtube.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"3f9-c4yPbqIbdpvBG3OojPz2UjsGtRI\"",
+    "mtime": "2024-03-04T22:34:40.034Z",
+    "size": 1017,
+    "path": "../public/svgs/youtube.svg"
   },
-  "/_nuxt/entry.LCGe5YEr.css": {
+  "/_nuxt/entry.BOfAHsk3.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"a42-bPnl2nlObp7MkPVRdYLNRMoubX4\"",
-    "mtime": "2024-03-01T19:53:38.630Z",
-    "size": 2626,
-    "path": "../public/_nuxt/entry.LCGe5YEr.css"
+    "etag": "\"7d3-umxn3b+qswio1LjNm/FChit0IMA\"",
+    "mtime": "2024-03-05T23:33:42.584Z",
+    "size": 2003,
+    "path": "../public/_nuxt/entry.BOfAHsk3.css"
+  },
+  "/_nuxt/entry.uGBUpr6d.js": {
+    "type": "application/javascript",
+    "etag": "\"47151-WgL2cGUknOSOXteyLMQfilpLMh0\"",
+    "mtime": "2024-03-05T23:33:42.585Z",
+    "size": 291153,
+    "path": "../public/_nuxt/entry.uGBUpr6d.js"
   },
   "/_nuxt/error-404.CoUbADi5.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"e26-9UI2Z985OY4ttYcbyiWh91cxpnM\"",
-    "mtime": "2024-03-01T19:53:38.630Z",
+    "mtime": "2024-03-05T23:33:42.584Z",
     "size": 3622,
     "path": "../public/_nuxt/error-404.CoUbADi5.css"
   },
-  "/_nuxt/error-404.gq5wXSqW.js": {
+  "/_nuxt/error-404.DkSv_U57.js": {
     "type": "application/javascript",
-    "etag": "\"8d5-G5gFR5c3V/KqoxHHyuzZ6+uHNM4\"",
-    "mtime": "2024-03-01T19:53:38.631Z",
+    "etag": "\"8d5-bi8Ks9H3PCURPBqI2fnbvdyBRc0\"",
+    "mtime": "2024-03-05T23:33:42.585Z",
     "size": 2261,
-    "path": "../public/_nuxt/error-404.gq5wXSqW.js"
+    "path": "../public/_nuxt/error-404.DkSv_U57.js"
+  },
+  "/_nuxt/error-500.BIMEeJl1.js": {
+    "type": "application/javascript",
+    "etag": "\"77e-QJED2zKfxuR8dqss1XY/4PKvMCo\"",
+    "mtime": "2024-03-05T23:33:42.585Z",
+    "size": 1918,
+    "path": "../public/_nuxt/error-500.BIMEeJl1.js"
   },
   "/_nuxt/error-500.BXQ_YkC0.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"79e-ByRo+49BgcevWdRjJy3CMx2IA5k\"",
-    "mtime": "2024-03-01T19:53:38.631Z",
+    "mtime": "2024-03-05T23:33:42.584Z",
     "size": 1950,
     "path": "../public/_nuxt/error-500.BXQ_YkC0.css"
-  },
-  "/_nuxt/error-500.DEydunHS.js": {
-    "type": "application/javascript",
-    "etag": "\"77e-NHY1B+VKrucTpJtPmQAGiBkQl3M\"",
-    "mtime": "2024-03-01T19:53:38.631Z",
-    "size": 1918,
-    "path": "../public/_nuxt/error-500.DEydunHS.js"
   },
   "/_nuxt/i18n.config.Co1KMPxc.js": {
     "type": "application/javascript",
     "etag": "\"7f6f-7pJD4WYg75xzDyp3fDDy/Wwvmb0\"",
-    "mtime": "2024-03-01T19:53:38.631Z",
+    "mtime": "2024-03-05T23:33:42.584Z",
     "size": 32623,
     "path": "../public/_nuxt/i18n.config.Co1KMPxc.js"
   },
-  "/_nuxt/index.vk6vQgCD.js": {
+  "/_nuxt/index.4Ed7D7Bn.js": {
     "type": "application/javascript",
-    "etag": "\"7e3-1clTD8UXaIjuxcYoZX54LMzT2bE\"",
-    "mtime": "2024-03-01T19:53:38.631Z",
-    "size": 2019,
-    "path": "../public/_nuxt/index.vk6vQgCD.js"
+    "etag": "\"7ff-/3Z+O01XOoW5LbezzS7ctJkEnmo\"",
+    "mtime": "2024-03-05T23:33:42.584Z",
+    "size": 2047,
+    "path": "../public/_nuxt/index.4Ed7D7Bn.js"
   },
-  "/_nuxt/vue.f36acd1f.DtiiP1ZR.js": {
+  "/_nuxt/NativePanners.CyNkZQAQ.js": {
     "type": "application/javascript",
-    "etag": "\"186-FJ1xK6h6x8z92hn0REnXQatq/Ak\"",
-    "mtime": "2024-03-01T19:53:38.629Z",
+    "etag": "\"2344-MRXUISZdHxVr+8tN6qzNyidAzZI\"",
+    "mtime": "2024-03-05T23:33:42.584Z",
+    "size": 9028,
+    "path": "../public/_nuxt/NativePanners.CyNkZQAQ.js"
+  },
+  "/_nuxt/vue.f36acd1f.BuEp8YMf.js": {
+    "type": "application/javascript",
+    "etag": "\"186-9UJrFuBC5lJwA+6mUePH8nPk84o\"",
+    "mtime": "2024-03-05T23:33:42.584Z",
     "size": 390,
-    "path": "../public/_nuxt/vue.f36acd1f.DtiiP1ZR.js"
+    "path": "../public/_nuxt/vue.f36acd1f.BuEp8YMf.js"
   },
-  "/_nuxt/_city_.BMSNdOPO.js": {
+  "/_nuxt/_city_.B-KjUAO4.js": {
     "type": "application/javascript",
-    "etag": "\"3268-+WHzoCo97KNIcqtwv51VWMZb/us\"",
-    "mtime": "2024-03-01T19:53:38.631Z",
-    "size": 12904,
-    "path": "../public/_nuxt/_city_.BMSNdOPO.js"
+    "etag": "\"332b-e+ixmKYItR5/35jDGS6RbRWnHOk\"",
+    "mtime": "2024-03-05T23:33:42.581Z",
+    "size": 13099,
+    "path": "../public/_nuxt/_city_.B-KjUAO4.js"
   },
   "/_nuxt/builds/latest.json": {
     "type": "application/json",
-    "etag": "\"47-OHrKQ4G3/sgC/L4uo16bLq91trY\"",
-    "mtime": "2024-03-01T19:53:41.228Z",
+    "etag": "\"47-1Ieq7TsWne+0ahiJK5Th0cadF5k\"",
+    "mtime": "2024-03-05T23:33:44.979Z",
     "size": 71,
     "path": "../public/_nuxt/builds/latest.json"
   },
-  "/_nuxt/builds/meta/3eb76109-be18-488f-a2b5-62fff3b95dc1.json": {
+  "/_nuxt/builds/meta/9e1cce4a-8e52-47fb-bc22-ab11f6405937.json": {
     "type": "application/json",
-    "etag": "\"8b-m+RlWJ9CGBLZL+wpJtW1BVFV39o\"",
-    "mtime": "2024-03-01T19:53:41.228Z",
+    "etag": "\"8b-CmAKyam+2nPaaSk9F+WIUpVM0Gw\"",
+    "mtime": "2024-03-05T23:33:44.979Z",
     "size": 139,
-    "path": "../public/_nuxt/builds/meta/3eb76109-be18-488f-a2b5-62fff3b95dc1.json"
+    "path": "../public/_nuxt/builds/meta/9e1cce4a-8e52-47fb-bc22-ab11f6405937.json"
   }
 };
 
@@ -5716,7 +5800,7 @@ const _f4b49z = eventHandler((event) => {
   return readAsset(id);
 });
 
-const _3Xgh1F = lazyEventHandler(() => {
+const _8vkwo0 = lazyEventHandler(() => {
   const opts = useRuntimeConfig().ipx || {};
   const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : void 0;
   const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : void 0;
@@ -5734,13 +5818,13 @@ const _3Xgh1F = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
-const _lazy_7ckoJ3 = () => import('../handlers/renderer.mjs').then(function (n) { return n.r; });
+const _lazy_DkWe7z = () => import('../handlers/renderer.mjs').then(function (n) { return n.r; });
 
 const handlers = [
   { route: '', handler: _f4b49z, lazy: false, middleware: true, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_7ckoJ3, lazy: true, middleware: false, method: undefined },
-  { route: '/_ipx/**', handler: _3Xgh1F, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_7ckoJ3, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_DkWe7z, lazy: true, middleware: false, method: undefined },
+  { route: '/_ipx/**', handler: _8vkwo0, lazy: false, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_DkWe7z, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -6114,5 +6198,5 @@ trapUnhandledNodeErrors();
 setupGracefulShutdown(listener, nitroApp);
 const nodeServer = {};
 
-export { $fetch as $, nodeServer as A, send as a, setResponseStatus as b, setResponseHeaders as c, useRuntimeConfig as d, eventHandler as e, getQuery as f, getResponseStatus as g, createError$1 as h, getRouteRules as i, joinURL as j, getResponseStatusText as k, defu as l, createHooks as m, sanitizeStatusCode as n, klona as o, parse as p, getRequestHeader as q, getRequestHeaders as r, setResponseHeader as s, destr as t, useNitroApp as u, isEqual as v, setCookie as w, getCookie as x, deleteCookie as y, hash as z };
+export { $fetch as $, nodeServer as A, send as a, setResponseStatus as b, setResponseHeaders as c, useRuntimeConfig as d, eventHandler as e, getQuery as f, getResponseStatus as g, createError$1 as h, getRouteRules as i, joinURL as j, getResponseStatusText as k, defu as l, hash as m, createHooks as n, sanitizeStatusCode as o, klona as p, parse as q, getRequestHeader as r, setResponseHeader as s, getRequestHeaders as t, useNitroApp as u, destr as v, isEqual as w, setCookie as x, getCookie as y, deleteCookie as z };
 //# sourceMappingURL=node-server.mjs.map

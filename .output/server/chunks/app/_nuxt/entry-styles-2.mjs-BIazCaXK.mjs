@@ -1,0 +1,4 @@
+const PlayControl_vue_vue_type_style_index_0_scoped_facfd4e0_lang = "input[type=range][data-v-facfd4e0]{accent-color:#ebebeb}.progress[data-v-facfd4e0]{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:#a0a0a0;background-image:linear-gradient(90deg,#fff,#fff);background-position-x:right;background-repeat:no-repeat;border:none;border-radius:50px;height:7px;margin-block:auto;transition-duration:1.5s;width:200px}.progress[data-v-facfd4e0]:hover{background-image:linear-gradient(90deg,#fff,#42867b)}input[type=range][data-v-facfd4e0]::-webkit-slider-thumb{-webkit-appearance:none;background:#fff;border-radius:50%;cursor:pointer;height:0;-webkit-transition:background .3s ease-in-out;transition:background .3s ease-in-out;width:0}";
+
+export { PlayControl_vue_vue_type_style_index_0_scoped_facfd4e0_lang as P };
+//# sourceMappingURL=entry-styles-2.mjs-BIazCaXK.mjs.map

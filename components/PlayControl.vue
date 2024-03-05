@@ -16,7 +16,7 @@
 				</div>
 				<!-- Progress Bar -->
 				<input type="range" min="0" :max=" audioPlayer.totalDuration " step="1"
-					v-model=" audioPlayer.currentTime " @input="setProgress( audioPlayer )"
+					v-model="audioPlayer.currentTime" @input="setProgress( audioPlayer )"
 					class="!p-0 lg:min-w-96 md:min-w-54 w-full rotate-180 progress flex-grow"
 					:style=" { backgroundSize: progressBackgroundSize } ">
 			</div>

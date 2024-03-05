@@ -33,7 +33,7 @@ const randomIndexData = Math.floor( Math.random() * leftData.length )
           <label for="" class=" shrink-0">
             <Image isrc="/svgs/locale.svg" ialt="search" iclass="" />
           </label>
-          <select v-model=" locale " @change=" changeLanguage ">
+          <select v-model="locale" @change=" changeLanguage ">
             <option value="en">English</option>
             <option value="ar">العربية</option>
             <option value="fr">French</option>
@@ -56,7 +56,7 @@ const randomIndexData = Math.floor( Math.random() * leftData.length )
     <div class=" sticky bottom-0">
       <PlayBar />
     </div>
-    <Footer :data=" landingData.data.attributes.footer "
-      :branding=" landingData.data.attributes.branding " />
+    <!-- <Footer :data=" landingData.data.attributes.footer "
+      :branding=" landingData.data.attributes.branding " /> -->
   </div>
 </template>
