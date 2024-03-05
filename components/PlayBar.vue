@@ -14,7 +14,7 @@
 			</div>
 			<!-- (B) AUDIO PLAYERS -->
 			<PlayControl />
-
+  
 		</div>
 	</div>
 </template>
