@@ -56,7 +56,7 @@ const randomIndexData = Math.floor( Math.random() * leftData.length )
     <div class=" sticky bottom-0">
       <PlayBar />
     </div>
-    <!-- <Footer :data=" landingData.data.attributes.footer "
-      :branding=" landingData.data.attributes.branding " /> -->
+    <Footer :data=" landingData.data.attributes.footer "
+      :branding=" landingData.data.attributes.branding " />
   </div>
 </template>
