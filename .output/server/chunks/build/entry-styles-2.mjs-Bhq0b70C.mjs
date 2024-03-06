@@ -1,4 +1,0 @@
-const PlayControl_vue_vue_type_style_index_0_scoped_7bba780a_lang = "input[type=range][data-v-7bba780a]{accent-color:#ebebeb}.progress[data-v-7bba780a]{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:#a0a0a0;background-image:linear-gradient(90deg,#fff,#fff);background-position-x:right;background-repeat:no-repeat;border:none;border-radius:50px;height:7px;margin-block:auto;transition-duration:1.5s;width:200px}.progress[data-v-7bba780a]:hover{background-image:linear-gradient(90deg,#fff,#42867b)}input[type=range][data-v-7bba780a]::-webkit-slider-thumb{-webkit-appearance:none;background:#fff;border-radius:50%;cursor:pointer;height:0;-webkit-transition:background .3s ease-in-out;transition:background .3s ease-in-out;width:0}";
-
-export { PlayControl_vue_vue_type_style_index_0_scoped_7bba780a_lang as P };
-//# sourceMappingURL=entry-styles-2.mjs-Bhq0b70C.mjs.map
