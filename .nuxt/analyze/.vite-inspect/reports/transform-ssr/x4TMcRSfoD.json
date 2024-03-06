@@ -1,0 +1,336 @@
+{
+  "resolvedId": "D:/quran/nuxt-app/components/MobileHeaderToggle.vue?vue&type=style&index=0&scoped=b1d24297&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.modal-outer-enter-active {\r\n\ttransition: opacity .1s cubic-bezier(0.52, 0.02, 0.19, 1.02);\r\n\r\n}\r\n\r\n.modal-outer-leave-active {\r\n\ttransition: opacity .4s cubic-bezier(0.52, 0.02, 0.19, 1.02);\r\n}\r\n\r\n.modal-outer-enter-from {\r\n\topacity: .5;\r\n\r\n}\r\n\r\n.modal-outer-leave-to {\r\n\topacity: 1;\r\n}\r\n\r\n.modal-inner-enter-active {\r\n\ttransition: all 0.4s cubic-bezier(0.52, 0.02, 0.19, 1.02) 0s;\r\n}\r\n\r\n\r\n.modal-inner-leave-active {\r\n\ttransition: all 0.4s cubic-bezier(0.52, 0.02, 0.19, 1.02);\r\n}\r\n\r\n.modal-inner-enter-from {\r\n\topacity: 0;\r\n\ttransform: translateX(100%);\r\n}\r\n\r\n.modal-inner-leave-to {\r\n\ttransform: translateX(100%);\r\n}\r\n[dir=\"ltr\"] .modal-inner-enter-from,\r\n[dir=\"ltr\"] .modal-inner-leave-to {\r\n  transform: translateX(-100%);\r\n}\r\n",
+      "start": 1709748314094,
+      "end": 1709748314094,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/quran/nuxt-app/components/MobileHeaderToggle.vue"
+        ],
+        "names": [],
+        "mappings": "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AAC,EAAE;CACrB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EAChC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B",
+        "file": "D:/quran/nuxt-app/components/MobileHeaderToggle.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n\t<Teleport to=\"body\" :dir=\" dir \">\r\n\t\t<Transition name=\"modal-outer\">\r\n\t\t\t<div v-show=\" modalActive \" :dir=\" dir \"\r\n\t\t\t\tclass=\"  bg-black  bg-opacity-80  z-[99999999999999]  fixed inset-0 md:hidden\"\r\n\t\t\t\t@click=\"$emit( 'close-modal' )\">\r\n\t\t\t\t<Transition name=\"modal-inner\">\r\n\t\t\t\t\t<div v-if=\" modalActive \" class=\" backdrop-blur-[1px] h-full \">\r\n\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\tclass=\" bg-white p-4 w-[280px] max-w-[450px] sm:w-3/5 flex flex-col gap-5 h-full\">\r\n\t\t\t\t\t\t\t<div class=\" flex justify-between\">\r\n\t\t\t\t\t\t\t\t<Logo />\r\n\t\t\t\t\t\t\t\t<button class=\" \">\r\n\t\t\t\t\t\t\t\t\t<Image isrc=\"svgs/close-mobile-toggel.svg\" ialt=\"close\" iclass=\"\" />\r\n\t\t\t\t\t\t\t\t</button>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<NavButtons />\r\n\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\tclass=\"w-full flex-grow bg-yellow-50 rounded-xl border border-neutral-200 p-2\">\r\n\t\t\t\t\t\t\t\t<div class=\"  text-black text-[23px] \">مساحة إعلانية</div>\r\n\t\t\t\t\t\t\t\t<div\r\n\t\t\t\t\t\t\t\t\tclass=\"text-right text-zinc-500 text-[13px] font-normal font-['Almarai'] \">\r\n\t\t\t\t\t\t\t\t\tلوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس\r\n\t\t\t\t\t\t\t\t\tالمحتوى) ويُستخدم في صناعات المطابع ودور النشر.</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</Transition>\r\n\t\t\t</div>\r\n\t\t</Transition>\r\n\t</Teleport>\r\n</template>\r\n\r\n<script setup>\r\nimport { ref, watch } from 'vue'\r\ndefineEmits( [ \"close-modal\" ] )\r\nconst props = defineProps( {\r\n\tmodalActive: {\r\n\t\ttype: Boolean,\r\n\t\tdefault: false,\r\n\t},\r\n} )\r\n\r\nconst { locale } = useI18n()\r\nconst dir = ref( locale.value === 'ar' ? 'rtl' : 'ltr' )\r\n\r\n\r\n\r\nwatch( locale, ( newValue, oldValue ) => {\r\n\tif ( newValue !== oldValue ) {\r\n\t\tdir.value = newValue === 'ar' ? 'rtl' : 'ltr'\r\n\t}\r\n} )\r\n\r\n\r\n</script>\r\n\r\n<style scoped>\r\n.modal-outer-enter-active {\r\n\ttransition: opacity .1s cubic-bezier(0.52, 0.02, 0.19, 1.02);\r\n\r\n}\r\n\r\n.modal-outer-leave-active {\r\n\ttransition: opacity .4s cubic-bezier(0.52, 0.02, 0.19, 1.02);\r\n}\r\n\r\n.modal-outer-enter-from {\r\n\topacity: .5;\r\n\r\n}\r\n\r\n.modal-outer-leave-to {\r\n\topacity: 1;\r\n}\r\n\r\n.modal-inner-enter-active {\r\n\ttransition: all 0.4s cubic-bezier(0.52, 0.02, 0.19, 1.02) 0s;\r\n}\r\n\r\n\r\n.modal-inner-leave-active {\r\n\ttransition: all 0.4s cubic-bezier(0.52, 0.02, 0.19, 1.02);\r\n}\r\n\r\n.modal-inner-enter-from {\r\n\topacity: 0;\r\n\ttransform: translateX(100%);\r\n}\r\n\r\n.modal-inner-leave-to {\r\n\ttransform: translateX(100%);\r\n}\r\n[dir=\"ltr\"] .modal-inner-enter-from,\r\n[dir=\"ltr\"] .modal-inner-leave-to {\r\n  transform: translateX(-100%);\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709748314094,
+      "end": 1709748314094,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709748314094,
+      "end": 1709748314094,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709748314094,
+      "end": 1709748314094,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709748314094,
+      "end": 1709748314094,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1709748314094,
+      "end": 1709748314095,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1709748314094,
+      "end": 1709748314095,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709748314095,
+      "end": 1709748314095,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".modal-outer-enter-active{transition:opacity .1s cubic-bezier(.52,.02,.19,1.02)}.modal-outer-leave-active{transition:opacity .4s cubic-bezier(.52,.02,.19,1.02)}.modal-outer-enter-from{opacity:.5}.modal-outer-leave-to{opacity:1}.modal-inner-enter-active{transition:all .4s cubic-bezier(.52,.02,.19,1.02) 0s}.modal-inner-leave-active{transition:all .4s cubic-bezier(.52,.02,.19,1.02)}.modal-inner-enter-from{opacity:0}.modal-inner-enter-from,.modal-inner-leave-to{transform:translateX(100%)}[dir=ltr] .modal-inner-enter-from,[dir=ltr] .modal-inner-leave-to{transform:translateX(-100%)}",
+      "start": 1709748314095,
+      "end": 1709748314100,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "D:/quran/nuxt-app/components/MobileHeaderToggle.vue",
+        "mappings": "AACA,0BACC,qDAED,CAEA,0BACC,qDACD,CAEA,wBACC,UAED,CAEA,sBACC,SACD,CAEA,0BACC,oDACD,CAGA,0BACC,iDACD,CAEA,wBACC,SAED,CAEA,8CAHC,0BAKD,CACA,kEAEE,2BACF",
+        "names": [],
+        "sources": [
+          "D:/quran/nuxt-app/components/MobileHeaderToggle.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.modal-outer-enter-active {\r\n\ttransition: opacity .1s cubic-bezier(0.52, 0.02, 0.19, 1.02);\r\n\r\n}\r\n\r\n.modal-outer-leave-active {\r\n\ttransition: opacity .4s cubic-bezier(0.52, 0.02, 0.19, 1.02);\r\n}\r\n\r\n.modal-outer-enter-from {\r\n\topacity: .5;\r\n\r\n}\r\n\r\n.modal-outer-leave-to {\r\n\topacity: 1;\r\n}\r\n\r\n.modal-inner-enter-active {\r\n\ttransition: all 0.4s cubic-bezier(0.52, 0.02, 0.19, 1.02) 0s;\r\n}\r\n\r\n\r\n.modal-inner-leave-active {\r\n\ttransition: all 0.4s cubic-bezier(0.52, 0.02, 0.19, 1.02);\r\n}\r\n\r\n.modal-inner-enter-from {\r\n\topacity: 0;\r\n\ttransform: translateX(100%);\r\n}\r\n\r\n.modal-inner-leave-to {\r\n\ttransform: translateX(100%);\r\n}\r\n[dir=\"ltr\"] .modal-inner-enter-from,\r\n[dir=\"ltr\"] .modal-inner-leave-to {\r\n  transform: translateX(-100%);\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709748314100,
+      "end": 1709748314100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709748314100,
+      "end": 1709748314100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709748314100,
+      "end": 1709748314100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".modal-outer-enter-active[data-v-b1d24297]{transition:opacity .1s cubic-bezier(.52,.02,.19,1.02)}.modal-outer-leave-active[data-v-b1d24297]{transition:opacity .4s cubic-bezier(.52,.02,.19,1.02)}.modal-outer-enter-from[data-v-b1d24297]{opacity:.5}.modal-outer-leave-to[data-v-b1d24297]{opacity:1}.modal-inner-enter-active[data-v-b1d24297]{transition:all .4s cubic-bezier(.52,.02,.19,1.02) 0s}.modal-inner-leave-active[data-v-b1d24297]{transition:all .4s cubic-bezier(.52,.02,.19,1.02)}.modal-inner-enter-from[data-v-b1d24297]{opacity:0}.modal-inner-enter-from[data-v-b1d24297],.modal-inner-leave-to[data-v-b1d24297]{transform:translateX(100%)}[dir=ltr] .modal-inner-enter-from[data-v-b1d24297],[dir=ltr] .modal-inner-leave-to[data-v-b1d24297]{transform:translateX(-100%)}",
+      "start": 1709748314100,
+      "end": 1709748314101,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "D:/quran/nuxt-app/components/MobileHeaderToggle.vue",
+        "mappings": "AAAA,2CAA0B,qDAAqD,CAAC,2CAA0B,qDAAqD,CAAC,yCAAwB,UAAU,CAAC,uCAAsB,SAAS,CAAC,2CAA0B,oDAAoD,CAAC,2CAA0B,iDAAiD,CAAC,yCAAwB,SAAS,CAAC,gFAA8C,0BAA0B,CAAC,oGAAkE,2BAA2B",
+        "names": [],
+        "sources": [
+          "D:/quran/nuxt-app/components/MobileHeaderToggle.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709748314101,
+      "end": 1709748314101,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709748314101,
+      "end": 1709748314102,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709748314101,
+      "end": 1709748314102,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709748314102,
+      "end": 1709748314102,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709748314102,
+      "end": 1709748314102,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709748314102,
+      "end": 1709748314102,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709748314102,
+      "end": 1709748314102,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709748314102,
+      "end": 1709748314103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1709748314103,
+      "end": 1709748314103,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1709748314103,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1709748314103,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709748314110,
+      "end": 1709748314110,
+      "order": "normal"
+    }
+  ]
+}

@@ -37,7 +37,7 @@ const { data: landingData } = await useFetch( domain + landing + locale.value )
 
 
 const links = landingData.value.data.attributes.branding
-const activeBanners = landingData.value.data.attributes.banners_native.filter( item => item.active === true )
+const activeBanners = landingData.value.data.attributes.banners_native.filter( item => item.active === true&&item.location==='bottom' )
 const randomIndex = Math.floor( Math.random() * activeBanners.length )
 const activeOne = activeBanners[ randomIndex ]
 

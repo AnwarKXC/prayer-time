@@ -23,7 +23,7 @@
 		</p>
 		<template v-else>
 			<NuxtLink
-				:to=" '/' + res.attributes.prayer_time_country.data.attributes.api_country_code + '/' + res.attributes.prayer_time_country.data.id + '/' + res.attributes.api_city_code "
+				:to=" '/app/' + res.attributes.prayer_time_country.data.attributes.api_country_code + '/' + res.attributes.prayer_time_country.data.id + '/' + res.attributes.api_city_code "
 				v-for="       res        in        countrySearchResults      " :key=" res.id ">
 				<li class="py-2 cursor-pointer flex gap-1 items-center hover:bg-primary 
 							hover:text-white">
@@ -33,7 +33,7 @@
 						:alt=" res.attributes.title " class=" h-7 aspect-square rounded-full mx-2">
 					<span>
 						{{ res.attributes.title + " - " +
-							res.attributes.prayer_time_country.data.attributes.name }}
+						res.attributes.prayer_time_country.data.attributes.name }}
 					</span>
 				</li>
 			</NuxtLink>
@@ -49,8 +49,9 @@
 				<Image isrc="/modal-gps.png" ialt="mobile GPS" iclass="max-h-[200px] min-h-[100px]  " />
 			</div>
 			<div class=" grid md:gap-8 gap-4 ">
-				<h2 class=" h__primary max-md:text-center max-w-[450px]">{{ $t( 'location.locationtext' )
-				}}</h2>
+				<h2 class=" h__primary max-md:text-center max-w-[450px]">{{ $t( 'location.locationtext'
+					)
+					}}</h2>
 				<div class="flex gap-4 items-center max-md:justify-center whitespace-nowrap">
 					<Button buttonText="location.buttongreen"
 						buttonClass="bg-primary text-white btn__primary max-md:text-sm "></Button>

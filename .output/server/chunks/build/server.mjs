@@ -1,4 +1,4 @@
-import { hasInjectionContext, inject, version, unref, defineComponent, h, getCurrentInstance, onUnmounted, useSSRContext, provide, shallowReactive, ref, watch, Suspense, nextTick, Transition, computed, toValue, reactive, Fragment, mergeProps, resolveComponent, shallowRef, toRef, onServerPrefetch, withCtx, createVNode, openBlock, createBlock, createCommentVNode, toDisplayString as toDisplayString$1, createApp, effectScope, defineAsyncComponent, onErrorCaptured, resolveDynamicComponent, isReadonly, Text, isRef, isShallow, isReactive, toRaw, withAsyncContext, withDirectives, vModelSelect } from 'vue';
+import { hasInjectionContext, inject, version, unref, defineComponent, h, getCurrentInstance, onUnmounted, useSSRContext, provide, shallowReactive, ref, watch, Suspense, nextTick, Transition, computed, toValue, reactive, Fragment, mergeProps, resolveComponent, shallowRef, toRef, onServerPrefetch, withCtx, createVNode, openBlock, createBlock, createCommentVNode, toDisplayString as toDisplayString$1, createApp, effectScope, defineAsyncComponent, onErrorCaptured, resolveDynamicComponent, isReadonly, Text, isRef, isShallow, isReactive, toRaw, withAsyncContext, withDirectives, vModelSelect, createTextVNode } from 'vue';
 import { d as useRuntimeConfig$1, $ as $fetch, h as createError$1, l as defu, m as hash, n as createHooks, o as sanitizeStatusCode, p as klona, q as parse$1, r as getRequestHeader, t as getRequestHeaders, v as destr, w as isEqual$1, x as setCookie, y as getCookie, z as deleteCookie } from '../runtime.mjs';
 import { getActiveHead } from 'unhead';
 import { defineHeadPlugin } from '@unhead/shared';
@@ -865,20 +865,20 @@ function toArray(value) {
 }
 const _routes = [
   {
-    name: "country-id-city",
-    path: "/:country()/:id()/:city()",
+    name: "app-country-id-city",
+    path: "/app/:country()/:id()/:city()",
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_city_-Bf2Bnfx7.mjs').then((m) => m.default || m)
+    component: () => import('./_city_-Bxb56ve6.mjs').then((m) => m.default || m)
   },
   {
-    name: "index",
-    path: "/",
+    name: "app",
+    path: "/app",
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-ihLAffa1.mjs').then((m) => m.default || m)
+    component: () => import('./index-BMuqPoXf.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -6591,7 +6591,7 @@ const plugins = [
   components_plugin_KR1HBZs4kY,
   i18n_yfWm7jX06p
 ];
-const _sfc_main$e = {
+const _sfc_main$f = {
   __name: "Image",
   __ssrInlineRender: true,
   props: {
@@ -6618,13 +6618,13 @@ const _sfc_main$e = {
     };
   }
 };
-const _sfc_setup$e = _sfc_main$e.setup;
-_sfc_main$e.setup = (props, ctx) => {
+const _sfc_setup$f = _sfc_main$f.setup;
+_sfc_main$f.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Image.vue");
-  return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
+  return _sfc_setup$f ? _sfc_setup$f(props, ctx) : void 0;
 };
-const __nuxt_component_0$3 = _sfc_main$e;
+const __nuxt_component_0$3 = _sfc_main$f;
 const firstNonUndefined = (...args) => args.find((arg) => arg !== void 0);
 // @__NO_SIDE_EFFECTS__
 function defineNuxtLink(options) {
@@ -6836,7 +6836,7 @@ function applyTrailingSlashBehavior(to, trailingSlash) {
   }
   return normalizeFn(to, true);
 }
-const _sfc_main$d = {
+const _sfc_main$e = {
   __name: "Button",
   __ssrInlineRender: true,
   props: {
@@ -6857,14 +6857,14 @@ const _sfc_main$d = {
     };
   }
 };
-const _sfc_setup$d = _sfc_main$d.setup;
-_sfc_main$d.setup = (props, ctx) => {
+const _sfc_setup$e = _sfc_main$e.setup;
+_sfc_main$e.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Button.vue");
-  return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
+  return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
 };
-const __nuxt_component_2$2 = _sfc_main$d;
-const _sfc_main$c = {
+const __nuxt_component_2$2 = _sfc_main$e;
+const _sfc_main$d = {
   __name: "RightSideBar",
   __ssrInlineRender: true,
   props: {
@@ -6966,7 +6966,7 @@ const _sfc_main$c = {
       ssrRenderList(props.menu, (item) => {
         _push(`<li class="border-gray-200 flex p-1.5 border-b">`);
         _push(ssrRenderComponent(_component_NuxtLink, {
-          to: "/" + item.link,
+          to: "/app/" + item.link,
           class: [unref(route).path === `/${item.link}` ? "bg-primary text-white" : "", "flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group"]
         }, {
           default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -7042,13 +7042,13 @@ const _sfc_main$c = {
     };
   }
 };
-const _sfc_setup$c = _sfc_main$c.setup;
-_sfc_main$c.setup = (props, ctx) => {
+const _sfc_setup$d = _sfc_main$d.setup;
+_sfc_main$d.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/RightSideBar.vue");
-  return _sfc_setup$c ? _sfc_setup$c(props, ctx) : void 0;
+  return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
 };
-const __nuxt_component_1$3 = _sfc_main$c;
+const __nuxt_component_1$3 = _sfc_main$d;
 const RouteProvider = defineComponent({
   props: {
     vnode: {
@@ -7188,7 +7188,7 @@ function hasChildrenRoutes(fork, newRoute, Component) {
   });
   return index < newRoute.matched.length - 1;
 }
-const _sfc_main$b = {
+const _sfc_main$c = {
   __name: "LeftSideBar",
   __ssrInlineRender: true,
   props: {
@@ -7236,17 +7236,17 @@ const _sfc_main$b = {
     };
   }
 };
-const _sfc_setup$b = _sfc_main$b.setup;
-_sfc_main$b.setup = (props, ctx) => {
+const _sfc_setup$c = _sfc_main$c.setup;
+_sfc_main$c.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LeftSideBar.vue");
-  return _sfc_setup$b ? _sfc_setup$b(props, ctx) : void 0;
+  return _sfc_setup$c ? _sfc_setup$c(props, ctx) : void 0;
 };
-const __nuxt_component_3 = _sfc_main$b;
-const _imports_0$1 = "" + __publicAssetsURL("svgs/Icon-Forwardsvg.svg");
-const _imports_1$1 = "" + __publicAssetsURL("svgs/Icon-Play.svg");
-const _imports_2 = "" + __publicAssetsURL("svgs/Icon-Pause.svg");
-const _imports_3 = "" + __publicAssetsURL("svgs/Icon-Rewindsvg.svg");
+const __nuxt_component_3 = _sfc_main$c;
+const _imports_0$2 = "" + __publicAssetsURL("svgs/Icon-Forwardsvg.svg");
+const _imports_1$2 = "" + __publicAssetsURL("svgs/Icon-Play.svg");
+const _imports_2$1 = "" + __publicAssetsURL("svgs/Icon-Pause.svg");
+const _imports_3$1 = "" + __publicAssetsURL("svgs/Icon-Rewindsvg.svg");
 const _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -7254,7 +7254,7 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$a = {
+const _sfc_main$b = {
   __name: "PlayControl",
   __ssrInlineRender: true,
   setup(__props) {
@@ -7273,32 +7273,32 @@ const _sfc_main$a = {
       return `${progress * 100}% 100%`;
     });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex-grow" }, _attrs))} data-v-facfd4e0><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex-grow" }, _attrs))} data-v-7bba780a><!--[-->`);
       ssrRenderList(audioPlayers.value, (audioPlayer, index) => {
-        _push(`<div class="flex items-center md:gap-8 gap-3 justify-end text-white" data-v-facfd4e0><div class="flex gap-3 flex-grow" data-v-facfd4e0><div class="relative group shrink-0" data-v-facfd4e0><button data-v-facfd4e0><img class="mt-[5px] w-[26px] h-[26px]"${ssrRenderAttr("src", audioPlayer.volume === 0 ? "/svgs/Icon-Volume-mute.svg" : "/svgs/Icon-Volume.svg")} alt="" data-v-facfd4e0></button></div><input type="range" min="0"${ssrRenderAttr("max", audioPlayer.totalDuration)} step="1"${ssrRenderAttr("value", audioPlayer.currentTime)} class="!p-0 lg:min-w-96 md:min-w-54 w-full rotate-180 progress flex-grow" style="${ssrRenderStyle({ backgroundSize: progressBackgroundSize.value })}" data-v-facfd4e0></div><div class="flex md:gap-4 items-center ltr:flex-row-reverse" data-v-facfd4e0><button data-v-facfd4e0><img${ssrRenderAttr("src", _imports_0$1)} alt="" data-v-facfd4e0></button><button class="w-10 cent" data-v-facfd4e0><img${ssrRenderAttr("src", _imports_1$1)} alt="" style="${ssrRenderStyle({ "display": "none" })}" data-v-facfd4e0><img${ssrRenderAttr("src", _imports_2)} alt="" style="${ssrRenderStyle({ "display": "none" })}" data-v-facfd4e0>`);
+        _push(`<div class="flex items-center md:gap-8 gap-3 justify-end text-white" data-v-7bba780a><div class="flex gap-3 flex-grow" data-v-7bba780a><div class="relative group shrink-0" data-v-7bba780a><button data-v-7bba780a><img class="mt-[5px] w-[26px] h-[26px]"${ssrRenderAttr("src", audioPlayer.volume === 0 ? "/svgs/Icon-Volume-mute.svg" : "/svgs/Icon-Volume.svg")} alt="" data-v-7bba780a></button></div><input type="range" min="0"${ssrRenderAttr("max", audioPlayer.totalDuration)} step="1"${ssrRenderAttr("value", audioPlayer.currentTime)} class="!p-0 lg:min-w-96 md:min-w-54 w-full rotate-180 progress flex-grow" style="${ssrRenderStyle({ backgroundSize: progressBackgroundSize.value })}" data-v-7bba780a></div><div class="flex md:gap-4 items-center ltr:flex-row-reverse" data-v-7bba780a><button data-v-7bba780a><img${ssrRenderAttr("src", _imports_0$2)} alt="" data-v-7bba780a></button><button class="w-10 cent" data-v-7bba780a><img${ssrRenderAttr("src", _imports_1$2)} alt="" style="${ssrRenderStyle({ "display": "none" })}" data-v-7bba780a><img${ssrRenderAttr("src", _imports_2$1)} alt="" style="${ssrRenderStyle({ "display": "none" })}" data-v-7bba780a>`);
         if (audioPlayer.isPlaying) {
-          _push(`<img${ssrRenderAttr("src", _imports_2)} alt="" class="max-md:w-4" data-v-facfd4e0>`);
+          _push(`<img${ssrRenderAttr("src", _imports_2$1)} alt="" class="max-md:w-4" data-v-7bba780a>`);
         } else {
-          _push(`<img${ssrRenderAttr("src", _imports_1$1)} alt="" class="max-md:w-6" data-v-facfd4e0>`);
+          _push(`<img${ssrRenderAttr("src", _imports_1$2)} alt="" class="max-md:w-6" data-v-7bba780a>`);
         }
-        _push(`</button><button data-v-facfd4e0><img${ssrRenderAttr("src", _imports_3)} alt="" data-v-facfd4e0></button></div><div class="text-neutral-300 font-sm flex items-center gap-3 shrink-0 max-md:order-first max-md:hidden" data-v-facfd4e0><span class="w-9" data-v-facfd4e0>${ssrInterpolate(timeString(audioPlayer.currentTime))}</span> / <span class="w-9" data-v-facfd4e0>${ssrInterpolate(timeString(audioPlayer.totalDuration))}</span></div></div>`);
+        _push(`</button><button data-v-7bba780a><img${ssrRenderAttr("src", _imports_3$1)} alt="" data-v-7bba780a></button></div><div class="text-neutral-300 font-sm flex items-center gap-3 shrink-0 max-md:order-first max-md:hidden" data-v-7bba780a><span class="w-9" data-v-7bba780a>${ssrInterpolate(timeString(audioPlayer.currentTime))}</span> / <span class="w-9" data-v-7bba780a>${ssrInterpolate(timeString(audioPlayer.totalDuration))}</span></div></div>`);
       });
       _push(`<!--]--></div>`);
     };
   }
 };
-const _sfc_setup$a = _sfc_main$a.setup;
-_sfc_main$a.setup = (props, ctx) => {
+const _sfc_setup$b = _sfc_main$b.setup;
+_sfc_main$b.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/PlayControl.vue");
-  return _sfc_setup$a ? _sfc_setup$a(props, ctx) : void 0;
+  return _sfc_setup$b ? _sfc_setup$b(props, ctx) : void 0;
 };
-const __nuxt_component_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-facfd4e0"]]);
-const _sfc_main$9 = {};
+const __nuxt_component_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-7bba780a"]]);
+const _sfc_main$a = {};
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
   const _component_Image = __nuxt_component_0$3;
   const _component_PlayControl = __nuxt_component_1$2;
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full bg-primary items-center md:py-2.5 py-1 drop-shadow shadow-primary" }, _attrs))}><div class="container flex justify-between items-center gap-y-2 gap-8 flex-wrap"><div class="flex items-center gap-3"><div>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full bg-primary md:py-2.5 py-1 drop-shadow shadow-primary hidden" }, _attrs))}><div class="container flex justify-between items-center gap-y-2 gap-8 flex-wrap"><div class="flex items-center gap-3"><div>`);
   _push(ssrRenderComponent(_component_Image, {
     isrc: "/play-bar.png",
     ialt: "logo",
@@ -7308,13 +7308,13 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
   _push(ssrRenderComponent(_component_PlayControl, null, null, _parent));
   _push(`</div></div>`);
 }
-const _sfc_setup$9 = _sfc_main$9.setup;
-_sfc_main$9.setup = (props, ctx) => {
+const _sfc_setup$a = _sfc_main$a.setup;
+_sfc_main$a.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/PlayBar.vue");
-  return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
+  return _sfc_setup$a ? _sfc_setup$a(props, ctx) : void 0;
 };
-const __nuxt_component_4 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["ssrRender", _sfc_ssrRender$1]]);
+const __nuxt_component_4 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["ssrRender", _sfc_ssrRender$1]]);
 const isDefer = (dedupe) => dedupe === "defer" || dedupe === false;
 function useAsyncData(...args) {
   var _b;
@@ -7516,7 +7516,7 @@ function generateOptionSegments(opts) {
   }
   return segments;
 }
-const _sfc_main$8 = {
+const _sfc_main$9 = {
   __name: "Logo",
   __ssrInlineRender: true,
   props: {
@@ -7530,7 +7530,7 @@ const _sfc_main$8 = {
     const domain = "https://cms.prayer-now.com";
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      _push(ssrRenderComponent(_component_NuxtLink, mergeProps({ to: "/" }, _attrs), {
+      _push(ssrRenderComponent(_component_NuxtLink, mergeProps({ to: "/app/" }, _attrs), {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             _push2(`<img${ssrRenderAttr("src", unref(domain) + props.source)} alt="logo" class="md:max-w-[65px] md:max-h-[65px] max-w-[55px] max-h-[55px]"${_scopeId}>`);
@@ -7549,24 +7549,24 @@ const _sfc_main$8 = {
     };
   }
 };
+const _sfc_setup$9 = _sfc_main$9.setup;
+_sfc_main$9.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Logo.vue");
+  return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
+};
+const __nuxt_component_0$1 = _sfc_main$9;
+const _sfc_main$8 = {};
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
+}
 const _sfc_setup$8 = _sfc_main$8.setup;
 _sfc_main$8.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Logo.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/NavButtons.vue");
   return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
 };
-const __nuxt_component_0$1 = _sfc_main$8;
-const _sfc_main$7 = {};
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-}
-const _sfc_setup$7 = _sfc_main$7.setup;
-_sfc_main$7.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/NavButtons.vue");
-  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
-};
-const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["ssrRender", _sfc_ssrRender]]);
-const _sfc_main$6 = {
+const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender]]);
+const _sfc_main$7 = {
   __name: "MobileHeaderToggle",
   __ssrInlineRender: true,
   props: {
@@ -7610,14 +7610,14 @@ const _sfc_main$6 = {
     };
   }
 };
-const _sfc_setup$6 = _sfc_main$6.setup;
-_sfc_main$6.setup = (props, ctx) => {
+const _sfc_setup$7 = _sfc_main$7.setup;
+_sfc_main$7.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/MobileHeaderToggle.vue");
-  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
+  return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
-const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-b1d24297"]]);
-const _sfc_main$5 = {
+const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-b1d24297"]]);
+const _sfc_main$6 = {
   __name: "Modal",
   __ssrInlineRender: true,
   props: {
@@ -7645,16 +7645,16 @@ const _sfc_main$5 = {
     };
   }
 };
-const _sfc_setup$5 = _sfc_main$5.setup;
-_sfc_main$5.setup = (props, ctx) => {
+const _sfc_setup$6 = _sfc_main$6.setup;
+_sfc_main$6.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Modal.vue");
-  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-26e97e77"]]);
-const _imports_0 = "" + __publicAssetsURL("svgs/Search.svg");
-const _imports_1 = "" + __publicAssetsURL("svgs/gps.svg");
-const _sfc_main$4 = {
+const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-26e97e77"]]);
+const _imports_0$1 = "" + __publicAssetsURL("svgs/Search.svg");
+const _imports_1$1 = "" + __publicAssetsURL("svgs/gps.svg");
+const _sfc_main$5 = {
   __name: "Search",
   __ssrInlineRender: true,
   setup(__props) {
@@ -7673,7 +7673,7 @@ const _sfc_main$4 = {
       const _component_Modal = __nuxt_component_1$1;
       const _component_Image = __nuxt_component_0$3;
       const _component_Button = __nuxt_component_2$2;
-      _push(`<!--[--><form class="flex-grow relative"><input type="search" name=""${ssrRenderAttr("value", searchQuery.value)}${ssrRenderAttr("placeholder", _ctx.$t("searchbar.searchtext1"))} class="w-full focus:border-primary outline-none border-2 rtl:pl-14 ltr:pr-14" id="myInput"><button type="submit"><img${ssrRenderAttr("src", _imports_0)} alt="" class="absolute rtl:left-1.5 ltr:right-1.5 top-2 rounded-xl bg-white ltr:scale-x-[-1] transform p-2"></button></form><button class="bg-primary size-[45px] rounded-xl cent"><img${ssrRenderAttr("src", _imports_1)} alt=""></button>`);
+      _push(`<!--[--><form class="flex-grow relative"><input type="search" name=""${ssrRenderAttr("value", searchQuery.value)}${ssrRenderAttr("placeholder", _ctx.$t("searchbar.searchtext1"))} class="w-full focus:border-primary outline-none border-2 rtl:pl-14 ltr:pr-14" id="myInput"><button type="submit"><img${ssrRenderAttr("src", _imports_0$1)} alt="" class="absolute rtl:left-1.5 ltr:right-1.5 top-2 rounded-xl bg-white ltr:scale-x-[-1] transform p-2"></button></form><button class="bg-primary size-[45px] rounded-xl cent"><img${ssrRenderAttr("src", _imports_1$1)} alt=""></button>`);
       if (countrySearchResults.value && show.value) {
         _push(`<ul id="myUL" class="divide-y divide-gray-200 drop-shadow bg-white rounded-xl max-h-56 overflow-y-auto absolute top-20 w-full left-0 right-0 my-1">`);
         if (searchError.value) {
@@ -7687,7 +7687,7 @@ const _sfc_main$4 = {
           _push(`<!--[-->`);
           ssrRenderList(countrySearchResults.value, (res) => {
             _push(ssrRenderComponent(_component_NuxtLink, {
-              to: "/" + res.attributes.prayer_time_country.data.attributes.api_country_code + "/" + res.attributes.prayer_time_country.data.id + "/" + res.attributes.api_city_code,
+              to: "/app/" + res.attributes.prayer_time_country.data.attributes.api_country_code + "/" + res.attributes.prayer_time_country.data.id + "/" + res.attributes.api_city_code,
               key: res.id
             }, {
               default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -7734,7 +7734,9 @@ const _sfc_main$4 = {
               ialt: "mobile GPS",
               iclass: "max-h-[200px] min-h-[100px]  "
             }, null, _parent2, _scopeId));
-            _push2(`</div><div class="grid md:gap-8 gap-4"${_scopeId}><h2 class="h__primary max-md:text-center max-w-[450px]"${_scopeId}>${ssrInterpolate(_ctx.$t("location.locationtext"))}</h2><div class="flex gap-4 items-center max-md:justify-center whitespace-nowrap"${_scopeId}>`);
+            _push2(`</div><div class="grid md:gap-8 gap-4"${_scopeId}><h2 class="h__primary max-md:text-center max-w-[450px]"${_scopeId}>${ssrInterpolate(_ctx.$t(
+              "location.locationtext"
+            ))}</h2><div class="flex gap-4 items-center max-md:justify-center whitespace-nowrap"${_scopeId}>`);
             _push2(ssrRenderComponent(_component_Button, {
               buttonText: "location.buttongreen",
               buttonClass: "bg-primary text-white btn__primary max-md:text-sm "
@@ -7756,7 +7758,9 @@ const _sfc_main$4 = {
                   })
                 ]),
                 createVNode("div", { class: "grid md:gap-8 gap-4" }, [
-                  createVNode("h2", { class: "h__primary max-md:text-center max-w-[450px]" }, toDisplayString$1(_ctx.$t("location.locationtext")), 1),
+                  createVNode("h2", { class: "h__primary max-md:text-center max-w-[450px]" }, toDisplayString$1(_ctx.$t(
+                    "location.locationtext"
+                  )), 1),
                   createVNode("div", { class: "flex gap-4 items-center max-md:justify-center whitespace-nowrap" }, [
                     createVNode(_component_Button, {
                       buttonText: "location.buttongreen",
@@ -7779,14 +7783,14 @@ const _sfc_main$4 = {
     };
   }
 };
-const _sfc_setup$4 = _sfc_main$4.setup;
-_sfc_main$4.setup = (props, ctx) => {
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Search.vue");
-  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
-const __nuxt_component_1 = _sfc_main$4;
-const _sfc_main$3 = {
+const __nuxt_component_1 = _sfc_main$5;
+const _sfc_main$4 = {
   __name: "Header",
   __ssrInlineRender: true,
   props: {
@@ -7836,13 +7840,208 @@ const _sfc_main$3 = {
     };
   }
 };
+const _sfc_setup$4 = _sfc_main$4.setup;
+_sfc_main$4.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/layout/Header.vue");
+  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
+};
+const Header = _sfc_main$4;
+const _imports_0 = "" + __publicAssetsURL("svgs/twiiter.svg");
+const _imports_1 = "" + __publicAssetsURL("svgs/youtube.svg");
+const _imports_2 = "" + __publicAssetsURL("svgs/instagram.svg");
+const _imports_3 = "" + __publicAssetsURL("svgs/linked.svg");
+const _imports_4 = "" + __publicAssetsURL("svgs/facebook.svg");
+const _sfc_main$3 = {
+  __name: "Footer",
+  __ssrInlineRender: true,
+  props: {
+    data: {
+      type: Object,
+      default: {}
+    },
+    branding: {
+      type: Object,
+      default: {}
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const footerBg = ref("/footer-bg.png");
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_Logo = __nuxt_component_0$1;
+      const _component_NuxtLink = __nuxt_component_0$2;
+      const _component_Button = __nuxt_component_2$2;
+      _push(`<footer${ssrRenderAttrs(mergeProps({
+        style: { backgroundImage: "url(" + footerBg.value + ")" },
+        class: [{ "hidden": !footerBg.value }, "bg-no-repeat bg-cover"]
+      }, _attrs))}><div class="pt-10 grid gap-5 bg-black bg-opacity-80"><div class="container grid gap-6"><div class="text-center cent__col gap-6">`);
+      _push(ssrRenderComponent(_component_Logo, {
+        source: props.branding.logo.data.attributes.url
+      }, null, _parent));
+      _push(`<span class="text-white font-medium">${ssrInterpolate(_ctx.$t("footerbanner.logoheading"))}</span><div class="cent gap-4">`);
+      _push(ssrRenderComponent(_component_NuxtLink, { to: " /" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${ssrRenderAttr("src", _imports_0)} alt=""${_scopeId}>`);
+          } else {
+            return [
+              createVNode("img", {
+                src: _imports_0,
+                alt: ""
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${ssrRenderAttr("src", _imports_1)} alt=""${_scopeId}>`);
+          } else {
+            return [
+              createVNode("img", {
+                src: _imports_1,
+                alt: ""
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${ssrRenderAttr("src", _imports_2)} alt=""${_scopeId}>`);
+          } else {
+            return [
+              createVNode("img", {
+                src: _imports_2,
+                alt: ""
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${ssrRenderAttr("src", _imports_3)} alt=""${_scopeId}>`);
+          } else {
+            return [
+              createVNode("img", {
+                src: _imports_3,
+                alt: ""
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${ssrRenderAttr("src", _imports_4)} alt=""${_scopeId}>`);
+          } else {
+            return [
+              createVNode("img", {
+                src: _imports_4,
+                alt: ""
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</div></div><ul class="cent__bet max-sm:justify-center flex-wrap gap-5 text-white"><!--[-->`);
+      ssrRenderList(props.data.slice(0, 6), (link, index) => {
+        _push(`<li>`);
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: link.link,
+          class: "flex-1"
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${ssrInterpolate(link.title)}`);
+            } else {
+              return [
+                createTextVNode(toDisplayString$1(link.title), 1)
+              ];
+            }
+          }),
+          _: 2
+        }, _parent));
+        _push(`</li>`);
+      });
+      _push(`<!--]--></ul><div class="text-sec cent__bet max-sm:grid grid-cols-2 flex-wrap gap-5 gap-y-12 justify-items-center max-md:my-5"><div class="grid gap-3"><!--[-->`);
+      ssrRenderList(props.data.slice(6, 10), (link) => {
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: link.link
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${ssrInterpolate(link.title)}`);
+            } else {
+              return [
+                createTextVNode(toDisplayString$1(link.title), 1)
+              ];
+            }
+          }),
+          _: 2
+        }, _parent));
+      });
+      _push(`<!--]--></div><div class="grid gap-3"><!--[-->`);
+      ssrRenderList(props.data.slice(11, 15), (link) => {
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: link.link
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${ssrInterpolate(link.title)}`);
+            } else {
+              return [
+                createTextVNode(toDisplayString$1(link.title), 1)
+              ];
+            }
+          }),
+          _: 2
+        }, _parent));
+      });
+      _push(`<!--]--></div><div class="grid gap-3"><!--[-->`);
+      ssrRenderList(props.data.slice(16, 21), (link) => {
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: link.link
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${ssrInterpolate(link.title)}`);
+            } else {
+              return [
+                createTextVNode(toDisplayString$1(link.title), 1)
+              ];
+            }
+          }),
+          _: 2
+        }, _parent));
+      });
+      _push(`<!--]--></div><div class="">`);
+      _push(ssrRenderComponent(_component_Button, {
+        buttonText: _ctx.$t("footerbanner.footerbtn"),
+        buttonClass: " btn__primary border-white text-white border "
+      }, null, _parent));
+      _push(`</div></div></div><div class="w-full h-[.5px] bg-white mt-5"></div><div class="container pb-5 cent__bet gap-5 max-md:text-sm"><a href="#" class="font-medium text-white md:hidden flex-1">${ssrInterpolate(_ctx.$t("footerbanner.footer_mobile_right"))}</a><a${ssrRenderAttr("href", props.branding.link_download)} target="_blank" class="font-medium text-white max-md:flex-1 hidden md:inline-flex">${ssrInterpolate(props.branding.copy_rights_info)}</a><a href="#" class="font-medium text-white max-sm:flex-1">${ssrInterpolate(_ctx.$t("footerbanner.footerleft"))}</a></div></div></footer>`);
+    };
+  }
+};
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/layout/Header.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/layout/Footer.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const Header = _sfc_main$3;
+const Footer = _sfc_main$3;
 const _sfc_main$2 = {
   __name: "app",
   __ssrInlineRender: true,
@@ -7934,7 +8133,12 @@ const _sfc_main$2 = {
       }, null, _parent));
       _push(`</div></div><div class="sticky bottom-0">`);
       _push(ssrRenderComponent(_component_PlayBar, null, null, _parent));
-      _push(`</div></div>`);
+      _push(`</div>`);
+      _push(ssrRenderComponent(Footer, {
+        data: unref(landingData).data.attributes.footer,
+        branding: unref(landingData).data.attributes.branding
+      }, null, _parent));
+      _push(`</div>`);
     };
   }
 };

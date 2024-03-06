@@ -1,5 +1,5 @@
 <template>
-	<NuxtLink to="/">
+	<NuxtLink to="/app/">
 		<img :src=" domain +  props.source " alt="logo"
 			class="md:max-w-[65px] md:max-h-[65px] max-w-[55px] max-h-[55px] ">
 	</NuxtLink>

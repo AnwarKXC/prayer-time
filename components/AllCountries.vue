@@ -7,17 +7,19 @@
 				<div class="flex md:gap-[21px] gap-4 text-[#828282] flex-wrap">
 					<NuxtLink to="" class="text-primary region_active border-b-2"
 						v-for="     res      in        regions.data      " :key=" res.id "> {{
-							res.attributes.title
+						res.attributes.title
 						}}
 					</NuxtLink>
 				</div>
 			</div>
 			<div class="country__grid">
-				<NuxtLink :to="'/' +res.attributes.api_country_code +'/'+ res.id+ '/' + res.attributes.default_prayer_time_city.data?.attributes.api_city_code" v-for="  res  in countries.data "
-					:key=" res.id ">
+				<NuxtLink
+					:to=" '/app/'  +res.attributes.api_country_code +'/'+ res.id+ '/' + res.attributes.default_prayer_time_city.data?.attributes.api_city_code"
+					v-for="  res  in countries.data " :key=" res.id ">
 					<CountryCard>
 						<template v-slot:image>
-							<img :src=" domain +res.attributes.flag.data.attributes.url " alt="" class="size-[64px] aspect-square rounded-full">
+							<img :src=" domain +res.attributes.flag.data.attributes.url " alt=""
+								class="size-[64px] aspect-square rounded-full">
 						</template>
 						<template v-slot:text>
 							{{ res.attributes.name

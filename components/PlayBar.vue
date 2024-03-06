@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full  bg-primary  items-center md:py-2.5 py-1 drop-shadow shadow-primary ">
+	<div class="w-full  bg-primary  md:py-2.5 py-1 drop-shadow shadow-primary  hidden">
 		<div class="container flex justify-between items-center  gap-y-2  gap-8 flex-wrap">
 			<div class="flex items-center gap-3 ">
 				<div>
@@ -14,7 +14,7 @@
 			</div>
 			<!-- (B) AUDIO PLAYERS -->
 			<PlayControl />
-  
+
 		</div>
 	</div>
 </template>

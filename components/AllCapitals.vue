@@ -6,9 +6,8 @@
 			<div class="capitals__grid">
 				<template v-if=" capitals ">
 					<NuxtLink
-						:to=" '/' + city.attributes.prayer_time_country.data.attributes.api_country_code + '/' + city.attributes.prayer_time_country.data.id + '/' + city.attributes.api_city_code "
-						v-for="city  in   capitals.data "
-						:key=" city.id ">
+						:to=" '/app/'  + city.attributes.prayer_time_country.data.attributes.api_country_code + '/' + city.attributes.prayer_time_country.data.id + '/' + city.attributes.api_city_code "
+						v-for="city  in   capitals.data " :key=" city.id ">
 						<CityCard>
 							<template v-slot:image>
 								<img

@@ -3,7 +3,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     'AboutTheCountry': typeof import("../components/AboutTheCountry.vue")['default']
     'Add1': typeof import("../components/Add1.vue")['default']
-    'Add4': typeof import("../components/Add4.vue")['default']
     'AllCapitals': typeof import("../components/AllCapitals.vue")['default']
     'AllCountries': typeof import("../components/AllCountries.vue")['default']
     'AllTracks': typeof import("../components/AllTracks.vue")['default']
@@ -86,7 +85,6 @@ declare module 'vue' {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyAboutTheCountry': typeof import("../components/AboutTheCountry.vue")['default']
     'LazyAdd1': typeof import("../components/Add1.vue")['default']
-    'LazyAdd4': typeof import("../components/Add4.vue")['default']
     'LazyAllCapitals': typeof import("../components/AllCapitals.vue")['default']
     'LazyAllCountries': typeof import("../components/AllCountries.vue")['default']
     'LazyAllTracks': typeof import("../components/AllTracks.vue")['default']
@@ -172,7 +170,6 @@ declare module 'vue' {
 
 export const AboutTheCountry: typeof import("../components/AboutTheCountry.vue")['default']
 export const Add1: typeof import("../components/Add1.vue")['default']
-export const Add4: typeof import("../components/Add4.vue")['default']
 export const AllCapitals: typeof import("../components/AllCapitals.vue")['default']
 export const AllCountries: typeof import("../components/AllCountries.vue")['default']
 export const AllTracks: typeof import("../components/AllTracks.vue")['default']
@@ -255,7 +252,6 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyAboutTheCountry: typeof import("../components/AboutTheCountry.vue")['default']
 export const LazyAdd1: typeof import("../components/Add1.vue")['default']
-export const LazyAdd4: typeof import("../components/Add4.vue")['default']
 export const LazyAllCapitals: typeof import("../components/AllCapitals.vue")['default']
 export const LazyAllCountries: typeof import("../components/AllCountries.vue")['default']
 export const LazyAllTracks: typeof import("../components/AllTracks.vue")['default']

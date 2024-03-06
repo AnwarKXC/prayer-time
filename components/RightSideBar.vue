@@ -33,7 +33,7 @@
 
 					<li v-for="( item ) in      props.menu   "
 						class=" border-gray-200  flex p-1.5  border-b">
-						<NuxtLink :to=" '/' + item.link "
+						<NuxtLink :to=" '/app/' + item.link "
 							:class=" route.path === `/${ item.link }` ? 'bg-primary text-white' : '' "
 							class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group ">
 							<img :src=" domain + item.icon.data.attributes.url " alt=""
