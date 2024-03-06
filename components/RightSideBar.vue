@@ -6,7 +6,7 @@
 					<li class="border-b border-gray-200  flex p-1.5  ">
 						<NuxtLink to="/"
 							class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group "
-							:class=" route.name ==='index'? 'bg-primary text-white' : '' ">
+							:class=" route.name === 'app-prayer-time' || route.name === 'app-prayer-time-country-id-city' ? 'bg-primary text-white' : '' ">
 							<Image isrc="/svgs/prayer.svg" ialt="ads"
 								iclass="group-hover:hidden  w-[17px] h-[29px]" />
 							<Image isrc="/svgs/prayer-non.svg" ialt="ads"
@@ -17,11 +17,11 @@
 					</li>
 					<li class="border-b border-gray-200  flex p-1.5  ">
 						<NuxtLink to="/"
-							:class=" route.name === 'country-id-city' ? 'bg-primary text-white' : '' "
+							:class=" route.name === 'app-quran' ? 'bg-primary text-white' : '' "
 							class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group ">
 							<Image isrc="/svgs/quran.svg" ialt="ads"
 								iclass="group-hover:invert  w-[17px] h-[29px]"
-								:class=" route.name === 'country-id-city' ? 'invert' : '' " />
+								:class=" route.name === 'app-quran' ? 'invert' : '' " />
 
 							<Button buttonText="sidebar.item1" buttonClass=" btn__primary">
 							</Button>
@@ -31,9 +31,9 @@
 					<!-- cp data loop -->
 
 
-					<li v-for="( item ) in      props.menu   "
+					<li v-for="(   item   ) in        props.menu     "
 						class=" border-gray-200  flex p-1.5  border-b">
-						<NuxtLink :to=" '/app/' + item.link "
+						<NuxtLink :to=" '/app/prayer-time/' + item.link "
 							:class=" route.path === `/${ item.link }` ? 'bg-primary text-white' : '' "
 							class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group ">
 							<img :src=" domain + item.icon.data.attributes.url " alt=""
@@ -68,7 +68,7 @@
 <script setup>
 const domain = import.meta.env.VITE_DOMAIN
 const route = useRoute()
-console.log(route)
+console.log( route )
 const props = defineProps( {
 	data: {
 		type: Object,
@@ -83,4 +83,4 @@ const props = defineProps( {
 
 </script>
 
-<style scoped></style>
+<style scoped></style>p

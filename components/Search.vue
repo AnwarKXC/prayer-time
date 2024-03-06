@@ -1,6 +1,6 @@
 <template>
 	<form class="flex-grow relative">
-		<input type="search" name="" v-model="searchQuery" @input=" getSearchResults "
+		<input type="search" name="" v-model=" searchQuery " @input=" getSearchResults "
 			:placeholder=" $t( 'searchbar.searchtext1' ) "
 			class="w-full focus:border-primary outline-none border-2 rtl:pl-14 ltr:pr-14" id="myInput"
 			@focus=" showList ">
@@ -22,9 +22,10 @@
 			No results match your query, try a different term.
 		</p>
 		<template v-else>
-			<NuxtLink
-				:to=" '/app/' + res.attributes.prayer_time_country.data.attributes.api_country_code + '/' + res.attributes.prayer_time_country.data.id + '/' + res.attributes.api_city_code "
-				v-for="       res        in        countrySearchResults      " :key=" res.id ">
+			<NuxtLink @click=" hideList " 
+				:to=" '/app/prayer-time/' + res.attributes.prayer_time_country.data.attributes.slug + '/' + res.attributes.slug + '/' + res.attributes.prayer_time_country.data.id "
+				v-for="          res           in           countrySearchResults         "
+				:key=" res.id ">
 				<li class="py-2 cursor-pointer flex gap-1 items-center hover:bg-primary 
 							hover:text-white">
 					<img
@@ -71,6 +72,9 @@ import axios from "axios"
 const show = ref( false )
 function showList () {
 	show.value = true
+}
+function hideList () {
+	show.value = false
 }
 
 

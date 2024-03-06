@@ -6,14 +6,15 @@
 			<div class="capitals__grid">
 				<template v-if=" capitals ">
 					<NuxtLink
-						:to=" '/app/'  + city.attributes.prayer_time_country.data.attributes.api_country_code + '/' + city.attributes.prayer_time_country.data.id + '/' + city.attributes.api_city_code "
-						v-for="city  in   capitals.data " :key=" city.id ">
+						:to=" '/app/prayer-time/' + city.attributes.prayer_time_country.data.attributes.slug + '/' + city.attributes.slug + '/' + city.attributes.prayer_time_country.data.id "
+						v-for="   city     in      capitals.data    " :key=" city.id ">
 						<CityCard>
 							<template v-slot:image>
 								<img
 									:src=" domain + city.attributes.prayer_time_country.data.attributes.flag.data.attributes.url "
 									alt="" class=" size-[64px] rounded-full">
 							</template>
+
 							<template v-slot:text>
 								{{ city.attributes.title }}
 							</template>
@@ -35,4 +36,4 @@ const { data: capitals } = await useFetch( domain + getAllCapitals + locale.valu
 
 </script>
 
-<style  scoped></style>
+<style scoped></style>
