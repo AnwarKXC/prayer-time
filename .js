@@ -1,47 +1,12 @@
 ;[
    {
-      id: 1,
-      title: "التاريخ الهجرى",
-      link: "رابط 1",
-      icon: {
-         data: {
-            id: 2,
-            attributes: {
-               name: "20230925.jpg",
-               alternativeText: null,
-               url: "/uploads/20230925_0ba8f91e41.jpg",
-            },
-         },
-      },
-   },
-   {
-      id: 2,
-      title: "التاريخ الهجرى 2",
-      link: "رابط 2",
-      icon: {
-         data: {
-            id: 2,
-            attributes: {
-               name: "20230925.jpg",
-               alternativeText: null,
-               url: "/uploads/20230925_0ba8f91e41.jpg",
-            },
-         },
-      },
-   },
-   {
-      id: 3,
-      title: "التاريخ الهجرى 3",
-      link: "رابط 3",
-      icon: {
-         data: {
-            id: 2,
-            attributes: {
-               name: "20230925.jpg",
-               alternativeText: null,
-               url: "/uploads/20230925_0ba8f91e41.jpg",
-            },
-         },
-      },
+      id: 4809675371446272,
+      title: "أبو بكر الشاطري : مرتل",
+      slug: "أبو-بكر-الشاطري-مرتل",
+      img: "https://cdn.prayer-now.com/qcloud/uploads/images/4809675371446272",
+      img_alt: "أبو بكر الشاطري : مرتل",
+      count_of_tracks: "114",
+      count_of_watch: 360178,
+      isNew: false,
    },
 ]

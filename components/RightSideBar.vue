@@ -16,7 +16,7 @@
 						</NuxtLink>
 					</li>
 					<li class="border-b border-gray-200  flex p-1.5  ">
-						<NuxtLink to="/"
+						<NuxtLink to="/app/quran"
 							:class=" route.name === 'app-quran' ? 'bg-primary text-white' : '' "
 							class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group ">
 							<Image isrc="/svgs/quran.svg" ialt="ads"
@@ -68,7 +68,6 @@
 <script setup>
 const domain = import.meta.env.VITE_DOMAIN
 const route = useRoute()
-console.log( route )
 const props = defineProps( {
 	data: {
 		type: Object,

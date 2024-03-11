@@ -14,7 +14,7 @@
 			</div>
 			<div class="country__grid">
 				<NuxtLink
-					:to=" '/app/prayer-time/' + res.attributes.slug + '/' + res.attributes.default_prayer_time_city.data?.attributes.slug + '/' + res.id  "
+					:to=" '/app/prayer-time/' + res.attributes.slug + '/' + res.attributes.default_prayer_time_city.data?.attributes.slug + '/' + res.id + '/' + res.attributes.api_country_code + '/' + res.attributes.default_prayer_time_city.data?.attributes.api_city_code "
 					v-for="     res     in    countries.data    " :key=" res.id ">
 					<CountryCard>
 						<template v-slot:image>
