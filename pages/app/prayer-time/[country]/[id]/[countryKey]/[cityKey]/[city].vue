@@ -223,12 +223,12 @@ let cleander = ref( [] )
 import axios from 'axios';
 async function getData () {
 	try {
-		const response = await axios.get( times + route.params.city + '&country=' + route.params.cityKey )
+		const response = await axios.get( times + route.params.city + '&country=' + route.params.cityKey, { timeout: 10000 } )
 		cleander.value = response.data // Assuming response.data is the array you want to filter
 		console.log( cleander.value )
 		filterEntries() // Call filterEntries after updating data
 	} catch ( error ) {
-		console.error( 'Error fetching data:', error )
+		console.error( 'Error fetching data:', error.message, error.code, error.config )
 	}
 }
 onMounted( () => {
