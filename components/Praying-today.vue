@@ -1,5 +1,5 @@
 <template>
-	<div class="overflow-hidden" v-if=" props.data[ 0 ] ">
+	<div class="overflow-hidden" v-if=" props.data[0] && props.data[0].timings ">
 		<div
 			class="w-full overflow-x-auto  bg-yellow-50 rounded-[10px] border border-sec flex justify-between whitespace-nowrap items-center">
 			<div v-for="(         prayer, index         ) in          prayerTimes         " :key=" index "
@@ -18,7 +18,7 @@
 						$t( prayer.translation ) }}</div>
 				<div :class=" { '!text-white ': nextPrayerIndex === index } "
 					class="text-right text-zinc-800 text-base font-medium font-['Roboto'] leading-tight">
-					{{ props.data[ 0 ].timings[ prayer.key ] }}</div>
+					{{ props.data[ 0 ].timings[ prayer.key ] || '–' }}</div>
 			</div>
 		</div>
 	</div>

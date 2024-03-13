@@ -30,7 +30,7 @@
 							hover:text-white">
 					<img
 						v-if=" res.attributes.prayer_time_country.data.attributes.flag.data.attributes.url "
-						:src=" domain + res.attributes.prayer_time_country.data.attributes.flag.data.attributes.url "
+						:src="  res.attributes.prayer_time_country.data.attributes.flag.data.attributes.url "
 						:alt=" res.attributes.title " class=" h-7 aspect-square rounded-full mx-2">
 					<span>
 						{{ res.attributes.title + " - " +

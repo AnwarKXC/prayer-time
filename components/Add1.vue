@@ -21,7 +21,7 @@
 				<div
 					class="flex md:justify-center justify-end items-center max-md:absolute rtl:left-0 ltr:right-0 bottom-0 max-md:size-[120px] max-xs:size-[90px]  size-full ltr:scale-x-[-1] transform  max-md:mx-4 md:w-full">
 
-					<img :src=" domain + activeOne.image.data.attributes.url " alt=""
+					<img :src="  activeOne.image.data.attributes.url " alt=""
 						class="rounded w-full ">
 
 				</div>

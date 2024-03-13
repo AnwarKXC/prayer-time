@@ -2,35 +2,44 @@
 	<div
 		class="  bg-white rounded-xl border border-gray-200 px-4 flex justify-between flex-col gap-4 py-6">
 		<div class="grid gap-4">
-			<div class="flex justify-between items-center gap-4 flex-wrap ">
+			<div class="flex justify-between items-center gap-4 flex-wrap"
+				v-if=" regions?.data?.length > 0 ">
 				<h2 class="h__primary">{{ $t( 'allcountries.heading' ) }}</h2>
-				<div class="flex md:gap-[21px] gap-4 text-[#828282] flex-wrap">
-					<NuxtLink to="" class="text-primary region_active border-b-2"
-						v-for="        res         in           regions.data         " :key=" res.id "> {{
-						res.attributes.title
-						}}
-					</NuxtLink>
+				<div class="flex md:gap-[21px] gap-4 text-[#828282] flex-wrap"
+					v-if=" regions?.data?.length > 0 ">
+					<template v-for="   res    in    regions?.data || []  " :key=" res?.id ">
+						<NuxtLink :to=" '' " class="text-primary region_active border-b-2">
+							{{ res?.attributes?.title }}
+						</NuxtLink>
+					</template>
 				</div>
 			</div>
-			<div class="country__grid">
+
+			<div class="country__grid" v-if=" countries && countries.data.length > 0 ">
+
 				<NuxtLink
 					:to=" '/app/prayer-time/' + res.attributes.slug + '/' + res.attributes.default_prayer_time_city.data?.attributes.slug + '/' + res.id + '/' + res.attributes.api_country_code + '/' + res.attributes.default_prayer_time_city.data?.attributes.api_city_code "
-					v-for="     res     in    countries.data    " :key=" res.id ">
+					v-for="   res    in    countries.data   " :key=" res.id ">
 					<CountryCard>
 						<template v-slot:image>
-							<img :src=" domain + res.attributes.flag.data.attributes.url " alt=""
-								class="size-[64px] aspect-square rounded-full">
-						</template>
+							<template v-if=" res && res.attributes.flag">
+								<img
+									v-if=" res && res.attributes && res.attributes.flag && res.attributes.flag.data && res.attributes.flag.data.attributes && res.attributes.flag.data.attributes.url "
+									:src=" res.attributes.flag.data.attributes.url" alt=""
+									class="size-[64px] aspect-square rounded-full">
+							</template>
 
+						</template>
 						<template v-slot:text>
-							{{ res.attributes.name
-							}}
+							{{ res.attributes.name }}
 						</template>
 					</CountryCard>
 				</NuxtLink>
 			</div>
 		</div>
-		<Pagination />
+		<div v-if=" countries && countries.data.length > 14 ">
+			<Pagination />
+		</div>
 	</div>
 </template>
 
@@ -44,6 +53,6 @@ const domain = import.meta.env.VITE_DOMAIN
 const { data: regions } = await useFetch( domain + getAllRegions + locale.value )
 // fetch countries 
 const { data: countries } = await useFetch( domain + getAllCountrys + locale.value )
+console.log( countries.value.data )
 </script>
 
-<style scoped></style>

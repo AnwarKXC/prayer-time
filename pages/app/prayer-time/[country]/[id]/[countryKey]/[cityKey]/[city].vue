@@ -15,10 +15,10 @@
 				<div class="flex gap-3 items-center">
 					<div class=" w-16 h-16 rounded-lg border border-gray-200 p-1.5 cent overflow-hidden">
 						<template
-							v-if=" cities.data[ 0 ].attributes.prayer_time_country.data.attributes.flag.data.attributes ">
+							v-if=" cities.data[0]?.attributes?.prayer_time_country?.data?.attributes?.flag?.data?.attributes ">
 							<img
-								:src=" domain + cities.data[ 0 ].attributes.prayer_time_country.data.attributes.flag.data.attributes.url "
-								:alt=" domain + cities.data[ 0 ].attributes.prayer_time_country.data.attributes.flag.data.attributes.alternativeText "
+								:src="  (cities.data[0].attributes.prayer_time_country.data.attributes.flag.data.attributes.url || '') "
+								:alt="  (cities.data[0].attributes.prayer_time_country.data.attributes.flag.data.attributes.alternativeText || '') "
 								class=" aspect-square rounded-full ">
 						</template>
 
@@ -27,36 +27,39 @@
 						<div class=" text-zinc-700 text-[17px] font-bold font-['Almarai'] leading-tight">
 							{{ $t( 'infobanner.countryheading' ) }}
 
-							<template v-if=" cities.data[ 0 ] ">
-								{{ $t( cities.data[ 0 ].attributes.prayer_time_country.data.attributes.name
-								)
+							<template v-if=" cities.data && cities.data[ 0 ] ">
+								{{ $t( cities.data[ 0 ].attributes.prayer_time_country.data.attributes.name)
 								}}
+							</template>
+							<template v-else>
+								No Data Found
 							</template>
 						</div>
 						<div class=" text-zinc-800 text-xs font-normal font-['Almarai'] leading-tight">
 							{{ $t( 'infobanner.countrysubheading' ) }}
 
-							<template v-if=" cities.data[ 0 ] ">
+							<template v-if=" cities.data && cities.data[ 0 ] ">
 								<template
-									v-for="                       city                       in                       cities.data                       "
+									v-for="                        city                        in                        cities.data                        "
 									:key=" city.id ">
 									<template v-if=" city.attributes.is_capital ">
 										{{ $t( city.attributes.title ) }}
 									</template>
 								</template>
 							</template>
+							<template v-else>
+								No Data Found
+							</template>
 						</div>
 					</div>
 				</div>
 				<div class=" grid gap-2">
-					<div class="flex gap-2 items-center">
+					<div v-if=" filteredEntries[ 0 ] && filteredEntries[ 0 ].meta "
+						class="flex gap-2 items-center">
 						<Image isrc="/svgs/e7datheat.svg" ialt="country" iclass=" w-4 h-4" />
 						<div class=" text-zinc-800 text-sm font-normal font-['Almarai'] leading-tight">
 							{{ $t( 'infobanner.para1' ) }}
-
-							<template v-if=" filteredEntries[ 0 ] ">
-								{{ filteredEntries[ 0 ].meta.timezone }}
-							</template>
+							{{ filteredEntries[ 0 ].meta.timezone }}
 						</div>
 					</div>
 					<div class="flex gap-2 items-center">
@@ -71,19 +74,19 @@
 								{{ $t( 'infobanner.para2' ) }}&nbsp;
 								{{ filteredEntries[ 0 ].date.gregorian.date }}&nbsp;
 							</template>
+							<template v-else>
+								No Data Found
+							</template>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class=" grid md:grid-cols-3 gap-4">
+			<div v-if=" filteredEntries[ 0 ] " class=" grid md:grid-cols-3 gap-4">
 				<div class=" flex gap-2">
 					<div class=" text-teal-900 text-sm font-bold font-['Almarai'] leading-tight">
 						{{ $t( 'infobanner.calpara' ) }}</div>
 					<div class=" text-zinc-800 text-sm font-normal font-['Almarai'] leading-tight">
-
-						<template v-if=" filteredEntries[ 0 ] ">
-							{{ filteredEntries[ 0 ].meta.method.name }}
-						</template>
+						{{ filteredEntries[ 0 ].meta.method.name }}
 					</div>
 				</div>
 				<div class=" flex gap-2 md:justify-center">
@@ -110,8 +113,14 @@
 			</div>
 
 
-			<PrayingToday :data=" filteredEntries " />
-
+			<div v-if=" filteredEntries.length ">
+				<PrayingToday :data=" filteredEntries " />
+			</div>
+			<div v-else>
+				<p class=" text-zinc-500 text-sm font-normal font-['Almarai'] leading-tight">
+					No Data Found
+				</p>
+			</div>
 
 			<!-- prayer time for month -->
 			<h2 class="h__primary">{{ $t( 'infobanner.monthsubheading' ) }}</h2>
@@ -148,9 +157,8 @@
 				</template>
 
 				<template v-slot:tbody>
-					<tr class=" h-[45px] border-b "
-						:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' "
-						v-for="                 day                 in                    displayedData                 "
+					<tr class=" h-[45px] border-b " v-if=" displayedData "
+						v-for="                  day                  in                     displayedData                  "
 						:key=" day ">
 						<Th thClass=" bg-gray-100 font-semibold "
 							:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' ">
@@ -162,6 +170,9 @@
 						<Td>{{ extractTime( day.timings.Asr ) }}</Td>
 						<Td>{{ extractTime( day.timings.Maghrib ) }}</Td>
 						<Td>{{ extractTime( day.timings.Isha ) }}</Td>
+					</tr>
+					<tr v-else class="flex  items-center justify-center h-full ">
+						<td colspan="7" class="text-xl">No Data Found</td>
 					</tr>
 				</template>
 			</Table>
@@ -175,8 +186,8 @@
 			<h2 class="h__primary">{{ $t( 'citiescounrybanner.heading' ) }}</h2>
 			<div class="city__label__grid">
 				<NuxtLink
-					:to=" '/app/prayer-time/' + route.params.country + '/' + city.attributes.slug + '/' + route.params.countryKey + '/' + route.params.cityKey + '/' + city.attributes.api_city_code"
-					v-for="  city   in  cities.data  " :key=" city.id " class="w-full">
+					:to=" '/app/prayer-time/' + route.params.country + '/' + city.attributes.slug + '/' + route.params.countryKey + '/' + route.params.cityKey + '/' + city.attributes.api_city_code "
+					v-for="   city    in   cities.data   " :key=" city.id " class="w-full">
 					<CityLabel>
 						{{ city.attributes.title }} </CityLabel>
 				</NuxtLink>
@@ -196,50 +207,34 @@
 </template>
 
 <script setup>
-
 const { locale } = useI18n()
 const domain = import.meta.env.VITE_DOMAIN
 const times = import.meta.env.VITE_ADAN
 const route = useRoute()
 import { ref, onMounted } from 'vue'
-
 //  fetch data of city
-const { data: cleander, refresh, pending } = await useFetch( times + route.params.city + '&country=' + route.params.cityKey , {
+const { data: cleander, refresh, pending } = await useFetch( times + route.params.city + '&country=' + route.params.cityKey, {
 	watch: route.params.city,
 } )
-
-
 const currentDate = new Date()
 const formattedDate = ref( formatDate( currentDate ) )
 const filteredEntries = ref( [] )
-
 function formatDate ( date ) {
 	const pad = ( val ) => val.toString().padStart( 2, '0' )
 	return `${ pad( date.getDate() ) }-${ pad( date.getMonth() + 1 ) }-${ date.getFullYear() }`
 }
-
 onMounted( () => {
 	filterEntries()
 } )
-
-
-
 function filterEntries () {
 	filteredEntries.value = cleander.value.data.filter( day => {
 		return day.date.gregorian.date === formattedDate.value
 	} )
 }
-
-
-
 const getAllCitiesInCountry = import.meta.env.VITE_GET_ALL_CITIES_IN_COUNTRY
 const { data: cities } = await useFetch( domain + getAllCitiesInCountry + route.params.countryKey + '&locale[0]=' + locale.value )
-
-
 const dayOfMonth = currentDate.getDate()
 const startIndex = ref( dayOfMonth <= 7 ? 0 : dayOfMonth <= 14 ? 7 : dayOfMonth <= 21 ? 14 : 21 )
-
-
 const displayedData = computed( () => {
 	const start = startIndex.value
 	const dataLength = cleander.value.data.length
@@ -250,7 +245,6 @@ const displayedData = computed( () => {
 		return cleander.value.data.slice( start, end )
 	}
 } )
-
 function extractTime ( str ) {
 	// Define a regular expression pattern to match the time part
 	const pattern = /(\d{2}:\d{2})/
@@ -259,8 +253,6 @@ function extractTime ( str ) {
 	// Return the matched time or an empty string if no match found
 	return match ? match[ 0 ] : ''
 }
-console.log( cities.value.data )
-
 </script>
 
 <style scoped></style>

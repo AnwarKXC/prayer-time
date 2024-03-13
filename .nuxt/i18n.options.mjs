@@ -41,7 +41,6 @@ export const nuxtI18nOptions = {
   "strategy": "prefix_except_default",
   "lazy": false,
   "langDir": null,
-  "rootRedirect": null,
   "detectBrowserLanguage": {
     "alwaysRedirect": false,
     "cookieCrossOrigin": false,

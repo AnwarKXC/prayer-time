@@ -49,8 +49,8 @@ const randomIndexData = Math.floor( Math.random() * leftData.length )
       </div>
       <NuxtPage />
       <div class=" hidden lg:block">
-        <LeftSideBar :data=" leftData[randomIndexData] "
-          :quotes=" quotsData[ randomIndexQuotes ]" />
+        <LeftSideBar :data=" leftData[ randomIndexData ] "
+          :quotes=" quotsData[ randomIndexQuotes ] " />
       </div>
     </div>
     <div class=" sticky bottom-0">

@@ -6,7 +6,7 @@
 					<li class="border-b border-gray-200  flex p-1.5  ">
 						<NuxtLink to="/"
 							class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group "
-							:class=" route.name === 'app-prayer-time' || route.name === 'app-prayer-time-country-id-city' ? 'bg-primary text-white' : '' ">
+							:class=" route.name ===  'app-prayer-time' || route.name === 'app-prayer-time-country-id-city' ? 'bg-primary text-white' : '' ">
 							<Image isrc="/svgs/prayer.svg" ialt="ads"
 								iclass="group-hover:hidden  w-[17px] h-[29px]" />
 							<Image isrc="/svgs/prayer-non.svg" ialt="ads"
@@ -31,14 +31,15 @@
 					<!-- cp data loop -->
 
 
-					<li v-for="(   item   ) in        props.menu     "
+					<li v-for="(item,index) in props.menu || []" :key="index"
+						v-if="item"
 						class=" border-gray-200  flex p-1.5  border-b">
-						<NuxtLink :to=" '/app/prayer-time/' + item.link "
-							:class=" route.path === `/${ item.link }` ? 'bg-primary text-white' : '' "
+						<NuxtLink :to=" '/app/prayer-time/' + (item.link || '') "
+							:class=" route.path === `/${ item.link || '' }` ? 'bg-primary text-white' : '' "
 							class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group ">
-							<img :src=" domain + item.icon.data.attributes.url " alt=""
+							<img :src="  item.icon.data.attributes.url || '' " alt=""
 								class="group-hover:invert   w-[17px] h-[29px]"
-								:class=" route.path === `/${ item.link }` ? 'invert' : '' ">
+								:class=" route.path === `/${ item.link || '' }` ? 'invert' : '' ">
 							<span class="btn__primary">{{ item.title }}</span>
 						</NuxtLink>
 					</li>
@@ -54,10 +55,10 @@
 					</li>
 				</ul>
 			</div>
-			<div class="h-full bg-white rounded-xl border border-gray-200 p-4  grid gap-4">
+			<div class="h-full bg-white rounded-xl border border-gray-200 p-4  grid gap-4" v-if=" props.data && props.data[0] ">
 				<NuxtLink :to=" props.data[ 0 ].link ">
-					<img :src=" domain + props.data[ 0 ].image.data.attributes.url "
-						:alt=" props.data[ 0 ].image.data.attributes.alternativeText "
+					<img :src=" props.data[ 0 ]?.image?.data?.attributes?.url || '' "
+						:alt=" props.data[ 0 ]?.image?.data?.attributes?.alternativeText || '' "
 						class=" h-full rounded">
 				</NuxtLink>
 			</div>
@@ -66,7 +67,6 @@
 </template>
 
 <script setup>
-const domain = import.meta.env.VITE_DOMAIN
 const route = useRoute()
 const props = defineProps( {
 	data: {

@@ -1,4 +1,4 @@
-globalThis._importMeta_={url:import.meta.url,env:process.env};import { Server } from 'node:http';
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { Server } from 'node:http';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
@@ -103,6 +103,17 @@ const _inlineRuntimeConfig = {
   "public": {
     "i18n": {
       "baseUrl": "",
+      "defaultLocale": "",
+      "defaultDirection": "ltr",
+      "strategy": "prefix_except_default",
+      "lazy": false,
+      "rootRedirect": "",
+      "routesNameSeparator": "___",
+      "defaultLocaleRouteNameSuffix": "default",
+      "skipSettingLocaleOnNavigate": false,
+      "differentDomains": false,
+      "trailingSlash": false,
+      "configLocales": [],
       "locales": {},
       "detectBrowserLanguage": {
         "alwaysRedirect": false,

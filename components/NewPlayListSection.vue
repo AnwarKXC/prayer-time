@@ -5,7 +5,7 @@
 			{{ $t( 'moreplaybanner.heading' ) }}
 		</h2>
 		<div class="playlist__grid">
-			<PlayListCard v-for="(        item, index        ) in         6        " :key=" index ">
+			<PlayListCard v-for="index  in         6        " :key=" index ">
 				<template #image>
 					<Image isrc="/play-bar.png" ialt="logo" iclass="h-full rounded" />
 				</template>

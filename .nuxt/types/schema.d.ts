@@ -20,6 +20,28 @@ declare module 'nuxt/schema' {
    i18n: {
       baseUrl: string,
 
+      defaultLocale: string,
+
+      defaultDirection: string,
+
+      strategy: string,
+
+      lazy: boolean,
+
+      rootRedirect: any,
+
+      routesNameSeparator: string,
+
+      defaultLocaleRouteNameSuffix: string,
+
+      skipSettingLocaleOnNavigate: boolean,
+
+      differentDomains: boolean,
+
+      trailingSlash: boolean,
+
+      configLocales: Array<any>,
+
       locales: any,
 
       detectBrowserLanguage: {

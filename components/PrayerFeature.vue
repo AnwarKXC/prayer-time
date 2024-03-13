@@ -1,5 +1,6 @@
 <template>
-	<div class="  bg-white rounded-xl border border-gray-200 px-4 py-6 grid gap-10 content-start">
+	<div v-if=" randomThreeItems && randomThreeItems.length > 0 "
+		class="  bg-white rounded-xl border border-gray-200 px-4 py-6 grid gap-10 content-start">
 		<div class=" cent cent__col  ">
 			<h2 class="h__primary">مزايا براير ناو.</h2>
 			<p class="w-[236px] h-6   text-zinc-500 text-xs font-normal  leading-[35px]">
@@ -7,14 +8,13 @@
 		</div>
 		<div class=" grid md:grid-cols-3 gap-4 gap-y-10  ">
 			<div class=" grid grid-rows-3 justify-center items-center  "
-				v-for="(     item, index     ) in      randomThreeItems     " :key=" index ">
-				<img :src=" domain + item.icon.data.attributes.url "
-					:alt=" item.icon.data.attributes.name "
+				v-for="(      item, index      ) in       randomThreeItems      " :key=" index ">
+				<img v-if="item && item.icon"
+					:src=" item.icon.data.attributes.url " :alt=" item.icon.data.attributes.name "
 					class="rounded-sm max-w-[60px] max-h-[60px] justify-self-center">
-				<div class="text-center text-indigo-900 text-[25px] font-normal  ">
+				<div v-if="item" class="text-center text-indigo-900 text-[25px] font-normal  ">
 					{{ item.title }}</div>
-				<div
-					class="md:max-w-[229px] max-w-72  text-center text-neutral-500 text-xs font-normal leading-5 ">
+				<div v-if="item" class="md:max-w-[229px] max-w-72  text-center text-neutral-500 text-xs font-normal leading-5 ">
 					{{ item.description }}</div>
 			</div>
 		</div>
@@ -34,7 +34,7 @@ function shuffle ( array ) {
 	}
 	return array
 }
-const activeBanners = landingData.value.data.attributes.features.filter( item => item.active === true ) 
+const activeBanners = landingData.value.data.attributes.features.filter( item => item.active === true )
 shuffle( activeBanners )
 const randomThreeItems = activeBanners.slice( 0, 3 )
 

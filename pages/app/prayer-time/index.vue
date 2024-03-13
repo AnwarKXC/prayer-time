@@ -9,7 +9,6 @@
     <!-- search bar -->
     <div class=" relative">
       <div class="bg-white rounded-xl border border-gray-200 flex items-center p-3 gap-[15px] ">
-
         <Search />
       </div>
     </div>
