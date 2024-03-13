@@ -41,7 +41,7 @@
 
 							<template v-if=" cities.data && cities.data[ 0 ] ">
 								<template
-									v-for="                            city                            in                            cities.data                            "
+									v-for="                              city                              in                              cities.data                              "
 									:key=" city.id ">
 									<template v-if=" city.attributes.is_capital ">
 										{{ $t( city.attributes.title ) }}
@@ -113,16 +113,16 @@
 					{{ $t( 'infobanner.timingsubheading' ) }}</div>
 			</div>
 
-
-			<div v-if=" filteredEntries.length " class="overflow-hidden ">
-				<PrayingToday :data=" filteredEntries " />
-			</div>
-			<div v-else>
-				<p class=" text-zinc-500 text-sm font-normal font-['Almarai'] leading-tight">
-					No Data Found
-				</p>
-			</div>
-
+			<ClientOnly>
+				<div v-if=" filteredEntries.length " class="overflow-hidden ">
+					<PrayingToday :data=" filteredEntries " />
+				</div>
+				<div v-else>
+					<p class=" text-zinc-500 text-sm font-normal font-['Almarai'] leading-tight">
+						No Data Found
+					</p>
+				</div>
+			</ClientOnly>
 			<!-- prayer time for month -->
 			<h2 class="h__primary">{{ $t( 'infobanner.monthsubheading' ) }}</h2>
 			<div class=" overflow-x-auto pb-1">
@@ -159,7 +159,7 @@
 
 				<template v-slot:tbody>
 					<tr class=" h-[45px] border-b " v-if=" displayedData "
-						v-for="                      day                      in                         displayedData                      "
+						v-for="                        day                        in                           displayedData                        "
 						:key=" day "
 						:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' ">
 						<Th thClass=" bg-gray-100 font-semibold "
@@ -189,7 +189,8 @@
 			<div class="city__label__grid">
 				<NuxtLink
 					:to=" '/app/prayer-time/' + route.params.country + '/' + city.attributes.slug + '/' + route.params.countryKey + '/' + route.params.cityKey + '/' + city.attributes.api_city_code "
-					v-for="       city        in       cities.data    " :key=" city.id " class="w-full">
+					v-for="         city          in         cities.data      " :key=" city.id "
+					class="w-full">
 					<CityLabel>
 						{{ city.attributes.title }} </CityLabel>
 				</NuxtLink>
@@ -227,10 +228,11 @@ import { ref, onMounted } from 'vue'
 
 
 
-const { data: cleander, watch } = await useAsyncData(
+const { data: cleander } = await useAsyncData(
 	'cleander',
 	() => $fetch( times + route.params.city + '&country=' + route.params.cityKey ), {
-	watch: [ route.params.city, route.params.cityKey ]
+		watch: [ route.params.city, route.params.cityKey ],
+		server: false
 }
 )
 

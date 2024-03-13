@@ -2,7 +2,7 @@
 	<div class=" lg:sticky top-[104px] ">
 		<div class=" grid gap-6 ">
 			<div class="   rounded-xl border border-gray-200  relative overflow-hidden ">
-				<ul class="bg-white grid grid-rows-4 ">
+				<ul class="bg-white grid  ">
 					<li class="border-b border-gray-200  flex p-1.5  ">
 						<NuxtLink to="/"
 							class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group "
