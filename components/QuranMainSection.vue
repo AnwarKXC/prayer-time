@@ -1,5 +1,5 @@
 <template>
-	<div class=" bg-white rounded-[10px] border border-gray-200 px-4 py-6 grid gap-10 content-start">
+	<div class=" bg-white rounded-xl border border-gray-200 px-4 py-6 grid gap-10 content-start">
 
 		<div class=" flex justify-between items-center gap-4">
 			<h2 class=" shrink-0  h__primary leading-10 "> كل الشيوخ</h2>
@@ -16,7 +16,7 @@
 				@click=" showAll ">كل
 				الشيوخ</button>
 			<button
-				v-for="                         char                          in                           arabicAlphabet                          "
+				v-for="                          char                           in                            arabicAlphabet                           "
 				:key=" char " @click="sortBy( char )"
 				:class=" selectedChar === char ? 'bg-primary text-white' : '' "
 				class="border rounded-md cent p-1 hover:text-white hover:bg-primary">
@@ -46,7 +46,7 @@
 				<template v-if=" sortedData.length > 0 ">
 					<div class="tracks__grid">
 						<trackAuthor
-							v-for="                                 item                                  in                                  sortedData                                 "
+							v-for="                                  item                                   in                                   sortedData                                  "
 							:key=" item.id ">
 							<template v-slot:image>
 								<Image isrc="/play-bar.png" ialt="logo" iclass="h-full rounded" />
@@ -156,17 +156,3 @@ const filteredData = computed( () => {
 	} )
 } )
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

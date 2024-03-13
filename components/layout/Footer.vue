@@ -4,7 +4,8 @@
         <div class=" pt-10  grid gap-5 bg-black bg-opacity-80">
             <div class="container grid gap-6 ">
                 <div class="text-center cent__col gap-6">
-                    <Logo :source=" props.branding.logo.data.attributes.url " />
+                    <Logo v-if=" props.branding && props.branding.logo && props.branding.logo.data && props.branding.logo.data.attributes && props.branding.logo.data.attributes.url " 
+                        :source=" props.branding.logo.data.attributes.url " />
                     <span class=" text-white font-medium">{{ $t( 'footerbanner.logoheading' )
                         }}</span>
                     <div class=" cent gap-4">
@@ -22,7 +23,7 @@
                     </li>
 
                 </ul>
-                <div
+                <div v-if="props.data && props.data.length"
                     class=" text-sec cent__bet max-sm:grid grid-cols-2 flex-wrap gap-5 gap-y-12 justify-items-center max-md:my-5">
                     <div class="grid gap-3 ">
                         <NuxtLink
@@ -51,16 +52,19 @@
                 </div>
             </div>
             <div class="w-full h-[.5px] bg-white mt-5"></div>
-            <div class=" container pb-5 cent__bet gap-5 max-md:text-sm">
-                <a href="#" class="font-medium text-white md:hidden flex-1 ">
-                    {{ $t( 'footerbanner.footer_mobile_right' ) }}
+            <div v-if="props.data && props.branding" class=" container pb-5 cent__bet gap-5 max-md:text-sm">
+                <a href="#" class="font-medium text-white md:hidden flex-1 "
+                    v-if="props.data.mobile_right">
+                    {{ props.data.mobile_right }}
                 </a>
                 <a :href=" props.branding.link_download " target="_blank"
-                    class="font-medium text-white max-md:flex-1 hidden md:inline-flex ">
-                    {{ props.branding.copy_rights_info}}
+                    class="font-medium text-white max-md:flex-1 hidden md:inline-flex "
+                    v-if="props.branding.copy_rights_info">
+                    {{ props.branding.copy_rights_info }}
                 </a>
-                <a href="#" class="font-medium text-white max-sm:flex-1 ">
-                    {{ $t('footerbanner.footerleft' ) }}
+                <a href="#" class="font-medium text-white max-sm:flex-1 "
+                    v-if="props.data.left">
+                    {{ props.data.left }}
                 </a>
             </div>
         </div>

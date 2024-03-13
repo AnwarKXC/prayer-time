@@ -1,6 +1,6 @@
 <template>
 	<NuxtLink to="/"
-		class=" w-full bg-white rounded-[10px] border border-gray-300 grid grid-cols-5 gap-5 p-3">
+		class=" w-full bg-white rounded-xl border border-gray-300 grid grid-cols-5 gap-5 p-3">
 		<div class=" cent ">
 			<slot name="image" />
 		</div>
@@ -21,4 +21,4 @@
 
 </script>
 
-<style  scoped></style>
+<style scoped></style>

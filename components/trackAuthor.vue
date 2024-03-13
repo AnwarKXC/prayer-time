@@ -1,5 +1,5 @@
 <template>
-	<div class=" w-full  bg-white rounded-[10px] border border-gray-300 grid grid-cols-5 gap-3 p-3">
+	<div class=" w-full  bg-white rounded-xl border border-gray-300 grid grid-cols-5 gap-3 p-3">
 		<NuxtLink to="/" class=" cent ">
 			<slot name="image" />
 		</NuxtLink>

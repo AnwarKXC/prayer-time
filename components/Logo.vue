@@ -1,5 +1,5 @@
 <template>
-	<NuxtLink to="/app/">
+	<NuxtLink to="/app/prayer-time">
 		<img :src="   props.source " alt="logo"
 			class="md:max-w-[65px] md:max-h-[65px] max-w-[55px] max-h-[55px] ">
 	</NuxtLink>

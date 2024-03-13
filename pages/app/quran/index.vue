@@ -3,7 +3,7 @@
 
     <!-- Google Add 1 -->
     <div>
-      <img class="w-full h-[244px] rounded-[10px] border border-gray-300"
+      <img class="w-full h-[244px] rounded-xl border border-gray-300"
         src="https://via.placeholder.com/909x244" />
     </div>
 

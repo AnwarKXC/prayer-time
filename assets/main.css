@@ -207,9 +207,11 @@ select {
 
 .region_active {
   @apply font-normal leading-5 border-sec;
+  
+}
+.region{
   font-size: clamp(.7rem, 3vw, .8rem);
 }
-
 
 .country__grid {
   display: grid;

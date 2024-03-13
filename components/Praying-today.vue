@@ -1,8 +1,8 @@
 <template>
 	<div class="overflow-x-auto w-full " v-if=" props.data[ 0 ] && props.data[ 0 ].timings ">
 		<div
-			class="w-full overflow-x-auto bg-yellow-50 rounded-[10px] border border-sec flex justify-between whitespace-nowrap items-center px-">
-			<div v-for="(           prayer, index           ) in            prayerTimes           "
+			class="w-full overflow-x-auto bg-yellow-50 rounded-xl border border-sec flex justify-between whitespace-nowrap items-center px-">
+			<div v-for="(            prayer, index            ) in             prayerTimes            "
 				:key=" index " class="cent__col gap-1 py-2 min-w-[110px] px-5 flex-1 "
 				:class=" { 'bg-sec ': nextPrayerIndex === index } ">
 				<template v-if=" nextPrayerIndex === index ">

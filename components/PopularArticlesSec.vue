@@ -1,9 +1,9 @@
 <template>
-	<div class=" bg-white rounded-[10px] border border-gray-200 px-4 py-6 grid gap-6">
+	<div class=" bg-white rounded-xl border border-gray-200 px-4 py-6 grid gap-6">
 		<h2 class="h__primary">{{ $t( 'trendingbanner.heading' ) }}</h2>
 		<div class="popular__articles__grid">
 			<ArticleCard
-				v-for="                     index                      in                      3                     "
+				v-for="                      index                       in                       3                      "
 				:key=" index ">
 				<template v-slot:image>
 					<img class="w-full h-full " src="https://via.placeholder.com/266x185" />

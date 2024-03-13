@@ -9,20 +9,12 @@
 						<div
 							class=" bg-white p-4 w-[280px] max-w-[450px] sm:w-3/5 flex flex-col gap-5 h-full">
 							<div class=" flex justify-between">
-								<Logo />
+								<Logo v-if=" props?.logo " :source=" props?.logo || '' " />
 								<button class=" ">
-									<Image isrc="svgs/close-mobile-toggel.svg" ialt="close" iclass="" />
+									<Image isrc="/svgs/close-mobile-toggel.svg" ialt="close" iclass="" />
 								</button>
 							</div>
-							<NavButtons />
-							<div
-								class="w-full flex-grow bg-yellow-50 rounded-xl border border-neutral-200 p-2">
-								<div class="  text-black text-[23px] ">مساحة إعلانية</div>
-								<div
-									class="text-zinc-500 text-[13px] font-normal font-['Almarai'] ">
-									لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس
-									المحتوى) ويُستخدم في صناعات المطابع ودور النشر.</div>
-							</div>
+							<RightSideBar />
 						</div>
 					</div>
 				</Transition>
@@ -38,6 +30,10 @@ const props = defineProps( {
 	modalActive: {
 		type: Boolean,
 		default: false,
+	},
+	logo: {
+		type: String,
+		default: '',
 	},
 } )
 
@@ -91,8 +87,9 @@ watch( locale, ( newValue, oldValue ) => {
 .modal-inner-leave-to {
 	transform: translateX(100%);
 }
+
 [dir="ltr"] .modal-inner-enter-from,
 [dir="ltr"] .modal-inner-leave-to {
-  transform: translateX(-100%);
+	transform: translateX(-100%);
 }
 </style>
