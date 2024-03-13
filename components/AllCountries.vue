@@ -53,6 +53,5 @@ const domain = import.meta.env.VITE_DOMAIN
 const { data: regions } = await useFetch( domain + getAllRegions + locale.value )
 // fetch countries 
 const { data: countries } = await useFetch( domain + getAllCountrys + locale.value )
-console.log( countries.value.data )
 </script>
 

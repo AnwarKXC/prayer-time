@@ -1,9 +1,9 @@
 <template>
-	<div class="overflow-hidden" v-if=" props.data[0] && props.data[0].timings ">
+	<div class="overflow-x-auto w-full " v-if=" props.data[ 0 ] && props.data[ 0 ].timings ">
 		<div
-			class="w-full overflow-x-auto  bg-yellow-50 rounded-[10px] border border-sec flex justify-between whitespace-nowrap items-center">
-			<div v-for="(         prayer, index         ) in          prayerTimes         " :key=" index "
-				class="cent__col gap-1 py-2 min-w-[110px] px-5 "
+			class="w-full overflow-x-auto bg-yellow-50 rounded-[10px] border border-sec flex justify-between whitespace-nowrap items-center px-">
+			<div v-for="(           prayer, index           ) in            prayerTimes           "
+				:key=" index " class="cent__col gap-1 py-2 min-w-[110px] px-5 flex-1 "
 				:class=" { 'bg-sec ': nextPrayerIndex === index } ">
 				<template v-if=" nextPrayerIndex === index ">
 					<Image :isrc=" `/svgs/${ prayer.icon_inverted }.svg` " :ialt=" prayer.name "
@@ -14,10 +14,11 @@
 						iclass="w-10 h-10" />
 				</template>
 				<div :class=" { '!text-white ': nextPrayerIndex === index } "
-					class="text-right text-zinc-500 text-sm font-normal font-['Almarai'] leading-tight">{{
-						$t( prayer.translation ) }}</div>
+					class=" text-zinc-500 text-sm font-normal font-['Almarai'] leading-tight">
+					{{
+		$t( prayer.translation ) }}</div>
 				<div :class=" { '!text-white ': nextPrayerIndex === index } "
-					class="text-right text-zinc-800 text-base font-medium font-['Roboto'] leading-tight">
+					class=" text-zinc-800 text-base font-medium font-['Roboto'] leading-tight">
 					{{ props.data[ 0 ].timings[ prayer.key ] || '–' }}</div>
 			</div>
 		</div>

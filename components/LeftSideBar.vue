@@ -1,9 +1,9 @@
 <template>
 	<div class="lg:sticky top-[104px] grid gap-6 ">
 		<div class="  bg-zinc-700 rounded-xl border p-4 grid gap-3 " v-if=" route.params.country && props.quotes ">
-			<div class="text-right text-amber-400 text-xl font-bold font-['Almarai']">{{
+			<div class="text-amber-400 text-xl font-bold font-['Almarai']">{{
 				props.quotes.title || '' }}</div>
-			<div class=" text-right text-gray-300 text-xs font-normal font-['Almarai'] leading-[19px]">
+			<div class=" text-gray-300 text-xs font-normal font-['Almarai'] leading-[19px]">
 				{{ props.quotes.description || '' }}</div>
 		</div>
 		<div class=" h-full  bg-yellow-50 rounded-xl border border-gray-200 p-4  grid gap-4 " v-if=" props.data ">

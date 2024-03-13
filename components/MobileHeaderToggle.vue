@@ -19,7 +19,7 @@
 								class="w-full flex-grow bg-yellow-50 rounded-xl border border-neutral-200 p-2">
 								<div class="  text-black text-[23px] ">مساحة إعلانية</div>
 								<div
-									class="text-right text-zinc-500 text-[13px] font-normal font-['Almarai'] ">
+									class="text-zinc-500 text-[13px] font-normal font-['Almarai'] ">
 									لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس
 									المحتوى) ويُستخدم في صناعات المطابع ودور النشر.</div>
 							</div>

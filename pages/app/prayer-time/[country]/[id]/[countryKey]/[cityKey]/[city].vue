@@ -41,7 +41,7 @@
 
 							<template v-if=" cities.data && cities.data[ 0 ] ">
 								<template
-									v-for="                          city                          in                          cities.data                          "
+									v-for="                            city                            in                            cities.data                            "
 									:key=" city.id ">
 									<template v-if=" city.attributes.is_capital ">
 										{{ $t( city.attributes.title ) }}
@@ -114,7 +114,7 @@
 			</div>
 
 
-			<div v-if=" filteredEntries.length ">
+			<div v-if=" filteredEntries.length " class="overflow-hidden ">
 				<PrayingToday :data=" filteredEntries " />
 			</div>
 			<div v-else>
@@ -159,7 +159,7 @@
 
 				<template v-slot:tbody>
 					<tr class=" h-[45px] border-b " v-if=" displayedData "
-						v-for="                    day                    in                       displayedData                    "
+						v-for="                      day                      in                         displayedData                      "
 						:key=" day "
 						:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' ">
 						<Th thClass=" bg-gray-100 font-semibold "
@@ -189,7 +189,7 @@
 			<div class="city__label__grid">
 				<NuxtLink
 					:to=" '/app/prayer-time/' + route.params.country + '/' + city.attributes.slug + '/' + route.params.countryKey + '/' + route.params.cityKey + '/' + city.attributes.api_city_code "
-					v-for="     city      in     cities.data    " :key=" city.id " class="w-full">
+					v-for="       city        in       cities.data    " :key=" city.id " class="w-full">
 					<CityLabel>
 						{{ city.attributes.title }} </CityLabel>
 				</NuxtLink>
@@ -214,26 +214,47 @@ const domain = import.meta.env.VITE_DOMAIN
 const times = import.meta.env.VITE_ADAN
 const route = useRoute()
 import { ref, onMounted } from 'vue'
+
+
+
+
+
+
 //  fetch data of city
 // const { data: cleander, refresh, pending } = await useFetch( times + route.params.city + '&country=' + route.params.cityKey, {
 // 	watch: route.params.city,
 // } )
 
-let cleander = ref( [] )
-import axios from 'axios';
-async function getData () {
-	try {
-		const response = await axios.get( times + route.params.city + '&country=' + route.params.cityKey, { timeout: 10000 } )
-		cleander.value = response.data // Assuming response.data is the array you want to filter
-		console.log( cleander.value )
-		filterEntries() // Call filterEntries after updating data
-	} catch ( error ) {
-		console.error( 'Error fetching data:', error.message, error.code, error.config )
-	}
+
+
+const { data: cleander, watch } = await useAsyncData(
+	'cleander',
+	() => $fetch( times + route.params.city + '&country=' + route.params.cityKey ), {
+	watch: [ route.params.city, route.params.cityKey ]
 }
+)
+
+
+
+
+// let cleander = ref( [] )
+// import axios from 'axios';
+// async function getData () {
+// 	try {
+// 		const response = await axios.get( times + route.params.city + '&country=' + route.params.cityKey, { timeout: 10000 } )
+// 		cleander.value = response.data // Assuming response.data is the array you want to filter
+// 		console.log( cleander.value )
+// 		filterEntries() // Call filterEntries after updating data
+// 	} catch ( error ) {
+// 		console.error( 'Error fetching data:', error.message, error.code, error.config )
+// 	}
+// }
+
+
+
 onMounted( () => {
-	getData()
-})
+	filterEntries()
+} )
 
 
 
