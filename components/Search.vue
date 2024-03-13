@@ -1,6 +1,6 @@
 <template>
 	<form class="flex-grow relative">
-		<input type="search" name="" v-model=" searchQuery " @input=" getSearchResults "
+		<input type="search" name="" v-model="searchQuery" @input=" getSearchResults "
 			:placeholder=" $t( 'searchbar.searchtext1' ) "
 			class="w-full focus:border-primary outline-none border-2 rtl:pl-14 ltr:pr-14" id="myInput"
 			@focus=" showList ">

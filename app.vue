@@ -34,7 +34,7 @@ const randomIndexData = leftData.length > 0 ? Math.floor( Math.random() * leftDa
             <label for="" class=" shrink-0">
               <Image isrc="/svgs/locale.svg" ialt="search" iclass="" />
             </label>
-            <select v-model=" locale " @change=" changeLanguage ">
+            <select v-model="locale" @change=" changeLanguage ">
               <option value="en">English</option>
               <option value="ar">العربية</option>
               <option value="fr">French</option>
