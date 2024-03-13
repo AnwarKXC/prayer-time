@@ -15,10 +15,10 @@
 				<div class="flex gap-3 items-center">
 					<div class=" w-16 h-16 rounded-lg border border-gray-200 p-1.5 cent overflow-hidden">
 						<template
-							v-if=" cities.data[0]?.attributes?.prayer_time_country?.data?.attributes?.flag?.data?.attributes ">
+							v-if=" cities.data[ 0 ]?.attributes?.prayer_time_country?.data?.attributes?.flag?.data?.attributes ">
 							<img
-								:src="  (cities.data[0].attributes.prayer_time_country.data.attributes.flag.data.attributes.url || '') "
-								:alt="  (cities.data[0].attributes.prayer_time_country.data.attributes.flag.data.attributes.alternativeText || '') "
+								:src=" ( cities.data[ 0 ].attributes.prayer_time_country.data.attributes.flag.data.attributes.url || '' ) "
+								:alt=" ( cities.data[ 0 ].attributes.prayer_time_country.data.attributes.flag.data.attributes.alternativeText || '' ) "
 								class=" aspect-square rounded-full ">
 						</template>
 
@@ -28,7 +28,8 @@
 							{{ $t( 'infobanner.countryheading' ) }}
 
 							<template v-if=" cities.data && cities.data[ 0 ] ">
-								{{ $t( cities.data[ 0 ].attributes.prayer_time_country.data.attributes.name)
+								{{ $t( cities.data[ 0 ].attributes.prayer_time_country.data.attributes.name
+			)
 								}}
 							</template>
 							<template v-else>
@@ -40,7 +41,7 @@
 
 							<template v-if=" cities.data && cities.data[ 0 ] ">
 								<template
-									v-for="                        city                        in                        cities.data                        "
+									v-for="                          city                          in                          cities.data                          "
 									:key=" city.id ">
 									<template v-if=" city.attributes.is_capital ">
 										{{ $t( city.attributes.title ) }}
@@ -158,12 +159,13 @@
 
 				<template v-slot:tbody>
 					<tr class=" h-[45px] border-b " v-if=" displayedData "
-						v-for="                  day                  in                     displayedData                  "
-						:key=" day ">
+						v-for="                    day                    in                       displayedData                    "
+						:key=" day "
+						:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' ">
 						<Th thClass=" bg-gray-100 font-semibold "
 							:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' ">
 							{{
-							day.date.gregorian.date }}</Th>
+				day.date.gregorian.date }}</Th>
 						<Td>{{ extractTime( day.timings.Fajr ) }}</Td>
 						<Td>{{ extractTime( day.timings.Sunrise ) }}</Td>
 						<Td>{{ extractTime( day.timings.Dhuhr ) }}</Td>
@@ -187,7 +189,7 @@
 			<div class="city__label__grid">
 				<NuxtLink
 					:to=" '/app/prayer-time/' + route.params.country + '/' + city.attributes.slug + '/' + route.params.countryKey + '/' + route.params.cityKey + '/' + city.attributes.api_city_code "
-					v-for="   city    in   cities.data   " :key=" city.id " class="w-full">
+					v-for="     city      in     cities.data    " :key=" city.id " class="w-full">
 					<CityLabel>
 						{{ city.attributes.title }} </CityLabel>
 				</NuxtLink>
@@ -213,9 +215,29 @@ const times = import.meta.env.VITE_ADAN
 const route = useRoute()
 import { ref, onMounted } from 'vue'
 //  fetch data of city
-const { data: cleander, refresh, pending } = await useFetch( times + route.params.city + '&country=' + route.params.cityKey, {
-	watch: route.params.city,
-} )
+// const { data: cleander, refresh, pending } = await useFetch( times + route.params.city + '&country=' + route.params.cityKey, {
+// 	watch: route.params.city,
+// } )
+
+let cleander = ref( [] )
+import axios from 'axios';
+async function getData () {
+	try {
+		const response = await axios.get( times + route.params.city + '&country=' + route.params.cityKey )
+		cleander.value = response.data // Assuming response.data is the array you want to filter
+		console.log( cleander.value )
+		filterEntries() // Call filterEntries after updating data
+	} catch ( error ) {
+		console.error( 'Error fetching data:', error )
+	}
+}
+onMounted( () => {
+	getData()
+})
+
+
+
+
 const currentDate = new Date()
 const formattedDate = ref( formatDate( currentDate ) )
 const filteredEntries = ref( [] )
@@ -223,23 +245,29 @@ function formatDate ( date ) {
 	const pad = ( val ) => val.toString().padStart( 2, '0' )
 	return `${ pad( date.getDate() ) }-${ pad( date.getMonth() + 1 ) }-${ date.getFullYear() }`
 }
-onMounted( () => {
-	filterEntries()
-} )
+
+
 function filterEntries () {
-	filteredEntries.value = cleander.value.data.filter( day => {
-		return day.date.gregorian.date === formattedDate.value
-	} )
+	if ( cleander.value && cleander.value.data ) {
+		filteredEntries.value = cleander.value.data.filter( day => {
+			return day.date.gregorian.date === formattedDate.value
+		} )
+	} else {
+		filteredEntries.value = []
+	}
 }
 const getAllCitiesInCountry = import.meta.env.VITE_GET_ALL_CITIES_IN_COUNTRY
 const { data: cities } = await useFetch( domain + getAllCitiesInCountry + route.params.countryKey + '&locale[0]=' + locale.value )
 const dayOfMonth = currentDate.getDate()
 const startIndex = ref( dayOfMonth <= 7 ? 0 : dayOfMonth <= 14 ? 7 : dayOfMonth <= 21 ? 14 : 21 )
 const displayedData = computed( () => {
+	if ( !cleander.value || !cleander.value.data || !Array.isArray( cleander.value.data ) || cleander.value.data.length === 0 ) {
+		return []
+	}
 	const start = startIndex.value
 	const dataLength = cleander.value.data.length
 	if ( start >= 21 ) {
-		return cleander.value.data.slice( start )
+		return cleander.value.data.slice( start, dataLength )
 	} else {
 		const end = Math.min( start + 7, dataLength )
 		return cleander.value.data.slice( start, end )
