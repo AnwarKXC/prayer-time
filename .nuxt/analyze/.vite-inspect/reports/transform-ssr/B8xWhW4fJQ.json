@@ -1,0 +1,17 @@
+{
+  "resolvedId": "D:/quran/nuxt-app - Copy/node_modules/nuxt/dist/app/types.js",
+  "transforms": [
+    {
+      "name": "__load__",
+      "result": "",
+      "start": 1710371926001,
+      "end": 1710371926001
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1710371926001,
+      "end": 1710371926001,
+      "order": "normal"
+    }
+  ]
+}

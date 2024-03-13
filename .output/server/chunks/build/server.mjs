@@ -1,9 +1,9 @@
-import { hasInjectionContext, inject, version, unref, defineComponent, h, getCurrentInstance, onUnmounted, useSSRContext, provide, shallowReactive, ref, watch, Suspense, nextTick, Transition, computed, toValue, reactive, Fragment, mergeProps, resolveComponent, shallowRef, toRef, onServerPrefetch, withCtx, createVNode, openBlock, createBlock, createCommentVNode, toDisplayString as toDisplayString$1, createApp, effectScope, defineAsyncComponent, onErrorCaptured, resolveDynamicComponent, isReadonly, Text, isRef, isShallow, isReactive, toRaw, withAsyncContext, withDirectives, vModelSelect, createTextVNode } from 'vue';
-import { d as useRuntimeConfig$1, $ as $fetch, h as createError$1, l as defu, m as hash, n as createHooks, o as sanitizeStatusCode, p as klona, q as parse$1, r as getRequestHeader, t as getRequestHeaders, v as destr, w as isEqual$1, x as setCookie, y as getCookie, z as deleteCookie } from '../runtime.mjs';
+import { hasInjectionContext, inject, version, unref, defineComponent, h, getCurrentInstance, onUnmounted, ref, shallowRef, toRef, onServerPrefetch, computed, toValue, reactive, provide, createElementBlock, useSSRContext, shallowReactive, watch, Suspense, nextTick, Transition, Fragment, resolveComponent, mergeProps, withCtx, createVNode, openBlock, createBlock, createCommentVNode, toDisplayString as toDisplayString$1, createApp, effectScope, defineAsyncComponent, onErrorCaptured, resolveDynamicComponent, isReadonly, Text, isRef, isShallow, isReactive, toRaw, withAsyncContext, withDirectives, vModelSelect, createTextVNode } from 'vue';
+import { d as useRuntimeConfig$1, $ as $fetch, h as createError$1, l as hash, m as defu, n as createHooks, o as sanitizeStatusCode, p as klona, q as parse$1, r as getRequestHeader, t as getRequestHeaders, v as destr, w as isEqual$1, x as setCookie, y as getCookie, z as deleteCookie } from '../runtime.mjs';
 import { getActiveHead } from 'unhead';
 import { defineHeadPlugin } from '@unhead/shared';
-import { RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
-import { ssrRenderAttrs, ssrInterpolate, ssrRenderAttr, ssrRenderList, ssrRenderComponent, ssrRenderStyle, ssrRenderTeleport, ssrRenderSlot, ssrRenderSuspense, ssrRenderVNode, ssrIncludeBooleanAttr, ssrLooseContain, ssrLooseEqual, ssrRenderClass } from 'vue/server-renderer';
+import { RouterView, createMemoryHistory, createRouter, START_LOCATION, useRoute as useRoute$1 } from 'vue-router';
+import { ssrRenderAttrs, ssrInterpolate, ssrRenderAttr, ssrRenderList, ssrRenderComponent, ssrRenderStyle, ssrRenderTeleport, ssrRenderSlot, ssrRenderSuspense, ssrRenderVNode, ssrRenderClass, ssrIncludeBooleanAttr, ssrLooseContain, ssrLooseEqual } from 'vue/server-renderer';
 import 'node:http';
 import 'node:https';
 import 'fs';
@@ -865,12 +865,20 @@ function toArray(value) {
 }
 const _routes = [
   {
+    name: "country-id-city",
+    path: "/:country()/:id()/:city()",
+    meta: {},
+    alias: [],
+    redirect: void 0 ,
+    component: () => import('./_city_-CFsfJ9oZ.mjs').then((m) => m.default || m)
+  },
+  {
     name: "app-country-id-city",
     path: "/app/:country()/:id()/:city()",
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_city_-Bxb56ve6.mjs').then((m) => m.default || m)
+    component: () => import('./_city_-Js2KvqKX.mjs').then((m) => m.default || m)
   },
   {
     name: "app",
@@ -878,7 +886,55 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-BMuqPoXf.mjs').then((m) => m.default || m)
+    component: () => import('./index-DDyUS_Xd.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "app-prayer-time-country-id-city",
+    path: "/app/prayer-time/:country()/:id()/:city()",
+    meta: {},
+    alias: [],
+    redirect: void 0 ,
+    component: () => import('./_city_-BNFBPeeu.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "app-prayer-time-country-id-countryKey-cityKey-city",
+    path: "/app/prayer-time/:country()/:id()/:countryKey()/:cityKey()/:city()",
+    meta: {},
+    alias: [],
+    redirect: void 0 ,
+    component: () => import('./_city_-DBk_-Ex8.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "app-prayer-time",
+    path: "/app/prayer-time",
+    meta: {},
+    alias: [],
+    redirect: void 0 ,
+    component: () => import('./index-DjAwv6Hw.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "app-quran",
+    path: "/app/quran",
+    meta: {},
+    alias: [],
+    redirect: void 0 ,
+    component: () => import('./index-YIoa4N4L.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "app-quran-quran-new-playlist",
+    path: "/app/quran/quran-new-playlist",
+    meta: {},
+    alias: [],
+    redirect: void 0 ,
+    component: () => import('./quran-new-playlist-ByFyPvFw.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "index",
+    path: "/",
+    meta: {},
+    alias: [],
+    redirect: void 0 ,
+    component: () => import('./index-D_U8EdTD.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -5097,57 +5153,6 @@ const vueI18nConfigs = [
     /* webpackChunkName: "__locales_i18n_config_ts_91504c8a" */
   )
 ];
-const nuxtI18nOptions = {
-  "experimental": {
-    "localeDetector": ""
-  },
-  "bundle": {
-    "compositionOnly": true,
-    "runtimeOnly": false,
-    "fullInstall": true,
-    "dropMessageCompiler": false
-  },
-  "compilation": {
-    "jit": true,
-    "strictMessage": true,
-    "escapeHtml": false
-  },
-  "customBlocks": {
-    "defaultSFCLang": "json",
-    "globalSFCScope": false
-  },
-  "vueI18n": "./locales/i18n.config.ts",
-  "locales": [],
-  "defaultLocale": "",
-  "defaultDirection": "ltr",
-  "routesNameSeparator": "___",
-  "trailingSlash": false,
-  "defaultLocaleRouteNameSuffix": "default",
-  "strategy": "prefix_except_default",
-  "lazy": false,
-  "langDir": null,
-  "rootRedirect": null,
-  "detectBrowserLanguage": {
-    "alwaysRedirect": false,
-    "cookieCrossOrigin": false,
-    "cookieDomain": null,
-    "cookieKey": "i18n_redirected",
-    "cookieSecure": false,
-    "fallbackLocale": "",
-    "redirectOn": "root",
-    "useCookie": true
-  },
-  "differentDomains": false,
-  "baseUrl": "",
-  "dynamicRouteParams": false,
-  "customRoutes": "page",
-  "pages": {},
-  "skipSettingLocaleOnNavigate": false,
-  "types": "composition",
-  "debug": false,
-  "parallelPlugin": false,
-  "i18nModules": []
-};
 const normalizedLocales = [];
 const NUXT_I18N_MODULE_ID = "@nuxtjs/i18n";
 const parallelPlugin = false;
@@ -5335,6 +5340,22 @@ function writeServerCookie(event, name, value, opts = {}) {
     }
   }
 }
+function isHTTPS(req, trustProxy = true) {
+  const _xForwardedProto = trustProxy && req.headers ? req.headers["x-forwarded-proto"] : void 0;
+  const protoCheck = typeof _xForwardedProto === "string" ? _xForwardedProto.includes("https") : void 0;
+  if (protoCheck) {
+    return true;
+  }
+  const _encrypted = req.connection ? req.connection.encrypted : void 0;
+  const encryptedCheck = _encrypted !== void 0 ? _encrypted === true : void 0;
+  if (encryptedCheck) {
+    return true;
+  }
+  if (protoCheck === void 0 && encryptedCheck === void 0) {
+    return void 0;
+  }
+  return false;
+}
 function getNormalizedLocales(locales) {
   locales = locales || [];
   const normalized = [];
@@ -5452,6 +5473,9 @@ function findBrowserLocale(locales, browserLocales, { matcher = DefaultBrowserLo
 function getLocalesRegex(localeCodes2) {
   return new RegExp(`^/(${localeCodes2.join("|")})(?:/|$)`, "i");
 }
+function formatMessage(message) {
+  return NUXT_I18N_MODULE_ID + " " + message;
+}
 function callVueI18nInterfaces(i18n, name, ...args) {
   const target = getI18nTarget(i18n);
   const [obj, method] = [target, target[name]];
@@ -5501,7 +5525,10 @@ function getLocaleCookie(cookieRef, detect) {
     return;
   }
   const localeCode = cookieRef.value ?? void 0;
-  if (localeCode && localeCodes.includes(localeCode)) {
+  if (localeCode == null) {
+    return;
+  }
+  if (localeCodes.includes(localeCode)) {
     return localeCode;
   }
 }
@@ -5518,7 +5545,7 @@ const DefaultDetectBrowserLanguageFromResult = {
   from: "unknown"
 };
 function detectBrowserLanguage(route, vueI18nOptionsLocale, detectLocaleContext, locale = "") {
-  const { strategy } = nuxtI18nOptions;
+  const { strategy } = (/* @__PURE__ */ useRuntimeConfig()).public.i18n;
   const { ssg, callType, firstAccess, localeCookie } = detectLocaleContext;
   if (!firstAccess) {
     return { locale: strategy === "no_prefix" ? locale : "", stat: false, reason: "first_access_only" };
@@ -5614,8 +5641,29 @@ function getLocaleDomain(locales) {
   }
   return host;
 }
-const runtimeDetectBrowserLanguage = () => {
-  const opts = (/* @__PURE__ */ useRuntimeConfig()).public.i18n;
+function getDomainFromLocale(localeCode) {
+  var _a, _b;
+  const runtimeConfig = /* @__PURE__ */ useRuntimeConfig();
+  const nuxtApp = /* @__PURE__ */ useNuxtApp();
+  const config = runtimeConfig.public.i18n;
+  const lang = normalizedLocales.find((locale) => locale.code === localeCode);
+  const domain = ((_b = (_a = config == null ? void 0 : config.locales) == null ? void 0 : _a[localeCode]) == null ? void 0 : _b.domain) ?? (lang == null ? void 0 : lang.domain);
+  if (domain) {
+    if (hasProtocol(domain, { strict: true })) {
+      return domain;
+    }
+    let protocol;
+    {
+      const {
+        node: { req }
+      } = useRequestEvent(nuxtApp);
+      protocol = req && isHTTPS(req) ? "https:" : "http:";
+    }
+    return protocol + "//" + domain;
+  }
+  console.warn(formatMessage("Could not find domain name for locale " + localeCode));
+}
+const runtimeDetectBrowserLanguage = (opts = (/* @__PURE__ */ useRuntimeConfig()).public.i18n) => {
   if ((opts == null ? void 0 : opts.detectBrowserLanguage) === false)
     return false;
   return opts == null ? void 0 : opts.detectBrowserLanguage;
@@ -5661,8 +5709,8 @@ function prefixable(options) {
   !(strategy === "no_prefix");
 }
 const DefaultPrefixable = prefixable;
-function getRouteBaseName(givenRoute) {
-  const { routesNameSeparator } = nuxtI18nOptions;
+function getRouteBaseName(common, givenRoute) {
+  const { routesNameSeparator } = common.runtimeConfig.public.i18n;
   const route = unref(givenRoute);
   if (route == null || !route.name) {
     return;
@@ -5689,8 +5737,8 @@ function localeLocation(common, route, locale) {
 function resolveRoute(common, route, locale) {
   const { router, i18n } = common;
   const _locale = locale || getLocale(i18n);
-  const { routesNameSeparator, defaultLocale, defaultLocaleRouteNameSuffix, strategy, trailingSlash } = nuxtI18nOptions;
-  const prefixable2 = extendPrefixable();
+  const { routesNameSeparator, defaultLocale, defaultLocaleRouteNameSuffix, strategy, trailingSlash } = common.runtimeConfig.public.i18n;
+  const prefixable2 = extendPrefixable(common.runtimeConfig);
   let _route;
   if (isString(route)) {
     if (route[0] === "/") {
@@ -5707,7 +5755,7 @@ function resolveRoute(common, route, locale) {
   const isRouteLocationPathRaw = (val) => "path" in val && !!val.path && !("name" in val);
   if (isRouteLocationPathRaw(localizedRoute)) {
     const resolvedRoute = resolve(common, localizedRoute, strategy, _locale);
-    const resolvedRouteName = getRouteBaseName(resolvedRoute);
+    const resolvedRouteName = getRouteBaseName(common, resolvedRoute);
     if (isString(resolvedRouteName)) {
       localizedRoute = {
         name: getLocaleRouteName(resolvedRouteName, _locale, {
@@ -5730,7 +5778,7 @@ function resolveRoute(common, route, locale) {
     }
   } else {
     if (!localizedRoute.name && !("path" in localizedRoute)) {
-      localizedRoute.name = getRouteBaseName(router.currentRoute.value);
+      localizedRoute.name = getRouteBaseName(common, router.currentRoute.value);
     }
     localizedRoute.name = getLocaleRouteName(localizedRoute.name, _locale, {
       defaultLocale,
@@ -5759,11 +5807,11 @@ function getLocalizableMetaFromDynamicParams(route) {
 }
 function switchLocalePath(common, locale, _route) {
   const route = _route ?? common.router.currentRoute.value;
-  const name = getRouteBaseName(route);
+  const name = getRouteBaseName(common, route);
   if (!name) {
     return "";
   }
-  const switchLocalePathIntercepter = extendSwitchLocalePathIntercepter();
+  const switchLocalePathIntercepter = extendSwitchLocalePathIntercepter(common.runtimeConfig);
   const routeCopy = routeToObject(route);
   const resolvedParams = getLocalizableMetaFromDynamicParams(route)[locale];
   const baseRoute = { ...routeCopy, name, params: { ...routeCopy.params, ...resolvedParams } };
@@ -5775,7 +5823,7 @@ function localeHead(common, {
   addSeoAttributes: seoAttributes = true,
   identifierAttribute: idAttribute = "hid"
 }) {
-  const { defaultDirection } = nuxtI18nOptions;
+  const { defaultDirection } = (/* @__PURE__ */ useRuntimeConfig()).public.i18n;
   const i18n = getComposer(common.i18n);
   const metaObject = {
     htmlAttrs: {},
@@ -5817,7 +5865,7 @@ function getBaseUrl() {
 }
 function getHreflangLinks(common, locales, idAttribute) {
   const baseUrl = getBaseUrl();
-  const { defaultLocale, strategy } = nuxtI18nOptions;
+  const { defaultLocale, strategy } = (/* @__PURE__ */ useRuntimeConfig()).public.i18n;
   const links = [];
   if (strategy === "no_prefix")
     return links;
@@ -5860,7 +5908,7 @@ function getHreflangLinks(common, locales, idAttribute) {
 }
 function getCanonicalUrl(common, baseUrl, seoAttributes) {
   const route = common.router.currentRoute.value;
-  const currentRoute = localeRoute(common, { ...route, name: getRouteBaseName(route) });
+  const currentRoute = localeRoute(common, { ...route, name: getRouteBaseName(common, route) });
   if (!currentRoute)
     return "";
   let href = toAbsoluteUrl(currentRoute.path, baseUrl);
@@ -5937,9 +5985,9 @@ function initCommonComposableOptions(i18n) {
     runtimeConfig: /* @__PURE__ */ useRuntimeConfig()
   };
 }
-async function loadAndSetLocale(newLocale, i18n, initial = false) {
-  const { differentDomains, skipSettingLocaleOnNavigate, lazy } = nuxtI18nOptions;
-  const opts = runtimeDetectBrowserLanguage();
+async function loadAndSetLocale(newLocale, i18n, runtimeI18n, initial = false) {
+  const { differentDomains, skipSettingLocaleOnNavigate, lazy } = runtimeI18n;
+  const opts = runtimeDetectBrowserLanguage(runtimeI18n);
   const nuxtApp = /* @__PURE__ */ useNuxtApp();
   let ret = false;
   const oldLocale = getLocale(i18n);
@@ -5980,8 +6028,9 @@ async function loadAndSetLocale(newLocale, i18n, initial = false) {
   ret = true;
   return [ret, oldLocale];
 }
-function detectLocale(route, routeLocaleGetter, vueI18nOptionsLocale, initialLocaleLoader, detectLocaleContext, _detectBrowserLanguage) {
-  const { strategy, defaultLocale, differentDomains } = nuxtI18nOptions;
+function detectLocale(route, routeLocaleGetter, vueI18nOptionsLocale, initialLocaleLoader, detectLocaleContext, runtimeI18n) {
+  const { strategy, defaultLocale, differentDomains } = runtimeI18n;
+  const _detectBrowserLanguage = runtimeDetectBrowserLanguage(runtimeI18n);
   const initialLocale = isFunction(initialLocaleLoader) ? initialLocaleLoader() : initialLocaleLoader;
   const { ssg, callType, firstAccess, localeCookie } = detectLocaleContext;
   const {
@@ -6024,7 +6073,7 @@ function detectRedirect({
 }) {
   const nuxtApp = /* @__PURE__ */ useNuxtApp();
   const common = initCommonComposableOptions();
-  const { strategy, differentDomains } = nuxtI18nOptions;
+  const { strategy, differentDomains } = common.runtimeConfig.public.i18n;
   let redirectPath = "";
   const { fullPath: toFullPath } = route.to;
   if (!differentDomains && (calledWithRouting || strategy !== "no_prefix") && routeLocaleGetter(route.to) !== targetLocale) {
@@ -6049,8 +6098,8 @@ function _navigate(redirectPath, status) {
   return navigateTo(redirectPath, { redirectCode: status });
 }
 async function navigate(args, { status = 302, enableNavigate = false } = {}) {
-  const { rootRedirect, differentDomains, skipSettingLocaleOnNavigate } = nuxtI18nOptions;
   const { nuxtApp, i18n, locale, route } = args;
+  const { rootRedirect, differentDomains, skipSettingLocaleOnNavigate } = nuxtApp.$config.public.i18n;
   let { redirectPath } = args;
   if (route.path === "/" && rootRedirect) {
     if (isString(rootRedirect)) {
@@ -6083,33 +6132,42 @@ function injectNuxtHelpers(nuxt, i18n) {
   defineGetter(nuxt, "$switchLocalePath", wrapComposable(switchLocalePath));
   defineGetter(nuxt, "$localeHead", wrapComposable(localeHead));
 }
-function extendPrefixable() {
+function extendPrefixable(runtimeConfig = /* @__PURE__ */ useRuntimeConfig()) {
   return (opts) => {
-    return DefaultPrefixable(opts) && !nuxtI18nOptions.differentDomains;
+    return DefaultPrefixable(opts) && !runtimeConfig.public.i18n.differentDomains;
   };
 }
-function extendSwitchLocalePathIntercepter() {
+function extendSwitchLocalePathIntercepter(runtimeConfig = /* @__PURE__ */ useRuntimeConfig()) {
   return (path, locale) => {
-    {
+    if (runtimeConfig.public.i18n.differentDomains) {
+      const domain = getDomainFromLocale(locale);
+      if (domain) {
+        return joinURL(domain, path);
+      } else {
+        return path;
+      }
+    } else {
       return DefaultSwitchLocalePathIntercepter(path);
     }
   };
 }
 function extendBaseUrl() {
   return () => {
-    var _a;
     const ctx = /* @__PURE__ */ useNuxtApp();
-    const runtimeConfig = /* @__PURE__ */ useRuntimeConfig();
-    const baseUrl = nuxtI18nOptions.baseUrl;
+    const { baseUrl, defaultLocale, differentDomains } = ctx.$config.public.i18n;
     if (isFunction(baseUrl)) {
       const baseUrlResult = baseUrl(ctx);
       return baseUrlResult;
     }
-    const localeCodeLoader = nuxtI18nOptions.defaultLocale;
-    isFunction(localeCodeLoader) ? localeCodeLoader() : localeCodeLoader;
-    const config = (_a = runtimeConfig == null ? void 0 : runtimeConfig.public) == null ? void 0 : _a.i18n;
-    if (config == null ? void 0 : config.baseUrl) {
-      return config.baseUrl;
+    const localeCode = isFunction(defaultLocale) ? defaultLocale() : defaultLocale;
+    if (differentDomains && localeCode) {
+      const domain = getDomainFromLocale(localeCode);
+      if (domain) {
+        return domain;
+      }
+    }
+    if (baseUrl) {
+      return baseUrl;
     }
     return baseUrl;
   };
@@ -6245,386 +6303,231 @@ function extendVueI18n(vueI18n, hook) {
 function isPluginOptions(options) {
   return isObject(options) && ("inject" in options || "__composerExtend" in options || "__vueI18nExtend" in options);
 }
-function createLocaleFromRouteGetter() {
-  const { routesNameSeparator, defaultLocaleRouteNameSuffix } = nuxtI18nOptions;
-  const localesPattern = `(${localeCodes.join("|")})`;
-  const defaultSuffixPattern = `(?:${routesNameSeparator}${defaultLocaleRouteNameSuffix})?`;
-  const regexpName = new RegExp(`${routesNameSeparator}${localesPattern}${defaultSuffixPattern}$`, "i");
-  const regexpPath = getLocalesRegex(localeCodes);
-  const getLocaleFromRoute = (route) => {
-    if (isObject(route)) {
-      if (route.name) {
-        const name = isString(route.name) ? route.name : route.name.toString();
-        const matches = name.match(regexpName);
-        if (matches && matches.length > 1) {
-          return matches[1];
-        }
-      } else if (route.path) {
-        const matches = route.path.match(regexpPath);
-        if (matches && matches.length > 1) {
-          return matches[1];
+const isDefer = (dedupe) => dedupe === "defer" || dedupe === false;
+function useAsyncData(...args) {
+  var _b;
+  const autoKey = typeof args[args.length - 1] === "string" ? args.pop() : void 0;
+  if (typeof args[0] !== "string") {
+    args.unshift(autoKey);
+  }
+  let [key, _handler, options = {}] = args;
+  if (typeof key !== "string") {
+    throw new TypeError("[nuxt] [asyncData] key must be a string.");
+  }
+  if (typeof _handler !== "function") {
+    throw new TypeError("[nuxt] [asyncData] handler must be a function.");
+  }
+  const nuxtApp = /* @__PURE__ */ useNuxtApp();
+  const handler = _handler ;
+  const getDefault = () => null;
+  const getDefaultCachedData = () => nuxtApp.isHydrating ? nuxtApp.payload.data[key] : nuxtApp.static.data[key];
+  options.server = options.server ?? true;
+  options.default = options.default ?? getDefault;
+  options.getCachedData = options.getCachedData ?? getDefaultCachedData;
+  options.lazy = options.lazy ?? false;
+  options.immediate = options.immediate ?? true;
+  options.deep = options.deep ?? asyncDataDefaults.deep;
+  options.dedupe = options.dedupe ?? "cancel";
+  const hasCachedData = () => ![null, void 0].includes(options.getCachedData(key));
+  if (!nuxtApp._asyncData[key] || !options.immediate) {
+    (_b = nuxtApp.payload._errors)[key] ?? (_b[key] = null);
+    const _ref = options.deep ? ref : shallowRef;
+    nuxtApp._asyncData[key] = {
+      data: _ref(options.getCachedData(key) ?? options.default()),
+      pending: ref(!hasCachedData()),
+      error: toRef(nuxtApp.payload._errors, key),
+      status: ref("idle")
+    };
+  }
+  const asyncData = { ...nuxtApp._asyncData[key] };
+  asyncData.refresh = asyncData.execute = (opts = {}) => {
+    if (nuxtApp._asyncDataPromises[key]) {
+      if (isDefer(opts.dedupe ?? options.dedupe)) {
+        return nuxtApp._asyncDataPromises[key];
+      }
+      nuxtApp._asyncDataPromises[key].cancelled = true;
+    }
+    if ((opts._initial || nuxtApp.isHydrating && opts._initial !== false) && hasCachedData()) {
+      return Promise.resolve(options.getCachedData(key));
+    }
+    asyncData.pending.value = true;
+    asyncData.status.value = "pending";
+    const promise = new Promise(
+      (resolve2, reject) => {
+        try {
+          resolve2(handler(nuxtApp));
+        } catch (err) {
+          reject(err);
         }
       }
-    } else if (isString(route)) {
-      const matches = route.match(regexpPath);
-      if (matches && matches.length > 1) {
-        return matches[1];
+    ).then((_result) => {
+      if (promise.cancelled) {
+        return nuxtApp._asyncDataPromises[key];
+      }
+      let result = _result;
+      if (options.transform) {
+        result = options.transform(_result);
+      }
+      if (options.pick) {
+        result = pick(result, options.pick);
+      }
+      nuxtApp.payload.data[key] = result;
+      asyncData.data.value = result;
+      asyncData.error.value = null;
+      asyncData.status.value = "success";
+    }).catch((error) => {
+      if (promise.cancelled) {
+        return nuxtApp._asyncDataPromises[key];
+      }
+      asyncData.error.value = createError(error);
+      asyncData.data.value = unref(options.default());
+      asyncData.status.value = "error";
+    }).finally(() => {
+      if (promise.cancelled) {
+        return;
+      }
+      asyncData.pending.value = false;
+      delete nuxtApp._asyncDataPromises[key];
+    });
+    nuxtApp._asyncDataPromises[key] = promise;
+    return nuxtApp._asyncDataPromises[key];
+  };
+  const initialFetch = () => asyncData.refresh({ _initial: true });
+  const fetchOnServer = options.server !== false && nuxtApp.payload.serverRendered;
+  if (fetchOnServer && options.immediate) {
+    const promise = initialFetch();
+    if (getCurrentInstance()) {
+      onServerPrefetch(() => promise);
+    } else {
+      nuxtApp.hook("app:created", async () => {
+        await promise;
+      });
+    }
+  }
+  const asyncDataPromise = Promise.resolve(nuxtApp._asyncDataPromises[key]).then(() => asyncData);
+  Object.assign(asyncDataPromise, asyncData);
+  return asyncDataPromise;
+}
+function pick(obj, keys) {
+  const newObj = {};
+  for (const key of keys) {
+    newObj[key] = obj[key];
+  }
+  return newObj;
+}
+function useFetch(request, arg1, arg2) {
+  const [opts = {}, autoKey] = typeof arg1 === "string" ? [{}, arg1] : [arg1, arg2];
+  const _request = computed(() => {
+    let r = request;
+    if (typeof r === "function") {
+      r = r();
+    }
+    return toValue(r);
+  });
+  const _key = opts.key || hash([autoKey, typeof _request.value === "string" ? _request.value : "", ...generateOptionSegments(opts)]);
+  if (!_key || typeof _key !== "string") {
+    throw new TypeError("[nuxt] [useFetch] key must be a string: " + _key);
+  }
+  if (!request) {
+    throw new Error("[nuxt] [useFetch] request is missing.");
+  }
+  const key = _key === autoKey ? "$f" + _key : _key;
+  if (!opts.baseURL && typeof _request.value === "string" && (_request.value[0] === "/" && _request.value[1] === "/")) {
+    throw new Error('[nuxt] [useFetch] the request URL must not start with "//".');
+  }
+  const {
+    server,
+    lazy,
+    default: defaultFn,
+    transform: transform2,
+    pick: pick2,
+    watch: watch2,
+    immediate,
+    getCachedData,
+    deep,
+    dedupe,
+    ...fetchOptions
+  } = opts;
+  const _fetchOptions = reactive({
+    ...fetchDefaults,
+    ...fetchOptions,
+    cache: typeof opts.cache === "boolean" ? void 0 : opts.cache
+  });
+  const _asyncDataOptions = {
+    server,
+    lazy,
+    default: defaultFn,
+    transform: transform2,
+    pick: pick2,
+    immediate,
+    getCachedData,
+    deep,
+    dedupe,
+    watch: watch2 === false ? [] : [_fetchOptions, _request, ...watch2 || []]
+  };
+  let controller;
+  const asyncData = useAsyncData(key, () => {
+    var _a;
+    (_a = controller == null ? void 0 : controller.abort) == null ? void 0 : _a.call(controller);
+    controller = typeof AbortController !== "undefined" ? new AbortController() : {};
+    const timeoutLength = toValue(opts.timeout);
+    if (timeoutLength) {
+      setTimeout(() => controller.abort(), timeoutLength);
+    }
+    let _$fetch = opts.$fetch || globalThis.$fetch;
+    if (!opts.$fetch) {
+      const isLocalFetch = typeof _request.value === "string" && _request.value[0] === "/" && (!toValue(opts.baseURL) || toValue(opts.baseURL)[0] === "/");
+      if (isLocalFetch) {
+        _$fetch = useRequestFetch();
       }
     }
-    return "";
-  };
-  return getLocaleFromRoute;
+    return _$fetch(_request.value, { signal: controller.signal, ..._fetchOptions });
+  }, _asyncDataOptions);
+  return asyncData;
 }
-const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin({
-  name: "i18n:plugin",
-  parallel: parallelPlugin,
-  async setup(nuxt) {
-    let __temp, __restore;
-    const route = useRoute();
-    const { vueApp: app } = nuxt;
-    const nuxtContext = nuxt;
-    const nuxtI18nOptions$1 = { ...nuxtI18nOptions };
-    nuxtI18nOptions$1.baseUrl = extendBaseUrl();
-    const _detectBrowserLanguage = runtimeDetectBrowserLanguage();
-    const vueI18nOptions = ([__temp, __restore] = executeAsync(() => loadVueI18nOptions(vueI18nConfigs, /* @__PURE__ */ useNuxtApp())), __temp = await __temp, __restore(), __temp);
-    vueI18nOptions.messages = vueI18nOptions.messages || {};
-    vueI18nOptions.fallbackLocale = vueI18nOptions.fallbackLocale ?? false;
-    const getLocaleFromRoute = createLocaleFromRouteGetter();
-    const getDefaultLocale = (defaultLocale) => defaultLocale || vueI18nOptions.locale || "en-US";
-    const localeCookie = getI18nCookie();
-    let initialLocale = detectLocale(
-      route,
-      getLocaleFromRoute,
-      vueI18nOptions.locale,
-      getDefaultLocale(nuxtI18nOptions$1.defaultLocale),
-      {
-        ssg: "normal",
-        callType: "setup",
-        firstAccess: true,
-        localeCookie
-      },
-      _detectBrowserLanguage
-    );
-    vueI18nOptions.messages = ([__temp, __restore] = executeAsync(() => loadInitialMessages(vueI18nOptions.messages, localeLoaders, {
-      localeCodes,
-      initialLocale,
-      lazy: nuxtI18nOptions$1.lazy,
-      defaultLocale: nuxtI18nOptions$1.defaultLocale,
-      fallbackLocale: vueI18nOptions.fallbackLocale
-    })), __temp = await __temp, __restore(), __temp);
-    initialLocale = getDefaultLocale(initialLocale);
-    const i18n = createI18n({ ...vueI18nOptions, locale: initialLocale });
-    let notInitialSetup = true;
-    const isInitialLocaleSetup = (locale) => initialLocale !== locale && notInitialSetup;
-    extendI18n(i18n, {
-      // @ts-ignore
-      locales: nuxtI18nOptions$1.locales,
-      localeCodes,
-      baseUrl: nuxtI18nOptions$1.baseUrl,
-      context: nuxtContext,
-      hooks: {
-        onExtendComposer(composer) {
-          composer.strategy = nuxtI18nOptions$1.strategy;
-          composer.localeProperties = computed(
-            () => normalizedLocales.find((l) => l.code === composer.locale.value) || { code: composer.locale.value }
-          );
-          composer.setLocale = async (locale) => {
-            const localeSetup = isInitialLocaleSetup(locale);
-            const [modified] = await loadAndSetLocale(locale, i18n, localeSetup);
-            if (modified && localeSetup) {
-              notInitialSetup = false;
-            }
-            const redirectPath = await nuxtContext.runWithContext(
-              () => detectRedirect({
-                route: { to: route },
-                targetLocale: locale,
-                routeLocaleGetter: getLocaleFromRoute
-              })
-            );
-            await nuxtContext.runWithContext(
-              async () => await navigate(
-                {
-                  nuxtApp: nuxtContext,
-                  i18n,
-                  redirectPath,
-                  locale,
-                  route
-                },
-                { enableNavigate: true }
-              )
-            );
-          };
-          composer.loadLocaleMessages = async (locale) => {
-            const setter = (locale2, message) => mergeLocaleMessage(i18n, locale2, message);
-            await loadLocale(locale, localeLoaders, setter);
-          };
-          composer.differentDomains = nuxtI18nOptions$1.differentDomains;
-          composer.defaultLocale = nuxtI18nOptions$1.defaultLocale;
-          composer.getBrowserLocale = () => getBrowserLocale();
-          composer.getLocaleCookie = () => getLocaleCookie(localeCookie, _detectBrowserLanguage);
-          composer.setLocaleCookie = (locale) => setLocaleCookie(localeCookie, locale, _detectBrowserLanguage);
-          composer.onBeforeLanguageSwitch = (oldLocale, newLocale, initialSetup, context) => nuxt.callHook("i18n:beforeLocaleSwitch", { oldLocale, newLocale, initialSetup, context });
-          composer.onLanguageSwitched = (oldLocale, newLocale) => nuxt.callHook("i18n:localeSwitched", { oldLocale, newLocale });
-          composer.finalizePendingLocaleChange = async () => {
-            if (!i18n.__pendingLocale) {
-              return;
-            }
-            setLocale(i18n, i18n.__pendingLocale);
-            if (i18n.__resolvePendingLocalePromise) {
-              await i18n.__resolvePendingLocalePromise();
-            }
-            i18n.__pendingLocale = void 0;
-          };
-          composer.waitForPendingLocaleChange = async () => {
-            if (i18n.__pendingLocale && i18n.__pendingLocalePromise) {
-              await i18n.__pendingLocalePromise;
-            }
-          };
-        },
-        onExtendExportedGlobal(g) {
-          return {
-            strategy: {
-              get() {
-                return g.strategy;
-              }
-            },
-            localeProperties: {
-              get() {
-                return g.localeProperties.value;
-              }
-            },
-            setLocale: {
-              get() {
-                return async (locale) => Reflect.apply(g.setLocale, g, [locale]);
-              }
-            },
-            differentDomains: {
-              get() {
-                return g.differentDomains;
-              }
-            },
-            defaultLocale: {
-              get() {
-                return g.defaultLocale;
-              }
-            },
-            getBrowserLocale: {
-              get() {
-                return () => Reflect.apply(g.getBrowserLocale, g, []);
-              }
-            },
-            getLocaleCookie: {
-              get() {
-                return () => Reflect.apply(g.getLocaleCookie, g, []);
-              }
-            },
-            setLocaleCookie: {
-              get() {
-                return (locale) => Reflect.apply(g.setLocaleCookie, g, [locale]);
-              }
-            },
-            onBeforeLanguageSwitch: {
-              get() {
-                return (oldLocale, newLocale, initialSetup, context) => Reflect.apply(g.onBeforeLanguageSwitch, g, [oldLocale, newLocale, initialSetup, context]);
-              }
-            },
-            onLanguageSwitched: {
-              get() {
-                return (oldLocale, newLocale) => Reflect.apply(g.onLanguageSwitched, g, [oldLocale, newLocale]);
-              }
-            },
-            finalizePendingLocaleChange: {
-              get() {
-                return () => Reflect.apply(g.finalizePendingLocaleChange, g, []);
-              }
-            },
-            waitForPendingLocaleChange: {
-              get() {
-                return () => Reflect.apply(g.waitForPendingLocaleChange, g, []);
-              }
-            }
-          };
-        },
-        onExtendVueI18n(composer) {
-          return {
-            strategy: {
-              get() {
-                return composer.strategy;
-              }
-            },
-            localeProperties: {
-              get() {
-                return composer.localeProperties.value;
-              }
-            },
-            setLocale: {
-              get() {
-                return async (locale) => Reflect.apply(composer.setLocale, composer, [locale]);
-              }
-            },
-            loadLocaleMessages: {
-              get() {
-                return async (locale) => Reflect.apply(composer.loadLocaleMessages, composer, [locale]);
-              }
-            },
-            differentDomains: {
-              get() {
-                return composer.differentDomains;
-              }
-            },
-            defaultLocale: {
-              get() {
-                return composer.defaultLocale;
-              }
-            },
-            getBrowserLocale: {
-              get() {
-                return () => Reflect.apply(composer.getBrowserLocale, composer, []);
-              }
-            },
-            getLocaleCookie: {
-              get() {
-                return () => Reflect.apply(composer.getLocaleCookie, composer, []);
-              }
-            },
-            setLocaleCookie: {
-              get() {
-                return (locale) => Reflect.apply(composer.setLocaleCookie, composer, [locale]);
-              }
-            },
-            onBeforeLanguageSwitch: {
-              get() {
-                return (oldLocale, newLocale, initialSetup, context) => Reflect.apply(composer.onBeforeLanguageSwitch, composer, [
-                  oldLocale,
-                  newLocale,
-                  initialSetup,
-                  context
-                ]);
-              }
-            },
-            onLanguageSwitched: {
-              get() {
-                return (oldLocale, newLocale) => Reflect.apply(composer.onLanguageSwitched, composer, [oldLocale, newLocale]);
-              }
-            },
-            finalizePendingLocaleChange: {
-              get() {
-                return () => Reflect.apply(composer.finalizePendingLocaleChange, composer, []);
-              }
-            },
-            waitForPendingLocaleChange: {
-              get() {
-                return () => Reflect.apply(composer.waitForPendingLocaleChange, composer, []);
-              }
-            }
-          };
-        }
+function generateOptionSegments(opts) {
+  var _a;
+  const segments = [
+    ((_a = toValue(opts.method)) == null ? void 0 : _a.toUpperCase()) || "GET",
+    toValue(opts.baseURL)
+  ];
+  for (const _obj of [opts.params || opts.query]) {
+    const obj = toValue(_obj);
+    if (!obj) {
+      continue;
+    }
+    const unwrapped = {};
+    for (const [key, value] of Object.entries(obj)) {
+      unwrapped[toValue(key)] = toValue(value);
+    }
+    segments.push(unwrapped);
+  }
+  return segments;
+}
+const clientOnlySymbol = Symbol.for("nuxt:client-only");
+defineComponent({
+  name: "ClientOnly",
+  inheritAttrs: false,
+  // eslint-disable-next-line vue/require-prop-types
+  props: ["fallback", "placeholder", "placeholderTag", "fallbackTag"],
+  setup(_, { slots, attrs }) {
+    const mounted = ref(false);
+    provide(clientOnlySymbol, true);
+    return (props) => {
+      var _a;
+      if (mounted.value) {
+        return (_a = slots.default) == null ? void 0 : _a.call(slots);
       }
-    });
-    const pluginOptions = {
-      __composerExtend: (c) => {
-        const g = getComposer(i18n);
-        c.strategy = g.strategy;
-        c.localeProperties = computed(() => g.localeProperties.value);
-        c.setLocale = g.setLocale;
-        c.differentDomains = g.differentDomains;
-        c.getBrowserLocale = g.getBrowserLocale;
-        c.getLocaleCookie = g.getLocaleCookie;
-        c.setLocaleCookie = g.setLocaleCookie;
-        c.onBeforeLanguageSwitch = g.onBeforeLanguageSwitch;
-        c.onLanguageSwitched = g.onLanguageSwitched;
-        c.finalizePendingLocaleChange = g.finalizePendingLocaleChange;
-        c.waitForPendingLocaleChange = g.waitForPendingLocaleChange;
-        return () => {
-        };
+      const slot = slots.fallback || slots.placeholder;
+      if (slot) {
+        return slot();
       }
+      const fallbackStr = props.fallback || props.placeholder || "";
+      const fallbackTag = props.fallbackTag || props.placeholderTag || "span";
+      return createElementBlock(fallbackTag, attrs, fallbackStr);
     };
-    app.use(i18n, pluginOptions);
-    injectNuxtHelpers(nuxtContext, i18n);
-    let routeChangeCount = 0;
-    addRouteMiddleware(
-      "locale-changing",
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      /* @__PURE__ */ defineNuxtRouteMiddleware(async (to, from) => {
-        let __temp2, __restore2;
-        const locale = detectLocale(
-          to,
-          getLocaleFromRoute,
-          vueI18nOptions.locale,
-          () => {
-            return getLocale(i18n) || getDefaultLocale(nuxtI18nOptions$1.defaultLocale);
-          },
-          {
-            ssg: "normal",
-            callType: "routing",
-            firstAccess: routeChangeCount === 0,
-            localeCookie
-          },
-          _detectBrowserLanguage
-        );
-        const localeSetup = isInitialLocaleSetup(locale);
-        const [modified] = ([__temp2, __restore2] = executeAsync(() => loadAndSetLocale(locale, i18n, localeSetup)), __temp2 = await __temp2, __restore2(), __temp2);
-        if (modified && localeSetup) {
-          notInitialSetup = false;
-        }
-        const redirectPath = ([__temp2, __restore2] = executeAsync(() => nuxtContext.runWithContext(
-          () => detectRedirect({
-            route: { to, from },
-            targetLocale: locale,
-            routeLocaleGetter: nuxtI18nOptions$1.strategy === "no_prefix" ? () => locale : getLocaleFromRoute,
-            calledWithRouting: true
-          })
-        )), __temp2 = await __temp2, __restore2(), __temp2);
-        routeChangeCount++;
-        return [__temp2, __restore2] = executeAsync(() => nuxtContext.runWithContext(
-          async () => navigate({ nuxtApp: nuxtContext, i18n, redirectPath, locale, route: to })
-        )), __temp2 = await __temp2, __restore2(), __temp2;
-      }),
-      { global: true }
-    );
   }
 });
-const plugins = [
-  unhead_KgADcZ0jPj,
-  plugin,
-  revive_payload_server_eJ33V7gbc6,
-  components_plugin_KR1HBZs4kY,
-  i18n_yfWm7jX06p
-];
-const _sfc_main$f = {
-  __name: "Image",
-  __ssrInlineRender: true,
-  props: {
-    isrc: {
-      type: [String, Number],
-      default: ""
-    },
-    iclass: {
-      type: [String, Number],
-      default: ""
-    },
-    ialt: {
-      type: [String, Number],
-      default: () => "Image"
-    }
-  },
-  setup(__props) {
-    return (_ctx, _push, _parent, _attrs) => {
-      _push(`<img${ssrRenderAttrs(mergeProps({
-        src: __props.isrc,
-        class: __props.iclass,
-        alt: __props.ialt
-      }, _attrs))}>`);
-    };
-  }
-};
-const _sfc_setup$f = _sfc_main$f.setup;
-_sfc_main$f.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Image.vue");
-  return _sfc_setup$f ? _sfc_setup$f(props, ctx) : void 0;
-};
-const __nuxt_component_0$3 = _sfc_main$f;
 const firstNonUndefined = (...args) => args.find((arg) => arg !== void 0);
 // @__NO_SIDE_EFFECTS__
 function defineNuxtLink(options) {
@@ -6836,7 +6739,386 @@ function applyTrailingSlashBehavior(to, trailingSlash) {
   }
   return normalizeFn(to, true);
 }
+function createLocaleFromRouteGetter() {
+  const { routesNameSeparator, defaultLocaleRouteNameSuffix } = (/* @__PURE__ */ useRuntimeConfig()).public.i18n;
+  const localesPattern = `(${localeCodes.join("|")})`;
+  const defaultSuffixPattern = `(?:${routesNameSeparator}${defaultLocaleRouteNameSuffix})?`;
+  const regexpName = new RegExp(`${routesNameSeparator}${localesPattern}${defaultSuffixPattern}$`, "i");
+  const regexpPath = getLocalesRegex(localeCodes);
+  const getLocaleFromRoute = (route) => {
+    if (isObject(route)) {
+      if (route.name) {
+        const name = isString(route.name) ? route.name : route.name.toString();
+        const matches = name.match(regexpName);
+        if (matches && matches.length > 1) {
+          return matches[1];
+        }
+      } else if (route.path) {
+        const matches = route.path.match(regexpPath);
+        if (matches && matches.length > 1) {
+          return matches[1];
+        }
+      }
+    } else if (isString(route)) {
+      const matches = route.match(regexpPath);
+      if (matches && matches.length > 1) {
+        return matches[1];
+      }
+    }
+    return "";
+  };
+  return getLocaleFromRoute;
+}
+const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin({
+  name: "i18n:plugin",
+  parallel: parallelPlugin,
+  async setup(nuxt) {
+    let __temp, __restore;
+    const route = useRoute();
+    const { vueApp: app } = nuxt;
+    const nuxtContext = nuxt;
+    const runtimeI18n = { ...nuxtContext.$config.public.i18n };
+    runtimeI18n.baseUrl = extendBaseUrl();
+    const _detectBrowserLanguage = runtimeDetectBrowserLanguage();
+    const vueI18nOptions = ([__temp, __restore] = executeAsync(() => loadVueI18nOptions(vueI18nConfigs, /* @__PURE__ */ useNuxtApp())), __temp = await __temp, __restore(), __temp);
+    vueI18nOptions.messages = vueI18nOptions.messages || {};
+    vueI18nOptions.fallbackLocale = vueI18nOptions.fallbackLocale ?? false;
+    const getLocaleFromRoute = createLocaleFromRouteGetter();
+    const getDefaultLocale = (defaultLocale) => defaultLocale || vueI18nOptions.locale || "en-US";
+    const localeCookie = getI18nCookie();
+    let initialLocale = detectLocale(
+      route,
+      getLocaleFromRoute,
+      vueI18nOptions.locale,
+      getDefaultLocale(runtimeI18n.defaultLocale),
+      {
+        ssg: "normal",
+        callType: "setup",
+        firstAccess: true,
+        localeCookie
+      },
+      runtimeI18n
+    );
+    vueI18nOptions.messages = ([__temp, __restore] = executeAsync(() => loadInitialMessages(vueI18nOptions.messages, localeLoaders, {
+      localeCodes,
+      initialLocale,
+      lazy: runtimeI18n.lazy,
+      defaultLocale: runtimeI18n.defaultLocale,
+      fallbackLocale: vueI18nOptions.fallbackLocale
+    })), __temp = await __temp, __restore(), __temp);
+    initialLocale = getDefaultLocale(initialLocale);
+    const i18n = createI18n({ ...vueI18nOptions, locale: initialLocale });
+    let notInitialSetup = true;
+    const isInitialLocaleSetup = (locale) => initialLocale !== locale && notInitialSetup;
+    extendI18n(i18n, {
+      locales: runtimeI18n.configLocales,
+      localeCodes,
+      baseUrl: runtimeI18n.baseUrl,
+      context: nuxtContext,
+      hooks: {
+        onExtendComposer(composer) {
+          composer.strategy = runtimeI18n.strategy;
+          composer.localeProperties = computed(
+            () => normalizedLocales.find((l) => l.code === composer.locale.value) || { code: composer.locale.value }
+          );
+          composer.setLocale = async (locale) => {
+            const localeSetup = isInitialLocaleSetup(locale);
+            const [modified] = await loadAndSetLocale(locale, i18n, runtimeI18n, localeSetup);
+            if (modified && localeSetup) {
+              notInitialSetup = false;
+            }
+            const redirectPath = await nuxtContext.runWithContext(
+              () => detectRedirect({
+                route: { to: route },
+                targetLocale: locale,
+                routeLocaleGetter: getLocaleFromRoute
+              })
+            );
+            await nuxtContext.runWithContext(
+              async () => await navigate(
+                {
+                  nuxtApp: nuxtContext,
+                  i18n,
+                  redirectPath,
+                  locale,
+                  route
+                },
+                { enableNavigate: true }
+              )
+            );
+          };
+          composer.loadLocaleMessages = async (locale) => {
+            const setter = (locale2, message) => mergeLocaleMessage(i18n, locale2, message);
+            await loadLocale(locale, localeLoaders, setter);
+          };
+          composer.differentDomains = runtimeI18n.differentDomains;
+          composer.defaultLocale = runtimeI18n.defaultLocale;
+          composer.getBrowserLocale = () => getBrowserLocale();
+          composer.getLocaleCookie = () => getLocaleCookie(localeCookie, _detectBrowserLanguage);
+          composer.setLocaleCookie = (locale) => setLocaleCookie(localeCookie, locale, _detectBrowserLanguage);
+          composer.onBeforeLanguageSwitch = (oldLocale, newLocale, initialSetup, context) => nuxt.callHook("i18n:beforeLocaleSwitch", { oldLocale, newLocale, initialSetup, context });
+          composer.onLanguageSwitched = (oldLocale, newLocale) => nuxt.callHook("i18n:localeSwitched", { oldLocale, newLocale });
+          composer.finalizePendingLocaleChange = async () => {
+            if (!i18n.__pendingLocale) {
+              return;
+            }
+            setLocale(i18n, i18n.__pendingLocale);
+            if (i18n.__resolvePendingLocalePromise) {
+              await i18n.__resolvePendingLocalePromise();
+            }
+            i18n.__pendingLocale = void 0;
+          };
+          composer.waitForPendingLocaleChange = async () => {
+            if (i18n.__pendingLocale && i18n.__pendingLocalePromise) {
+              await i18n.__pendingLocalePromise;
+            }
+          };
+        },
+        onExtendExportedGlobal(g) {
+          return {
+            strategy: {
+              get() {
+                return g.strategy;
+              }
+            },
+            localeProperties: {
+              get() {
+                return g.localeProperties.value;
+              }
+            },
+            setLocale: {
+              get() {
+                return async (locale) => Reflect.apply(g.setLocale, g, [locale]);
+              }
+            },
+            differentDomains: {
+              get() {
+                return g.differentDomains;
+              }
+            },
+            defaultLocale: {
+              get() {
+                return g.defaultLocale;
+              }
+            },
+            getBrowserLocale: {
+              get() {
+                return () => Reflect.apply(g.getBrowserLocale, g, []);
+              }
+            },
+            getLocaleCookie: {
+              get() {
+                return () => Reflect.apply(g.getLocaleCookie, g, []);
+              }
+            },
+            setLocaleCookie: {
+              get() {
+                return (locale) => Reflect.apply(g.setLocaleCookie, g, [locale]);
+              }
+            },
+            onBeforeLanguageSwitch: {
+              get() {
+                return (oldLocale, newLocale, initialSetup, context) => Reflect.apply(g.onBeforeLanguageSwitch, g, [oldLocale, newLocale, initialSetup, context]);
+              }
+            },
+            onLanguageSwitched: {
+              get() {
+                return (oldLocale, newLocale) => Reflect.apply(g.onLanguageSwitched, g, [oldLocale, newLocale]);
+              }
+            },
+            finalizePendingLocaleChange: {
+              get() {
+                return () => Reflect.apply(g.finalizePendingLocaleChange, g, []);
+              }
+            },
+            waitForPendingLocaleChange: {
+              get() {
+                return () => Reflect.apply(g.waitForPendingLocaleChange, g, []);
+              }
+            }
+          };
+        },
+        onExtendVueI18n(composer) {
+          return {
+            strategy: {
+              get() {
+                return composer.strategy;
+              }
+            },
+            localeProperties: {
+              get() {
+                return composer.localeProperties.value;
+              }
+            },
+            setLocale: {
+              get() {
+                return async (locale) => Reflect.apply(composer.setLocale, composer, [locale]);
+              }
+            },
+            loadLocaleMessages: {
+              get() {
+                return async (locale) => Reflect.apply(composer.loadLocaleMessages, composer, [locale]);
+              }
+            },
+            differentDomains: {
+              get() {
+                return composer.differentDomains;
+              }
+            },
+            defaultLocale: {
+              get() {
+                return composer.defaultLocale;
+              }
+            },
+            getBrowserLocale: {
+              get() {
+                return () => Reflect.apply(composer.getBrowserLocale, composer, []);
+              }
+            },
+            getLocaleCookie: {
+              get() {
+                return () => Reflect.apply(composer.getLocaleCookie, composer, []);
+              }
+            },
+            setLocaleCookie: {
+              get() {
+                return (locale) => Reflect.apply(composer.setLocaleCookie, composer, [locale]);
+              }
+            },
+            onBeforeLanguageSwitch: {
+              get() {
+                return (oldLocale, newLocale, initialSetup, context) => Reflect.apply(composer.onBeforeLanguageSwitch, composer, [
+                  oldLocale,
+                  newLocale,
+                  initialSetup,
+                  context
+                ]);
+              }
+            },
+            onLanguageSwitched: {
+              get() {
+                return (oldLocale, newLocale) => Reflect.apply(composer.onLanguageSwitched, composer, [oldLocale, newLocale]);
+              }
+            },
+            finalizePendingLocaleChange: {
+              get() {
+                return () => Reflect.apply(composer.finalizePendingLocaleChange, composer, []);
+              }
+            },
+            waitForPendingLocaleChange: {
+              get() {
+                return () => Reflect.apply(composer.waitForPendingLocaleChange, composer, []);
+              }
+            }
+          };
+        }
+      }
+    });
+    const pluginOptions = {
+      __composerExtend: (c) => {
+        const g = getComposer(i18n);
+        c.strategy = g.strategy;
+        c.localeProperties = computed(() => g.localeProperties.value);
+        c.setLocale = g.setLocale;
+        c.differentDomains = g.differentDomains;
+        c.getBrowserLocale = g.getBrowserLocale;
+        c.getLocaleCookie = g.getLocaleCookie;
+        c.setLocaleCookie = g.setLocaleCookie;
+        c.onBeforeLanguageSwitch = g.onBeforeLanguageSwitch;
+        c.onLanguageSwitched = g.onLanguageSwitched;
+        c.finalizePendingLocaleChange = g.finalizePendingLocaleChange;
+        c.waitForPendingLocaleChange = g.waitForPendingLocaleChange;
+        return () => {
+        };
+      }
+    };
+    app.use(i18n, pluginOptions);
+    injectNuxtHelpers(nuxtContext, i18n);
+    let routeChangeCount = 0;
+    addRouteMiddleware(
+      "locale-changing",
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      /* @__PURE__ */ defineNuxtRouteMiddleware(async (to, from) => {
+        let __temp2, __restore2;
+        const locale = detectLocale(
+          to,
+          getLocaleFromRoute,
+          vueI18nOptions.locale,
+          () => {
+            return getLocale(i18n) || getDefaultLocale(runtimeI18n.defaultLocale);
+          },
+          {
+            ssg: "normal",
+            callType: "routing",
+            firstAccess: routeChangeCount === 0,
+            localeCookie
+          },
+          runtimeI18n
+        );
+        const localeSetup = isInitialLocaleSetup(locale);
+        const [modified] = ([__temp2, __restore2] = executeAsync(() => loadAndSetLocale(locale, i18n, runtimeI18n, localeSetup)), __temp2 = await __temp2, __restore2(), __temp2);
+        if (modified && localeSetup) {
+          notInitialSetup = false;
+        }
+        const redirectPath = ([__temp2, __restore2] = executeAsync(() => nuxtContext.runWithContext(
+          () => detectRedirect({
+            route: { to, from },
+            targetLocale: locale,
+            routeLocaleGetter: runtimeI18n.strategy === "no_prefix" ? () => locale : getLocaleFromRoute,
+            calledWithRouting: true
+          })
+        )), __temp2 = await __temp2, __restore2(), __temp2);
+        routeChangeCount++;
+        return [__temp2, __restore2] = executeAsync(() => nuxtContext.runWithContext(
+          async () => navigate({ nuxtApp: nuxtContext, i18n, redirectPath, locale, route: to })
+        )), __temp2 = await __temp2, __restore2(), __temp2;
+      }),
+      { global: true }
+    );
+  }
+});
+const plugins = [
+  unhead_KgADcZ0jPj,
+  plugin,
+  revive_payload_server_eJ33V7gbc6,
+  components_plugin_KR1HBZs4kY,
+  i18n_yfWm7jX06p
+];
 const _sfc_main$e = {
+  __name: "Image",
+  __ssrInlineRender: true,
+  props: {
+    isrc: {
+      type: [String, Number],
+      default: ""
+    },
+    iclass: {
+      type: [String, Number],
+      default: ""
+    },
+    ialt: {
+      type: [String, Number],
+      default: () => "Image"
+    }
+  },
+  setup(__props) {
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(`<img${ssrRenderAttrs(mergeProps({
+        src: __props.isrc,
+        class: __props.iclass,
+        alt: __props.ialt
+      }, _attrs))}>`);
+    };
+  }
+};
+const _sfc_setup$e = _sfc_main$e.setup;
+_sfc_main$e.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Image.vue");
+  return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
+};
+const __nuxt_component_1$4 = _sfc_main$e;
+const _sfc_main$d = {
   __name: "Button",
   __ssrInlineRender: true,
   props: {
@@ -6857,14 +7139,14 @@ const _sfc_main$e = {
     };
   }
 };
-const _sfc_setup$e = _sfc_main$e.setup;
-_sfc_main$e.setup = (props, ctx) => {
+const _sfc_setup$d = _sfc_main$d.setup;
+_sfc_main$d.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Button.vue");
-  return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
+  return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
 };
-const __nuxt_component_2$2 = _sfc_main$e;
-const _sfc_main$d = {
+const __nuxt_component_2$1 = _sfc_main$d;
+const _sfc_main$c = {
   __name: "RightSideBar",
   __ssrInlineRender: true,
   props: {
@@ -6878,18 +7160,16 @@ const _sfc_main$d = {
     }
   },
   setup(__props) {
-    const domain = "https://cms.prayer-now.com";
     const route = useRoute();
-    console.log(route);
     const props = __props;
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_Image = __nuxt_component_0$3;
-      const _component_Button = __nuxt_component_2$2;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "lg:sticky top-[104px]" }, _attrs))}><div class="grid gap-6"><div class="rounded-xl border border-gray-200 relative overflow-hidden"><ul class="bg-white grid grid-rows-4"><li class="border-b border-gray-200 flex p-1.5">`);
+      const _component_Image = __nuxt_component_1$4;
+      const _component_Button = __nuxt_component_2$1;
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "lg:sticky top-[104px]" }, _attrs))}><div class="grid gap-6"><div class="rounded-xl border border-gray-200 relative overflow-hidden"><ul class="bg-white grid"><li class="border-b border-gray-200 flex p-1.5">`);
       _push(ssrRenderComponent(_component_NuxtLink, {
-        to: "/",
-        class: ["flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group", unref(route).name === "index" ? "bg-primary text-white" : ""]
+        to: "/app/prayer-time/",
+        class: ["flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group", unref(route).name === "/" || unref(route).name === "/app" || unref(route).name === "app-prayer-time" || unref(route).name === "app-prayer-time-country-id-countryKey-cityKey-city" ? "bg-primary text-white" : ""]
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -6930,8 +7210,8 @@ const _sfc_main$d = {
       }, _parent));
       _push(`</li><li class="border-b border-gray-200 flex p-1.5">`);
       _push(ssrRenderComponent(_component_NuxtLink, {
-        to: "/",
-        class: [unref(route).name === "country-id-city" ? "bg-primary text-white" : "", "flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group"]
+        to: "/app/quran/",
+        class: [unref(route).name === "app-quran" ? "bg-primary text-white" : "", "flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group"]
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -6939,7 +7219,7 @@ const _sfc_main$d = {
               isrc: "/svgs/quran.svg",
               ialt: "ads",
               iclass: "group-hover:invert  w-[17px] h-[29px]",
-              class: unref(route).name === "country-id-city" ? "invert" : ""
+              class: unref(route).name === "app-quran" ? "invert" : ""
             }, null, _parent2, _scopeId));
             _push2(ssrRenderComponent(_component_Button, {
               buttonText: "sidebar.item1",
@@ -6951,7 +7231,7 @@ const _sfc_main$d = {
                 isrc: "/svgs/quran.svg",
                 ialt: "ads",
                 iclass: "group-hover:invert  w-[17px] h-[29px]",
-                class: unref(route).name === "country-id-city" ? "invert" : ""
+                class: unref(route).name === "app-quran" ? "invert" : ""
               }, null, 8, ["class"]),
               createVNode(_component_Button, {
                 buttonText: "sidebar.item1",
@@ -6963,28 +7243,38 @@ const _sfc_main$d = {
         _: 1
       }, _parent));
       _push(`</li><!--[-->`);
-      ssrRenderList(props.menu, (item) => {
+      ssrRenderList(props.menu || [], (item, index) => {
         _push(`<li class="border-gray-200 flex p-1.5 border-b">`);
-        _push(ssrRenderComponent(_component_NuxtLink, {
-          to: "/app/" + item.link,
-          class: [unref(route).path === `/${item.link}` ? "bg-primary text-white" : "", "flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group"]
-        }, {
-          default: withCtx((_, _push2, _parent2, _scopeId) => {
-            if (_push2) {
-              _push2(`<img${ssrRenderAttr("src", unref(domain) + item.icon.data.attributes.url)} alt="" class="${ssrRenderClass([unref(route).path === `/${item.link}` ? "invert" : "", "group-hover:invert w-[17px] h-[29px]"])}"${_scopeId}><span class="btn__primary"${_scopeId}>${ssrInterpolate(item.title)}</span>`);
-            } else {
-              return [
-                createVNode("img", {
-                  src: unref(domain) + item.icon.data.attributes.url,
-                  alt: "",
-                  class: ["group-hover:invert w-[17px] h-[29px]", unref(route).path === `/${item.link}` ? "invert" : ""]
-                }, null, 10, ["src"]),
-                createVNode("span", { class: "btn__primary" }, toDisplayString$1(item.title), 1)
-              ];
-            }
-          }),
-          _: 2
-        }, _parent));
+        if (item.link) {
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            to: "/app/prayer-time/" + item.link,
+            class: [unref(route).path === `/${item.link}` ? "bg-primary text-white" : "", "flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group"]
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                if (item.icon.data.attributes.url) {
+                  _push2(`<img${ssrRenderAttr("src", item.icon.data.attributes.url)} alt="" class="${ssrRenderClass([unref(route).path === `/${item.link}` ? "invert" : "", "group-hover:invert w-[17px] h-[29px]"])}"${_scopeId}>`);
+                } else {
+                  _push2(`<!---->`);
+                }
+                _push2(`<span class="btn__primary"${_scopeId}>${ssrInterpolate(item.title)}</span>`);
+              } else {
+                return [
+                  item.icon.data.attributes.url ? (openBlock(), createBlock("img", {
+                    key: 0,
+                    src: item.icon.data.attributes.url,
+                    alt: "",
+                    class: ["group-hover:invert w-[17px] h-[29px]", unref(route).path === `/${item.link}` ? "invert" : ""]
+                  }, null, 10, ["src"])) : createCommentVNode("", true),
+                  createVNode("span", { class: "btn__primary" }, toDisplayString$1(item.title), 1)
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+        } else {
+          _push(`<!---->`);
+        }
         _push(`</li>`);
       });
       _push(`<!--]--><li class="border-gray-200 cent p-2 bg-[#FCD364] bg-opacity-60">`);
@@ -7019,36 +7309,43 @@ const _sfc_main$d = {
         }),
         _: 1
       }, _parent));
-      _push(`</li></ul></div><div class="h-full bg-white rounded-xl border border-gray-200 p-4 grid gap-4">`);
-      _push(ssrRenderComponent(_component_NuxtLink, {
-        to: props.data[0].link
-      }, {
-        default: withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`<img${ssrRenderAttr("src", unref(domain) + props.data[0].image.data.attributes.url)}${ssrRenderAttr("alt", props.data[0].image.data.attributes.alternativeText)} class="h-full rounded"${_scopeId}>`);
-          } else {
-            return [
-              createVNode("img", {
-                src: unref(domain) + props.data[0].image.data.attributes.url,
-                alt: props.data[0].image.data.attributes.alternativeText,
-                class: "h-full rounded"
-              }, null, 8, ["src", "alt"])
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(`</div></div></div>`);
+      _push(`</li></ul></div>`);
+      if (props.data && props.data[0]) {
+        _push(`<div class="h-full bg-white rounded-xl border border-gray-200 p-4 grid gap-4">`);
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: props.data[0].link
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
+            if (_push2) {
+              _push2(`<img${ssrRenderAttr("src", ((_d = (_c = (_b = (_a = props.data[0]) == null ? void 0 : _a.image) == null ? void 0 : _b.data) == null ? void 0 : _c.attributes) == null ? void 0 : _d.url) || "")}${ssrRenderAttr("alt", ((_h = (_g = (_f = (_e = props.data[0]) == null ? void 0 : _e.image) == null ? void 0 : _f.data) == null ? void 0 : _g.attributes) == null ? void 0 : _h.alternativeText) || "")} class="h-full rounded"${_scopeId}>`);
+            } else {
+              return [
+                createVNode("img", {
+                  src: ((_l = (_k = (_j = (_i = props.data[0]) == null ? void 0 : _i.image) == null ? void 0 : _j.data) == null ? void 0 : _k.attributes) == null ? void 0 : _l.url) || "",
+                  alt: ((_p = (_o = (_n = (_m = props.data[0]) == null ? void 0 : _m.image) == null ? void 0 : _n.data) == null ? void 0 : _o.attributes) == null ? void 0 : _p.alternativeText) || "",
+                  class: "h-full rounded"
+                }, null, 8, ["src", "alt"])
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`</div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</div></div>`);
     };
   }
 };
-const _sfc_setup$d = _sfc_main$d.setup;
-_sfc_main$d.setup = (props, ctx) => {
+const _sfc_setup$c = _sfc_main$c.setup;
+_sfc_main$c.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/RightSideBar.vue");
-  return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
+  return _sfc_setup$c ? _sfc_setup$c(props, ctx) : void 0;
 };
-const __nuxt_component_1$3 = _sfc_main$d;
+const __nuxt_component_1$3 = _sfc_main$c;
 const RouteProvider = defineComponent({
   props: {
     vnode: {
@@ -7078,7 +7375,7 @@ const RouteProvider = defineComponent({
     };
   }
 });
-const __nuxt_component_2$1 = defineComponent({
+const __nuxt_component_2 = defineComponent({
   name: "NuxtPage",
   inheritAttrs: false,
   props: {
@@ -7188,7 +7485,7 @@ function hasChildrenRoutes(fork, newRoute, Component) {
   });
   return index < newRoute.matched.length - 1;
 }
-const _sfc_main$c = {
+const _sfc_main$b = {
   __name: "LeftSideBar",
   __ssrInlineRender: true,
   props: {
@@ -7204,45 +7501,49 @@ const _sfc_main$c = {
   setup(__props) {
     const route = useRoute();
     const props = __props;
-    const domain = "https://cms.prayer-now.com";
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "lg:sticky top-[104px] grid gap-6" }, _attrs))}>`);
-      if (unref(route).params.country) {
-        _push(`<div class="bg-zinc-700 rounded-xl border p-4 grid gap-3"><div class="text-right text-amber-400 text-xl font-bold font-[&#39;Almarai&#39;]">${ssrInterpolate(props.quotes.title)}</div><div class="text-right text-gray-300 text-xs font-normal font-[&#39;Almarai&#39;] leading-[19px]">${ssrInterpolate(props.quotes.description)}</div></div>`);
+      if (unref(route).params.country && props.quotes) {
+        _push(`<div class="bg-zinc-700 rounded-xl border p-4 grid gap-3"><div class="text-amber-400 text-xl font-bold font-[&#39;Almarai&#39;]">${ssrInterpolate(props.quotes.title || "")}</div><div class="text-gray-300 text-xs font-normal font-[&#39;Almarai&#39;] leading-[19px]">${ssrInterpolate(props.quotes.description || "")}</div></div>`);
       } else {
         _push(`<!---->`);
       }
-      _push(`<div class="h-full bg-yellow-50 rounded-xl border border-gray-200 p-4 grid gap-4">`);
-      _push(ssrRenderComponent(_component_NuxtLink, {
-        to: props.data.link
-      }, {
-        default: withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`<img${ssrRenderAttr("src", unref(domain) + props.data.image.data.attributes.url)}${ssrRenderAttr("alt", props.data.image.data.attributes.alternativeText)} class="h-full rounded"${_scopeId}>`);
-          } else {
-            return [
-              createVNode("img", {
-                src: unref(domain) + props.data.image.data.attributes.url,
-                alt: props.data.image.data.attributes.alternativeText,
-                class: "h-full rounded"
-              }, null, 8, ["src", "alt"])
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(`</div></div>`);
+      if (props.data) {
+        _push(`<div class="h-full bg-yellow-50 rounded-xl border border-gray-200 p-4 grid gap-4">`);
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: props.data.link
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<img${ssrRenderAttr("src", props.data.image.data.attributes.url || "")}${ssrRenderAttr("alt", props.data.image.data.attributes.alternativeText || "")} class="h-full rounded"${_scopeId}>`);
+            } else {
+              return [
+                createVNode("img", {
+                  src: props.data.image.data.attributes.url || "",
+                  alt: props.data.image.data.attributes.alternativeText || "",
+                  class: "h-full rounded"
+                }, null, 8, ["src", "alt"])
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`</div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</div>`);
     };
   }
 };
-const _sfc_setup$c = _sfc_main$c.setup;
-_sfc_main$c.setup = (props, ctx) => {
+const _sfc_setup$b = _sfc_main$b.setup;
+_sfc_main$b.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LeftSideBar.vue");
-  return _sfc_setup$c ? _sfc_setup$c(props, ctx) : void 0;
+  return _sfc_setup$b ? _sfc_setup$b(props, ctx) : void 0;
 };
-const __nuxt_component_3 = _sfc_main$c;
+const __nuxt_component_3 = _sfc_main$b;
 const _imports_0$2 = "" + __publicAssetsURL("svgs/Icon-Forwardsvg.svg");
 const _imports_1$2 = "" + __publicAssetsURL("svgs/Icon-Play.svg");
 const _imports_2$1 = "" + __publicAssetsURL("svgs/Icon-Pause.svg");
@@ -7254,7 +7555,7 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$b = {
+const _sfc_main$a = {
   __name: "PlayControl",
   __ssrInlineRender: true,
   setup(__props) {
@@ -7273,30 +7574,30 @@ const _sfc_main$b = {
       return `${progress * 100}% 100%`;
     });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex-grow" }, _attrs))} data-v-7bba780a><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex-grow" }, _attrs))} data-v-facfd4e0><!--[-->`);
       ssrRenderList(audioPlayers.value, (audioPlayer, index) => {
-        _push(`<div class="flex items-center md:gap-8 gap-3 justify-end text-white" data-v-7bba780a><div class="flex gap-3 flex-grow" data-v-7bba780a><div class="relative group shrink-0" data-v-7bba780a><button data-v-7bba780a><img class="mt-[5px] w-[26px] h-[26px]"${ssrRenderAttr("src", audioPlayer.volume === 0 ? "/svgs/Icon-Volume-mute.svg" : "/svgs/Icon-Volume.svg")} alt="" data-v-7bba780a></button></div><input type="range" min="0"${ssrRenderAttr("max", audioPlayer.totalDuration)} step="1"${ssrRenderAttr("value", audioPlayer.currentTime)} class="!p-0 lg:min-w-96 md:min-w-54 w-full rotate-180 progress flex-grow" style="${ssrRenderStyle({ backgroundSize: progressBackgroundSize.value })}" data-v-7bba780a></div><div class="flex md:gap-4 items-center ltr:flex-row-reverse" data-v-7bba780a><button data-v-7bba780a><img${ssrRenderAttr("src", _imports_0$2)} alt="" data-v-7bba780a></button><button class="w-10 cent" data-v-7bba780a><img${ssrRenderAttr("src", _imports_1$2)} alt="" style="${ssrRenderStyle({ "display": "none" })}" data-v-7bba780a><img${ssrRenderAttr("src", _imports_2$1)} alt="" style="${ssrRenderStyle({ "display": "none" })}" data-v-7bba780a>`);
+        _push(`<div class="flex items-center md:gap-8 gap-3 justify-end text-white" data-v-facfd4e0><div class="flex gap-3 flex-grow" data-v-facfd4e0><div class="relative group shrink-0" data-v-facfd4e0><button data-v-facfd4e0><img class="mt-[5px] w-[26px] h-[26px]"${ssrRenderAttr("src", audioPlayer.volume === 0 ? "/svgs/Icon-Volume-mute.svg" : "/svgs/Icon-Volume.svg")} alt="" data-v-facfd4e0></button></div><input type="range" min="0"${ssrRenderAttr("max", audioPlayer.totalDuration)} step="1"${ssrRenderAttr("value", audioPlayer.currentTime)} class="!p-0 lg:min-w-96 md:min-w-54 w-full rotate-180 progress flex-grow" style="${ssrRenderStyle({ backgroundSize: progressBackgroundSize.value })}" data-v-facfd4e0></div><div class="flex md:gap-4 items-center ltr:flex-row-reverse" data-v-facfd4e0><button data-v-facfd4e0><img${ssrRenderAttr("src", _imports_0$2)} alt="" data-v-facfd4e0></button><button class="w-10 cent" data-v-facfd4e0><img${ssrRenderAttr("src", _imports_1$2)} alt="" style="${ssrRenderStyle({ "display": "none" })}" data-v-facfd4e0><img${ssrRenderAttr("src", _imports_2$1)} alt="" style="${ssrRenderStyle({ "display": "none" })}" data-v-facfd4e0>`);
         if (audioPlayer.isPlaying) {
-          _push(`<img${ssrRenderAttr("src", _imports_2$1)} alt="" class="max-md:w-4" data-v-7bba780a>`);
+          _push(`<img${ssrRenderAttr("src", _imports_2$1)} alt="" class="max-md:w-4" data-v-facfd4e0>`);
         } else {
-          _push(`<img${ssrRenderAttr("src", _imports_1$2)} alt="" class="max-md:w-6" data-v-7bba780a>`);
+          _push(`<img${ssrRenderAttr("src", _imports_1$2)} alt="" class="max-md:w-6" data-v-facfd4e0>`);
         }
-        _push(`</button><button data-v-7bba780a><img${ssrRenderAttr("src", _imports_3$1)} alt="" data-v-7bba780a></button></div><div class="text-neutral-300 font-sm flex items-center gap-3 shrink-0 max-md:order-first max-md:hidden" data-v-7bba780a><span class="w-9" data-v-7bba780a>${ssrInterpolate(timeString(audioPlayer.currentTime))}</span> / <span class="w-9" data-v-7bba780a>${ssrInterpolate(timeString(audioPlayer.totalDuration))}</span></div></div>`);
+        _push(`</button><button data-v-facfd4e0><img${ssrRenderAttr("src", _imports_3$1)} alt="" data-v-facfd4e0></button></div><div class="text-neutral-300 font-sm flex items-center gap-3 shrink-0 max-md:order-first max-md:hidden" data-v-facfd4e0><span class="w-9" data-v-facfd4e0>${ssrInterpolate(timeString(audioPlayer.currentTime))}</span> / <span class="w-9" data-v-facfd4e0>${ssrInterpolate(timeString(audioPlayer.totalDuration))}</span></div></div>`);
       });
       _push(`<!--]--></div>`);
     };
   }
 };
-const _sfc_setup$b = _sfc_main$b.setup;
-_sfc_main$b.setup = (props, ctx) => {
+const _sfc_setup$a = _sfc_main$a.setup;
+_sfc_main$a.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/PlayControl.vue");
-  return _sfc_setup$b ? _sfc_setup$b(props, ctx) : void 0;
+  return _sfc_setup$a ? _sfc_setup$a(props, ctx) : void 0;
 };
-const __nuxt_component_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-7bba780a"]]);
-const _sfc_main$a = {};
-function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
-  const _component_Image = __nuxt_component_0$3;
+const __nuxt_component_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-facfd4e0"]]);
+const _sfc_main$9 = {};
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
+  const _component_Image = __nuxt_component_1$4;
   const _component_PlayControl = __nuxt_component_1$2;
   _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full bg-primary md:py-2.5 py-1 drop-shadow shadow-primary hidden" }, _attrs))}><div class="container flex justify-between items-center gap-y-2 gap-8 flex-wrap"><div class="flex items-center gap-3"><div>`);
   _push(ssrRenderComponent(_component_Image, {
@@ -7308,215 +7609,14 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
   _push(ssrRenderComponent(_component_PlayControl, null, null, _parent));
   _push(`</div></div>`);
 }
-const _sfc_setup$a = _sfc_main$a.setup;
-_sfc_main$a.setup = (props, ctx) => {
+const _sfc_setup$9 = _sfc_main$9.setup;
+_sfc_main$9.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/PlayBar.vue");
-  return _sfc_setup$a ? _sfc_setup$a(props, ctx) : void 0;
+  return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
 };
-const __nuxt_component_4 = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["ssrRender", _sfc_ssrRender$1]]);
-const isDefer = (dedupe) => dedupe === "defer" || dedupe === false;
-function useAsyncData(...args) {
-  var _b;
-  const autoKey = typeof args[args.length - 1] === "string" ? args.pop() : void 0;
-  if (typeof args[0] !== "string") {
-    args.unshift(autoKey);
-  }
-  let [key, _handler, options = {}] = args;
-  if (typeof key !== "string") {
-    throw new TypeError("[nuxt] [asyncData] key must be a string.");
-  }
-  if (typeof _handler !== "function") {
-    throw new TypeError("[nuxt] [asyncData] handler must be a function.");
-  }
-  const nuxtApp = /* @__PURE__ */ useNuxtApp();
-  const handler = _handler ;
-  const getDefault = () => null;
-  const getDefaultCachedData = () => nuxtApp.isHydrating ? nuxtApp.payload.data[key] : nuxtApp.static.data[key];
-  options.server = options.server ?? true;
-  options.default = options.default ?? getDefault;
-  options.getCachedData = options.getCachedData ?? getDefaultCachedData;
-  options.lazy = options.lazy ?? false;
-  options.immediate = options.immediate ?? true;
-  options.deep = options.deep ?? asyncDataDefaults.deep;
-  options.dedupe = options.dedupe ?? "cancel";
-  const hasCachedData = () => ![null, void 0].includes(options.getCachedData(key));
-  if (!nuxtApp._asyncData[key] || !options.immediate) {
-    (_b = nuxtApp.payload._errors)[key] ?? (_b[key] = null);
-    const _ref = options.deep ? ref : shallowRef;
-    nuxtApp._asyncData[key] = {
-      data: _ref(options.getCachedData(key) ?? options.default()),
-      pending: ref(!hasCachedData()),
-      error: toRef(nuxtApp.payload._errors, key),
-      status: ref("idle")
-    };
-  }
-  const asyncData = { ...nuxtApp._asyncData[key] };
-  asyncData.refresh = asyncData.execute = (opts = {}) => {
-    if (nuxtApp._asyncDataPromises[key]) {
-      if (isDefer(opts.dedupe ?? options.dedupe)) {
-        return nuxtApp._asyncDataPromises[key];
-      }
-      nuxtApp._asyncDataPromises[key].cancelled = true;
-    }
-    if ((opts._initial || nuxtApp.isHydrating && opts._initial !== false) && hasCachedData()) {
-      return Promise.resolve(options.getCachedData(key));
-    }
-    asyncData.pending.value = true;
-    asyncData.status.value = "pending";
-    const promise = new Promise(
-      (resolve2, reject) => {
-        try {
-          resolve2(handler(nuxtApp));
-        } catch (err) {
-          reject(err);
-        }
-      }
-    ).then((_result) => {
-      if (promise.cancelled) {
-        return nuxtApp._asyncDataPromises[key];
-      }
-      let result = _result;
-      if (options.transform) {
-        result = options.transform(_result);
-      }
-      if (options.pick) {
-        result = pick(result, options.pick);
-      }
-      nuxtApp.payload.data[key] = result;
-      asyncData.data.value = result;
-      asyncData.error.value = null;
-      asyncData.status.value = "success";
-    }).catch((error) => {
-      if (promise.cancelled) {
-        return nuxtApp._asyncDataPromises[key];
-      }
-      asyncData.error.value = createError(error);
-      asyncData.data.value = unref(options.default());
-      asyncData.status.value = "error";
-    }).finally(() => {
-      if (promise.cancelled) {
-        return;
-      }
-      asyncData.pending.value = false;
-      delete nuxtApp._asyncDataPromises[key];
-    });
-    nuxtApp._asyncDataPromises[key] = promise;
-    return nuxtApp._asyncDataPromises[key];
-  };
-  const initialFetch = () => asyncData.refresh({ _initial: true });
-  const fetchOnServer = options.server !== false && nuxtApp.payload.serverRendered;
-  if (fetchOnServer && options.immediate) {
-    const promise = initialFetch();
-    if (getCurrentInstance()) {
-      onServerPrefetch(() => promise);
-    } else {
-      nuxtApp.hook("app:created", async () => {
-        await promise;
-      });
-    }
-  }
-  const asyncDataPromise = Promise.resolve(nuxtApp._asyncDataPromises[key]).then(() => asyncData);
-  Object.assign(asyncDataPromise, asyncData);
-  return asyncDataPromise;
-}
-function pick(obj, keys) {
-  const newObj = {};
-  for (const key of keys) {
-    newObj[key] = obj[key];
-  }
-  return newObj;
-}
-function useFetch(request, arg1, arg2) {
-  const [opts = {}, autoKey] = typeof arg1 === "string" ? [{}, arg1] : [arg1, arg2];
-  const _request = computed(() => {
-    let r = request;
-    if (typeof r === "function") {
-      r = r();
-    }
-    return toValue(r);
-  });
-  const _key = opts.key || hash([autoKey, typeof _request.value === "string" ? _request.value : "", ...generateOptionSegments(opts)]);
-  if (!_key || typeof _key !== "string") {
-    throw new TypeError("[nuxt] [useFetch] key must be a string: " + _key);
-  }
-  if (!request) {
-    throw new Error("[nuxt] [useFetch] request is missing.");
-  }
-  const key = _key === autoKey ? "$f" + _key : _key;
-  if (!opts.baseURL && typeof _request.value === "string" && (_request.value[0] === "/" && _request.value[1] === "/")) {
-    throw new Error('[nuxt] [useFetch] the request URL must not start with "//".');
-  }
-  const {
-    server,
-    lazy,
-    default: defaultFn,
-    transform: transform2,
-    pick: pick2,
-    watch: watch2,
-    immediate,
-    getCachedData,
-    deep,
-    dedupe,
-    ...fetchOptions
-  } = opts;
-  const _fetchOptions = reactive({
-    ...fetchDefaults,
-    ...fetchOptions,
-    cache: typeof opts.cache === "boolean" ? void 0 : opts.cache
-  });
-  const _asyncDataOptions = {
-    server,
-    lazy,
-    default: defaultFn,
-    transform: transform2,
-    pick: pick2,
-    immediate,
-    getCachedData,
-    deep,
-    dedupe,
-    watch: watch2 === false ? [] : [_fetchOptions, _request, ...watch2 || []]
-  };
-  let controller;
-  const asyncData = useAsyncData(key, () => {
-    var _a;
-    (_a = controller == null ? void 0 : controller.abort) == null ? void 0 : _a.call(controller);
-    controller = typeof AbortController !== "undefined" ? new AbortController() : {};
-    const timeoutLength = toValue(opts.timeout);
-    if (timeoutLength) {
-      setTimeout(() => controller.abort(), timeoutLength);
-    }
-    let _$fetch = opts.$fetch || globalThis.$fetch;
-    if (!opts.$fetch) {
-      const isLocalFetch = typeof _request.value === "string" && _request.value[0] === "/" && (!toValue(opts.baseURL) || toValue(opts.baseURL)[0] === "/");
-      if (isLocalFetch) {
-        _$fetch = useRequestFetch();
-      }
-    }
-    return _$fetch(_request.value, { signal: controller.signal, ..._fetchOptions });
-  }, _asyncDataOptions);
-  return asyncData;
-}
-function generateOptionSegments(opts) {
-  var _a;
-  const segments = [
-    ((_a = toValue(opts.method)) == null ? void 0 : _a.toUpperCase()) || "GET",
-    toValue(opts.baseURL)
-  ];
-  for (const _obj of [opts.params || opts.query]) {
-    const obj = toValue(_obj);
-    if (!obj) {
-      continue;
-    }
-    const unwrapped = {};
-    for (const [key, value] of Object.entries(obj)) {
-      unwrapped[toValue(key)] = toValue(value);
-    }
-    segments.push(unwrapped);
-  }
-  return segments;
-}
-const _sfc_main$9 = {
+const __nuxt_component_4 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["ssrRender", _sfc_ssrRender]]);
+const _sfc_main$8 = {
   __name: "Logo",
   __ssrInlineRender: true,
   props: {
@@ -7527,17 +7627,16 @@ const _sfc_main$9 = {
   },
   setup(__props) {
     const props = __props;
-    const domain = "https://cms.prayer-now.com";
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      _push(ssrRenderComponent(_component_NuxtLink, mergeProps({ to: "/app/" }, _attrs), {
+      _push(ssrRenderComponent(_component_NuxtLink, mergeProps({ to: "/app/prayer-time" }, _attrs), {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${ssrRenderAttr("src", unref(domain) + props.source)} alt="logo" class="md:max-w-[65px] md:max-h-[65px] max-w-[55px] max-h-[55px]"${_scopeId}>`);
+            _push2(`<img${ssrRenderAttr("src", props.source)} alt="logo" class="md:max-w-[65px] md:max-h-[65px] max-w-[55px] max-h-[55px]"${_scopeId}>`);
           } else {
             return [
               createVNode("img", {
-                src: unref(domain) + props.source,
+                src: props.source,
                 alt: "logo",
                 class: "md:max-w-[65px] md:max-h-[65px] max-w-[55px] max-h-[55px]"
               }, null, 8, ["src"])
@@ -7549,23 +7648,13 @@ const _sfc_main$9 = {
     };
   }
 };
-const _sfc_setup$9 = _sfc_main$9.setup;
-_sfc_main$9.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Logo.vue");
-  return _sfc_setup$9 ? _sfc_setup$9(props, ctx) : void 0;
-};
-const __nuxt_component_0$1 = _sfc_main$9;
-const _sfc_main$8 = {};
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-}
 const _sfc_setup$8 = _sfc_main$8.setup;
 _sfc_main$8.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/NavButtons.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Logo.vue");
   return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
 };
-const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender]]);
+const __nuxt_component_0$1 = _sfc_main$8;
 const _sfc_main$7 = {
   __name: "MobileHeaderToggle",
   __ssrInlineRender: true,
@@ -7573,10 +7662,15 @@ const _sfc_main$7 = {
     modalActive: {
       type: Boolean,
       default: false
+    },
+    logo: {
+      type: String,
+      default: ""
     }
   },
   emits: ["close-modal"],
   setup(__props) {
+    const props = __props;
     const { locale } = useI18n();
     const dir = ref(locale.value === "ar" ? "rtl" : "ltr");
     watch(locale, (newValue, oldValue) => {
@@ -7586,22 +7680,28 @@ const _sfc_main$7 = {
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_Logo = __nuxt_component_0$1;
-      const _component_Image = __nuxt_component_0$3;
-      const _component_NavButtons = __nuxt_component_2;
+      const _component_Image = __nuxt_component_1$4;
+      const _component_RightSideBar = __nuxt_component_1$3;
       ssrRenderTeleport(_push, (_push2) => {
-        _push2(`<div style="${ssrRenderStyle(__props.modalActive ? null : { display: "none" })}"${ssrRenderAttr("dir", dir.value)} class="bg-black bg-opacity-80 z-[99999999999999] fixed inset-0 md:hidden" data-v-b1d24297>`);
+        _push2(`<div style="${ssrRenderStyle(__props.modalActive ? null : { display: "none" })}"${ssrRenderAttr("dir", dir.value)} class="bg-black bg-opacity-80 z-[99999999999999] fixed inset-0 md:hidden" data-v-0e6b2cc4>`);
         if (__props.modalActive) {
-          _push2(`<div class="backdrop-blur-[1px] h-full" data-v-b1d24297><div class="bg-white p-4 w-[280px] max-w-[450px] sm:w-3/5 flex flex-col gap-5 h-full" data-v-b1d24297><div class="flex justify-between" data-v-b1d24297>`);
-          _push2(ssrRenderComponent(_component_Logo, null, null, _parent));
-          _push2(`<button class="" data-v-b1d24297>`);
+          _push2(`<div class="backdrop-blur-[1px] h-full" data-v-0e6b2cc4><div class="bg-white p-4 w-[280px] max-w-[450px] sm:w-3/5 flex flex-col gap-5 h-full" data-v-0e6b2cc4><div class="flex justify-between" data-v-0e6b2cc4>`);
+          if (props == null ? void 0 : props.logo) {
+            _push2(ssrRenderComponent(_component_Logo, {
+              source: (props == null ? void 0 : props.logo) || ""
+            }, null, _parent));
+          } else {
+            _push2(`<!---->`);
+          }
+          _push2(`<button class="" data-v-0e6b2cc4>`);
           _push2(ssrRenderComponent(_component_Image, {
-            isrc: "svgs/close-mobile-toggel.svg",
+            isrc: "/svgs/close-mobile-toggel.svg",
             ialt: "close",
             iclass: ""
           }, null, _parent));
           _push2(`</button></div>`);
-          _push2(ssrRenderComponent(_component_NavButtons, null, null, _parent));
-          _push2(`<div class="w-full flex-grow bg-yellow-50 rounded-xl border border-neutral-200 p-2" data-v-b1d24297><div class="text-black text-[23px]" data-v-b1d24297>مساحة إعلانية</div><div class="text-right text-zinc-500 text-[13px] font-normal font-[&#39;Almarai&#39;]" data-v-b1d24297> لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر.</div></div></div></div>`);
+          _push2(ssrRenderComponent(_component_RightSideBar, null, null, _parent));
+          _push2(`</div></div>`);
         } else {
           _push2(`<!---->`);
         }
@@ -7616,7 +7716,7 @@ _sfc_main$7.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/MobileHeaderToggle.vue");
   return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
-const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-b1d24297"]]);
+const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-0e6b2cc4"]]);
 const _sfc_main$6 = {
   __name: "Modal",
   __ssrInlineRender: true,
@@ -7659,11 +7759,13 @@ const _sfc_main$5 = {
   __ssrInlineRender: true,
   setup(__props) {
     const show = ref(false);
+    function hideList() {
+      show.value = false;
+    }
     const modalActive = ref(null);
     const toggleModal = () => {
       modalActive.value = !modalActive.value;
     };
-    const domain = "https://cms.prayer-now.com";
     const searchQuery = ref("");
     ref(null);
     const countrySearchResults = ref(null);
@@ -7671,8 +7773,8 @@ const _sfc_main$5 = {
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
       const _component_Modal = __nuxt_component_1$1;
-      const _component_Image = __nuxt_component_0$3;
-      const _component_Button = __nuxt_component_2$2;
+      const _component_Image = __nuxt_component_1$4;
+      const _component_Button = __nuxt_component_2$1;
       _push(`<!--[--><form class="flex-grow relative"><input type="search" name=""${ssrRenderAttr("value", searchQuery.value)}${ssrRenderAttr("placeholder", _ctx.$t("searchbar.searchtext1"))} class="w-full focus:border-primary outline-none border-2 rtl:pl-14 ltr:pr-14" id="myInput"><button type="submit"><img${ssrRenderAttr("src", _imports_0$1)} alt="" class="absolute rtl:left-1.5 ltr:right-1.5 top-2 rounded-xl bg-white ltr:scale-x-[-1] transform p-2"></button></form><button class="bg-primary size-[45px] rounded-xl cent"><img${ssrRenderAttr("src", _imports_1$1)} alt=""></button>`);
       if (countrySearchResults.value && show.value) {
         _push(`<ul id="myUL" class="divide-y divide-gray-200 drop-shadow bg-white rounded-xl max-h-56 overflow-y-auto absolute top-20 w-full left-0 right-0 my-1">`);
@@ -7687,14 +7789,15 @@ const _sfc_main$5 = {
           _push(`<!--[-->`);
           ssrRenderList(countrySearchResults.value, (res) => {
             _push(ssrRenderComponent(_component_NuxtLink, {
-              to: "/app/" + res.attributes.prayer_time_country.data.attributes.api_country_code + "/" + res.attributes.prayer_time_country.data.id + "/" + res.attributes.api_city_code,
+              onClick: hideList,
+              to: "/app/prayer-time/" + res.attributes.prayer_time_country.data.attributes.slug + "/" + res.attributes.slug + "/" + res.attributes.prayer_time_country.data.id + "/" + res.attributes.prayer_time_country.data.attributes.api_country_code + "/" + res.attributes.api_city_code,
               key: res.id
             }, {
               default: withCtx((_, _push2, _parent2, _scopeId) => {
                 if (_push2) {
                   _push2(`<li class="py-2 cursor-pointer flex gap-1 items-center hover:bg-primary hover:text-white"${_scopeId}>`);
                   if (res.attributes.prayer_time_country.data.attributes.flag.data.attributes.url) {
-                    _push2(`<img${ssrRenderAttr("src", unref(domain) + res.attributes.prayer_time_country.data.attributes.flag.data.attributes.url)}${ssrRenderAttr("alt", res.attributes.title)} class="h-7 aspect-square rounded-full mx-2"${_scopeId}>`);
+                    _push2(`<img${ssrRenderAttr("src", res.attributes.prayer_time_country.data.attributes.flag.data.attributes.url)}${ssrRenderAttr("alt", res.attributes.title)} class="h-7 aspect-square rounded-full mx-2"${_scopeId}>`);
                   } else {
                     _push2(`<!---->`);
                   }
@@ -7704,7 +7807,7 @@ const _sfc_main$5 = {
                     createVNode("li", { class: "py-2 cursor-pointer flex gap-1 items-center hover:bg-primary hover:text-white" }, [
                       res.attributes.prayer_time_country.data.attributes.flag.data.attributes.url ? (openBlock(), createBlock("img", {
                         key: 0,
-                        src: unref(domain) + res.attributes.prayer_time_country.data.attributes.flag.data.attributes.url,
+                        src: res.attributes.prayer_time_country.data.attributes.flag.data.attributes.url,
                         alt: res.attributes.title,
                         class: "h-7 aspect-square rounded-full mx-2"
                       }, null, 8, ["src", "alt"])) : createCommentVNode("", true),
@@ -7796,24 +7899,27 @@ const _sfc_main$4 = {
   props: {
     branding: {
       type: Object,
-      default: {}
+      default: () => ({})
+      // Provide an empty object as default
     }
   },
   setup(__props) {
-    const route = useRoute();
+    const route = useRoute$1();
     const props = __props;
     const modalActive = ref(null);
     const toggleModal = () => {
       modalActive.value = !modalActive.value;
     };
     return (_ctx, _push, _parent, _attrs) => {
+      var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j;
       const _component_MobileHeaderToggle = __nuxt_component_0;
-      const _component_Image = __nuxt_component_0$3;
+      const _component_Image = __nuxt_component_1$4;
       const _component_Logo = __nuxt_component_0$1;
       const _component_Search = __nuxt_component_1;
       _push(`<!--[-->`);
       _push(ssrRenderComponent(_component_MobileHeaderToggle, {
-        modalActive: unref(modalActive),
+        logo: ((_d = (_c = (_b = (_a = props.branding) == null ? void 0 : _a.logo) == null ? void 0 : _b.data) == null ? void 0 : _c.attributes) == null ? void 0 : _d.url) || "",
+        modalActive: modalActive.value,
         onCloseModal: toggleModal
       }, null, _parent));
       _push(`<header class="bg-white sticky top-0 z-50 drop-shadow-sm shadow-primary py-2 cent w-full border-b"><div class="container cent__bet"><button class="md:hidden max-md:flex-1">`);
@@ -7823,9 +7929,13 @@ const _sfc_main$4 = {
         iclass: ""
       }, null, _parent));
       _push(`</button><div class="flex gap-8 items-center"><div class="max-md:flex-1 cent md:block">`);
-      _push(ssrRenderComponent(_component_Logo, {
-        source: props.branding.logo.data.attributes.url
-      }, null, _parent));
+      if ((_h = (_g = (_f = (_e = props.branding) == null ? void 0 : _e.logo) == null ? void 0 : _f.data) == null ? void 0 : _g.attributes) == null ? void 0 : _h.url) {
+        _push(ssrRenderComponent(_component_Logo, {
+          source: props.branding.logo.data.attributes.url
+        }, null, _parent));
+      } else {
+        _push(`<!---->`);
+      }
       _push(`</div>`);
       if (unref(route).params.country) {
         _push(`<div class="relative max-md:hidden"><div class="flex items-center gap-[15px]">`);
@@ -7836,7 +7946,13 @@ const _sfc_main$4 = {
       }
       _push(`</div><div class="max-md:flex justify-end max-md:flex-1 shrink-0"><div class="flex gap-10 items-center">`);
       ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
-      _push(`<div class="hidden md:block"><a${ssrRenderAttr("href", props.branding.link_download)} target="_blank" class="bg-primary text-white btn__primary">${ssrInterpolate(props.branding.title_download)}</a></div></div></div></div></header><!--]-->`);
+      _push(`<div class="hidden md:block">`);
+      if (((_i = props.branding) == null ? void 0 : _i.link_download) && ((_j = props.branding) == null ? void 0 : _j.title_download)) {
+        _push(`<a${ssrRenderAttr("href", props.branding.link_download)} target="_blank" class="bg-primary text-white btn__primary">${ssrInterpolate(props.branding.title_download)}</a>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</div></div></div></div></header><!--]-->`);
     };
   }
 };
@@ -7871,14 +7987,18 @@ const _sfc_main$3 = {
     return (_ctx, _push, _parent, _attrs) => {
       const _component_Logo = __nuxt_component_0$1;
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_Button = __nuxt_component_2$2;
+      const _component_Button = __nuxt_component_2$1;
       _push(`<footer${ssrRenderAttrs(mergeProps({
         style: { backgroundImage: "url(" + footerBg.value + ")" },
         class: [{ "hidden": !footerBg.value }, "bg-no-repeat bg-cover"]
       }, _attrs))}><div class="pt-10 grid gap-5 bg-black bg-opacity-80"><div class="container grid gap-6"><div class="text-center cent__col gap-6">`);
-      _push(ssrRenderComponent(_component_Logo, {
-        source: props.branding.logo.data.attributes.url
-      }, null, _parent));
+      if (props.branding && props.branding.logo && props.branding.logo.data && props.branding.logo.data.attributes && props.branding.logo.data.attributes.url) {
+        _push(ssrRenderComponent(_component_Logo, {
+          source: props.branding.logo.data.attributes.url
+        }, null, _parent));
+      } else {
+        _push(`<!---->`);
+      }
       _push(`<span class="text-white font-medium">${ssrInterpolate(_ctx.$t("footerbanner.logoheading"))}</span><div class="cent gap-4">`);
       _push(ssrRenderComponent(_component_NuxtLink, { to: " /" }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -7975,63 +8095,91 @@ const _sfc_main$3 = {
         }, _parent));
         _push(`</li>`);
       });
-      _push(`<!--]--></ul><div class="text-sec cent__bet max-sm:grid grid-cols-2 flex-wrap gap-5 gap-y-12 justify-items-center max-md:my-5"><div class="grid gap-3"><!--[-->`);
-      ssrRenderList(props.data.slice(6, 10), (link) => {
-        _push(ssrRenderComponent(_component_NuxtLink, {
-          to: link.link
-        }, {
-          default: withCtx((_, _push2, _parent2, _scopeId) => {
-            if (_push2) {
-              _push2(`${ssrInterpolate(link.title)}`);
-            } else {
-              return [
-                createTextVNode(toDisplayString$1(link.title), 1)
-              ];
-            }
-          }),
-          _: 2
-        }, _parent));
-      });
-      _push(`<!--]--></div><div class="grid gap-3"><!--[-->`);
-      ssrRenderList(props.data.slice(11, 15), (link) => {
-        _push(ssrRenderComponent(_component_NuxtLink, {
-          to: link.link
-        }, {
-          default: withCtx((_, _push2, _parent2, _scopeId) => {
-            if (_push2) {
-              _push2(`${ssrInterpolate(link.title)}`);
-            } else {
-              return [
-                createTextVNode(toDisplayString$1(link.title), 1)
-              ];
-            }
-          }),
-          _: 2
-        }, _parent));
-      });
-      _push(`<!--]--></div><div class="grid gap-3"><!--[-->`);
-      ssrRenderList(props.data.slice(16, 21), (link) => {
-        _push(ssrRenderComponent(_component_NuxtLink, {
-          to: link.link
-        }, {
-          default: withCtx((_, _push2, _parent2, _scopeId) => {
-            if (_push2) {
-              _push2(`${ssrInterpolate(link.title)}`);
-            } else {
-              return [
-                createTextVNode(toDisplayString$1(link.title), 1)
-              ];
-            }
-          }),
-          _: 2
-        }, _parent));
-      });
-      _push(`<!--]--></div><div class="">`);
-      _push(ssrRenderComponent(_component_Button, {
-        buttonText: _ctx.$t("footerbanner.footerbtn"),
-        buttonClass: " btn__primary border-white text-white border "
-      }, null, _parent));
-      _push(`</div></div></div><div class="w-full h-[.5px] bg-white mt-5"></div><div class="container pb-5 cent__bet gap-5 max-md:text-sm"><a href="#" class="font-medium text-white md:hidden flex-1">${ssrInterpolate(_ctx.$t("footerbanner.footer_mobile_right"))}</a><a${ssrRenderAttr("href", props.branding.link_download)} target="_blank" class="font-medium text-white max-md:flex-1 hidden md:inline-flex">${ssrInterpolate(props.branding.copy_rights_info)}</a><a href="#" class="font-medium text-white max-sm:flex-1">${ssrInterpolate(_ctx.$t("footerbanner.footerleft"))}</a></div></div></footer>`);
+      _push(`<!--]--></ul>`);
+      if (props.data && props.data.length) {
+        _push(`<div class="text-sec cent__bet max-sm:grid grid-cols-2 flex-wrap gap-5 gap-y-12 justify-items-center max-md:my-5"><div class="grid gap-3"><!--[-->`);
+        ssrRenderList(props.data.slice(6, 10), (link) => {
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            to: link.link
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`${ssrInterpolate(link.title)}`);
+              } else {
+                return [
+                  createTextVNode(toDisplayString$1(link.title), 1)
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+        });
+        _push(`<!--]--></div><div class="grid gap-3"><!--[-->`);
+        ssrRenderList(props.data.slice(11, 15), (link) => {
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            to: link.link
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`${ssrInterpolate(link.title)}`);
+              } else {
+                return [
+                  createTextVNode(toDisplayString$1(link.title), 1)
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+        });
+        _push(`<!--]--></div><div class="grid gap-3"><!--[-->`);
+        ssrRenderList(props.data.slice(16, 21), (link) => {
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            to: link.link
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`${ssrInterpolate(link.title)}`);
+              } else {
+                return [
+                  createTextVNode(toDisplayString$1(link.title), 1)
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+        });
+        _push(`<!--]--></div><div class="">`);
+        _push(ssrRenderComponent(_component_Button, {
+          buttonText: _ctx.$t("footerbanner.footerbtn"),
+          buttonClass: " btn__primary border-white text-white border "
+        }, null, _parent));
+        _push(`</div></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</div><div class="w-full h-[.5px] bg-white mt-5"></div>`);
+      if (props.data && props.branding) {
+        _push(`<div class="container pb-5 cent__bet gap-5 max-md:text-sm">`);
+        if (props.data.mobile_right) {
+          _push(`<a href="#" class="font-medium text-white md:hidden flex-1">${ssrInterpolate(props.data.mobile_right)}</a>`);
+        } else {
+          _push(`<!---->`);
+        }
+        if (props.branding.copy_rights_info) {
+          _push(`<a${ssrRenderAttr("href", props.branding.link_download)} target="_blank" class="font-medium text-white max-md:flex-1 hidden md:inline-flex">${ssrInterpolate(props.branding.copy_rights_info)}</a>`);
+        } else {
+          _push(`<!---->`);
+        }
+        if (props.data.left) {
+          _push(`<a href="#" class="font-medium text-white max-sm:flex-1">${ssrInterpolate(props.data.left)}</a>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</div></footer>`);
     };
   }
 };
@@ -8046,6 +8194,7 @@ const _sfc_main$2 = {
   __name: "app",
   __ssrInlineRender: true,
   async setup(__props) {
+    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l;
     let __temp, __restore;
     const { locale } = useI18n();
     const lang = ref("ar");
@@ -8059,85 +8208,114 @@ const _sfc_main$2 = {
     const landing = "/api/landing-page?locale[0]=";
     const domain = "https://cms.prayer-now.com";
     const { data: landingData } = ([__temp, __restore] = withAsyncContext(() => useFetch(domain + landing + locale.value, "$E3KxD8SGyR")), __temp = await __temp, __restore(), __temp);
-    const rightData = landingData.value.data.attributes.banners_image.filter((item) => item.location === "right" && item.active === true);
-    const leftData = landingData.value.data.attributes.banners_image.filter((item) => item.location === "left" && item.active === true);
-    const quotsData = landingData.value.data.attributes.quotes.filter((item) => item.active === true);
-    const randomIndexQuotes = Math.floor(Math.random() * quotsData.length);
-    const randomIndexData = Math.floor(Math.random() * leftData.length);
+    const rightData = ((_d = (_c = (_b = (_a = landingData.value) == null ? void 0 : _a.data) == null ? void 0 : _b.attributes) == null ? void 0 : _c.banners_image) == null ? void 0 : _d.filter((item) => item.location === "right" && item.active === true)) || [];
+    const leftData = ((_h = (_g = (_f = (_e = landingData.value) == null ? void 0 : _e.data) == null ? void 0 : _f.attributes) == null ? void 0 : _g.banners_image) == null ? void 0 : _h.filter((item) => item.location === "left" && item.active === true)) || [];
+    const quotsData = ((_l = (_k = (_j = (_i = landingData.value) == null ? void 0 : _i.data) == null ? void 0 : _j.attributes) == null ? void 0 : _k.quotes) == null ? void 0 : _l.filter((item) => item.active === true)) || [];
+    const randomIndexQuotes = quotsData.length > 0 ? Math.floor(Math.random() * quotsData.length) : 0;
+    const randomIndexData = leftData.length > 0 ? Math.floor(Math.random() * leftData.length) : 0;
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_Image = __nuxt_component_0$3;
+      const _component_Image = __nuxt_component_1$4;
       const _component_RightSideBar = __nuxt_component_1$3;
-      const _component_NuxtPage = __nuxt_component_2$1;
+      const _component_NuxtPage = __nuxt_component_2;
       const _component_LeftSideBar = __nuxt_component_3;
       const _component_PlayBar = __nuxt_component_4;
       _push(`<div${ssrRenderAttrs(mergeProps({
         class: "relative",
         dir: unref(dir)
       }, _attrs))}>`);
-      _push(ssrRenderComponent(Header, {
-        branding: unref(landingData).data.attributes.branding
-      }, {
-        default: withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`<form${_scopeId}><div class="flex items-center md:gap-2 gap-1"${_scopeId}><label for="" class="shrink-0"${_scopeId}>`);
-            _push2(ssrRenderComponent(_component_Image, {
-              isrc: "/svgs/locale.svg",
-              ialt: "search",
-              iclass: ""
-            }, null, _parent2, _scopeId));
-            _push2(`</label><select${_scopeId}><option value="en"${ssrIncludeBooleanAttr(Array.isArray(unref(locale)) ? ssrLooseContain(unref(locale), "en") : ssrLooseEqual(unref(locale), "en")) ? " selected" : ""}${_scopeId}>English</option><option value="ar"${ssrIncludeBooleanAttr(Array.isArray(unref(locale)) ? ssrLooseContain(unref(locale), "ar") : ssrLooseEqual(unref(locale), "ar")) ? " selected" : ""}${_scopeId}>العربية</option><option value="fr"${ssrIncludeBooleanAttr(Array.isArray(unref(locale)) ? ssrLooseContain(unref(locale), "fr") : ssrLooseEqual(unref(locale), "fr")) ? " selected" : ""}${_scopeId}>French</option><option value="indo"${ssrIncludeBooleanAttr(Array.isArray(unref(locale)) ? ssrLooseContain(unref(locale), "indo") : ssrLooseEqual(unref(locale), "indo")) ? " selected" : ""}${_scopeId}>Indonesia</option><option value="turk"${ssrIncludeBooleanAttr(Array.isArray(unref(locale)) ? ssrLooseContain(unref(locale), "turk") : ssrLooseEqual(unref(locale), "turk")) ? " selected" : ""}${_scopeId}>Turkish</option></select></div></form>`);
-          } else {
-            return [
-              createVNode("form", null, [
-                createVNode("div", { class: "flex items-center md:gap-2 gap-1" }, [
-                  createVNode("label", {
-                    for: "",
-                    class: "shrink-0"
-                  }, [
-                    createVNode(_component_Image, {
-                      isrc: "/svgs/locale.svg",
-                      ialt: "search",
-                      iclass: ""
-                    })
-                  ]),
-                  withDirectives(createVNode("select", {
-                    "onUpdate:modelValue": ($event) => isRef(locale) ? locale.value = $event : null,
-                    onChange: changeLanguage
-                  }, [
-                    createVNode("option", { value: "en" }, "English"),
-                    createVNode("option", { value: "ar" }, "العربية"),
-                    createVNode("option", { value: "fr" }, "French"),
-                    createVNode("option", { value: "indo" }, "Indonesia"),
-                    createVNode("option", { value: "turk" }, "Turkish")
-                  ], 40, ["onUpdate:modelValue", "onChange"]), [
-                    [vModelSelect, unref(locale)]
+      if (unref(landingData)) {
+        _push(ssrRenderComponent(Header, {
+          branding: unref(landingData).data.attributes.branding
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<form${_scopeId}><div class="flex items-center md:gap-2 gap-1"${_scopeId}><label for="" class="shrink-0"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_Image, {
+                isrc: "/svgs/locale.svg",
+                ialt: "search",
+                iclass: ""
+              }, null, _parent2, _scopeId));
+              _push2(`</label><select${_scopeId}><option value="en"${ssrIncludeBooleanAttr(Array.isArray(unref(locale)) ? ssrLooseContain(unref(locale), "en") : ssrLooseEqual(unref(locale), "en")) ? " selected" : ""}${_scopeId}>English</option><option value="ar"${ssrIncludeBooleanAttr(Array.isArray(unref(locale)) ? ssrLooseContain(unref(locale), "ar") : ssrLooseEqual(unref(locale), "ar")) ? " selected" : ""}${_scopeId}>العربية</option><option value="fr"${ssrIncludeBooleanAttr(Array.isArray(unref(locale)) ? ssrLooseContain(unref(locale), "fr") : ssrLooseEqual(unref(locale), "fr")) ? " selected" : ""}${_scopeId}>French</option><option value="indo"${ssrIncludeBooleanAttr(Array.isArray(unref(locale)) ? ssrLooseContain(unref(locale), "indo") : ssrLooseEqual(unref(locale), "indo")) ? " selected" : ""}${_scopeId}>Indonesia</option><option value="turk"${ssrIncludeBooleanAttr(Array.isArray(unref(locale)) ? ssrLooseContain(unref(locale), "turk") : ssrLooseEqual(unref(locale), "turk")) ? " selected" : ""}${_scopeId}>Turkish</option></select></div></form>`);
+            } else {
+              return [
+                createVNode("form", null, [
+                  createVNode("div", { class: "flex items-center md:gap-2 gap-1" }, [
+                    createVNode("label", {
+                      for: "",
+                      class: "shrink-0"
+                    }, [
+                      createVNode(_component_Image, {
+                        isrc: "/svgs/locale.svg",
+                        ialt: "search",
+                        iclass: ""
+                      })
+                    ]),
+                    withDirectives(createVNode("select", {
+                      "onUpdate:modelValue": ($event) => isRef(locale) ? locale.value = $event : null,
+                      onChange: changeLanguage
+                    }, [
+                      createVNode("option", { value: "en" }, "English"),
+                      createVNode("option", { value: "ar" }, "العربية"),
+                      createVNode("option", { value: "fr" }, "French"),
+                      createVNode("option", { value: "indo" }, "Indonesia"),
+                      createVNode("option", { value: "turk" }, "Turkish")
+                    ], 40, ["onUpdate:modelValue", "onChange"]), [
+                      [vModelSelect, unref(locale)]
+                    ])
                   ])
                 ])
-              ])
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(`<div class="main__layout container py-6"><div class="hidden md:block">`);
-      _push(ssrRenderComponent(_component_RightSideBar, {
-        data: unref(rightData),
-        menu: unref(landingData).data.attributes.menu
-      }, null, _parent));
-      _push(`</div>`);
-      _push(ssrRenderComponent(_component_NuxtPage, null, null, _parent));
-      _push(`<div class="hidden lg:block">`);
-      _push(ssrRenderComponent(_component_LeftSideBar, {
-        data: unref(leftData)[unref(randomIndexData)],
-        quotes: unref(quotsData)[unref(randomIndexQuotes)]
-      }, null, _parent));
-      _push(`</div></div><div class="sticky bottom-0">`);
-      _push(ssrRenderComponent(_component_PlayBar, null, null, _parent));
-      _push(`</div>`);
-      _push(ssrRenderComponent(Footer, {
-        data: unref(landingData).data.attributes.footer,
-        branding: unref(landingData).data.attributes.branding
-      }, null, _parent));
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+      } else {
+        _push(`<!---->`);
+      }
+      if (unref(landingData) && unref(landingData).data && unref(landingData).data.attributes) {
+        _push(`<div class="main__layout container py-6">`);
+        if (unref(rightData).length) {
+          _push(`<div class="hidden md:block">`);
+          _push(ssrRenderComponent(_component_RightSideBar, {
+            data: unref(rightData),
+            menu: unref(landingData).data.attributes.menu
+          }, null, _parent));
+          _push(`</div>`);
+        } else {
+          _push(`<div></div>`);
+        }
+        _push(ssrRenderComponent(_component_NuxtPage, null, null, _parent));
+        if (unref(leftData).length) {
+          _push(`<div class="hidden lg:block">`);
+          _push(ssrRenderComponent(_component_LeftSideBar, {
+            data: unref(leftData)[unref(randomIndexData)],
+            quotes: unref(quotsData)[unref(randomIndexQuotes)]
+          }, null, _parent));
+          _push(`</div>`);
+        } else {
+          _push(`<div></div>`);
+        }
+        _push(`</div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      if (unref(landingData) && unref(landingData).data && unref(landingData).data.attributes) {
+        _push(`<div><div class="sticky bottom-0">`);
+        _push(ssrRenderComponent(_component_PlayBar, null, null, _parent));
+        _push(`</div></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      if (unref(landingData) && unref(landingData).data && unref(landingData).data.attributes) {
+        _push(`<div>`);
+        _push(ssrRenderComponent(Footer, {
+          data: unref(landingData).data.attributes.footer,
+          branding: unref(landingData).data.attributes.branding
+        }, null, _parent));
+        _push(`</div>`);
+      } else {
+        _push(`<!---->`);
+      }
       _push(`</div>`);
     };
   }
@@ -8251,5 +8429,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { _export_sfc as _, __nuxt_component_0$2 as a, __nuxt_component_0$3 as b, createError as c, useRoute as d, entry$1 as default, useFetch as e, __nuxt_component_2$2 as f, __nuxt_component_1 as g, injectHead as i, resolveUnrefHeadInput as r, useI18n as u };
+export { _export_sfc as _, __nuxt_component_0$2 as a, useRoute as b, createError as c, useFetch as d, entry$1 as default, __nuxt_component_1$4 as e, __nuxt_component_2$1 as f, __nuxt_component_1 as g, useAsyncData as h, injectHead as i, _imports_0$1 as j, resolveUnrefHeadInput as r, useI18n as u };
 //# sourceMappingURL=server.mjs.map
