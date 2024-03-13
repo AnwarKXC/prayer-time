@@ -41,7 +41,7 @@
 
 							<template v-if=" cities.data && cities.data[ 0 ] ">
 								<template
-									v-for="                             city                             in                             cities.data                             "
+									v-for="                            city                            in                            cities.data                            "
 									:key=" city.id ">
 									<template v-if=" city.attributes.is_capital ">
 										{{ $t( city.attributes.title ) }}
@@ -159,7 +159,7 @@
 
 				<template v-slot:tbody>
 					<tr class=" h-[45px] border-b " v-if=" displayedData "
-						v-for="                       day                       in                          displayedData                       "
+						v-for="                      day                      in                         displayedData                      "
 						:key=" day "
 						:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' ">
 						<Th thClass=" bg-gray-100 font-semibold "
@@ -189,7 +189,7 @@
 			<div class="city__label__grid">
 				<NuxtLink
 					:to=" '/app/prayer-time/' + route.params.country + '/' + city.attributes.slug + '/' + route.params.countryKey + '/' + route.params.cityKey + '/' + city.attributes.api_city_code "
-					v-for="        city         in        cities.data    " :key=" city.id " class="w-full">
+					v-for="       city        in       cities.data    " :key=" city.id " class="w-full">
 					<CityLabel>
 						{{ city.attributes.title }} </CityLabel>
 				</NuxtLink>
@@ -230,7 +230,7 @@ import { ref, onMounted } from 'vue'
 const { data: cleander, watch } = await useAsyncData(
 	'cleander',
 	() => $fetch( times + route.params.city + '&country=' + route.params.cityKey ), {
-	watch: [ route.params.city, route.params.cityKey ]
+		watch: [ route.params.city, route.params.cityKey ], key: route.params.city
 }
 )
 
@@ -253,10 +253,7 @@ const { data: cleander, watch } = await useAsyncData(
 
 
 onMounted( () => {
-	setTimeout( () => {
 	filterEntries()
-	}, 1000 )
-	
 } )
 
 
@@ -273,14 +270,15 @@ function formatDate ( date ) {
 
 
 function filterEntries () {
-
-	filteredEntries.value = cleander.value?.data?.filter(
-		day => day.date.gregorian.date === formattedDate.value
-	) ?? []
+	
+	if ( cleander.value && cleander.value.data ) {
+		filteredEntries.value = cleander.value.data.filter( day => {
+			return day.date.gregorian.date === formattedDate.value
+		} )
+	} else {
+		filteredEntries.value = []
+	}
 }
-
-
-
 const getAllCitiesInCountry = import.meta.env.VITE_GET_ALL_CITIES_IN_COUNTRY
 const { data: cities } = await useFetch( domain + getAllCitiesInCountry + route.params.countryKey + '&locale[0]=' + locale.value )
 const dayOfMonth = currentDate.getDate()
