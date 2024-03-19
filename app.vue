@@ -55,14 +55,13 @@ const randomIndexData = leftData.length > 0 ? Math.floor( Math.random() * leftDa
     <div v-if=" landingData && landingData.data && landingData.data.attributes "
       class="main__layout container py-6  ">
       <div v-if=" rightData.length " class="hidden md:block">
-        <RightSideBar :data=" rightData " :menu=" landingData.data.attributes.menu " />
-      </div>
-      <div v-else>
+        <RightSideBar :data=" rightData " :menu=" landingData.data.attributes.menu "
+          :branding=" landingData.data.attributes.branding " />
       </div>
 
       <NuxtPage />
 
-      
+
       <div v-if=" leftData.length " class=" hidden lg:block">
         <LeftSideBar :data=" leftData[ randomIndexData ] "
           :quotes=" quotsData[ randomIndexQuotes ] " />

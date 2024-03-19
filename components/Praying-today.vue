@@ -16,10 +16,10 @@
 				<div :class=" { '!text-white ': nextPrayerIndex === index } "
 					class=" text-zinc-500 text-sm font-normal font-['Almarai'] leading-tight">
 					{{
-		$t( prayer.translation ) }}</div>
+					$t( prayer.translation ) }}</div>
 				<div :class=" { '!text-white ': nextPrayerIndex === index } "
 					class=" text-zinc-800 text-base font-medium font-['Roboto'] leading-tight">
-					{{ props.data[ 0 ].timings[ prayer.key ] || '–' }}</div>
+					{{extractTime( props.data[ 0 ].timings[ prayer.key ]) || '–' }}</div>
 			</div>
 		</div>
 	</div>
@@ -68,4 +68,14 @@ function isNextPrayer ( index ) {
 	// Compare the prayer time with the current time
 	return prayerTimeInMinutes > currentTimeInMinutes
 }
+
+function extractTime ( str ) {
+	// Define a regular expression pattern to match the time part
+	const pattern = /(\d{2}:\d{2})/
+	// Use the exec method of the regular expression to extract the time
+	const match = pattern.exec( str )
+	// Return the matched time or an empty string if no match found
+	return match ? match[ 0 ] : ''
+}
+
 </script>

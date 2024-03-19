@@ -19,7 +19,7 @@
 
 			<div class="country__grid" v-if=" countries && countries.data.length > 0 ">
 				<NuxtLink
-					:to=" `/app/prayer-time/${ res.attributes.slug }/${ res.attributes.default_prayer_time_city.data?.attributes.slug }/${ res.id }/${ res.attributes.api_country_code }/${ res.attributes.default_prayer_time_city.data?.attributes.api_city_code }` "
+					:to=" `/app/prayer-time/${ res.attributes.slug }/${ res.attributes.default_prayer_time_city.data?.attributes.slug }/${ res.id }/${ res.attributes.api_country_code }/${ res.attributes.default_prayer_time_city.data?.attributes.api_city_code }/${ res.attributes.default_prayer_time_city.data?.id}` "
 					v-for=" res  in  countries.data " :key=" res.id ">
 					<CountryCard>
 						<template v-slot:image>

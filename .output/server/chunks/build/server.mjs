@@ -1,9 +1,9 @@
-import { hasInjectionContext, inject, version, unref, defineComponent, h, getCurrentInstance, onUnmounted, ref, shallowRef, toRef, onServerPrefetch, computed, toValue, reactive, provide, createElementBlock, useSSRContext, shallowReactive, watch, Suspense, nextTick, Transition, Fragment, resolveComponent, mergeProps, withCtx, createVNode, openBlock, createBlock, createCommentVNode, toDisplayString as toDisplayString$1, createApp, effectScope, defineAsyncComponent, onErrorCaptured, resolveDynamicComponent, isReadonly, Text, isRef, isShallow, isReactive, toRaw, withAsyncContext, withDirectives, vModelSelect, createTextVNode } from 'vue';
+import { hasInjectionContext, inject, version, unref, defineComponent, h, getCurrentInstance, onUnmounted, computed, toValue, reactive, ref, provide, createElementBlock, useSSRContext, shallowReactive, watch, Suspense, nextTick, Transition, Fragment, shallowRef, toRef, onServerPrefetch, resolveComponent, mergeProps, withCtx, createVNode, openBlock, createBlock, createCommentVNode, toDisplayString as toDisplayString$1, createApp, effectScope, defineAsyncComponent, onErrorCaptured, resolveDynamicComponent, isReadonly, Text, isRef, isShallow, isReactive, toRaw, withAsyncContext, withDirectives, vModelSelect, createTextVNode } from 'vue';
 import { d as useRuntimeConfig$1, $ as $fetch, h as createError$1, l as hash, m as defu, n as createHooks, o as sanitizeStatusCode, p as klona, q as parse$1, r as getRequestHeader, t as getRequestHeaders, v as destr, w as isEqual$1, x as setCookie, y as getCookie, z as deleteCookie } from '../runtime.mjs';
 import { getActiveHead } from 'unhead';
 import { defineHeadPlugin } from '@unhead/shared';
 import { RouterView, createMemoryHistory, createRouter, START_LOCATION, useRoute as useRoute$1 } from 'vue-router';
-import { ssrRenderAttrs, ssrInterpolate, ssrRenderAttr, ssrRenderList, ssrRenderComponent, ssrRenderStyle, ssrRenderTeleport, ssrRenderSlot, ssrRenderSuspense, ssrRenderVNode, ssrRenderClass, ssrIncludeBooleanAttr, ssrLooseContain, ssrLooseEqual } from 'vue/server-renderer';
+import { ssrRenderAttrs, ssrInterpolate, ssrRenderAttr, ssrRenderList, ssrRenderComponent, ssrRenderStyle, ssrRenderTeleport, ssrRenderSlot, ssrRenderSuspense, ssrRenderVNode, ssrIncludeBooleanAttr, ssrLooseContain, ssrLooseEqual } from 'vue/server-renderer';
 import 'node:http';
 import 'node:https';
 import 'fs';
@@ -865,44 +865,12 @@ function toArray(value) {
 }
 const _routes = [
   {
-    name: "country-id-city",
-    path: "/:country()/:id()/:city()",
+    name: "app-prayer-time-country-id-countryKey-cityKey-cityid-city",
+    path: "/app/prayer-time/:country()/:id()/:countryKey()/:cityKey()/:cityid()/:city()",
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_city_-CFsfJ9oZ.mjs').then((m) => m.default || m)
-  },
-  {
-    name: "app-country-id-city",
-    path: "/app/:country()/:id()/:city()",
-    meta: {},
-    alias: [],
-    redirect: void 0 ,
-    component: () => import('./_city_-Js2KvqKX.mjs').then((m) => m.default || m)
-  },
-  {
-    name: "app",
-    path: "/app",
-    meta: {},
-    alias: [],
-    redirect: void 0 ,
-    component: () => import('./index-DDyUS_Xd.mjs').then((m) => m.default || m)
-  },
-  {
-    name: "app-prayer-time-country-id-city",
-    path: "/app/prayer-time/:country()/:id()/:city()",
-    meta: {},
-    alias: [],
-    redirect: void 0 ,
-    component: () => import('./_city_-BNFBPeeu.mjs').then((m) => m.default || m)
-  },
-  {
-    name: "app-prayer-time-country-id-countryKey-cityKey-city",
-    path: "/app/prayer-time/:country()/:id()/:countryKey()/:cityKey()/:city()",
-    meta: {},
-    alias: [],
-    redirect: void 0 ,
-    component: () => import('./_city_-DBk_-Ex8.mjs').then((m) => m.default || m)
+    component: () => import('./_city_-CF1UxOt3.mjs').then((m) => m.default || m)
   },
   {
     name: "app-prayer-time",
@@ -910,7 +878,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-DjAwv6Hw.mjs').then((m) => m.default || m)
+    component: () => import('./index-3bNImPaF.mjs').then((m) => m.default || m)
   },
   {
     name: "app-quran",
@@ -918,7 +886,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-YIoa4N4L.mjs').then((m) => m.default || m)
+    component: () => import('./index-BZcBKVWm.mjs').then((m) => m.default || m)
   },
   {
     name: "app-quran-quran-new-playlist",
@@ -926,15 +894,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./quran-new-playlist-ByFyPvFw.mjs').then((m) => m.default || m)
-  },
-  {
-    name: "index",
-    path: "/",
-    meta: {},
-    alias: [],
-    redirect: void 0 ,
-    component: () => import('./index-D_U8EdTD.mjs').then((m) => m.default || m)
+    component: () => import('./quran-new-playlist-CMVnCfWh.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -5149,7 +5109,7 @@ const localeCodes = [];
 const localeLoaders = {};
 const vueI18nConfigs = [
   () => import(
-    './i18n.config-BWOlo1cM.mjs'
+    './i18n.config-CMplvpnu.mjs'
     /* webpackChunkName: "__locales_i18n_config_ts_91504c8a" */
   )
 ];
@@ -7157,11 +7117,16 @@ const _sfc_main$c = {
     menu: {
       type: Object,
       default: {}
+    },
+    branding: {
+      type: Object,
+      default: {}
     }
   },
   setup(__props) {
     const route = useRoute();
     const props = __props;
+    console.log(props.branding);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
       const _component_Image = __nuxt_component_1$4;
@@ -7169,19 +7134,21 @@ const _sfc_main$c = {
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "lg:sticky top-[104px]" }, _attrs))}><div class="grid gap-6"><div class="rounded-xl border border-gray-200 relative overflow-hidden"><ul class="bg-white grid"><li class="border-b border-gray-200 flex p-1.5">`);
       _push(ssrRenderComponent(_component_NuxtLink, {
         to: "/app/prayer-time/",
-        class: ["flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group", unref(route).name === "/" || unref(route).name === "/app" || unref(route).name === "app-prayer-time" || unref(route).name === "app-prayer-time-country-id-countryKey-cityKey-city" ? "bg-primary text-white" : ""]
+        class: ["flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group", unref(route).name == "index" || unref(route).name == "/app" || unref(route).name === "app-prayer-time" || unref(route).name == "app-prayer-time-country-id-countryKey-cityKey-cityid-city" ? "bg-primary text-white" : ""]
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             _push2(ssrRenderComponent(_component_Image, {
               isrc: "/svgs/prayer.svg",
               ialt: "ads",
-              iclass: "group-hover:hidden  w-[17px] h-[29px]"
+              iclass: "group-hover:hidden  w-[20px] h-[29px]",
+              class: unref(route).name == "index" || unref(route).name == "/app" || unref(route).name === "app-prayer-time" || unref(route).name == "app-prayer-time-country-id-countryKey-cityKey-cityid-city" ? "!hidden" : ""
             }, null, _parent2, _scopeId));
             _push2(ssrRenderComponent(_component_Image, {
               isrc: "/svgs/prayer-non.svg",
               ialt: "ads",
-              iclass: "group-hover:block hidden  w-[17px] h-[29px]"
+              iclass: "group-hover:block hidden  w-[20px] h-[29px]",
+              class: unref(route).name == "index" || unref(route).name == "/app" || unref(route).name === "app-prayer-time" || unref(route).name == "app-prayer-time-country-id-countryKey-cityKey-cityid-city" ? "!block" : ""
             }, null, _parent2, _scopeId));
             _push2(ssrRenderComponent(_component_Button, {
               buttonText: "sidebar.item",
@@ -7192,13 +7159,15 @@ const _sfc_main$c = {
               createVNode(_component_Image, {
                 isrc: "/svgs/prayer.svg",
                 ialt: "ads",
-                iclass: "group-hover:hidden  w-[17px] h-[29px]"
-              }),
+                iclass: "group-hover:hidden  w-[20px] h-[29px]",
+                class: unref(route).name == "index" || unref(route).name == "/app" || unref(route).name === "app-prayer-time" || unref(route).name == "app-prayer-time-country-id-countryKey-cityKey-cityid-city" ? "!hidden" : ""
+              }, null, 8, ["class"]),
               createVNode(_component_Image, {
                 isrc: "/svgs/prayer-non.svg",
                 ialt: "ads",
-                iclass: "group-hover:block hidden  w-[17px] h-[29px]"
-              }),
+                iclass: "group-hover:block hidden  w-[20px] h-[29px]",
+                class: unref(route).name == "index" || unref(route).name == "/app" || unref(route).name === "app-prayer-time" || unref(route).name == "app-prayer-time-country-id-countryKey-cityKey-cityid-city" ? "!block" : ""
+              }, null, 8, ["class"]),
               createVNode(_component_Button, {
                 buttonText: "sidebar.item",
                 buttonClass: " btn__primary"
@@ -7218,7 +7187,7 @@ const _sfc_main$c = {
             _push2(ssrRenderComponent(_component_Image, {
               isrc: "/svgs/quran.svg",
               ialt: "ads",
-              iclass: "group-hover:invert  w-[17px] h-[29px]",
+              iclass: "group-hover:invert  w-[20px] h-[29px]",
               class: unref(route).name === "app-quran" ? "invert" : ""
             }, null, _parent2, _scopeId));
             _push2(ssrRenderComponent(_component_Button, {
@@ -7230,7 +7199,7 @@ const _sfc_main$c = {
               createVNode(_component_Image, {
                 isrc: "/svgs/quran.svg",
                 ialt: "ads",
-                iclass: "group-hover:invert  w-[17px] h-[29px]",
+                iclass: "group-hover:invert  w-[20px] h-[29px]",
                 class: unref(route).name === "app-quran" ? "invert" : ""
               }, null, 8, ["class"]),
               createVNode(_component_Button, {
@@ -7253,7 +7222,7 @@ const _sfc_main$c = {
             default: withCtx((_, _push2, _parent2, _scopeId) => {
               if (_push2) {
                 if (item.icon.data.attributes.url) {
-                  _push2(`<img${ssrRenderAttr("src", item.icon.data.attributes.url)} alt="" class="${ssrRenderClass([unref(route).path === `/${item.link}` ? "invert" : "", "group-hover:invert w-[17px] h-[29px]"])}"${_scopeId}>`);
+                  _push2(`<img${ssrRenderAttr("src", item.icon.data.attributes.url)} alt="" class="rounded-sm w-[20px] max-h-[29px]"${_scopeId}>`);
                 } else {
                   _push2(`<!---->`);
                 }
@@ -7264,8 +7233,8 @@ const _sfc_main$c = {
                     key: 0,
                     src: item.icon.data.attributes.url,
                     alt: "",
-                    class: ["group-hover:invert w-[17px] h-[29px]", unref(route).path === `/${item.link}` ? "invert" : ""]
-                  }, null, 10, ["src"])) : createCommentVNode("", true),
+                    class: "rounded-sm w-[20px] max-h-[29px]"
+                  }, null, 8, ["src"])) : createCommentVNode("", true),
                   createVNode("span", { class: "btn__primary" }, toDisplayString$1(item.title), 1)
                 ];
               }
@@ -7279,7 +7248,8 @@ const _sfc_main$c = {
       });
       _push(`<!--]--><li class="border-gray-200 cent p-2 bg-[#FCD364] bg-opacity-60">`);
       _push(ssrRenderComponent(_component_NuxtLink, {
-        to: "/",
+        to: props.branding.link_download,
+        target: "_blank",
         class: "cent w-full gap-3 px-2"
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -7289,10 +7259,7 @@ const _sfc_main$c = {
               ialt: "ads",
               iclass: " h-[38px] w-[38px]"
             }, null, _parent2, _scopeId));
-            _push2(ssrRenderComponent(_component_Button, {
-              buttonText: "sidebar.download",
-              buttonClass: " font-semibold text-yellow-950 "
-            }, null, _parent2, _scopeId));
+            _push2(`<button class="font-semibold text-yellow-950"${_scopeId}>${ssrInterpolate(props.branding.title_download)}</button>`);
           } else {
             return [
               createVNode(_component_Image, {
@@ -7300,10 +7267,7 @@ const _sfc_main$c = {
                 ialt: "ads",
                 iclass: " h-[38px] w-[38px]"
               }),
-              createVNode(_component_Button, {
-                buttonText: "sidebar.download",
-                buttonClass: " font-semibold text-yellow-950 "
-              })
+              createVNode("button", { class: "font-semibold text-yellow-950" }, toDisplayString$1(props.branding.title_download), 1)
             ];
           }
         }),
@@ -8278,7 +8242,8 @@ const _sfc_main$2 = {
           _push(`<div class="hidden md:block">`);
           _push(ssrRenderComponent(_component_RightSideBar, {
             data: unref(rightData),
-            menu: unref(landingData).data.attributes.menu
+            menu: unref(landingData).data.attributes.menu,
+            branding: unref(landingData).data.attributes.branding
           }, null, _parent));
           _push(`</div>`);
         } else {
@@ -8429,5 +8394,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { _export_sfc as _, __nuxt_component_0$2 as a, useRoute as b, createError as c, useFetch as d, entry$1 as default, __nuxt_component_1$4 as e, __nuxt_component_2$1 as f, __nuxt_component_1 as g, useAsyncData as h, injectHead as i, _imports_0$1 as j, resolveUnrefHeadInput as r, useI18n as u };
+export { _export_sfc as _, __nuxt_component_0$2 as a, __nuxt_component_1$4 as b, createError as c, useRoute as d, entry$1 as default, useFetch as e, __nuxt_component_2$1 as f, __nuxt_component_1 as g, _imports_0$1 as h, injectHead as i, resolveUnrefHeadInput as r, useI18n as u };
 //# sourceMappingURL=server.mjs.map

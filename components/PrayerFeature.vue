@@ -6,8 +6,8 @@
 			<p class="w-[236px] h-6   text-zinc-500 text-xs font-normal  leading-[35px]">
 				احصل على تنبيه مواقيت الصلاة على هاتفك مجانًا.</p>
 		</div>
-		<div class=" grid md:grid-cols-3 gap-4 gap-y-10  ">
-			<div class=" grid grid-rows-3 justify-center items-center  "
+		<div class=" flex justify-evenly gap-8 flex-wrap gap-y-12  ">
+			<div class=" shrink-0 grid grid-rows-3 justify-center items-center  "
 				v-for="(      item, index      ) in       randomThreeItems      " :key=" index ">
 				<img v-if="item && item.icon"
 					:src=" item.icon.data.attributes.url " :alt=" item.icon.data.attributes.name "
@@ -27,16 +27,8 @@ const { locale } = useI18n()
 const domain = import.meta.env.VITE_DOMAIN
 const landing = import.meta.env.VITE_LANDING_PAGE
 const { data: landingData } = await useFetch( domain + landing + locale.value )
-function shuffle ( array ) {
-	for ( let i = array.length - 1; i > 0; i-- ) {
-		const j = Math.floor( Math.random() * ( i + 1 ) );
-		[ array[ i ], array[ j ] ] = [ array[ j ], array[ i ] ]
-	}
-	return array
-}
 const activeBanners = landingData.value.data.attributes.features.filter( item => item.active === true )
-shuffle( activeBanners )
-const randomThreeItems = activeBanners.slice( 0, 3 )
+const randomThreeItems = activeBanners
 
 
 

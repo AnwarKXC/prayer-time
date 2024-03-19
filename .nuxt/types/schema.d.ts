@@ -61,6 +61,12 @@ declare module 'nuxt/schema' {
 
          useCookie: boolean,
       },
+
+      experimental: {
+         localeDetector: string,
+
+         switchLocalePathLinkSSR: boolean,
+      },
    },
   }
 }

@@ -14,7 +14,8 @@ export const vueI18nConfigs = [
 
 export const nuxtI18nOptions = {
   "experimental": {
-    "localeDetector": ""
+    "localeDetector": "",
+    "switchLocalePathLinkSSR": false
   },
   "bundle": {
     "compositionOnly": true,
@@ -71,3 +72,4 @@ export const isSSG = false
 
 export const DEFAULT_DYNAMIC_PARAMS_KEY = "nuxtI18n"
 export const DEFAULT_COOKIE_KEY = "i18n_redirected"
+export const SWITCH_LOCALE_PATH_LINK_IDENTIFIER = "nuxt-i18n-slp"
