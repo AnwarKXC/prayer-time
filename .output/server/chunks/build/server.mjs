@@ -1,5 +1,5 @@
-import { hasInjectionContext, inject, version, unref, defineComponent, h, getCurrentInstance, onUnmounted, computed, toValue, reactive, ref, provide, createElementBlock, useSSRContext, shallowReactive, watch, Suspense, nextTick, Transition, Fragment, shallowRef, toRef, onServerPrefetch, resolveComponent, mergeProps, withCtx, createVNode, openBlock, createBlock, createCommentVNode, toDisplayString as toDisplayString$1, createApp, effectScope, defineAsyncComponent, onErrorCaptured, resolveDynamicComponent, isReadonly, Text, isRef, isShallow, isReactive, toRaw, withAsyncContext, withDirectives, vModelSelect, createTextVNode } from 'vue';
-import { d as useRuntimeConfig$1, $ as $fetch, h as createError$1, l as hash, m as defu, n as createHooks, o as sanitizeStatusCode, p as klona, q as parse$1, r as getRequestHeader, t as getRequestHeaders, v as destr, w as isEqual$1, x as setCookie, y as getCookie, z as deleteCookie } from '../runtime.mjs';
+import { hasInjectionContext, inject, version, unref, defineComponent, h, getCurrentInstance, onUnmounted, computed, toValue, reactive, ref, provide, createElementBlock, useSSRContext, shallowReactive, watch, Suspense, nextTick, Transition, Fragment, shallowRef, toRef, onServerPrefetch, resolveComponent, mergeProps, withCtx, createVNode, openBlock, createBlock, createCommentVNode, toDisplayString as toDisplayString$1, createApp, effectScope, onErrorCaptured, resolveDynamicComponent, isReadonly, Text, isRef, isShallow, isReactive, toRaw, withAsyncContext, withDirectives, vModelSelect, defineAsyncComponent, createTextVNode } from 'vue';
+import { d as useRuntimeConfig$1, $ as $fetch, l as hash, m as defu, n as createHooks, h as createError$1, o as sanitizeStatusCode, t as toRouteMatcher, p as createRouter$1, q as klona, r as parse$1, v as getRequestHeader, w as getRequestHeaders, x as destr, y as isEqual$1, z as setCookie, A as getCookie, B as deleteCookie } from '../runtime.mjs';
 import { getActiveHead } from 'unhead';
 import { defineHeadPlugin } from '@unhead/shared';
 import { RouterView, createMemoryHistory, createRouter, START_LOCATION, useRoute as useRoute$1 } from 'vue-router';
@@ -219,7 +219,8 @@ function withoutTrailingSlash(input = "", respectQueryAndFragment) {
     fragment = input.slice(fragmentIndex);
   }
   const [s0, ...s] = path.split("?");
-  return (s0.slice(0, -1) || "/") + (s.length > 0 ? `?${s.join("?")}` : "") + fragment;
+  const cleanPath = s0.endsWith("/") ? s0.slice(0, -1) : s0;
+  return (cleanPath || "/") + (s.length > 0 ? `?${s.join("?")}` : "") + fragment;
 }
 function withTrailingSlash(input = "", respectQueryAndFragment) {
   if (!respectQueryAndFragment) {
@@ -265,6 +266,47 @@ function joinURL(base, ...input) {
     } else {
       url = segment;
     }
+  }
+  return url;
+}
+function joinRelativeURL(..._input) {
+  var _a, _b, _c;
+  const JOIN_SEGMENT_SPLIT_RE = new RegExp("(?<!\\/)\\/(?!\\/)");
+  const input = _input.filter(Boolean);
+  const segments = [];
+  let segmentsDepth = 0;
+  for (const i of input) {
+    if (!i || i === "/") {
+      continue;
+    }
+    for (const s of i.split(JOIN_SEGMENT_SPLIT_RE)) {
+      if (!s || s === ".") {
+        continue;
+      }
+      if (s === "..") {
+        if (segments.length === 1 && hasProtocol(segments[0])) {
+          continue;
+        }
+        segments.pop();
+        segmentsDepth--;
+        continue;
+      }
+      segments.push(s);
+      segmentsDepth++;
+    }
+  }
+  let url = segments.join("/");
+  if (segmentsDepth >= 0) {
+    if (((_a = input[0]) == null ? void 0 : _a.startsWith("/")) && !url.startsWith("/")) {
+      url = "/" + url;
+    } else if (((_b = input[0]) == null ? void 0 : _b.startsWith("./")) && !url.startsWith("./")) {
+      url = "./" + url;
+    }
+  } else {
+    url = "../".repeat(-1 * segmentsDepth) + url;
+  }
+  if (((_c = input[input.length - 1]) == null ? void 0 : _c.endsWith("/")) && !url.endsWith("/")) {
+    url += "/";
   }
   return url;
 }
@@ -337,6 +379,10 @@ function stringifyParsedURL(parsed) {
 }
 const appConfig = useRuntimeConfig$1().app;
 const baseURL = () => appConfig.baseURL;
+const publicAssetsURL = (...path) => {
+  const publicBase = appConfig.cdnURL || appConfig.baseURL;
+  return path.length ? joinRelativeURL(publicBase, ...path) : publicBase;
+};
 if (!globalThis.$fetch) {
   globalThis.$fetch = $fetch.create({
     baseURL: baseURL()
@@ -354,7 +400,7 @@ function createNuxtApp(options) {
     globalName: "nuxt",
     versions: {
       get nuxt() {
-        return "3.10.3";
+        return "3.11.1";
       },
       get vue() {
         return nuxtApp.vueApp.version;
@@ -863,6 +909,19 @@ const wrapInKeepAlive = (props, children) => {
 function toArray(value) {
   return Array.isArray(value) ? value : [value];
 }
+const appPageTransition = false;
+const appKeepalive = false;
+const nuxtLinkDefaults = { "componentName": "NuxtLink" };
+const asyncDataDefaults = { "deep": true };
+const fetchDefaults = {};
+async function getRouteRules(url) {
+  {
+    const _routeRulesMatcher = toRouteMatcher(
+      createRouter$1({ routes: (/* @__PURE__ */ useRuntimeConfig()).nitro.routeRules })
+    );
+    return defu({}, ..._routeRulesMatcher.matchAll(url).reverse());
+  }
+}
 const _routes = [
   {
     name: "app-prayer-time-country-id-countryKey-cityKey-cityid-city",
@@ -870,7 +929,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_city_-CF1UxOt3.mjs').then((m) => m.default || m)
+    component: () => import('./_city_-D2Phq5Kv.mjs').then((m) => m.default || m)
   },
   {
     name: "app-prayer-time",
@@ -878,7 +937,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-3bNImPaF.mjs').then((m) => m.default || m)
+    component: () => import('./index-C4C9qPfc.mjs').then((m) => m.default || m)
   },
   {
     name: "app-quran",
@@ -886,7 +945,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-BZcBKVWm.mjs').then((m) => m.default || m)
+    component: () => import('./index-TDC-ukUt.mjs').then((m) => m.default || m)
   },
   {
     name: "app-quran-quran-new-playlist",
@@ -894,7 +953,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./quran-new-playlist-CMVnCfWh.mjs').then((m) => m.default || m)
+    component: () => import('./quran-new-playlist-HA9FGC39.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -929,11 +988,6 @@ function isChangingPage(to, from) {
   }
   return true;
 }
-const appPageTransition = false;
-const appKeepalive = false;
-const nuxtLinkDefaults = { "componentName": "NuxtLink" };
-const asyncDataDefaults = { "deep": true };
-const fetchDefaults = {};
 const routerOptions0 = {
   scrollBehavior(to, from, savedPosition) {
     var _a;
@@ -1110,6 +1164,18 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
             middlewareEntries.add(entry2);
           }
         }
+        {
+          const routeRules = await nuxtApp.runWithContext(() => getRouteRules(to.path));
+          if (routeRules.appMiddleware) {
+            for (const key in routeRules.appMiddleware) {
+              if (routeRules.appMiddleware[key]) {
+                middlewareEntries.add(key);
+              } else {
+                middlewareEntries.delete(key);
+              }
+            }
+          }
+        }
         for (const entry2 of middlewareEntries) {
           const middleware = typeof entry2 === "string" ? nuxtApp._middleware.named[entry2] || await ((_b2 = namedMiddleware[entry2]) == null ? void 0 : _b2.call(namedMiddleware).then((r) => r.default || r)) : entry2;
           if (!middleware) {
@@ -1204,7 +1270,7 @@ const components_plugin_KR1HBZs4kY = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:global-components"
 });
 /*!
-  * shared v9.10.1
+  * shared v9.10.2
   * (c) 2024 kazuya kawaguchi
   * Released under the MIT License.
   */
@@ -1277,7 +1343,7 @@ function deepCopy(src, des) {
   }
 }
 /*!
-  * message-compiler v9.10.1
+  * message-compiler v9.10.2
   * (c) 2024 kazuya kawaguchi
   * Released under the MIT License.
   */
@@ -1877,7 +1943,7 @@ function createTokenizer(source, options = {}) {
         token = readTokenInLinked(scnr, context2) || getEndToken(context2);
         context2.braceNest = 0;
         return token;
-      default:
+      default: {
         let validNamedIdentifier = true;
         let validListIdentifier = true;
         let validLiteral = true;
@@ -1917,6 +1983,7 @@ function createTokenizer(source, options = {}) {
           return token;
         }
         break;
+      }
     }
     return token;
   }
@@ -2013,7 +2080,7 @@ function createTokenizer(source, options = {}) {
         );
       case "@":
         return readTokenInLinked(scnr, context2) || getEndToken(context2);
-      default:
+      default: {
         if (isPluralStart(scnr)) {
           token = getToken(context2, 1, readPlural(scnr));
           context2.braceNest = 0;
@@ -2028,6 +2095,7 @@ function createTokenizer(source, options = {}) {
           return getToken(context2, 0, readText(scnr));
         }
         break;
+      }
     }
     return token;
   }
@@ -2213,7 +2281,7 @@ function createParser(options = {}) {
         }
         linkedNode.key = parseLiteral(tokenizer, token.value || "");
         break;
-      default:
+      default: {
         emitError(tokenizer, CompileErrorCodes.UNEXPECTED_EMPTY_LINKED_KEY, context.lastStartLoc, 0);
         const nextContext = tokenizer.context();
         const emptyLinkedKeyNode = startNode(7, nextContext.offset, nextContext.startLoc);
@@ -2225,6 +2293,7 @@ function createParser(options = {}) {
           nextConsumeToken: token,
           node: linkedNode
         };
+      }
     }
     endNode(linkedNode, tokenizer.currentOffset(), tokenizer.currentPosition());
     return {
@@ -2266,11 +2335,12 @@ function createParser(options = {}) {
           }
           node.items.push(parseLiteral(tokenizer, token.value || ""));
           break;
-        case 8:
+        case 8: {
           const parsed = parseLinked(tokenizer);
           node.items.push(parsed.node);
           nextToken = parsed.nextConsumeToken || null;
           break;
+        }
       }
     } while (context.currentType !== 14 && context.currentType !== 1);
     const endOffset = context.currentType === 1 ? context.lastOffset : tokenizer.currentOffset();
@@ -2362,7 +2432,7 @@ function traverseNode(node, transformer) {
     case 2:
       traverseNodes(node.items, transformer);
       break;
-    case 6:
+    case 6: {
       const linked = node;
       traverseNode(linked.key, transformer);
       transformer.helper(
@@ -2374,6 +2444,7 @@ function traverseNode(node, transformer) {
         /* HelperNameMap.TYPE */
       );
       break;
+    }
     case 5:
       transformer.helper(
         "interpolate"
@@ -2448,13 +2519,14 @@ function optimizeMessageNode(message) {
 function minify(node) {
   node.t = node.type;
   switch (node.type) {
-    case 0:
+    case 0: {
       const resource = node;
       minify(resource.body);
       resource.b = resource.body;
       delete resource.body;
       break;
-    case 1:
+    }
+    case 1: {
       const plural = node;
       const cases = plural.cases;
       for (let i = 0; i < cases.length; i++) {
@@ -2463,7 +2535,8 @@ function minify(node) {
       plural.c = cases;
       delete plural.cases;
       break;
-    case 2:
+    }
+    case 2: {
       const message = node;
       const items = message.items;
       for (let i = 0; i < items.length; i++) {
@@ -2476,17 +2549,19 @@ function minify(node) {
         delete message.static;
       }
       break;
+    }
     case 3:
     case 9:
     case 8:
-    case 7:
+    case 7: {
       const valueNode = node;
       if (valueNode.value) {
         valueNode.v = valueNode.value;
         delete valueNode.value;
       }
       break;
-    case 6:
+    }
+    case 6: {
       const linked = node;
       minify(linked.key);
       linked.k = linked.key;
@@ -2497,16 +2572,19 @@ function minify(node) {
         delete linked.modifier;
       }
       break;
-    case 5:
+    }
+    case 5: {
       const list = node;
       list.i = list.index;
       delete list.index;
       break;
-    case 4:
+    }
+    case 4: {
       const named = node;
       named.k = named.key;
       delete named.key;
       break;
+    }
   }
   delete node.type;
 }
@@ -3383,7 +3461,7 @@ function appendItemToChain(chain, target, blocks) {
   }
   return follow;
 }
-const VERSION$1 = "9.10.1";
+const VERSION$1 = "9.10.2";
 const NOT_REOSLVED = -1;
 const DEFAULT_LOCALE = "en-US";
 const MISSING_RESOLVE_VALUE = "";
@@ -3525,28 +3603,35 @@ function formatMessageParts(ctx, node) {
 function formatMessagePart(ctx, node) {
   const type = node.t || node.type;
   switch (type) {
-    case 3:
+    case 3: {
       const text = node;
       return text.v || text.value;
-    case 9:
+    }
+    case 9: {
       const literal = node;
       return literal.v || literal.value;
-    case 4:
+    }
+    case 4: {
       const named = node;
       return ctx.interpolate(ctx.named(named.k || named.key));
-    case 5:
+    }
+    case 5: {
       const list = node;
       return ctx.interpolate(ctx.list(list.i != null ? list.i : list.index));
-    case 6:
+    }
+    case 6: {
       const linked = node;
       const modifier = linked.m || linked.modifier;
       return ctx.linked(formatMessagePart(ctx, linked.k || linked.key), modifier ? formatMessagePart(ctx, modifier) : void 0, ctx.type);
-    case 7:
+    }
+    case 7: {
       const linkedKey = node;
       return linkedKey.v || linkedKey.value;
-    case 8:
+    }
+    case 8: {
       const linkedModifier = node;
       return linkedModifier.v || linkedModifier.value;
+    }
     default:
       throw new Error(`unhandled node type on format message part: ${type}`);
   }
@@ -4008,11 +4093,11 @@ function clearNumberFormat(ctx, locale, format2) {
   }
 }
 /*!
-  * vue-i18n v9.10.1
+  * vue-i18n v9.10.2
   * (c) 2024 kazuya kawaguchi
   * Released under the MIT License.
   */
-const VERSION = "9.10.1";
+const VERSION = "9.10.2";
 const code$1 = CoreWarnCodes.__EXTEND_POINT__;
 const inc$1 = incrementer(code$1);
 ({
@@ -5109,7 +5194,7 @@ const localeCodes = [];
 const localeLoaders = {};
 const vueI18nConfigs = [
   () => import(
-    './i18n.config-CMplvpnu.mjs'
+    './i18n.config-DRYlEL5p.mjs'
     /* webpackChunkName: "__locales_i18n_config_ts_91504c8a" */
   )
 ];
@@ -5119,6 +5204,7 @@ const parallelPlugin = false;
 const isSSG = false;
 const DEFAULT_DYNAMIC_PARAMS_KEY = "nuxtI18n";
 const DEFAULT_COOKIE_KEY = "i18n_redirected";
+const SWITCH_LOCALE_PATH_LINK_IDENTIFIER = "nuxt-i18n-slp";
 const cacheMessages = /* @__PURE__ */ new Map();
 async function loadVueI18nOptions(vueI18nConfigs2, nuxt) {
   const vueI18nOptions = { messages: {} };
@@ -5199,32 +5285,6 @@ async function loadAndSetLocaleMessages(locale, localeLoaders2, messages) {
     messages[locale2] = base;
   };
   await loadLocale(locale, localeLoaders2, setter);
-}
-const useStateKeyPrefix = "$s";
-function useState(...args) {
-  const autoKey = typeof args[args.length - 1] === "string" ? args.pop() : void 0;
-  if (typeof args[0] !== "string") {
-    args.unshift(autoKey);
-  }
-  const [_key, init] = args;
-  if (!_key || typeof _key !== "string") {
-    throw new TypeError("[nuxt] [useState] key must be a string: " + _key);
-  }
-  if (init !== void 0 && typeof init !== "function") {
-    throw new Error("[nuxt] [useState] init must be a function: " + init);
-  }
-  const key = useStateKeyPrefix + _key;
-  const nuxtApp = /* @__PURE__ */ useNuxtApp();
-  const state = toRef(nuxtApp.payload.state, key);
-  if (state.value === void 0 && init) {
-    const initialValue = init();
-    if (isRef(initialValue)) {
-      nuxtApp.payload.state[key] = initialValue;
-      return initialValue;
-    }
-    state.value = initialValue;
-  }
-  return state;
 }
 function useRequestEvent(nuxtApp = /* @__PURE__ */ useNuxtApp()) {
   var _a;
@@ -5433,201 +5493,32 @@ function findBrowserLocale(locales, browserLocales, { matcher = DefaultBrowserLo
 function getLocalesRegex(localeCodes2) {
   return new RegExp(`^/(${localeCodes2.join("|")})(?:/|$)`, "i");
 }
-function formatMessage(message) {
-  return NUXT_I18N_MODULE_ID + " " + message;
-}
-function callVueI18nInterfaces(i18n, name, ...args) {
-  const target = getI18nTarget(i18n);
-  const [obj, method] = [target, target[name]];
-  return Reflect.apply(method, obj, [...args]);
-}
-function getVueI18nPropertyValue(i18n, name) {
-  const target = getI18nTarget(i18n);
-  return unref(target[name]);
-}
-function defineGetter(obj, key, val) {
-  Object.defineProperty(obj, key, { get: () => val });
-}
-function wrapComposable(fn, common = initCommonComposableOptions()) {
-  return (...args) => fn(common, ...args);
-}
-function parseAcceptLanguage(input) {
-  return input.split(",").map((tag) => tag.split(";")[0]);
-}
-function getBrowserLocale() {
-  let ret;
-  {
-    const header = useRequestHeaders(["accept-language"]);
-    const accept = header["accept-language"];
-    if (accept) {
-      ret = findBrowserLocale(normalizedLocales, parseAcceptLanguage(accept));
-    }
+const useStateKeyPrefix = "$s";
+function useState(...args) {
+  const autoKey = typeof args[args.length - 1] === "string" ? args.pop() : void 0;
+  if (typeof args[0] !== "string") {
+    args.unshift(autoKey);
   }
-  return ret;
-}
-function getI18nCookie() {
-  const detect = runtimeDetectBrowserLanguage();
-  const cookieKey = detect && detect.cookieKey || DEFAULT_COOKIE_KEY;
-  const date = /* @__PURE__ */ new Date();
-  const cookieOptions = {
-    expires: new Date(date.setDate(date.getDate() + 365)),
-    path: "/",
-    sameSite: detect && detect.cookieCrossOrigin ? "none" : "lax",
-    secure: detect && detect.cookieCrossOrigin || detect && detect.cookieSecure
-  };
-  if (detect && detect.cookieDomain) {
-    cookieOptions.domain = detect.cookieDomain;
+  const [_key, init] = args;
+  if (!_key || typeof _key !== "string") {
+    throw new TypeError("[nuxt] [useState] key must be a string: " + _key);
   }
-  return useCookie(cookieKey, cookieOptions);
-}
-function getLocaleCookie(cookieRef, detect) {
-  if (detect === false || !detect.useCookie) {
-    return;
+  if (init !== void 0 && typeof init !== "function") {
+    throw new Error("[nuxt] [useState] init must be a function: " + init);
   }
-  const localeCode = cookieRef.value ?? void 0;
-  if (localeCode == null) {
-    return;
-  }
-  if (localeCodes.includes(localeCode)) {
-    return localeCode;
-  }
-}
-function setLocaleCookie(cookieRef, locale, detect) {
-  if (detect === false || !detect.useCookie) {
-    return;
-  }
-  cookieRef.value = locale;
-}
-const DefaultDetectBrowserLanguageFromResult = {
-  locale: "",
-  stat: false,
-  reason: "unknown",
-  from: "unknown"
-};
-function detectBrowserLanguage(route, vueI18nOptionsLocale, detectLocaleContext, locale = "") {
-  const { strategy } = (/* @__PURE__ */ useRuntimeConfig()).public.i18n;
-  const { ssg, callType, firstAccess, localeCookie } = detectLocaleContext;
-  if (!firstAccess) {
-    return { locale: strategy === "no_prefix" ? locale : "", stat: false, reason: "first_access_only" };
-  }
-  const { redirectOn, alwaysRedirect, useCookie: useCookie2, fallbackLocale } = runtimeDetectBrowserLanguage();
-  const path = isString(route) ? route : route.path;
-  if (strategy !== "no_prefix") {
-    if (redirectOn === "root") {
-      if (path !== "/") {
-        return { locale: "", stat: false, reason: "not_redirect_on_root" };
-      }
-    } else if (redirectOn === "no prefix") {
-      if (!alwaysRedirect && path.match(getLocalesRegex(localeCodes))) {
-        return { locale: "", stat: false, reason: "not_redirect_on_no_prefix" };
-      }
-    }
-  }
-  let localeFrom = "unknown";
-  let cookieLocale;
-  let matchedLocale;
-  if (useCookie2) {
-    matchedLocale = cookieLocale = localeCookie.value;
-    localeFrom = "cookie";
-  }
-  if (!matchedLocale) {
-    matchedLocale = getBrowserLocale();
-    localeFrom = "navigator_or_header";
-  }
-  const finalLocale = matchedLocale || fallbackLocale;
-  if (!matchedLocale && fallbackLocale) {
-    localeFrom = "fallback";
-  }
-  const vueI18nLocale = locale || vueI18nOptionsLocale;
-  if (finalLocale && (!useCookie2 || alwaysRedirect || !cookieLocale)) {
-    if (strategy === "no_prefix") {
-      return { locale: finalLocale, stat: true, from: localeFrom };
-    } else {
-      if (callType === "setup") {
-        if (finalLocale !== vueI18nLocale) {
-          return { locale: finalLocale, stat: true, from: localeFrom };
-        }
-      }
-      if (alwaysRedirect) {
-        const redirectOnRoot = path === "/";
-        const redirectOnAll = redirectOn === "all";
-        const redirectOnNoPrefix = redirectOn === "no prefix" && !path.match(getLocalesRegex(localeCodes));
-        if (redirectOnRoot || redirectOnAll || redirectOnNoPrefix) {
-          return { locale: finalLocale, stat: true, from: localeFrom };
-        }
-      }
-    }
-  }
-  if (ssg === "ssg_setup" && finalLocale) {
-    return { locale: finalLocale, stat: true, from: localeFrom };
-  }
-  if ((localeFrom === "navigator_or_header" || localeFrom === "cookie") && finalLocale) {
-    return { locale: finalLocale, stat: true, from: localeFrom };
-  }
-  return { locale: "", stat: false, reason: "not_found_match" };
-}
-function getHost() {
-  let host;
-  {
-    const header = useRequestHeaders(["x-forwarded-host", "host"]);
-    let detectedHost;
-    if ("x-forwarded-host" in header) {
-      detectedHost = header["x-forwarded-host"];
-    } else if ("host" in header) {
-      detectedHost = header["host"];
-    }
-    host = isArray(detectedHost) ? detectedHost[0] : detectedHost;
-  }
-  return host;
-}
-function getLocaleDomain(locales) {
-  let host = getHost() || "";
-  if (host) {
-    const matchingLocale = locales.find((locale) => {
-      if (locale && locale.domain) {
-        let domain = locale.domain;
-        if (hasProtocol(locale.domain)) {
-          domain = locale.domain.replace(/(http|https):\/\//, "");
-        }
-        return domain === host;
-      }
-      return false;
-    });
-    if (matchingLocale) {
-      return matchingLocale.code;
-    } else {
-      host = "";
-    }
-  }
-  return host;
-}
-function getDomainFromLocale(localeCode) {
-  var _a, _b;
-  const runtimeConfig = /* @__PURE__ */ useRuntimeConfig();
+  const key = useStateKeyPrefix + _key;
   const nuxtApp = /* @__PURE__ */ useNuxtApp();
-  const config = runtimeConfig.public.i18n;
-  const lang = normalizedLocales.find((locale) => locale.code === localeCode);
-  const domain = ((_b = (_a = config == null ? void 0 : config.locales) == null ? void 0 : _a[localeCode]) == null ? void 0 : _b.domain) ?? (lang == null ? void 0 : lang.domain);
-  if (domain) {
-    if (hasProtocol(domain, { strict: true })) {
-      return domain;
+  const state = toRef(nuxtApp.payload.state, key);
+  if (state.value === void 0 && init) {
+    const initialValue = init();
+    if (isRef(initialValue)) {
+      nuxtApp.payload.state[key] = initialValue;
+      return initialValue;
     }
-    let protocol;
-    {
-      const {
-        node: { req }
-      } = useRequestEvent(nuxtApp);
-      protocol = req && isHTTPS(req) ? "https:" : "http:";
-    }
-    return protocol + "//" + domain;
+    state.value = initialValue;
   }
-  console.warn(formatMessage("Could not find domain name for locale " + localeCode));
+  return state;
 }
-const runtimeDetectBrowserLanguage = (opts = (/* @__PURE__ */ useRuntimeConfig()).public.i18n) => {
-  if ((opts == null ? void 0 : opts.detectBrowserLanguage) === false)
-    return false;
-  return opts == null ? void 0 : opts.detectBrowserLanguage;
-};
 function split(str, index) {
   const result = [str.slice(0, index), str.slice(index)];
   return result;
@@ -5760,8 +5651,11 @@ function resolveRoute(common, route, locale) {
   }
 }
 const DefaultSwitchLocalePathIntercepter = (path) => path;
-function getLocalizableMetaFromDynamicParams(route) {
+function getLocalizableMetaFromDynamicParams(common, route) {
   var _a;
+  if (common.runtimeConfig.public.i18n.experimental.switchLocalePathLinkSSR) {
+    return unref(common.metaState.value);
+  }
   const meta = route.meta || {};
   return ((_a = unref(meta)) == null ? void 0 : _a[DEFAULT_DYNAMIC_PARAMS_KEY]) || {};
 }
@@ -5773,7 +5667,7 @@ function switchLocalePath(common, locale, _route) {
   }
   const switchLocalePathIntercepter = extendSwitchLocalePathIntercepter(common.runtimeConfig);
   const routeCopy = routeToObject(route);
-  const resolvedParams = getLocalizableMetaFromDynamicParams(route)[locale];
+  const resolvedParams = getLocalizableMetaFromDynamicParams(common, route)[locale];
   const baseRoute = { ...routeCopy, name, params: { ...routeCopy.params, ...resolvedParams } };
   const path = localePath(common, baseRoute, locale);
   return switchLocalePathIntercepter(path, locale);
@@ -5868,7 +5762,11 @@ function getHreflangLinks(common, locales, idAttribute) {
 }
 function getCanonicalUrl(common, baseUrl, seoAttributes) {
   const route = common.router.currentRoute.value;
-  const currentRoute = localeRoute(common, { ...route, name: getRouteBaseName(common, route) });
+  const currentRoute = localeRoute(common, {
+    ...route,
+    path: void 0,
+    name: getRouteBaseName(common, route)
+  });
   if (!currentRoute)
     return "";
   let href = toAbsoluteUrl(currentRoute.path, baseUrl);
@@ -5942,7 +5840,8 @@ function initCommonComposableOptions(i18n) {
   return {
     i18n: i18n ?? (/* @__PURE__ */ useNuxtApp()).$i18n,
     router: useRouter(),
-    runtimeConfig: /* @__PURE__ */ useRuntimeConfig()
+    runtimeConfig: /* @__PURE__ */ useRuntimeConfig(),
+    metaState: useState("nuxt-i18n-meta", () => ({}))
   };
 }
 async function loadAndSetLocale(newLocale, i18n, runtimeI18n, initial = false) {
@@ -6018,7 +5917,7 @@ function detectLocale(route, routeLocaleGetter, vueI18nOptionsLocale, initialLoc
     }
   }
   if (!finalLocale && _detectBrowserLanguage && _detectBrowserLanguage.useCookie) {
-    finalLocale = localeCookie.value || "";
+    finalLocale = localeCookie || "";
   }
   if (!finalLocale) {
     finalLocale = defaultLocale || "";
@@ -6131,6 +6030,210 @@ function extendBaseUrl() {
     }
     return baseUrl;
   };
+}
+function formatMessage(message) {
+  return NUXT_I18N_MODULE_ID + " " + message;
+}
+function callVueI18nInterfaces(i18n, name, ...args) {
+  const target = getI18nTarget(i18n);
+  const [obj, method] = [target, target[name]];
+  return Reflect.apply(method, obj, [...args]);
+}
+function getVueI18nPropertyValue(i18n, name) {
+  const target = getI18nTarget(i18n);
+  return unref(target[name]);
+}
+function defineGetter(obj, key, val) {
+  Object.defineProperty(obj, key, { get: () => val });
+}
+function wrapComposable(fn, common = initCommonComposableOptions()) {
+  return (...args) => fn(common, ...args);
+}
+function parseAcceptLanguage(input) {
+  return input.split(",").map((tag) => tag.split(";")[0]);
+}
+function getBrowserLocale() {
+  let ret;
+  {
+    const header = useRequestHeaders(["accept-language"]);
+    const accept = header["accept-language"];
+    if (accept) {
+      ret = findBrowserLocale(normalizedLocales, parseAcceptLanguage(accept));
+    }
+  }
+  return ret;
+}
+function getI18nCookie() {
+  const detect = runtimeDetectBrowserLanguage();
+  const cookieKey = detect && detect.cookieKey || DEFAULT_COOKIE_KEY;
+  const date = /* @__PURE__ */ new Date();
+  const cookieOptions = {
+    expires: new Date(date.setDate(date.getDate() + 365)),
+    path: "/",
+    sameSite: detect && detect.cookieCrossOrigin ? "none" : "lax",
+    secure: detect && detect.cookieCrossOrigin || detect && detect.cookieSecure
+  };
+  if (detect && detect.cookieDomain) {
+    cookieOptions.domain = detect.cookieDomain;
+  }
+  return useCookie(cookieKey, cookieOptions);
+}
+function getLocaleCookie(cookieRef, detect, defaultLocale) {
+  if (detect === false || !detect.useCookie) {
+    return;
+  }
+  const localeCode = cookieRef.value ?? void 0;
+  if (localeCode == null) {
+    return;
+  }
+  if (localeCodes.includes(localeCode)) {
+    return localeCode;
+  }
+  if (defaultLocale) {
+    cookieRef.value = defaultLocale;
+    return defaultLocale;
+  }
+  cookieRef.value = void 0;
+  return;
+}
+function setLocaleCookie(cookieRef, locale, detect) {
+  if (detect === false || !detect.useCookie) {
+    return;
+  }
+  cookieRef.value = locale;
+}
+const DefaultDetectBrowserLanguageFromResult = {
+  locale: "",
+  stat: false,
+  reason: "unknown",
+  from: "unknown"
+};
+function detectBrowserLanguage(route, vueI18nOptionsLocale, detectLocaleContext, locale = "") {
+  const { strategy } = (/* @__PURE__ */ useRuntimeConfig()).public.i18n;
+  const { ssg, callType, firstAccess, localeCookie } = detectLocaleContext;
+  if (!firstAccess) {
+    return { locale: strategy === "no_prefix" ? locale : "", stat: false, reason: "first_access_only" };
+  }
+  const { redirectOn, alwaysRedirect, useCookie: useCookie2, fallbackLocale } = runtimeDetectBrowserLanguage();
+  const path = isString(route) ? route : route.path;
+  if (strategy !== "no_prefix") {
+    if (redirectOn === "root") {
+      if (path !== "/") {
+        return { locale: "", stat: false, reason: "not_redirect_on_root" };
+      }
+    } else if (redirectOn === "no prefix") {
+      if (!alwaysRedirect && path.match(getLocalesRegex(localeCodes))) {
+        return { locale: "", stat: false, reason: "not_redirect_on_no_prefix" };
+      }
+    }
+  }
+  let localeFrom = "unknown";
+  let cookieLocale;
+  let matchedLocale;
+  if (useCookie2) {
+    matchedLocale = cookieLocale = localeCookie;
+    localeFrom = "cookie";
+  }
+  if (!matchedLocale) {
+    matchedLocale = getBrowserLocale();
+    localeFrom = "navigator_or_header";
+  }
+  const finalLocale = matchedLocale || fallbackLocale;
+  if (!matchedLocale && fallbackLocale) {
+    localeFrom = "fallback";
+  }
+  const vueI18nLocale = locale || vueI18nOptionsLocale;
+  if (finalLocale && (!useCookie2 || alwaysRedirect || !cookieLocale)) {
+    if (strategy === "no_prefix") {
+      return { locale: finalLocale, stat: true, from: localeFrom };
+    } else {
+      if (callType === "setup") {
+        if (finalLocale !== vueI18nLocale) {
+          return { locale: finalLocale, stat: true, from: localeFrom };
+        }
+      }
+      if (alwaysRedirect) {
+        const redirectOnRoot = path === "/";
+        const redirectOnAll = redirectOn === "all";
+        const redirectOnNoPrefix = redirectOn === "no prefix" && !path.match(getLocalesRegex(localeCodes));
+        if (redirectOnRoot || redirectOnAll || redirectOnNoPrefix) {
+          return { locale: finalLocale, stat: true, from: localeFrom };
+        }
+      }
+    }
+  }
+  if (ssg === "ssg_setup" && finalLocale) {
+    return { locale: finalLocale, stat: true, from: localeFrom };
+  }
+  if ((localeFrom === "navigator_or_header" || localeFrom === "cookie") && finalLocale) {
+    return { locale: finalLocale, stat: true, from: localeFrom };
+  }
+  return { locale: "", stat: false, reason: "not_found_match" };
+}
+function getHost() {
+  let host;
+  {
+    const header = useRequestHeaders(["x-forwarded-host", "host"]);
+    let detectedHost;
+    if ("x-forwarded-host" in header) {
+      detectedHost = header["x-forwarded-host"];
+    } else if ("host" in header) {
+      detectedHost = header["host"];
+    }
+    host = isArray(detectedHost) ? detectedHost[0] : detectedHost;
+  }
+  return host;
+}
+function getLocaleDomain(locales) {
+  let host = getHost() || "";
+  if (host) {
+    const matchingLocale = locales.find((locale) => {
+      if (locale && locale.domain) {
+        let domain = locale.domain;
+        if (hasProtocol(locale.domain)) {
+          domain = locale.domain.replace(/(http|https):\/\//, "");
+        }
+        return domain === host;
+      }
+      return false;
+    });
+    if (matchingLocale) {
+      return matchingLocale.code;
+    } else {
+      host = "";
+    }
+  }
+  return host;
+}
+function getDomainFromLocale(localeCode) {
+  var _a, _b;
+  const runtimeConfig = /* @__PURE__ */ useRuntimeConfig();
+  const nuxtApp = /* @__PURE__ */ useNuxtApp();
+  const config = runtimeConfig.public.i18n;
+  const lang = normalizedLocales.find((locale) => locale.code === localeCode);
+  const domain = ((_b = (_a = config == null ? void 0 : config.locales) == null ? void 0 : _a[localeCode]) == null ? void 0 : _b.domain) ?? (lang == null ? void 0 : lang.domain);
+  if (domain) {
+    if (hasProtocol(domain, { strict: true })) {
+      return domain;
+    }
+    let protocol;
+    {
+      const {
+        node: { req }
+      } = useRequestEvent(nuxtApp);
+      protocol = req && isHTTPS(req) ? "https:" : "http:";
+    }
+    return protocol + "//" + domain;
+  }
+  console.warn(formatMessage("Could not find domain name for locale " + localeCode));
+}
+const runtimeDetectBrowserLanguage = (opts = (/* @__PURE__ */ useRuntimeConfig()).public.i18n) => {
+  if ((opts == null ? void 0 : opts.detectBrowserLanguage) === false)
+    return false;
+  return opts == null ? void 0 : opts.detectBrowserLanguage;
+};
+function useSwitchLocalePath() {
+  return wrapComposable(switchLocalePath);
 }
 function extendI18n(i18n, {
   locales = [],
@@ -6288,12 +6391,12 @@ function useAsyncData(...args) {
   options.immediate = options.immediate ?? true;
   options.deep = options.deep ?? asyncDataDefaults.deep;
   options.dedupe = options.dedupe ?? "cancel";
-  const hasCachedData = () => ![null, void 0].includes(options.getCachedData(key));
+  const hasCachedData = () => options.getCachedData(key, nuxtApp) != null;
   if (!nuxtApp._asyncData[key] || !options.immediate) {
     (_b = nuxtApp.payload._errors)[key] ?? (_b[key] = null);
     const _ref = options.deep ? ref : shallowRef;
     nuxtApp._asyncData[key] = {
-      data: _ref(options.getCachedData(key) ?? options.default()),
+      data: _ref(options.getCachedData(key, nuxtApp) ?? options.default()),
       pending: ref(!hasCachedData()),
       error: toRef(nuxtApp.payload._errors, key),
       status: ref("idle")
@@ -6308,7 +6411,7 @@ function useAsyncData(...args) {
       nuxtApp._asyncDataPromises[key].cancelled = true;
     }
     if ((opts._initial || nuxtApp.isHydrating && opts._initial !== false) && hasCachedData()) {
-      return Promise.resolve(options.getCachedData(key));
+      return Promise.resolve(options.getCachedData(key, nuxtApp));
     }
     asyncData.pending.value = true;
     asyncData.status.value = "pending";
@@ -6320,13 +6423,13 @@ function useAsyncData(...args) {
           reject(err);
         }
       }
-    ).then((_result) => {
+    ).then(async (_result) => {
       if (promise.cancelled) {
         return nuxtApp._asyncDataPromises[key];
       }
       let result = _result;
       if (options.transform) {
-        result = options.transform(_result);
+        result = await options.transform(_result);
       }
       if (options.pick) {
         result = pick(result, options.pick);
@@ -6352,6 +6455,7 @@ function useAsyncData(...args) {
     nuxtApp._asyncDataPromises[key] = promise;
     return nuxtApp._asyncDataPromises[key];
   };
+  asyncData.clear = () => clearNuxtDataByKey(nuxtApp, key);
   const initialFetch = () => asyncData.refresh({ _initial: true });
   const fetchOnServer = options.server !== false && nuxtApp.payload.serverRendered;
   if (fetchOnServer && options.immediate) {
@@ -6368,6 +6472,24 @@ function useAsyncData(...args) {
   Object.assign(asyncDataPromise, asyncData);
   return asyncDataPromise;
 }
+function clearNuxtDataByKey(nuxtApp, key) {
+  if (key in nuxtApp.payload.data) {
+    nuxtApp.payload.data[key] = void 0;
+  }
+  if (key in nuxtApp.payload._errors) {
+    nuxtApp.payload._errors[key] = null;
+  }
+  if (nuxtApp._asyncData[key]) {
+    nuxtApp._asyncData[key].data.value = void 0;
+    nuxtApp._asyncData[key].error.value = null;
+    nuxtApp._asyncData[key].pending.value = false;
+    nuxtApp._asyncData[key].status.value = "idle";
+  }
+  if (key in nuxtApp._asyncDataPromises) {
+    nuxtApp._asyncDataPromises[key].cancelled = true;
+    nuxtApp._asyncDataPromises[key] = void 0;
+  }
+}
 function pick(obj, keys) {
   const newObj = {};
   for (const key of keys) {
@@ -6377,13 +6499,7 @@ function pick(obj, keys) {
 }
 function useFetch(request, arg1, arg2) {
   const [opts = {}, autoKey] = typeof arg1 === "string" ? [{}, arg1] : [arg1, arg2];
-  const _request = computed(() => {
-    let r = request;
-    if (typeof r === "function") {
-      r = r();
-    }
-    return toValue(r);
-  });
+  const _request = computed(() => toValue(request));
   const _key = opts.key || hash([autoKey, typeof _request.value === "string" ? _request.value : "", ...generateOptionSegments(opts)]);
   if (!_key || typeof _key !== "string") {
     throw new TypeError("[nuxt] [useFetch] key must be a string: " + _key);
@@ -6502,11 +6618,10 @@ function defineNuxtLink(options) {
     const path = "path" in to && to.path !== void 0 ? to.path : resolve2(to).path;
     const resolvedPath = {
       ...to,
+      name: void 0,
+      // named routes would otherwise always override trailing slash behavior
       path: applyTrailingSlashBehavior(path, options.trailingSlash)
     };
-    if ("name" in resolvedPath) {
-      delete resolvedPath.name;
-    }
     return resolvedPath;
   }
   return defineComponent({
@@ -6755,7 +6870,7 @@ const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin({
         ssg: "normal",
         callType: "setup",
         firstAccess: true,
-        localeCookie
+        localeCookie: getLocaleCookie(localeCookie, _detectBrowserLanguage, runtimeI18n.defaultLocale)
       },
       runtimeI18n
     );
@@ -6814,7 +6929,7 @@ const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin({
           composer.differentDomains = runtimeI18n.differentDomains;
           composer.defaultLocale = runtimeI18n.defaultLocale;
           composer.getBrowserLocale = () => getBrowserLocale();
-          composer.getLocaleCookie = () => getLocaleCookie(localeCookie, _detectBrowserLanguage);
+          composer.getLocaleCookie = () => getLocaleCookie(localeCookie, _detectBrowserLanguage, runtimeI18n.defaultLocale);
           composer.setLocaleCookie = (locale) => setLocaleCookie(localeCookie, locale, _detectBrowserLanguage);
           composer.onBeforeLanguageSwitch = (oldLocale, newLocale, initialSetup, context) => nuxt.callHook("i18n:beforeLocaleSwitch", { oldLocale, newLocale, initialSetup, context });
           composer.onLanguageSwitched = (oldLocale, newLocale) => nuxt.callHook("i18n:localeSwitched", { oldLocale, newLocale });
@@ -6994,6 +7109,26 @@ const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin({
     };
     app.use(i18n, pluginOptions);
     injectNuxtHelpers(nuxtContext, i18n);
+    if (runtimeI18n.experimental.switchLocalePathLinkSSR === true) {
+      const switchLocalePath2 = useSwitchLocalePath();
+      const switchLocalePathLinkWrapperExpr = new RegExp(
+        [
+          `<!--${SWITCH_LOCALE_PATH_LINK_IDENTIFIER}-\\[(\\w+)\\]-->`,
+          `.+?`,
+          `<!--/${SWITCH_LOCALE_PATH_LINK_IDENTIFIER}-->`
+        ].join(""),
+        "g"
+      );
+      nuxt.hook("app:rendered", (ctx) => {
+        var _a;
+        if (((_a = ctx.renderResult) == null ? void 0 : _a.html) == null)
+          return;
+        ctx.renderResult.html = ctx.renderResult.html.replaceAll(
+          switchLocalePathLinkWrapperExpr,
+          (match, p1) => match.replace(/href="([^"]+)"/, `href="${switchLocalePath2(p1 ?? "")}"`)
+        );
+      });
+    }
     let routeChangeCount = 0;
     addRouteMiddleware(
       "locale-changing",
@@ -7011,7 +7146,7 @@ const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin({
             ssg: "normal",
             callType: "routing",
             firstAccess: routeChangeCount === 0,
-            localeCookie
+            localeCookie: getLocaleCookie(localeCookie, _detectBrowserLanguage, runtimeI18n.defaultLocale)
           },
           runtimeI18n
         );
@@ -7508,10 +7643,10 @@ _sfc_main$b.setup = (props, ctx) => {
   return _sfc_setup$b ? _sfc_setup$b(props, ctx) : void 0;
 };
 const __nuxt_component_3 = _sfc_main$b;
-const _imports_0$2 = "" + __publicAssetsURL("svgs/Icon-Forwardsvg.svg");
-const _imports_1$2 = "" + __publicAssetsURL("svgs/Icon-Play.svg");
-const _imports_2$1 = "" + __publicAssetsURL("svgs/Icon-Pause.svg");
-const _imports_3$1 = "" + __publicAssetsURL("svgs/Icon-Rewindsvg.svg");
+const _imports_0$2 = publicAssetsURL("/svgs/Icon-Forwardsvg.svg");
+const _imports_1$2 = publicAssetsURL("/svgs/Icon-Play.svg");
+const _imports_2$1 = publicAssetsURL("/svgs/Icon-Pause.svg");
+const _imports_3$1 = publicAssetsURL("/svgs/Icon-Rewindsvg.svg");
 const _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -7716,8 +7851,8 @@ _sfc_main$6.setup = (props, ctx) => {
   return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
 const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-26e97e77"]]);
-const _imports_0$1 = "" + __publicAssetsURL("svgs/Search.svg");
-const _imports_1$1 = "" + __publicAssetsURL("svgs/gps.svg");
+const _imports_0$1 = publicAssetsURL("/svgs/Search.svg");
+const _imports_1$1 = publicAssetsURL("/svgs/gps.svg");
 const _sfc_main$5 = {
   __name: "Search",
   __ssrInlineRender: true,
@@ -7927,11 +8062,11 @@ _sfc_main$4.setup = (props, ctx) => {
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
 const Header = _sfc_main$4;
-const _imports_0 = "" + __publicAssetsURL("svgs/twiiter.svg");
-const _imports_1 = "" + __publicAssetsURL("svgs/youtube.svg");
-const _imports_2 = "" + __publicAssetsURL("svgs/instagram.svg");
-const _imports_3 = "" + __publicAssetsURL("svgs/linked.svg");
-const _imports_4 = "" + __publicAssetsURL("svgs/facebook.svg");
+const _imports_0 = publicAssetsURL("/svgs/twiiter.svg");
+const _imports_1 = publicAssetsURL("/svgs/youtube.svg");
+const _imports_2 = publicAssetsURL("/svgs/instagram.svg");
+const _imports_3 = publicAssetsURL("/svgs/linked.svg");
+const _imports_4 = publicAssetsURL("/svgs/facebook.svg");
 const _sfc_main$3 = {
   __name: "Footer",
   __ssrInlineRender: true,
@@ -8247,7 +8382,7 @@ const _sfc_main$2 = {
           }, null, _parent));
           _push(`</div>`);
         } else {
-          _push(`<div></div>`);
+          _push(`<!---->`);
         }
         _push(ssrRenderComponent(_component_NuxtPage, null, null, _parent));
         if (unref(leftData).length) {
@@ -8301,20 +8436,20 @@ const _sfc_main$1 = {
   setup(__props) {
     const props = __props;
     const _error = props.error;
-    (_error.stack || "").split("\n").splice(1).map((line) => {
+    _error.stack ? _error.stack.split("\n").splice(1).map((line) => {
       const text = line.replace("webpack:/", "").replace(".vue", ".js").trim();
       return {
         text,
         internal: line.includes("node_modules") && !line.includes(".cache") || line.includes("internal") || line.includes("new Promise")
       };
-    }).map((i) => `<span class="stack${i.internal ? " internal" : ""}">${i.text}</span>`).join("\n");
+    }).map((i) => `<span class="stack${i.internal ? " internal" : ""}">${i.text}</span>`).join("\n") : "";
     const statusCode = Number(_error.statusCode || 500);
     const is404 = statusCode === 404;
     const statusMessage = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = defineAsyncComponent(() => import('./error-404-5opwrgg9.mjs').then((r) => r.default || r));
-    const _Error = defineAsyncComponent(() => import('./error-500-DRvo8R51.mjs').then((r) => r.default || r));
+    const _Error404 = defineAsyncComponent(() => import('./error-404-CZvbXCjo.mjs').then((r) => r.default || r));
+    const _Error = defineAsyncComponent(() => import('./error-500-530_KtW1.mjs').then((r) => r.default || r));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
       _push(ssrRenderComponent(unref(ErrorTemplate), mergeProps({ statusCode: unref(statusCode), statusMessage: unref(statusMessage), description: unref(description), stack: unref(stack) }, _attrs), null, _parent));
@@ -8332,7 +8467,7 @@ const _sfc_main = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const IslandRenderer = defineAsyncComponent(() => import('./island-renderer-Cta9ygjE.mjs').then((r) => r.default || r));
+    const IslandRenderer = () => null;
     const nuxtApp = /* @__PURE__ */ useNuxtApp();
     nuxtApp.deferHydration();
     nuxtApp.ssrContext.url;
@@ -8394,5 +8529,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { _export_sfc as _, __nuxt_component_0$2 as a, __nuxt_component_1$4 as b, createError as c, useRoute as d, entry$1 as default, useFetch as e, __nuxt_component_2$1 as f, __nuxt_component_1 as g, _imports_0$1 as h, injectHead as i, resolveUnrefHeadInput as r, useI18n as u };
+export { _export_sfc as _, __nuxt_component_0$2 as a, __nuxt_component_1$4 as b, useRoute as c, useFetch as d, entry$1 as default, __nuxt_component_2$1 as e, __nuxt_component_1 as f, _imports_0$1 as g, injectHead as i, publicAssetsURL as p, resolveUnrefHeadInput as r, useI18n as u };
 //# sourceMappingURL=server.mjs.map

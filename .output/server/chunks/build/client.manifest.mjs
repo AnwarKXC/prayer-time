@@ -1,40 +1,40 @@
 const client_manifest = {
-  "_AllCountries.CDupGhQu.js": {
+  "_DRxc7IAg.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "AllCountries.CDupGhQu.js",
+    "file": "DRxc7IAg.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
   },
-  "_NativePanners.BCR8c8_Y.js": {
+  "_DdOA1UhO.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "NativePanners.BCR8c8_Y.js",
+    "file": "DdOA1UhO.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
   },
-  "_share.DQvHfE9d.js": {
+  "_Dsxza_ld.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "share.DQvHfE9d.js",
+    "file": "Dsxza_ld.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
   },
-  "_vue.f36acd1f.Dup3Id2B.js": {
+  "_owzl0K3O.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "vue.f36acd1f.Dup3Id2B.js",
+    "file": "owzl0K3O.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -44,7 +44,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "i18n.config.CGTrMaJ8.js",
+    "file": "Y9bZbWDO.js",
     "src": "locales/i18n.config.ts?hash=91504c8a&config=1",
     "isDynamicEntry": true
   },
@@ -53,12 +53,12 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "error-404.CD9mJfKc.js",
+    "file": "DnLTrnli.js",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_vue.f36acd1f.Dup3Id2B.js"
+      "_DdOA1UhO.js"
     ],
     "css": []
   },
@@ -73,11 +73,11 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "error-500.BlCZCjUh.js",
+    "file": "DvZIsOkv.js",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_vue.f36acd1f.Dup3Id2B.js",
+      "_DdOA1UhO.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "css": []
@@ -93,7 +93,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "entry.B2XZqITz.js",
+    "file": "mgJu4JMb.js",
     "src": "node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
     "dynamicImports": [
@@ -117,13 +117,13 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "_city_.BxfUM53D.js",
+    "file": "CglO-U2A.js",
     "src": "pages/app/prayer-time/[country]/[id]/[countryKey]/[cityKey]/[cityid]/[city].vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_NativePanners.BCR8c8_Y.js",
-      "_AllCountries.CDupGhQu.js"
+      "_DRxc7IAg.js",
+      "_Dsxza_ld.js"
     ]
   },
   "pages/app/prayer-time/index.vue": {
@@ -131,13 +131,13 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "index.BD98QCml.js",
+    "file": "DrH3ZDOO.js",
     "src": "pages/app/prayer-time/index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_NativePanners.BCR8c8_Y.js",
+      "_DRxc7IAg.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_AllCountries.CDupGhQu.js"
+      "_Dsxza_ld.js"
     ]
   },
   "pages/app/quran/index.vue": {
@@ -145,13 +145,13 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "index.DW_n2DwF.js",
+    "file": "CNHrdEuI.js",
     "src": "pages/app/quran/index.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_share.DQvHfE9d.js",
-      "_NativePanners.BCR8c8_Y.js"
+      "_owzl0K3O.js",
+      "_DRxc7IAg.js"
     ]
   },
   "pages/app/quran/quran-new-playlist.vue": {
@@ -159,13 +159,13 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "quran-new-playlist.CfOtr37e.js",
+    "file": "BH5Ee2HA.js",
     "src": "pages/app/quran/quran-new-playlist.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_share.DQvHfE9d.js",
-      "_NativePanners.BCR8c8_Y.js"
+      "_owzl0K3O.js",
+      "_DRxc7IAg.js"
     ]
   }
 };
