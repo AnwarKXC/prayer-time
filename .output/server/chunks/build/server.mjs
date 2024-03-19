@@ -945,7 +945,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-Bp_YJ2Lc.mjs').then((m) => m.default || m)
+    component: () => import('./index-Bsk9Uz2a.mjs').then((m) => m.default || m)
   },
   {
     name: "app-prayer-time-country-id-city",
@@ -977,7 +977,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-BgUwolOk.mjs').then((m) => m.default || m)
+    component: () => import('./index-CT5Ofuit.mjs').then((m) => m.default || m)
   },
   {
     name: "app-quran",
@@ -1001,7 +1001,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-DCoM4hCw.mjs').then((m) => m.default || m)
+    component: () => import('./index-do_qF8Ar.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
