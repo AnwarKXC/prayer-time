@@ -31,7 +31,7 @@ const _sfc_main = {
       if (!city || !city.attributes || !city.attributes.prayer_time_country || !city.attributes.prayer_time_country.data) {
         return "";
       }
-      return `/app/prayer-time/${city.attributes.prayer_time_country.data.attributes.slug}/${city.attributes.slug}/${city.attributes.prayer_time_country.data.id}/${city.attributes.prayer_time_country.data.attributes.api_country_code}/${city.attributes.api_city_code}`;
+      return `/app/prayer-time/${city.attributes.prayer_time_country.data.attributes.slug}/${city.attributes.slug}/${city.attributes.prayer_time_country.data.id}/${city.attributes.prayer_time_country.data.attributes.api_country_code}/${city.attributes.api_city_code + "/" + city.data.id}`;
     }
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
@@ -124,4 +124,4 @@ _sfc_main.setup = (props, ctx) => {
 const __nuxt_component_4 = _sfc_main;
 
 export { __nuxt_component_4 as _ };
-//# sourceMappingURL=AllCapitals-CQYBiS-G.mjs.map
+//# sourceMappingURL=AllCapitals-Bz09E0Fg.mjs.map
