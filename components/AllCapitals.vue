@@ -38,7 +38,7 @@ function getCitySlug ( city ) {
 	if ( !city || !city.attributes || !city.attributes.prayer_time_country || !city.attributes.prayer_time_country.data ) {
 		return '' // Handle null or undefined case gracefully
 	}
-	return `/app/prayer-time/${ city.attributes.prayer_time_country.data.attributes.slug }/${ city.attributes.slug }/${ city.attributes.prayer_time_country.data.id }/${ city.attributes.prayer_time_country.data.attributes.api_country_code }/${ city.attributes.api_city_code }`
+	return `/app/prayer-time/${ city.attributes.prayer_time_country.data.attributes.slug }/${ city.attributes.slug }/${ city.attributes.prayer_time_country.data.id }/${ city.attributes.prayer_time_country.data.attributes.api_country_code }/${ city.attributes.api_city_code }/${ city.id }`
 }
 </script>
 
