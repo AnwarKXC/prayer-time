@@ -29,7 +29,7 @@
 
 							<template v-if=" cities.data && cities.data[ 0 ] ">
 								{{ $t( cities.data[ 0 ].attributes.prayer_time_country.data.attributes.name
-								)
+			)
 								}}
 							</template>
 							<template v-else>
@@ -39,7 +39,7 @@
 						<div class=" text-zinc-800 text-xs font-normal font-['Almarai'] leading-tight"
 							v-if=" cities.data ">
 							<div class=" cent"
-								v-for="          city           in           cities.data        "
+								v-for="           city            in            cities.data         "
 								:key=" city.id ">
 								<template v-if=" city.id == route.params.city ">
 									<span v-if=" city.attributes.is_capital ">
@@ -161,13 +161,13 @@
 
 				<template v-slot:tbody>
 					<tr class=" h-[45px] border-b " v-if=" displayedData "
-						v-for="                                  day                                  in                                     displayedData                                  "
+						v-for="                                   day                                   in                                      displayedData                                   "
 						:key=" day "
 						:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' ">
 						<Th thClass=" bg-gray-100 font-semibold "
 							:class=" formattedDate === day.date.gregorian.date ? '!bg-yellow-50 ' : '' ">
 							{{
-							day.date.gregorian.date }}</Th>
+				day.date.gregorian.date }}</Th>
 						<Td>{{ extractTime( day.timings.Fajr ) }}</Td>
 						<Td>{{ extractTime( day.timings.Sunrise ) }}</Td>
 						<Td>{{ extractTime( day.timings.Dhuhr ) }}</Td>
@@ -192,7 +192,7 @@
 			<div class="city__label__grid">
 				<NuxtLink
 					:to=" '/app/prayer-time/' + route.params.country + '/' + city.attributes.slug + '/' + route.params.countryKey + '/' + route.params.cityKey + '/' + city.attributes.api_city_code + '/' + city.id "
-					v-for="                   city                    in                   cities.data       "
+					v-for="                    city                     in                    cities.data        "
 					:key=" city.id " class="w-full">
 					<CityLabel>
 						{{ city.attributes.title }} </CityLabel>
@@ -219,35 +219,15 @@ const times = import.meta.env.VITE_ADAN
 const getAllCitiesInCountry = import.meta.env.VITE_GET_ALL_CITIES_IN_COUNTRY
 
 const route = useRoute()
-import { ref, onMounted, watchEffect } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const { data: cities } = await useFetch( domain + getAllCitiesInCountry + route.params.countryKey + '&locale[0]=' + locale.value )
-console.log( domain + getAllCitiesInCountry + route.params.countryKey + '&locale[0]=' + locale.value )
-const cleander = ref( [] )
-async function fetchData () {
-	try {
-		const res = await $fetch( times + route.params.cityid + '&country=' + route.params.cityKey )
-		return await res
-	} catch ( error ) {
-		console.error( 'Error fetching data:', error )
-		// Handle error as needed
-		return null
-	}
-}
 
-async function fetching () {
-	const data = await fetchData()
-	if ( data ) {
-		cleander.value = data
-		filterEntries()
-	}
-}
+
+const { data: cleander } = await useFetch( times + route.params.cityid + '&country=' + route.params.cityKey )
+
 onMounted( () => {
-	fetching()
-} )
-
-watchEffect( () => {
-	fetching()
+	filterEntries()
 } )
 
 
@@ -296,7 +276,6 @@ function extractTime ( str ) {
 	return match ? match[ 0 ] : ''
 }
 
-console.log( route )
 </script>
 
 <style scoped></style>

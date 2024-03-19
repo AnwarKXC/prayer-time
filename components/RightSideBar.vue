@@ -89,7 +89,6 @@ const props = defineProps( {
 	}
 } )
 
-console.log( props.branding )
 </script>
 
 <style scoped></style>p
