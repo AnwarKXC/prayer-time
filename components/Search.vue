@@ -23,7 +23,7 @@
 		</p>
 		<template v-else>
 			<NuxtLink @click=" hideList "
-				:to=" '/app/prayer-time/' + res.attributes.prayer_time_country.data.attributes.slug + '/' + res.attributes.slug + '/' + res.attributes.prayer_time_country.data.id + '/' + res.attributes.prayer_time_country.data.attributes.api_country_code + '/' + res.attributes.api_city_code"
+				:to=" '/app/prayer-time/' + res.attributes.prayer_time_country.data.attributes.slug + '/' + res.attributes.slug + '/' + res.attributes.prayer_time_country.data.id + '/' + res.attributes.prayer_time_country.data.attributes.api_country_code + '/' + res.attributes.api_city_code+ '/' + res.id "
 				v-for="          res           in           countrySearchResults         "
 				:key=" res.id ">
 				<li class="py-2 cursor-pointer flex gap-1 items-center hover:bg-primary 
