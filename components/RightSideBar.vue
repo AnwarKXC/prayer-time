@@ -6,11 +6,7 @@
 					<li class="border-b border-gray-200  flex p-1.5  ">
 						<NuxtLink to="/app/prayer-time/"
 							class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group "
-<<<<<<< HEAD
 							:class=" route.name == 'index' || route.name == '/app' || route.name === 'app-prayer-time' || route.name == 'app-prayer-time-country-id-countryKey-cityKey-cityid-city' ? 'bg-primary text-white' : '' ">
-=======
-							:class="route.name === '' || route.name === '/' || route.name === '/app' ||  route.name ===  'app-prayer-time' || route.name === 'app-prayer-time-country-id-countryKey-cityKey-city' ? 'bg-primary text-white' : '' ">
->>>>>>> 3269583da9c0f45233d2f23499398a8531a7c1a4
 							<Image isrc="/svgs/prayer.svg" ialt="ads"
 								iclass="group-hover:hidden  w-[20px] h-[29px]"
 								:class=" route.name == 'index' || route.name == '/app' || route.name === 'app-prayer-time' || route.name == 'app-prayer-time-country-id-countryKey-cityKey-cityid-city' ? '!hidden' : '' " />
