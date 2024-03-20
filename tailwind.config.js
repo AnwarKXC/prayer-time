@@ -31,7 +31,7 @@ export default {
             "max-lg": { max: "1023px" },
             "max-md": { max: "767px" },
             "max-sm": { max: "639px" },
-            "max-xs": { max: "450px" },
+            "max-xs": { max: "480px" },
             "max-xxs": { max: "340px" },
          },
       },
