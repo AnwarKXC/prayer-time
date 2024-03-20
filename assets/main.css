@@ -285,7 +285,7 @@ select {
 
 /* main panner */
 .main__banner {
-  background-image: url(/banner-ads-bg.svg);
+  background-image: url(/main__banner-bg.svg);
   background-repeat: no-repeat;
   background-position: right bottom;
 

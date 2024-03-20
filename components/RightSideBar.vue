@@ -32,19 +32,22 @@
 
 					<!-- cp data loop -->
 
+					<template v-if=" props.menu ">
 
-					<li v-for="(  item, index  ) in   props.menu || []  " :key=" index "
-						class=" border-gray-200  flex p-1.5  border-b">
-						<NuxtLink v-if=" item.link " :to=" '/app/prayer-time/' + item.link "
-							:class=" route.path === `/${ item.link }` ? 'bg-primary text-white' : '' "
-							class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group ">
-							<img v-if=" item.icon.data.attributes.url "
-								:src=" item.icon.data.attributes.url " alt=""
-								class=" rounded-sm   w-[20px] max-h-[29px] "
-								>
-							<span class="btn__primary">{{ item.title }}</span>
-						</NuxtLink>
-					</li>
+						<li v-for="(   item, index   ) in    props.menu    " :key=" index "
+							class=" border-gray-200  flex p-1.5  border-b">
+							<NuxtLink v-if=" item.link " :to=" '/app/prayer-time/' + item.link "
+								:class=" route.path === `/${ item.link }` ? 'bg-primary text-white' : '' "
+								class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group ">
+								<img v-if=" item.icon.data.attributes.url "
+									:src=" item.icon.data.attributes.url " alt=""
+									class=" rounded-sm   w-[20px] max-h-[29px] ">
+								<span class="btn__primary">{{ item.title }}</span>
+							</NuxtLink>
+						</li>
+					</template>
+					<div class="" v-else> </div>
+				
 
 
 					<li class=" border-gray-200 cent  p-2  bg-[#FCD364] bg-opacity-60">

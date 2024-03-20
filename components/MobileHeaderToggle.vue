@@ -7,14 +7,14 @@
 				<Transition name="modal-inner">
 					<div v-if=" modalActive " class=" backdrop-blur-[1px] h-full ">
 						<div
-							class=" bg-white p-4 w-[280px] max-w-[450px] sm:w-3/5 flex flex-col gap-5 h-full">
+							class=" bg-white p-4 w-[280px] max-w-[450px] sm:w-3/5 flex flex-col gap-5 h-full overflow-y-auto hide__scroll">
 							<div class=" flex justify-between">
 								<Logo v-if=" props?.logo " :source=" props?.logo || '' " />
 								<button class=" ">
 									<Image isrc="/svgs/close-mobile-toggel.svg" ialt="close" iclass="" />
 								</button>
 							</div>
-							<RightSideBar />
+							<slot />
 						</div>
 					</div>
 				</Transition>

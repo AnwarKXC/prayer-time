@@ -1,13 +1,12 @@
 <template>
-    <MobileHeaderToggle :logo=" props.branding?.logo?.data?.attributes?.url || '' "
-        :modalActive=" modalActive " @close-modal=" toggleModal " />
+
+    <slot name="mobile"  />
+
     <header
         class="bg-white sticky top-0 z-50 drop-shadow-sm shadow-primary py-2 cent w-full border-b">
         <div class="container cent__bet">
-            <button class="md:hidden max-md:flex-1" @click=" toggleModal ">
-                <Image isrc="/svgs/toggel-mobile-header.svg" ialt="toggel mobile icon header"
-                    iclass="" />
-            </button>
+            <slot name="toggle" />
+        
             <div class="flex gap-8 items-center">
                 <div class="max-md:flex-1 cent md:block">
                     <!-- Use optional chaining here to prevent accessing properties on potentially null objects -->
@@ -25,7 +24,7 @@
 
             <div class="max-md:flex justify-end max-md:flex-1 shrink-0">
                 <div class="flex gap-10 items-center">
-                    <slot />
+                    <slot name="locale" />
                     <div class="hidden md:block">
                         <!-- Use optional chaining here as well -->
                         <a v-if=" props.branding?.link_download && props.branding?.title_download "
@@ -54,10 +53,5 @@ const props = defineProps( {
     },
 } )
 
-const modalActive = ref( null )
 
-// Toggle modal function
-const toggleModal = () => {
-    modalActive.value = !modalActive.value
-}
 </script>

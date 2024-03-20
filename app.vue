@@ -12,6 +12,18 @@ const changeLanguage = () => {
 const dir = ref( locale.value === 'ar' ? 'rtl' : 'ltr' )
 
 
+const modalActive = ref( null )
+
+// Toggle modal function
+const toggleModal = () => {
+  modalActive.value = !modalActive.value
+}
+
+
+
+
+
+
 const landing = import.meta.env.VITE_LANDING_PAGE
 const domain = import.meta.env.VITE_DOMAIN
 const { data: landingData } = await useFetch( domain + landing + locale.value )
@@ -28,21 +40,39 @@ const randomIndexData = leftData.length > 0 ? Math.floor( Math.random() * leftDa
 <template>
   <div class=" relative" :dir=" dir ">
     <template v-if=" landingData ">
-      <Header :branding=" landingData.data.attributes.branding ">
-        <form>
-          <div class=" flex items-center md:gap-2 gap-1">
-            <label for="" class=" shrink-0">
-              <Image isrc="/svgs/locale.svg" ialt="search" iclass="" />
-            </label>
-            <select v-model="locale" @change=" changeLanguage ">
-              <option value="en">English</option>
-              <option value="ar">العربية</option>
-              <option value="fr">French</option>
-              <option value="indo">Indonesia</option>
-              <option value="turk">Turkish</option>
-            </select>
-          </div>
-        </form>
+      <Header :branding=" landingData.data.attributes.branding " >
+        <template v-slot:mobile>
+          <MobileHeaderToggle :modalActive=" modalActive " @close-modal=" toggleModal "
+            :logo=" landingData.data.attributes.branding?.logo?.data?.attributes?.url || '' ">
+            <template v-if=" rightData.length ">
+              <RightSideBar :data=" rightData " :menu=" landingData.data.attributes.menu "
+                :branding=" landingData.data.attributes.branding " />
+            </template>
+          </MobileHeaderToggle>
+        </template>
+        <template v-slot:toggle>
+          <button class="md:hidden max-md:flex-1" @click=" toggleModal ">
+            <Image isrc="/svgs/toggel-mobile-header.svg" ialt="toggel mobile icon header"
+              iclass="" />
+          </button>
+        </template>
+        <template v-slot:locale>
+          <form>
+            <div class=" flex items-center md:gap-2 gap-1">
+              <label for="" class=" shrink-0">
+                <Image isrc="/svgs/locale.svg" ialt="search" iclass="" />
+              </label>
+              <select v-model=" locale " @change=" changeLanguage ">
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+                <option value="fr">French</option>
+                <option value="indo">Indonesia</option>
+                <option value="turk">Turkish</option>
+              </select>
+            </div>
+          </form>
+        </template>
+
       </Header>
     </template>
 
