@@ -24,7 +24,7 @@
 					</div>
 				</div>
 				<div
-					class="flex md:justify-center justify-end items-center max-md:absolute rtl:left-0 ltr:right-0 -bottom-1 max-md:size-[120px] max-xs:size-[90px] size-full ltr:scale-x-[-1] transform max-md:mx-4 md:w-full">
+					class="flex md:justify-center justify-end items-center max-md:absolute rtl:left-0 ltr:right-0 -bottom-1 max-md:size-[120px] max-xxs:size-[90px] size-full ltr:scale-x-[-1] transform max-md:mx-4 md:w-full">
 					<!-- Add optional chaining here for activeOne.image and data attributes -->
 					<img
 						v-if=" activeOne && activeOne.image && activeOne.image.data && activeOne.image.data.attributes && activeOne.image.data.attributes.url "
