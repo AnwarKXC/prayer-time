@@ -39,6 +39,7 @@ const randomIndexData = leftData.length > 0 ? Math.floor( Math.random() * leftDa
 
 <template>
   <div class=" relative" :dir=" dir ">
+  <NuxtLoadingIndicator/>
     <template v-if=" landingData ">
       <Header :branding=" landingData.data.attributes.branding " >
         <template v-slot:mobile>
@@ -101,11 +102,10 @@ const randomIndexData = leftData.length > 0 ? Math.floor( Math.random() * leftDa
     </div>
 
 
-    <div v-if=" landingData && landingData.data && landingData.data.attributes ">
       <div class=" sticky bottom-0">
         <PlayBar />
       </div>
-    </div>
+  
 
     <div v-if=" landingData && landingData.data && landingData.data.attributes ">
       <Footer :data=" landingData.data.attributes.footer "

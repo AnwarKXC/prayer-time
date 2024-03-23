@@ -1,4 +1,20 @@
 <template>
+	<div class=" flex justify-center items-center gap-1 shrink-0 ">
+		<div v-if=" showCopyMessage " class="text-slate-600 text-xs group-hover:text-slate-200 ">
+			Copied
+			!</div>
+		<button v-else @click=" copyTitle " class=" p-2">
+			<img src="/svgs/copy.svg" alt=""
+				class=" group-hover:brightness-150 hover:scale-110  duration-200 size-[18px]">
+			<div class=" hidden" ref="titleToCopy">
+				<slot name="share" />
+			</div>
+		</button>
+		<button @click=" toggleModal " class=" p-2">
+			<img src="/svgs/share.svg" alt=""
+				class=" group-hover:brightness-150 duration-200 hover:scale-110  size-[18px] ">
+		</button>
+	</div>
 	<Modal :modalActive=" modalActive " @close-modal=" toggleModal ">
 		<div
 			class=" bg-white rounded-[27px]   gap-8 p-6 md:p-8 grid flex-wrap md:min-w-[450px] max-w-[576px]">
@@ -8,8 +24,8 @@
 				<button @click=" toggleModal "><img src="/svgs/close.svg" alt=""></button>
 			</div>
 			<div class="share__modal__grid">
-				<button v-for="(        item, index        ) in         share        " :key=" index "
-					class="grid gap-2 ">
+				<button v-for="(         item, index         ) in          share         "
+					:key=" index " class="grid gap-2 ">
 					<div
 						:class=" 'size-[72px] max-md:size-[50px] ' + item.bgColor + ' bg-opacity-[13%] rounded-full cent' ">
 						<img :src=" item.icon " alt="">
@@ -18,7 +34,6 @@
 						{{ item.label }}
 					</div>
 				</button>
-
 			</div>
 			<div
 				class="text-center text-slate-600 text-opacity-50 text-xs font-bold font-['Almarai'] leading-[15px]">
@@ -28,7 +43,7 @@
 				<div
 					class="  text-slate-600 text-opacity-50 text-sm font-normal font-['Inter'] line-clamp-1  overflow-x-auto hide__scroll text-left "
 					dir="ltr" ref="titleToCopy">
-					https://www.figma.com/file/NlfVhYygR9mAQasassdsada/Sharee/NlfVhYygR9mAQasassdsada/Share
+					<slot name="share" />
 				</div>
 				<div class=" shrink-0 rtl:pr-3 ltr:pl-3">
 					<div v-if=" showCopyMessage " class="text-slate-600 text-sm">Copied !</div>

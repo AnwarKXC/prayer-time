@@ -1381,7 +1381,7 @@ function createServerHead(options = {}) {
 
 const unheadPlugins = [];
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"My amazing site."}],"link":[{"rel":"icon","type":"image/x-icon","href":"/svgs/logo.svg"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","title":"Prayer Now","viewport":"width=device-width, initial-scale=1"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/svgs/logo.svg"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1"};
 
 const appRootId = "__nuxt";
 

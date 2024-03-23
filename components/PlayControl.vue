@@ -25,10 +25,8 @@
 				<button @click="forwardSong( audioPlayer )">
 					<img src="/svgs/Icon-Forwardsvg.svg" alt="">
 				</button>
-				<button class="w-10  cent" @click="togglePlayPause( audioPlayer )">
-					<img src="/svgs/Icon-Play.svg" alt="" style="display: none;">
-					<img src="/svgs/Icon-Pause.svg" alt="" style="display: none;">
-					<img v-if=" audioPlayer.isPlaying " src="/svgs/Icon-Pause.svg" alt=""
+				<button class="w-10 cent" @click="togglePlayPause( audioPlayers[0] )">
+					<img v-if=" audioPlayer.isPlaying" src="/svgs/Icon-Pause.svg" alt=""
 						class="max-md:w-4">
 					<img v-else src="/svgs/Icon-Play.svg" alt="" class="max-md:w-6">
 				</button>
@@ -37,19 +35,41 @@
 				</button>
 			</div>
 			<div
-				class="text-neutral-300 font-sm flex items-center gap-3 shrink-0 max-md:order-first max-md:hidden">
+				class="text-neutral-300 font-sm flex items-center gap-3 shrink-0 max-md:order-first max-md:hidden"
+				v-if="props.url">
 				<span class="w-9">{{ timeString( audioPlayer.currentTime ) }}</span> /
 				<span class="w-9">{{ timeString( audioPlayer.totalDuration ) }}</span>
+			</div>
+			<div v-else>
+			
 			</div>
 		</div>
 	</div>
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, watch, watchEffect } from 'vue'
+const props = defineProps( {
+	url: {
+		type: String,
+		default: '',
+	},
 
+})
+
+
+const onPropsChanged = () => {
+	audioPlayers.value.forEach( player => {
+		player.src = props.url
+		if ( player.audio ) {
+			player.audio.src = player.src
+		}
+	} )
+}
+watch( () => props.url, onPropsChanged )
+// console.log( props.value.url )
 const audioPlayers = ref( [
-	{ src: "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3", audio: null, currentTime: 0, totalDuration: 0, volume: 1, seeking: false }
+	{ src: props.url, audio: null, currentTime: 0, totalDuration: 0, volume: 1, seeking: false }
 ] )
 
 const timeString = ( secs ) => {
@@ -130,6 +150,20 @@ const progressBackgroundSize = computed( () => {
 	const progress = audioPlayers.value[ 0 ].currentTime / audioPlayers.value[ 0 ].totalDuration
 	return `${ progress * 100 }% 100%`
 } )
+
+
+watchEffect( () => {
+	audioPlayers.value[ 0 ].src = props.url
+	if ( audioPlayers.value[ 0 ].audio ) {
+		audioPlayers.value[ 0 ].audio.src = props.url
+		// If the audio is playing, pause it when the URL changes
+		if ( !audioPlayers.value[ 0 ].audio.paused ) {
+			audioPlayers.value[ 0 ].audio.pause()
+			audioPlayers.value[ 0 ].isPlaying = false
+		}
+	}
+} );
+
 </script>
 
 <style scoped>
