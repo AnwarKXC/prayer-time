@@ -57,7 +57,7 @@
 
 		<div class="grid gap-6 py-6 px-4 bg-white rounded-xl border border-gray200">
 			<form @submit.prevent=" searchTracks " class="relative">
-				<input v-model=" searchQuery " type="search" name=""
+				<input v-model="searchQuery" type="search" name=""
 					class="w-full  focus:border-primary outline-none border-2 rtl:pl-10 ltr:pr-10"
 					:placeholder=" $t( 'suratbanner.seacrhbar' ) ">
 				<img src="/svgs/Search.svg" alt=""
