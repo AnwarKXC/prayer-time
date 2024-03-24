@@ -8,7 +8,7 @@
 			</div>
 			<div class=" grid gap-1  w-full">
 				<NuxtLink
-					:to=" '/app/quran/' + item.slug + '/' + route.params.quranplaylist + '/' + item.track_id "
+					:to=" '/app/quran/' + route.params.quranplaylist + '/' + item.slug + '/' + item.track_id "
 					class="flex justify-between items-center">
 					<div
 						class="text-zinc-700 group-hover:text-neutral-200 duration-200 text-base font-semibold max-md:text-[13px]">
@@ -19,7 +19,7 @@
 				</NuxtLink>
 				<div class="flex justify-between items-center ">
 					<NuxtLink
-						:to=" '/app/quran/' + item.slug + '/' + route.params.quranplaylist + '/' + item.track_id "
+						:to=" '/app/quran/' +  route.params.quranplaylist+ '/' + item.slug + '/' + item.track_id "
 						class=" flex-grow text-teal-900 md:text-sm text-xs font-normal group-hover:text-neutral-300 duration-200">
 						{{ route.params.quranplaylist }}
 					</NuxtLink>
@@ -32,8 +32,8 @@
 						<playlist-share>
 							<template #share>
 								{{ domain + '/app/quran/' + route.params.quranplaylist + '/' + item.slug
-			+
-			'/' + item.track_id }}
+								+
+								'/' + item.track_id }}
 							</template>
 
 						</playlist-share>
