@@ -19,11 +19,11 @@
 					</li>
 					<li class="border-b border-gray-200  flex p-1.5  ">
 						<NuxtLink to="/app/quran/"
-							:class=" route.name === 'app-quran' ? 'bg-primary text-white' : '' "
+							:class=" route.name === 'app-quran' || route.name === 'app-quran-quranplaylist-id' || route.name === 'app-quran-quranplaylist-track-id' ? 'bg-primary text-white' : '' "
 							class=" flex items-center px-5 hover:bg-primary w-full hover:text-white duration-300 rounded-xl group ">
 							<Image isrc="/svgs/quran.svg" ialt="ads"
 								iclass="group-hover:invert  w-[20px] h-[29px]"
-								:class=" route.name === 'app-quran' ? 'invert' : '' " />
+								:class=" route.name === 'app-quran' || route.name === 'app-quran-quranplaylist-id' || route.name === 'app-quran-quranplaylist-track-id' ? 'invert' : '' " />
 
 							<Button buttonText="sidebar.item1" buttonClass=" btn__primary">
 							</Button>
@@ -47,7 +47,7 @@
 						</li>
 					</template>
 					<div class="" v-else> </div>
-				
+
 
 
 					<li class=" border-gray-200 cent  p-2  bg-[#FCD364] bg-opacity-60">

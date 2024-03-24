@@ -31,7 +31,8 @@
 						class="text-stone-500 text-xs font-light line-clamp-1 " ref="textClamped">{{
 						props.playlist.description}}
 					</span>
-					<button class="text-primary text-xs font-medium  underline " @click=" seeMore ">
+					<button class="text-primary text-xs font-medium  underline " @click=" seeMore "
+						v-if=" props.playlist.description">
 						<span v-if=" showMore "> رؤية أقل</span>
 						<span v-else>
 							رؤيةالمزيد
@@ -46,7 +47,7 @@
 				class="text-primary text-xs font-medium  underline ">رؤية
 				المزيد</span></div>
 	</div>
-	
+
 </template>
 
 <script setup>
