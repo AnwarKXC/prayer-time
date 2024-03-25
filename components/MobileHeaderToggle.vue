@@ -2,7 +2,7 @@
 	<Teleport to="body" :dir=" dir ">
 		<Transition name="modal-outer">
 			<div v-show=" modalActive " :dir=" dir "
-				class="  bg-black  bg-opacity-80  z-[99999999999999]  fixed inset-0 md:hidden"
+				class="  bg-black  bg-opacity-80   fixed inset-0 md:hidden"
 				@click="$emit( 'close-modal' )">
 				<Transition name="modal-inner">
 					<div v-if=" modalActive " class=" backdrop-blur-[1px] h-full ">

@@ -1,6 +1,6 @@
 <template>
 	<div class="flex-grow ">
-		<div v-for="(      audioPlayer, index      ) in       audioPlayers      " :key=" index "
+		<div v-for="(       audioPlayer, index       ) in        audioPlayers       " :key=" index "
 			class="flex items-center md:gap-8 gap-3 justify-end text-white ">
 			<div class="flex gap-3 flex-grow">
 				<!-- Volume Control -->
@@ -16,17 +16,17 @@
 				</div>
 				<!-- Progress Bar -->
 				<input type="range" min="0" :max=" audioPlayer.totalDuration " step="1"
-					v-model="audioPlayer.currentTime" @input="setProgress( audioPlayer )"
+					v-model=" audioPlayer.currentTime " @input="setProgress( audioPlayer )"
 					class="!p-0 lg:min-w-96 md:min-w-54 w-full rotate-180 progress flex-grow"
 					:style=" { backgroundSize: progressBackgroundSize } ">
 			</div>
 			<!-- Play/Pause Button -->
-			<div class="flex md:gap-4 items-center ltr:flex-row-reverse ">
+			<div class="flex md:gap-4 gap-2 items-center ltr:flex-row-reverse shrink-0 ">
 				<button @click="forwardSong( audioPlayer )">
 					<img src="/svgs/Icon-Forwardsvg.svg" alt="">
 				</button>
-				<button class="w-10 cent" @click="togglePlayPause( audioPlayers[0] )">
-					<img v-if=" audioPlayer.isPlaying" src="/svgs/Icon-Pause.svg" alt=""
+				<button class="w-10 cent" @click="togglePlayPause( audioPlayers[ 0 ] )">
+					<img v-if=" audioPlayer.isPlaying " src="/svgs/Icon-Pause.svg" alt=""
 						class="max-md:w-4">
 					<img v-else src="/svgs/Icon-Play.svg" alt="" class="max-md:w-6">
 				</button>
@@ -36,12 +36,12 @@
 			</div>
 			<div
 				class="text-neutral-300 font-sm flex items-center gap-3 shrink-0 max-md:order-first max-md:hidden"
-				v-if="props.url">
+				v-if=" props.url ">
 				<span class="w-9">{{ timeString( audioPlayer.currentTime ) }}</span> /
 				<span class="w-9">{{ timeString( audioPlayer.totalDuration ) }}</span>
 			</div>
 			<div v-else>
-			
+
 			</div>
 		</div>
 	</div>
@@ -55,7 +55,7 @@ const props = defineProps( {
 		default: '',
 	},
 
-})
+} )
 const onPropsChanged = () => {
 	audioPlayers.value.forEach( player => {
 		player.src = props.url
@@ -143,10 +143,10 @@ watchEffect( () => {
 	audioPlayers.value[ 0 ].src = props.url
 	if ( audioPlayers.value[ 0 ].audio ) {
 		audioPlayers.value[ 0 ].audio.src = props.url
-					audioPlayers.value[ 0 ].audio.pause()
-			audioPlayers.value[ 0 ].isPlaying = false
-			audioPlayers.value[ 0 ].audio.play()
-			audioPlayers.value[ 0 ].isPlaying = true
+		audioPlayers.value[ 0 ].audio.pause()
+		audioPlayers.value[ 0 ].isPlaying = false
+		audioPlayers.value[ 0 ].audio.play()
+		audioPlayers.value[ 0 ].isPlaying = true
 		// If the audio is playing, pause it when the URL changes
 		if ( !audioPlayers.value[ 0 ].audio.paused ) {
 			audioPlayers.value[ 0 ].audio.pause()
@@ -169,7 +169,6 @@ input[type="range"] {
 	-webkit-appearance: none;
 	appearance: none;
 	margin-block: auto;
-	width: 200px;
 	height: 7px;
 	border: none;
 	background: rgb(160, 160, 160);

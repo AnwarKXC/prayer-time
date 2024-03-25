@@ -2,7 +2,7 @@
 	<Teleport to="body">
 		<Transition name="modal-outer">
 			<div :dir=" dir " v-show=" modalActive "
-				class=" w-full bg-black  bg-opacity-80  z-[99999]  fixed inset-0 ">
+				class=" w-full bg-black  bg-opacity-80   fixed inset-0 ">
 				<Transition name="modal-inner">
 					<div v-if=" modalActive " class=" z-50 backdrop-blur-[1px] p-4 cent h-full">
 						<slot />
