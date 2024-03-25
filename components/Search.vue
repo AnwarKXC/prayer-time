@@ -53,8 +53,9 @@
 				<h2 class=" h__primary max-md:text-center max-w-[450px]">{{ $t( 'location.locationtext'
 					)
 					}}</h2>
+				<p id="demo"></p>
 				<div class="flex gap-4 items-center max-md:justify-center whitespace-nowrap">
-					<Button buttonText="location.buttongreen"
+					<Button buttonText="location.buttongreen" @click=" accept "
 						buttonClass="bg-primary text-white btn__primary max-md:text-sm "></Button>
 					<Button @click=" toggleModal " buttonText="location.buttonwhite"
 						buttonClass=" text-primary btn__primary max-md:text-sm border border-primary "></Button>
@@ -67,6 +68,9 @@
 </template>
 
 <script setup>
+
+
+
 import { ref } from "vue"
 import axios from "axios"
 const show = ref( false )
@@ -76,6 +80,32 @@ function showList () {
 function hideList () {
 	show.value = false
 }
+
+let accepted =ref(false)
+
+const accept = () => {
+			accepted.value = true;
+		getLocation();
+};
+
+const getLocation = () => {
+  if (navigator.geolocation && accepted.value) {
+			navigator.geolocation.getCurrentPosition( showPosition );
+  } else {
+			console.error( 'Geolocation is not supported or permission not granted.' );
+  }
+};
+
+const showPosition = (position) => {
+  const latitude = position.coords.latitude;
+		const longitude = position.coords.longitude;
+		console.log(`Latitude: ${ latitude }, Longitude: ${ longitude }`);
+  // Use the latitude and longitude as needed in your app
+};
+
+
+
+
 
 
 
@@ -111,5 +141,3 @@ const getSearchResults = () => {
 }
 
 </script>
-
-<style scoped></style>

@@ -56,8 +56,6 @@ const props = defineProps( {
 	},
 
 })
-
-
 const onPropsChanged = () => {
 	audioPlayers.value.forEach( player => {
 		player.src = props.url
@@ -71,7 +69,6 @@ watch( () => props.url, onPropsChanged )
 const audioPlayers = ref( [
 	{ src: props.url, audio: null, currentTime: 0, totalDuration: 0, volume: 1, seeking: false }
 ] )
-
 const timeString = ( secs ) => {
 	let ss = Math.floor( secs ),
 		hh = Math.floor( ss / 3600 ),
@@ -81,7 +78,6 @@ const timeString = ( secs ) => {
 	ss = ss < 10 ? "0" + ss : ss
 	return hh > 0 ? `${ hh }:${ mm }:${ ss }` : `${ mm }:${ ss }`
 }
-
 const togglePlayPause = ( audioPlayer ) => {
 	if ( audioPlayer.audio.paused ) {
 		audioPlayer.audio.play()
@@ -91,39 +87,33 @@ const togglePlayPause = ( audioPlayer ) => {
 		audioPlayer.isPlaying = false
 	}
 }
-
 const isPaused = ( audioPlayer ) => {
 	if ( audioPlayer.audio ) {
 		return audioPlayer.audio.paused
 	}
 	return true // Assuming that if audio is not initialized, it's considered paused
 }
-
 const toggleMute = ( audioPlayer ) => {
 	audioPlayer.volume = audioPlayer.volume === 0 ? 1 : 0
 	if ( audioPlayer.audio ) {
 		audioPlayer.audio.volume = audioPlayer.volume
 	}
 }
-
 const setProgress = ( audioPlayer ) => {
 	if ( audioPlayer.audio ) {
 		audioPlayer.audio.currentTime = audioPlayer.currentTime
 	}
 }
-
 const forwardSong = ( audioPlayer ) => {
 	if ( audioPlayer.audio ) {
-		audioPlayer.audio.currentTime += 10 // Forwarding by 10 seconds, change as needed
+		audioPlayer.audio.currentTime += 20 // Forwarding by 10 seconds, change as needed
 	}
 }
-
 const rewindSong = ( audioPlayer ) => {
 	if ( audioPlayer.audio ) {
-		audioPlayer.audio.currentTime -= 10 // Rewinding by 10 seconds, change as needed
+		audioPlayer.audio.currentTime -= 20 // Rewinding by 10 seconds, change as needed
 	}
 }
-
 onMounted( () => {
 	if ( process.browser ) {
 		for ( const player of audioPlayers.value ) {
@@ -145,21 +135,25 @@ onMounted( () => {
 		}
 	}
 } )
-
 const progressBackgroundSize = computed( () => {
 	const progress = audioPlayers.value[ 0 ].currentTime / audioPlayers.value[ 0 ].totalDuration
 	return `${ progress * 100 }% 100%`
 } )
-
-
 watchEffect( () => {
 	audioPlayers.value[ 0 ].src = props.url
 	if ( audioPlayers.value[ 0 ].audio ) {
 		audioPlayers.value[ 0 ].audio.src = props.url
+					audioPlayers.value[ 0 ].audio.pause()
+			audioPlayers.value[ 0 ].isPlaying = false
+			audioPlayers.value[ 0 ].audio.play()
+			audioPlayers.value[ 0 ].isPlaying = true
 		// If the audio is playing, pause it when the URL changes
 		if ( !audioPlayers.value[ 0 ].audio.paused ) {
 			audioPlayers.value[ 0 ].audio.pause()
 			audioPlayers.value[ 0 ].isPlaying = false
+			audioPlayers.value[ 0 ].audio.play()
+			audioPlayers.value[ 0 ].isPlaying = true
+
 		}
 	}
 } );
